@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
-import galiciaFlag from '../assets/optimized/galicia_flag.png';
-import cataloniaFlag from '../assets/optimized/catalonia_flag.png';
+import galiciaFlag from '../assets/optimized/galicia_flag.png?url';
+import cataloniaFlag from '../assets/optimized/catalonia_flag.png?url';
 
 export default function LanguageDropdown({ placement = 'bottom' }) {
     const { language, setLanguage } = useTranslation();

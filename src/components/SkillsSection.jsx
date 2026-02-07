@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { skillCategories, allSkills } from '../data/content';
-import audacityImg from '../assets/optimized/audacity.png';
-import blenderImg from '../assets/optimized/blender.png';
-import brainstormImg from '../assets/optimized/brainstorm.png';
-import canvaImg from '../assets/optimized/canva.png';
-import capcutImg from '../assets/optimized/capcut.jpg';
-import davinciImg from '../assets/optimized/davinci.png';
-import ffmpegImg from '../assets/optimized/ffmpeg.png';
-import mkvtoolnixImg from '../assets/optimized/mkvtoolnix.png';
-import unityImg from '../assets/optimized/unity.jpg';
+import audacityImg from '../assets/optimized/audacity.png?url';
+import blenderImg from '../assets/optimized/blender.png?url';
+import brainstormImg from '../assets/optimized/brainstorm.png?url';
+import canvaImg from '../assets/optimized/canva.png?url';
+import capcutImg from '../assets/optimized/capcut.jpg?url';
+import davinciImg from '../assets/optimized/davinci.png?url';
+import ffmpegImg from '../assets/optimized/ffmpeg.png?url';
+import mkvtoolnixImg from '../assets/optimized/mkvtoolnix.png?url';
+import unityImg from '../assets/optimized/unity.jpg?url';
 
 const imageMap = {
     'audacity.png': audacityImg,
