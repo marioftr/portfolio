@@ -28,15 +28,13 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                 <div style={{ flex: 1 }}>
                     {/* Spacing para mantener alineación */}
                 </div>
-                {projects.length > 3 && (
-                    <button
-                        onClick={onViewAll}
-                        className="text-accent"
-                        style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', cursor: 'pointer' }}
-                    >
-                        {t('view_all_projects')}
-                    </button>
-                )}
+                <button
+                    onClick={onViewAll}
+                    className="text-accent"
+                    style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', cursor: 'pointer' }}
+                >
+                    {t('view_all_projects')}
+                </button>
             </div>
 
             <div style={{

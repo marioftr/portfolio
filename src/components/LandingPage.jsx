@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import LanguageDropdown from './LanguageDropdown';
 import { socialLinks } from '../data/content';
-import profilePic from '../assets/optimized/unity.jpg';
+
 
 export default function LandingPage() {
     const { language, t } = useTranslation();
@@ -41,7 +41,7 @@ export default function LandingPage() {
                         boxShadow: '0 15px 45px rgba(16, 185, 129, 0.3)', marginBottom: '1rem',
                         backgroundColor: 'white'
                     }}>
-                        <img src={profilePic} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/images/foto_perfil.jpg" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
 
                     <div style={{ width: 'fit-content', textAlign: 'inherit' }}>
@@ -56,12 +56,12 @@ export default function LandingPage() {
 
                         <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', lineHeight: 1.7, fontWeight: 500, textAlign: 'justify', width: '100%', maxWidth: '100%' }}>
                             {language === 'es'
-                                ? 'Máster en Diseño, Modelado y Programación de Videojuegos. Trabajo con Unity (C#), Unreal (Blueprints), y herramientas de creación audiovisual y 3D. Revisa los perfiles especializados para ver proyectos relevantes.'
+                                ? 'Máster en Diseño, Modelado y Programación de Videojuegos con formación especializada en animación, programación, edición audiovisual y diseño gráfico. Desarrollador versátil con experiencia en múltiples disciplinas creativas. Revisa los perfiles especializados para ver proyectos relevantes.'
                                 : language === 'ca'
-                                    ? 'Màster en Disseny, Modelatge i Programació de Videojocs. Treball amb Unity (C#), Unreal (Blueprints) i eines de creació audiovisual i 3D. Revisa els perfils especialitzats per veure projectes rellevants.'
+                                    ? 'Màster en Disseny, Modelatge i Programació de Videojocs amb formació especialitzada en animació, programació, edició audiovisual i disseny gràfic. Desenvolupador versàtil amb experiència en múltiples disciplines creatives. Revisa els perfils especialitzats per veure projectes rellevants.'
                                     : language === 'gl'
-                                        ? 'Máster en Deseño, Modelado e Programación de Videoxogos. Traballo con Unity (C#), Unreal (Blueprints) e ferramentas de creación audiovisual e 3D. Revisa os perfís especializados para ver proxectos relevantes.'
-                                        : 'Master in Game Design, Modeling and Programming. I work with Unity (C#), Unreal (Blueprints), and audiovisual & 3D tools. Check specialized profiles to see relevant projects.'}
+                                        ? 'Máster en Deseño, Modelado e Programación de Videoxogos con formación especializada en animación, programación, edición audiovisual e deseño gráfico. Desenvolvedor versátil con experiencia en múltiples disciplinas creativas. Revisa os perfís especializados para ver proxectos relevantes.'
+                                        : 'Master in Game Design, Modeling and Programming with specialized training in animation, programming, audiovisual editing and graphic design. Versatile developer with experience in multiple creative disciplines. Check specialized profiles to see relevant projects.'}
                         </p>
                     </div>
 

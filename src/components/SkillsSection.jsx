@@ -16,6 +16,14 @@ import photoshopImg from '../assets/optimized/photoshop.png?url';
 import premiereImg from '../assets/optimized/premiere.png?url';
 import substanceImg from '../assets/optimized/substance.png?url';
 import zbrushImg from '../assets/optimized/zbrush.png?url';
+import unrealImg from '../assets/optimized/unreal.svg?url';
+import microsoftWordImg from '../assets/optimized/microsoft_word.png?url';
+import microsoftExcelImg from '../assets/optimized/microsoft_excel.png?url';
+import microsoftPowerpointImg from '../assets/optimized/microsoft_powerpoint.png?url';
+import affinityImg from '../assets/optimized/affinity.png?url';
+import handbrakeImg from '../assets/optimized/handbrake.png?url';
+import meguiImg from '../assets/optimized/megui.png?url';
+import veedub64Img from '../assets/optimized/veedub64.png?url';
 
 const imageMap = {
     'audacity.png': audacityImg,
@@ -32,7 +40,21 @@ const imageMap = {
     'photoshop.png': photoshopImg,
     'premiere.png': premiereImg,
     'substance.png': substanceImg,
-    'zbrush.png': zbrushImg
+    'zbrush.png': zbrushImg,
+    'unreal.svg': unrealImg,
+    'microsoft word.png': microsoftWordImg,
+    'microsoft_word.png': microsoftWordImg,
+    'word.png': microsoftWordImg,
+    'microsoft excel.png': microsoftExcelImg,
+    'microsoft_excel.png': microsoftExcelImg,
+    'excel.png': microsoftExcelImg,
+    'microsoft powerpoint.png': microsoftPowerpointImg,
+    'microsoft_powerpoint.png': microsoftPowerpointImg,
+    'powerpoint.png': microsoftPowerpointImg,
+    'affinity.png': affinityImg,
+    'handbrake.png': handbrakeImg,
+    'megui.png': meguiImg,
+    'veedub64.png': veedub64Img
 };
 
 export default function SkillsSection() {

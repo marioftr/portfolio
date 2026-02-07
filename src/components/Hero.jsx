@@ -1,14 +1,15 @@
 import { useTranslation } from '../hooks/useTranslation';
 
+
 export default function Hero({ roleId }) {
     const { language } = useTranslation();
 
     const roleTitles = {
-        all: { es: 'Perfil Multidisciplinar', ca: 'Perfil Multidisciplinari', en: 'Multidisciplinary Profile', gl: 'Perfil Multidisciplinar' },
+        all: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' },
         video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' },
         game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
-        animator: { es: 'Animador', ca: 'Animator', en: 'Animator', gl: 'Animador' },
-        '3d_modeler': { es: 'Artista 3D', ca: 'Artista 3D', en: '3D Artist', gl: 'Artista 3D' },
+        artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
+        design: { es: 'Diseño', ca: 'Disseny', en: 'Design', gl: 'Deseño' }
     };
 
     return (

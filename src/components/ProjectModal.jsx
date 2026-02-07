@@ -31,7 +31,6 @@ export default function ProjectModal({ project, onClose }) {
 
     if (!project) return null;
 
-    const images = project.images && project.images.length > 0 ? project.images : [project.image];
     const hasLongDescription = project.longDescription;
     const richContent = hasLongDescription ? (project.longDescription[language] || project.longDescription.es) : null;
 
@@ -70,31 +69,13 @@ export default function ProjectModal({ project, onClose }) {
                     </button>
                 </div>
 
-                {/* Image Slider */}
+                {/* Image Header - Only project.image (first photo) */}
                 <div style={{ height: '350px', width: '100%', position: 'relative', backgroundColor: '#f9fafb', borderBottom: '1px solid var(--color-border)' }}>
                     <img
-                        src={images[currentImageIndex]}
+                        src={project.image}
                         alt=""
                         style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                     />
-                    {images.length > 1 && (
-                        <>
-                            <button
-                                onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(prev => (prev === 0 ? images.length - 1 : prev - 1)); }}
-                                className="btn btn-outline"
-                                style={{ position: 'absolute', top: '50%', left: '10px', transform: 'translateY(-50%)', padding: '0.4rem', borderRadius: '50%' }}
-                            >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                            </button>
-                            <button
-                                onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(prev => (prev === images.length - 1 ? 0 : prev + 1)); }}
-                                className="btn btn-outline"
-                                style={{ position: 'absolute', top: '50%', right: '10px', transform: 'translateY(-50%)', padding: '0.4rem', borderRadius: '50%' }}
-                            >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                            </button>
-                        </>
-                    )}
                 </div>
 
                 <div style={{ padding: 'var(--spacing-lg)' }}>
