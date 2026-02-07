@@ -420,7 +420,7 @@ O proxecto superou diversos retos, desde a xestión do tempo ata a optimización
             { url: 'https://vimeo.com/1104957944?fl=pl&fe=sh', title: { es: 'Video 3', ca: 'Vídeo 3', en: 'Video 3', gl: 'Vídeo 3' } }
         ],
         roles: ['artist_2d_3d', 'video_editor', 'design'],
-        memoryUrl: '/downloads/memoria_colorindecolorado_mariovillanuevatorres.pdf'
+        memoryUrl: '/downloads/memoria_colorindecolorado_final_compressed.pdf'
     },
     {
         id: 'kafeto',
