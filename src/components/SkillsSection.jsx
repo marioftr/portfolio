@@ -2,13 +2,27 @@ import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { skillCategories, allSkills } from '../data/content';
 
-// Import optimized images as URLs (Vite will bundle them)
-const optimizedImages = import.meta.glob('../assets/optimized/*', { eager: true, as: 'url' });
-const imageMap = Object.keys(optimizedImages).reduce((acc, p) => {
-    const name = p.split('/').pop();
-    acc[name] = optimizedImages[p];
-    return acc;
-}, {});
+// Pre-load all optimized images
+const imageFiles = [
+    'audacity.png',
+    'blender.png',
+    'brainstorm.png',
+    'canva.png',
+    'capcut.jpg',
+    'davinci.png',
+    'ffmpeg.png',
+    'mkvtoolnix.png',
+    'unity.jpg'
+];
+
+const imageMap = {};
+imageFiles.forEach(file => {
+    try {
+        imageMap[file] = new URL(`../assets/optimized/${file}`, import.meta.url).href;
+    } catch (e) {
+        // Image not found, will use fallback
+    }
+});
 
 export default function SkillsSection() {
     const { language } = useTranslation();
