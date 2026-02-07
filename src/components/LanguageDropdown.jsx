@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
-// load optimized flags if present
-const _optimized = import.meta.glob('../assets/optimized/*', { eager: true, as: 'url' });
-const _imgMap = Object.keys(_optimized).reduce((acc, p) => { acc[p.split('/').pop()] = _optimized[p]; return acc; }, {});
+// Load optimized flag images
+const flagImages = {
+    'galicia_flag.png': new URL('../assets/optimized/galicia_flag.png', import.meta.url).href,
+    'catalonia_flag.png': new URL('../assets/optimized/catalonia_flag.png', import.meta.url).href
+};
 
 export default function LanguageDropdown({ placement = 'bottom' }) {
     const { language, setLanguage } = useTranslation();
@@ -13,8 +15,8 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
     const languages = [
         { code: 'es', label: 'Castellano (ES)', flag: '🇪🇸' },
         { code: 'en', label: 'English (EN)', flag: '🇬🇧' },
-        { code: 'gl', label: 'Galego (GL)', flag: _imgMap['galicia_flag.png'] || '⬜' },
-        { code: 'ca', label: 'Català (CA)', flag: _imgMap['catalonia_flag.png'] || '🏴' }
+        { code: 'gl', label: 'Galego (GL)', flag: flagImages['galicia_flag.png'] },
+        { code: 'ca', label: 'Català (CA)', flag: flagImages['catalonia_flag.png'] }
     ];
 
     const currentLang = languages.find(l => l.code === language) || languages[0];
@@ -95,7 +97,6 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
         <div style={dropdownStyles} ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                onMouseEnter={() => setIsOpen(true)}
                 style={triggerStyles}
                 className="dropdown-trigger"
             >
@@ -117,7 +118,7 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
                 </svg>
             </button>
 
-            <div style={menuStyles} onMouseLeave={() => setIsOpen(false)}>
+            <div style={menuStyles}>
                 {languages.map((lang) => (
                     <button
                         key={lang.code}
