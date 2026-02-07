@@ -89,7 +89,7 @@ export const skillCategories = [
     },
     {
         title: { es: 'Diseño 2D', ca: 'Disseny 2D', en: '2D Design', gl: 'Deseño 2D' },
-        items: ['photoshop', 'canva', 'affinity', 'illustrator']
+        items: ['photoshop', 'canva', 'affinity']
     },
     {
         title: { es: 'Edición de Audio', ca: 'Edició d\'Àudio', en: 'Audio editing', gl: 'Edición de audio' },

@@ -10,6 +10,12 @@ import davinciImg from '../assets/optimized/davinci.png?url';
 import ffmpegImg from '../assets/optimized/ffmpeg.png?url';
 import mkvtoolnixImg from '../assets/optimized/mkvtoolnix.png?url';
 import unityImg from '../assets/optimized/unity.jpg?url';
+import afterEffectsImg from '../assets/optimized/after effects.png?url';
+import mayaImg from '../assets/optimized/maya.png?url';
+import photoshopImg from '../assets/optimized/photoshop.png?url';
+import premiereImg from '../assets/optimized/premiere.png?url';
+import substanceImg from '../assets/optimized/substance.png?url';
+import zbrushImg from '../assets/optimized/zbrush.png?url';
 
 const imageMap = {
     'audacity.png': audacityImg,
@@ -20,7 +26,13 @@ const imageMap = {
     'davinci.png': davinciImg,
     'ffmpeg.png': ffmpegImg,
     'mkvtoolnix.png': mkvtoolnixImg,
-    'unity.jpg': unityImg
+    'unity.jpg': unityImg,
+    'after effects.png': afterEffectsImg,
+    'maya.png': mayaImg,
+    'photoshop.png': photoshopImg,
+    'premiere.png': premiereImg,
+    'substance.png': substanceImg,
+    'zbrush.png': zbrushImg
 };
 
 export default function SkillsSection() {
@@ -84,10 +96,12 @@ export default function SkillsSection() {
                                                 flexShrink: 0
                                             }}>
                                                 {(() => {
-                                                    // try png then jpg
+                                                    // try png then jpg, handle spaces in skill names
                                                     const id = skillId;
-                                                    const png = `${id}.png`;
-                                                    const jpg = `${id}.jpg`;
+                                                    // Map skill IDs to file names (handle underscores to spaces)
+                                                    const fileId = id.replace(/_/g, ' ');
+                                                    const png = `${fileId}.png`;
+                                                    const jpg = `${fileId}.jpg`;
                                                     const url = imageMap[png] || imageMap[jpg];
                                                     if (url) return <img src={url} alt={allSkills[skillId]?.name || id} style={{ width: '20px', height: '20px', objectFit: 'contain' }} />;
                                                     return (
