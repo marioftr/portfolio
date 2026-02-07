@@ -88,7 +88,7 @@ export const skillCategories = [
         items: ['premiere', 'davinci', 'capcut']
     },
     {
-        title: { es: 'Diseño', ca: 'Disseny', en: 'Design', gl: 'Deseño' },
+        title: { es: 'Diseño 2D', ca: 'Disseny 2D', en: '2D Design', gl: 'Deseño 2D' },
         items: ['photoshop', 'canva', 'affinity', 'illustrator']
     },
     {

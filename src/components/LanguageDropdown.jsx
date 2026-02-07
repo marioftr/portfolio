@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
-import galiciaFlag from '../assets/optimized/galicia_flag.png?url';
-import cataloniaFlag from '../assets/optimized/catalonia_flag.png?url';
 
 export default function LanguageDropdown({ placement = 'bottom' }) {
     const { language, setLanguage } = useTranslation();
@@ -11,8 +9,8 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
     const languages = [
         { code: 'es', label: 'Castellano (ES)', flag: '🇪🇸' },
         { code: 'en', label: 'English (EN)', flag: '🇬🇧' },
-        { code: 'gl', label: 'Galego (GL)', flag: galiciaFlag },
-        { code: 'ca', label: 'Català (CA)', flag: cataloniaFlag }
+        { code: 'gl', label: 'Galego (GL)', flag: '/flags/galicia_flag.png' },
+        { code: 'ca', label: 'Català (CA)', flag: '/flags/catalonia_flag.png' }
     ];
 
     const currentLang = languages.find(l => l.code === language) || languages[0];
@@ -97,9 +95,11 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
                 className="dropdown-trigger"
             >
                 <span style={{ fontSize: '1.2rem', display: 'inline-flex', alignItems: 'center' }}>
-                    {typeof currentLang.flag === 'string' && currentLang.flag.startsWith('data:') === false && currentLang.flag.length <= 2
-                        ? currentLang.flag
-                        : (typeof currentLang.flag === 'string' && currentLang.flag.startsWith('http') ? <img src={currentLang.flag} alt="flag" style={{ width: '20px', height: '14px', objectFit: 'cover' }} /> : currentLang.flag)}
+                    {typeof currentLang.flag === 'string' ?
+                        (currentLang.flag.startsWith('/') || currentLang.flag.startsWith('http')
+                            ? <img src={currentLang.flag} alt="flag" style={{ width: '20px', height: '14px', objectFit: 'cover' }} />
+                            : currentLang.flag)
+                        : null}
                 </span>
                 <span>{language === 'es' ? 'Idioma' : language === 'ca' ? 'Idioma' : language === 'gl' ? 'Idioma' : 'Language'}</span>
                 <svg
@@ -131,9 +131,11 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
                         }}
                     >
                         <span style={{ fontSize: '1.2rem', display: 'inline-flex', alignItems: 'center' }}>
-                            {typeof lang.flag === 'string' && lang.flag.length <= 2
-                                ? lang.flag
-                                : (typeof lang.flag === 'string' && lang.flag.startsWith('http') ? <img src={lang.flag} alt={lang.code} style={{ width: '20px', height: '14px', objectFit: 'cover' }} /> : lang.flag)}
+                            {typeof lang.flag === 'string' ?
+                                (lang.flag.startsWith('/') || lang.flag.startsWith('http')
+                                    ? <img src={lang.flag} alt={lang.code} style={{ width: '20px', height: '14px', objectFit: 'cover' }} />
+                                    : lang.flag)
+                                : null}
                         </span>
                         <span>{lang.label}</span>
                     </button>
