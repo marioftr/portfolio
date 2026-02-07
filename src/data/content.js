@@ -37,6 +37,33 @@ export const aboutMe = {
     gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no Centro de Estudios de Innovación (CEI) de Madrid.\n\nActualmente estou a desenvolver as miñas habilidades de programación de videoxogos, máis concretamente en C# para Unity. Tamén traballos con Unreal Engine e os seus blueprints para explorar diferentes enfoques de desenvolvemento. Durante o meu grao en Comunicación Audiovisual cursei unha asignatura de Creación de Videoxogos que me permitiu explorar as bases do desenvolvemento.\n\nSon un entusiasta da edición de vídeo, do modelado 3D e do deseño, con vontade de afondar nestes ámbitos e de potenciar as miñas habilidades nun entorno profesional. Canto ao deseño gráfico, teño experiencia sólida con Photoshop e Canva para crear recursos visuais coerentes e atractivos."
 };
 
+export const aboutByRole = {
+    artist_2d_3d: {
+        es: "Artista 2D y 3D con experiencia en modelado, esculpido y animación. Trabajo con Autodesk Maya, ZBrush y Blender, y aplico flujo PBR en Substance Painter para texturizado. He participado en proyectos académicos y comerciales donde produzco desde assets hasta animaciones finales.",
+        ca: "Artista 2D i 3D amb experiència en modelatge, escultura i animació. Treball amb Autodesk Maya, ZBrush i Blender, i aplico flux PBR a Substance Painter per al texturitzat. He participat en projectes acadèmics i comercials on produeixo des d'assets fins a animacions finals.",
+        en: "2D & 3D Artist experienced in modeling, sculpting and animation. I use Autodesk Maya, ZBrush and Blender, and apply PBR workflows in Substance Painter. I've contributed to academic and professional projects delivering assets and finished animations.",
+        gl: "Artista 2D e 3D con experiencia en modelado, esculpido e animación. Trabajo con Autodesk Maya, ZBrush e Blender, e aplico fluxos PBR en Substance Painter para texturizado. Participei en proxectos académicos e comerciais produzindo desde assets ata animacións completas."
+    },
+    video_editor: {
+        es: "Editor de vídeo especializado en montaje, corrección de color y motion graphics. Domino Adobe Premiere Pro y After Effects, y trabajo con DaVinci Resolve para etalonaje profesional. Tengo experiencia en pipelines de postproducción y adaptación de material para diferentes plataformas.",
+        ca: "Editor de vídeo especialitzat en muntatge, correcció de color i motion graphics. Domine Adobe Premiere Pro i After Effects, i treballo amb DaVinci Resolve per a etalonatge professional. Tinc experiència en pipelines de postproducció i adaptació de material per a diferents plataformes.",
+        en: "Video editor specialized in editing, color grading and motion graphics. I use Adobe Premiere Pro and After Effects, and DaVinci Resolve for professional color work. Experienced in post-production pipelines and adapting content for multiple platforms.",
+        gl: "Editor de vídeo especializado en montaxe, corrección de cor e motion graphics. Domino Adobe Premiere Pro e After Effects, e traballo con DaVinci Resolve para etalonaxe profesional. Teño experiencia en pipelines de posprodución e adaptación de material para diferentes plataformas."
+    },
+    game_dev: {
+        es: "Programador de videojuegos centrado en gameplay y sistemas. Desarrollo en C# para Unity y también trabajo con Blueprints en Unreal Engine. He creado prototipos de mecánicas, sistemas de guardado y cinemáticas, aplicando buenas prácticas de arquitectura y optimización.",
+        ca: "Programador de videojocs centrat en gameplay i sistemes. Desenvolupo en C# per a Unity i també treballo amb Blueprints a Unreal Engine. He creat prototips de mecàniques, sistemes de guardat i cinemàtiques, aplicant bones pràctiques d'arquitectura i optimització.",
+        en: "Game developer focused on gameplay and systems. I develop in C# for Unity and also work with Blueprints in Unreal Engine. I've built prototypes, save systems and cinematics following solid architecture and optimization practices.",
+        gl: "Programador de videoxogos centrado en gameplay e sistemas. Desenvolvo en C# para Unity e tamén traballo con Blueprints en Unreal Engine. Creei prototipos de mecánicas, sistemas de gardado e cinemáticas aplicando boas prácticas de arquitectura e optimización."
+    },
+    design: {
+        es: "Diseñador gráfico con foco en comunicación visual y branding. Uso Photoshop y Canva para crear assets visuales, layouts y materiales para impresión y web. Tengo experiencia en rebranding y trabajo directo con clientes para resolver problemas de legibilidad y estética.",
+        ca: "Dissenyador gràfic amb focus en comunicació visual i branding. Utilitzo Photoshop i Canva per crear assets visuals, layouts i materials per a impressió i web. Tinc experiència en rebranding i treball directe amb clients per resoldre problemes de llegibilitat i estètica.",
+        en: "Graphic designer focused on visual communication and branding. I use Photoshop and Canva to create visual assets, layouts and materials for print and web. Experienced in rebranding and direct client work to solve readability and aesthetic issues.",
+        gl: "Deseñador gráfico con foco na comunicación visual e branding. Uso Photoshop e Canva para crear assets visuais, layouts e materiais para impresión e web. Teño experiencia en rebranding e traballo directo con clientes para resolver problemas de lexibilidade e estética."
+    }
+};
+
 export const allSkills = {
     unity: { name: 'Unity', description: { es: 'Motor de videojuegos. Scripting en C#.', ca: 'Motor de videojocs. Scripting en C#.', en: 'Game Engine. C# Scripting.', gl: 'Motor de videoxogos. Scripting en C#.' } },
     unreal: { name: 'Unreal Engine', description: { es: 'Motor de videojuegos avanzado.', ca: 'Motor de videojocs avançat.', en: 'Advanced Game Engine.', gl: 'Motor de videoxogos avanzado.' } },

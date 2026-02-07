@@ -11,14 +11,14 @@ import LanguagesAptitudes from './components/LanguagesAptitudes';
 import ProjectModal from './components/ProjectModal';
 import LandingPage from './components/LandingPage';
 import { useTranslation } from './hooks/useTranslation';
-import { experience, education, projects, languages, aptitudes, aboutMe } from './data/content';
+import { experience, education, projects, languages, aptitudes, aboutMe, aboutByRole } from './data/content';
 
 const roleKeyMap = {
   'perfil-general': 'all',
   'editor-video': 'video_editor',
   'programador-videojuegos': 'game_dev',
-  'animador': 'animator',
-  'artista-3d': '3d_modeler'
+  'animador': 'artist_2d_3d',
+  'artista-3d': 'artist_2d_3d'
 };
 
 const PortfolioView = () => {
@@ -132,7 +132,7 @@ const PortfolioView = () => {
                 <SectionHeader title={language === 'es' ? 'Sobre mí' : language === 'ca' ? 'Sobre mi' : language === 'gl' ? 'Sobre min' : 'About me'} />
                 <div className="card" style={{ padding: 'var(--spacing-lg)' }}>
                   <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--color-text)', whiteSpace: 'pre-line', textAlign: 'justify' }}>
-                    {aboutMe[language] || aboutMe.es}
+                    { (aboutByRole[activeRoleId] && aboutByRole[activeRoleId][language]) ? aboutByRole[activeRoleId][language] : (aboutMe[language] || aboutMe.es) }
                   </p>
                 </div>
               </section>

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import LanguageDropdown from './LanguageDropdown';
 import { socialLinks } from '../data/content';
+import profilePic from '../assets/optimized/unity.jpg';
 
 export default function LandingPage() {
     const { language, t } = useTranslation();
@@ -11,8 +12,7 @@ export default function LandingPage() {
         all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' } },
         video_editor: { path: 'editor-video', icon: 'layout', label: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' } },
         game_dev: { path: 'programador-videojuegos', icon: 'code', label: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' } },
-        animator: { path: 'animador', icon: 'play-circle', label: { es: 'Animador 2D y 3D', ca: 'Animator 2D i 3D', en: '2D & 3D Animator', gl: 'Animador 2D e 3D' } },
-        '3d_modeler': { path: 'artista-3d', icon: 'box', label: { es: 'Artista 3D', ca: 'Artista 3D', en: '3D Artist', gl: 'Artista 3D' } },
+        artist_2d_3d: { path: 'artista-3d', icon: 'box', label: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' } },
     };
 
     const getIcon = (name) => {
@@ -41,7 +41,7 @@ export default function LandingPage() {
                         boxShadow: '0 15px 45px rgba(16, 185, 129, 0.3)', marginBottom: '1rem',
                         backgroundColor: 'white'
                     }}>
-                        <img src="/images/foto_perfil.jpg" alt="No image" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={profilePic} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
 
                     <div style={{ width: 'fit-content', textAlign: 'inherit' }}>
@@ -56,12 +56,12 @@ export default function LandingPage() {
 
                         <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', lineHeight: 1.7, fontWeight: 500, textAlign: 'justify', width: '100%', maxWidth: '100%' }}>
                             {language === 'es'
-                                ? 'Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos. Explora mis perfiles para ver mi trabajo especializado.'
+                                ? 'Máster en Diseño, Modelado y Programación de Videojuegos. Trabajo con Unity (C#), Unreal (Blueprints), y herramientas de creación audiovisual y 3D. Revisa los perfiles especializados para ver proyectos relevantes.'
                                 : language === 'ca'
-                                    ? 'Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs. Explora els meus perfils per veure el meu treball especialitzat.'
+                                    ? 'Màster en Disseny, Modelatge i Programació de Videojocs. Treball amb Unity (C#), Unreal (Blueprints) i eines de creació audiovisual i 3D. Revisa els perfils especialitzats per veure projectes rellevants.'
                                     : language === 'gl'
-                                        ? 'Estudante de Máster en Deseño, Modelado e Programación de Videoxogos. Explora os meus perfís para ver o meu traballo especializado.'
-                                        : 'Master\'s Student in Game Design, Modeling and Programming. Explore my profiles to see my specialized work.'}
+                                        ? 'Máster en Deseño, Modelado e Programación de Videoxogos. Traballo con Unity (C#), Unreal (Blueprints) e ferramentas de creación audiovisual e 3D. Revisa os perfís especializados para ver proxectos relevantes.'
+                                        : 'Master in Game Design, Modeling and Programming. I work with Unity (C#), Unreal (Blueprints), and audiovisual & 3D tools. Check specialized profiles to see relevant projects.'}
                         </p>
                     </div>
 
