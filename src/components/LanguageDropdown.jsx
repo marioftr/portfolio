@@ -1,11 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
-
-// Load optimized flag images
-const flagImages = {
-    'galicia_flag.png': new URL('../assets/optimized/galicia_flag.png', import.meta.url).href,
-    'catalonia_flag.png': new URL('../assets/optimized/catalonia_flag.png', import.meta.url).href
-};
+import galiciaFlag from '../assets/optimized/galicia_flag.png';
+import cataloniaFlag from '../assets/optimized/catalonia_flag.png';
 
 export default function LanguageDropdown({ placement = 'bottom' }) {
     const { language, setLanguage } = useTranslation();
@@ -15,8 +11,8 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
     const languages = [
         { code: 'es', label: 'Castellano (ES)', flag: '🇪🇸' },
         { code: 'en', label: 'English (EN)', flag: '🇬🇧' },
-        { code: 'gl', label: 'Galego (GL)', flag: flagImages['galicia_flag.png'] },
-        { code: 'ca', label: 'Català (CA)', flag: flagImages['catalonia_flag.png'] }
+        { code: 'gl', label: 'Galego (GL)', flag: galiciaFlag },
+        { code: 'ca', label: 'Català (CA)', flag: cataloniaFlag }
     ];
 
     const currentLang = languages.find(l => l.code === language) || languages[0];

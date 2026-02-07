@@ -1,28 +1,27 @@
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { skillCategories, allSkills } from '../data/content';
+import audacityImg from '../assets/optimized/audacity.png';
+import blenderImg from '../assets/optimized/blender.png';
+import brainstormImg from '../assets/optimized/brainstorm.png';
+import canvaImg from '../assets/optimized/canva.png';
+import capcutImg from '../assets/optimized/capcut.jpg';
+import davinciImg from '../assets/optimized/davinci.png';
+import ffmpegImg from '../assets/optimized/ffmpeg.png';
+import mkvtoolnixImg from '../assets/optimized/mkvtoolnix.png';
+import unityImg from '../assets/optimized/unity.jpg';
 
-// Pre-load all optimized images
-const imageFiles = [
-    'audacity.png',
-    'blender.png',
-    'brainstorm.png',
-    'canva.png',
-    'capcut.jpg',
-    'davinci.png',
-    'ffmpeg.png',
-    'mkvtoolnix.png',
-    'unity.jpg'
-];
-
-const imageMap = {};
-imageFiles.forEach(file => {
-    try {
-        imageMap[file] = new URL(`../assets/optimized/${file}`, import.meta.url).href;
-    } catch (e) {
-        // Image not found, will use fallback
-    }
-});
+const imageMap = {
+    'audacity.png': audacityImg,
+    'blender.png': blenderImg,
+    'brainstorm.png': brainstormImg,
+    'canva.png': canvaImg,
+    'capcut.jpg': capcutImg,
+    'davinci.png': davinciImg,
+    'ffmpeg.png': ffmpegImg,
+    'mkvtoolnix.png': mkvtoolnixImg,
+    'unity.jpg': unityImg
+};
 
 export default function SkillsSection() {
     const { language } = useTranslation();
