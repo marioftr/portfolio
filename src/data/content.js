@@ -63,7 +63,6 @@ export const allSkills = {
     megui: { name: 'MeGUI', description: { es: 'GUI para codificación de vídeo.', ca: 'GUI per a codificació de vídeo.', en: 'GUI for video encoding.', gl: 'GUI para codificación de vídeo.' } },
     csharp: { name: 'C#', description: { es: 'Lenguaje de programación.', ca: 'Llenguatge de programació.', en: 'Programming language.', gl: 'Linguaxe de programación.' } },
     scratch: { name: 'Scratch', description: { es: 'Programación visual.', ca: 'Programació visual.', en: 'Visual programming.', gl: 'Programación visual.' } },
-    illustrator: { name: 'Illustrator', description: { es: 'Diseño vectorial.', ca: 'Disseny vectorial.', en: 'Vector design.', gl: 'Deseño vectorial.' } }
 };
 
 export const skillCategories = [
@@ -77,7 +76,7 @@ export const skillCategories = [
     },
     {
         title: { es: 'Adobe Creative Suite', ca: 'Adobe Creative Suite', en: 'Adobe Creative Suite', gl: 'Adobe Creative Suite' },
-        items: ['premiere', 'after_effects', 'photoshop', 'illustrator', 'substance']
+        items: ['premiere', 'after_effects', 'photoshop', 'substance']
     },
     {
         title: { es: 'Microsoft Office', ca: 'Microsoft Office', en: 'Microsoft Office', gl: 'Microsoft Office' },
@@ -489,7 +488,7 @@ O proxecto superou diversos retos, desde a xestión do tempo ata a optimización
         year: '2025',
         category: { es: 'Diseño gráfico', ca: 'Disseny gràfic', en: 'Graphic design', gl: 'Deseño gráfico' },
         type: 'professional',
-        tags: ['photoshop', 'illustrator'],
+        tags: ['photoshop'],
         summary: {
             es: 'Rebranding y diseño de menú para restaurante. Trabajo directo con cliente para mejorar la legibilidad y estética.',
             ca: 'Rebranding i disseny de menú per a restaurant. Treball directe amb client per millorar la llegibilitat i estètica.',
@@ -504,6 +503,6 @@ O proxecto superou diversos retos, desde a xestión do tempo ata a optimización
         },
         image: '/images/carta.jpg',
         images: ['/images/carta.jpg'],
-        roles: ['video_editor']
+        roles: ['design']
     }
 ];
