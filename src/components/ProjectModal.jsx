@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { allSkills } from '../data/content';
 
@@ -6,17 +6,16 @@ import { allSkills } from '../data/content';
 const renderRichText = (text) => {
     if (!text) return null;
     return text.split('\n').map((line, index) => {
-        if (line.startsWith('## ')) return <h3 key={index} style={{ fontSize: '1.25rem', marginTop: '1.25rem', color: 'var(--color-text)' }}>{line.replace('## ', '')}</h3>;
-        if (line.startsWith('### ')) return <h4 key={index} style={{ fontSize: '1.1rem', marginTop: '1rem', color: 'var(--color-primary)' }}>{line.replace('### ', '')}</h4>;
-        if (line.startsWith('- ')) return <li key={index} style={{ marginLeft: '1.25rem', marginBottom: '0.25rem', fontSize: '0.9rem' }} dangerouslySetInnerHTML={{ __html: line.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />;
+        if (line.startsWith('## ')) return <h3 key={index} style={{ fontSize: '1.25rem', marginTop: '1.25rem', marginBottom: '0.5rem', color: 'var(--color-primary)' }}>{line.replace('## ', '')}</h3>;
+        if (line.startsWith('### ')) return <h4 key={index} style={{ fontSize: '1.1rem', marginTop: '1rem', marginBottom: '0.4rem', color: 'var(--color-primary)' }}>{line.replace('### ', '')}</h4>;
+        if (line.startsWith('- ')) return <li key={index} style={{ marginLeft: '1.25rem', marginBottom: '0.35rem', fontSize: '0.9rem', color: 'var(--color-text)' }} dangerouslySetInnerHTML={{ __html: line.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />;
         if (line.trim() === '') return <br key={index} />;
-        return <p key={index} style={{ marginBottom: '0.5rem', lineHeight: 1.6, fontSize: '0.9rem', color: 'var(--color-text-light)' }} dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />;
+        return <p key={index} style={{ marginBottom: '0.75rem', lineHeight: 1.6, fontSize: '0.95rem', color: 'var(--color-text)' }} dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />;
     });
 };
 
 export default function ProjectModal({ project, onClose }) {
     const { language, t } = useTranslation();
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         if (project) {
@@ -81,13 +80,13 @@ export default function ProjectModal({ project, onClose }) {
                 <div style={{ padding: 'var(--spacing-lg)' }}>
                     <div style={{ marginBottom: 'var(--spacing-md)' }}>
                         <span className="tag" style={{ marginBottom: 'var(--spacing-xs)', fontSize: '0.75rem' }}>{project.year}</span>
-                        <h2 style={{ fontSize: '1.75rem', marginBottom: '0.25rem' }}>{project.title[language] || project.title.es || project.title}</h2>
-                        <p className="text-accent" style={{ fontSize: '0.875rem', fontWeight: 700, textTransform: 'uppercase' }}>
+                        <h2 style={{ fontSize: '1.75rem', marginBottom: '0.5rem', color: 'var(--color-primary)' }}>{project.title[language] || project.title.es || project.title}</h2>
+                        <p className="text-accent" style={{ fontSize: '0.875rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.75rem' }}>
                             {project.category[language] || project.category.es}
                         </p>
                     </div>
 
-                    <div style={{ fontSize: '1rem', color: 'var(--color-text-light)', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
+                    <div style={{ fontSize: '1rem', color: 'var(--color-text)', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
                         {project.description[language] || project.description.es}
                     </div>
 

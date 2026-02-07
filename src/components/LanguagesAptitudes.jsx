@@ -1,6 +1,19 @@
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
+const SectionItemTitle = ({ children }) => (
+    <h3 style={{
+        fontSize: '1.25rem',
+        fontWeight: 800,
+        color: 'var(--color-text-light)',
+        textTransform: 'uppercase',
+        letterSpacing: '1px',
+        marginBottom: 'var(--spacing-md)'
+    }}>
+        {children}
+    </h3>
+);
+
 export default function LanguagesAptitudes({ languages, aptitudes, activeRole }) {
     const { language, t } = useTranslation();
     const [showAllDetails, setShowAllDetails] = useState(false);
@@ -9,19 +22,6 @@ export default function LanguagesAptitudes({ languages, aptitudes, activeRole })
         ...(aptitudes.all || []),
         ...((activeRole && activeRole !== 'all' && aptitudes[activeRole]) ? aptitudes[activeRole] : [])
     ];
-
-    const SectionItemTitle = ({ children }) => (
-        <h3 style={{
-            fontSize: '1.25rem',
-            fontWeight: 800,
-            color: 'var(--color-text-light)',
-            textTransform: 'uppercase',
-            letterSpacing: '1px',
-            marginBottom: 'var(--spacing-md)'
-        }}>
-            {children}
-        </h3>
-    );
 
     const getProgressValue = (level) => {
         const lower = level.toLowerCase();

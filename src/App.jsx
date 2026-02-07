@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Routes, Route, useParams, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ExperienceTimeline from './components/Timeline';
@@ -21,10 +21,16 @@ const roleKeyMap = {
   'artista-3d': 'artist_2d_3d'
 };
 
+const SectionHeader = ({ title }) => (
+  <div className="section-title animate-fade-in" style={{ marginTop: '3rem', marginBottom: 'var(--spacing-lg)' }}>
+    <h2 style={{ fontSize: '1.75rem', fontWeight: 900, textAlign: 'center' }}>{title}</h2>
+    <div className="title-underline" style={{ margin: '0.5rem auto 0' }} />
+  </div>
+);
+
 const PortfolioView = () => {
   const { role } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   const [activeTab, setActiveTab] = useState('info');
   const [selectedProject, setSelectedProject] = useState(null);
   const { t, language } = useTranslation();
@@ -64,13 +70,6 @@ const PortfolioView = () => {
     if (activeRoleId === 'all') return projects;
     return projects.filter(project => project.roles && (project.roles.includes(activeRoleId) || project.roles.includes('all')));
   }, [activeRoleId]);
-
-  const SectionHeader = ({ title }) => (
-    <div className="section-title animate-fade-in" style={{ marginTop: '3rem', marginBottom: 'var(--spacing-lg)' }}>
-      <h2 style={{ fontSize: '1.75rem', fontWeight: 900, textAlign: 'center' }}>{title}</h2>
-      <div className="title-underline" style={{ margin: '0.5rem auto 0' }} />
-    </div>
-  );
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

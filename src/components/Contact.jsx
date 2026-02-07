@@ -2,7 +2,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import { socialLinks } from '../data/content';
 
 export default function Contact() {
-    const { language, t } = useTranslation();
+    const { t } = useTranslation();
 
     const getIcon = (name) => {
         switch (name.toLowerCase()) {

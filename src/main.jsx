@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
-import { LanguageProvider } from './hooks/useTranslation';
+import { LanguageProvider } from './hooks/LanguageProvider';
 import './styles/index.css';
 import './styles/animations.css';
 
