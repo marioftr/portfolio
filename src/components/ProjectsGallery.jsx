@@ -232,7 +232,7 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                             </p>
 
                             <button
-                                onClick={() => onProjectSelect(project)}
+                                onClick={() => onProjectSelect({ ...project, image: project.image })}
                                 className="btn btn-outline"
                                 style={{ width: '100%', padding: '0.5rem' }}
                             >

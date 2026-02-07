@@ -214,7 +214,7 @@ const PortfolioView = () => {
       </footer>
 
       {/* Floating Back to Top Button */}
-      {document.body.style.overflow !== 'hidden' && (
+      {!selectedProject && (
         <button
           onClick={scrollToTop}
           className="flex items-center justify-center transition-all animate-fade-in"
@@ -247,6 +247,8 @@ const PortfolioView = () => {
           </svg>
         </button>
       )}
+
+      {/* Debug panel removed */}
 
       {/* Modal is rendered here to avoid stacking context issues inside animated tabs */}
       <ProjectModal

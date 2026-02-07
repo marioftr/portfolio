@@ -118,13 +118,14 @@ export default function SkillsSection() {
                                                 flexShrink: 0
                                             }}>
                                                 {(() => {
-                                                    // try png then jpg, handle spaces in skill names
+                                                    // try svg, png then jpg, handle spaces in skill names
                                                     const id = skillId;
                                                     // Map skill IDs to file names (handle underscores to spaces)
                                                     const fileId = id.replace(/_/g, ' ');
+                                                    const svg = `${fileId}.svg`;
                                                     const png = `${fileId}.png`;
                                                     const jpg = `${fileId}.jpg`;
-                                                    const url = imageMap[png] || imageMap[jpg];
+                                                    const url = imageMap[svg] || imageMap[png] || imageMap[jpg];
                                                     if (url) return <img src={url} alt={allSkills[skillId]?.name || id} style={{ width: '20px', height: '20px', objectFit: 'contain' }} />;
                                                     return (
                                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>

@@ -45,5 +45,7 @@
     "aptitudes_title": "Aptitudes",
     "select_specialty": "SELECT A SPECIALTY",
     "skills_title": "Skills",
+    "project_academic": "Academic Project",
+    "project_professional": "Professional Project",
     "view_all_projects": "View all projects"
 }
