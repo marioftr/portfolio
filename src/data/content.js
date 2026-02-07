@@ -3,8 +3,8 @@ export const roles = [
     { id: 'all', labelKey: 'role_all' },
     { id: 'video_editor', labelKey: 'role_video_editor' },
     { id: 'game_dev', labelKey: 'role_game_dev' },
-    { id: '3d_modeler', labelKey: 'role_3d_modeler' },
-    { id: 'animator', labelKey: 'role_animator' }
+    { id: 'artist_2d_3d', labelKey: 'role_artist_2d_3d' },
+    { id: 'design', labelKey: 'role_design' }
 ];
 
 export const socialLinks = [
@@ -31,10 +31,10 @@ export const socialLinks = [
 ];
 
 export const aboutMe = {
-    es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el Centro de Estudios de Innovación, Diseño y Marketing (CEI) de Madrid.\n\nActualmente estoy desarrollando mis habilidades de programación de videojuegos, más concretamente en C# para Unity. Soy un entusiasta de la edición de vídeo, de la animación 2D y del modelado 3D, con voluntad de profundizar en estos ámbitos y de potenciar mis habilidades en un entorno profesional.",
-    ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al Centre d'Estudis d'Innovació, Disseny i Màrqueting (CEI) de Madrid.\n\nActualment estic desenvolupant les meves habilitats de programació de videojocs, més concretament en C# per a Unity. Sóc un entusiasta de l'edició de vídeo, de l'animació 2D i del modelatge 3D, amb voluntat d'aprofundir en aquests àmbits i de potenciar les meves habilitats en un entorn professional.",
-    en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid.\n\nCurrently developing my game programming skills, specifically in C# for Unity. I am an enthusiast of video editing, 2D animation and 3D modeling, with a willingness to deepen in these areas and empower my skills in a professional environment.",
-    gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no Centro de Estudios de Innovación (CEI) de Madrid.\n\nActualmente estou a desenvolver as miñas habilidades de programación de videoxogos, máis concretamente en C# para Unity. Son un entusiasta da edición de vídeo, da animación 2D e do modelado 3D, con vontade de afondar nestes ámbitos e de potenciar as miñas habilidades nun entorno profesional."
+    es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el Centro de Estudios de Innovación, Diseño y Marketing (CEI) de Madrid.\n\nActualmente estoy desarrollando mis habilidades de programación de videojuegos, más concretamente en C# para Unity. También trabajo con Unreal Engine y sus blueprints para explorar diferentes enfoques de desarrollo. Soy un entusiasta de la edición de vídeo, del modelado 3D y del diseño, con voluntad de profundizar en estos ámbitos y de potenciar mis habilidades en un entorno profesional.\n\nEn cuanto al diseño gráfico, tengo experiencia sólida con Photoshop y Canva para crear recursos visuales coherentes y atractivos.",
+    ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al Centre d'Estudis d'Innovació, Disseny i Màrqueting (CEI) de Madrid.\n\nActualment estic desenvolupant les meves habilitats de programació de videojocs, més concretament en C# per a Unity. També treballo amb Unreal Engine i els seus blueprints per explorar diferents enfocaments de desenvolupament. Sóc un entusiasta de l'edició de vídeo, del modelatge 3D i del disseny, amb voluntat d'aprofundir en aquests àmbits i de potenciar les meves habilitats en un entorn professional.\n\nQuant al disseny gràfic, tinc experiència sòlida amb Photoshop i Canva per crear recursos visuals coherents i atractius.",
+    en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid.\n\nCurrently developing my game programming skills, specifically in C# for Unity. I also work with Unreal Engine and its blueprints to explore different development approaches. I am an enthusiast of video editing, 3D modeling and design, with a willingness to deepen in these areas and empower my skills in a professional environment.\n\nRegarding graphic design, I have solid experience with Photoshop and Canva to create coherent and attractive visual resources.",
+    gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no Centro de Estudios de Innovación (CEI) de Madrid.\n\nActualmente estou a desenvolver as miñas habilidades de programación de videoxogos, máis concretamente en C# para Unity. Tamén traballos con Unreal Engine e os seus blueprints para explorar diferentes enfoques de desenvolvemento. Son un entusiasta da edición de vídeo, do modelado 3D e do deseño, con vontade de afondar nestes ámbitos e de potenciar as miñas habilidades nun entorno profesional.\n\nCanto ao deseño gráfico, teño experiencia sólida con Photoshop e Canva para crear recursos visuais coerentes e atractivos."
 };
 
 export const allSkills = {
@@ -130,13 +130,14 @@ export const aptitudes = {
         { es: 'Ojo crítico para la <b>composición visual</b> y el color.', ca: 'Ull crític per a la <b>composició visual</b> i el color.', en: 'Critical eye for visual composition and color.', gl: 'Ollo crítico para a composición visual e a cor.' },
         { es: 'Eficiencia en flujos de trabajo de <b>post-producción</b>.', ca: 'Eficiència en fluxos de treball de <b>postproducció</b>.', en: 'Efficiency in post-production workflows.', gl: 'Eficiencia en fluxos de traballo de posprodución.' }
     ],
-    '3d_modeler': [
+    artist_2d_3d: [
         { es: 'Excelente <b>percepción espacial</b> y volumétrica.', ca: 'Excel·lent <b>percepció espacial</b> i volumètrica.', en: 'Excellent spatial and volumetric perception.', gl: 'Excelente percepción espacial e volumétrica.' },
         { es: 'Creatividad para el <b>diseño de entornos</b> y personajes.', ca: 'Creativitat per al <b>disseny d\'entorns</b> i personatges.', en: 'Creativity for environment and character design.', gl: 'Creatividade para o deseño de contornas e personaxes.' },
+        { es: 'Dominio de los <b>12 principios de la animación</b>.', ca: 'Domini dels <b>12 principis de l\'animació</b>.', en: 'Mastery of the 12 principles of animation.', gl: 'Dominio dos 12 principios da animación.' }
     ],
-    animator: [
-        { es: 'Dominio de los <b>12 principios de la animación</b>.', ca: 'Domini dels <b>12 principis de l\'animació</b>.', en: 'Mastery of the 12 principles of animation.', gl: 'Dominio dos 12 principios da animación.' },
-        { es: 'Capacidad para <b>dar vida</b> y personalidad a objetos y personajes.', ca: 'Capacitat per a <b>donar vida</b> i personalitat a objectes i personatges.', en: 'Ability to bring life and personality to objects and characters.', gl: 'Capacidade para dar vida e personalidade a obxectos e personaxes.' }
+    design: [
+        { es: 'Sensibilidad para la <b>composición visual</b> y la armonía de color.', ca: 'Sensibilitat per a la <b>composició visual</b> i l\'harmonia de color.', en: 'Sensitivity to visual composition and color harmony.', gl: 'Sensibilidade para a composición visual e a harmonía de cor.' },
+        { es: 'Capacidad de <b>comunicación visual</b> clara y efectiva.', ca: 'Capacitat de <b>comunicació visual</b> clara i efectiva.', en: 'Ability for clear and effective visual communication.', gl: 'Capacidade de comunicación visual clara e efectiva.' }
     ]
 };
 
@@ -152,7 +153,7 @@ export const education = [
             en: 'Professional learning in 3 modules, with knowledge areas and specialized programs in video games: programming (C# for Unity and Unreal); 3D animation and modeling techniques (Autodesk Maya, ZBrush, Substance Painter); and art and design. Development of a triple profile within the sector that facilitates the admission of different roles according to industry needs.',
             gl: 'Aprendizaxe profesional en 3 módulos, con áreas de coñecemento e programas especializados en videoxogos: programación (C# para Unity e Unreal); técnicas de animación e modelado 3D (Autodesk Maya, ZBrush, Substance Painter); e arte e deseño. Desenvolvemento dun perfil triple dentro do sector que facilita a admisión de diferentes roles segundo as necesidades da industria.'
         },
-        roles: ['game_dev', '3d_modeler', 'animator']
+        roles: ['game_dev', 'artist_2d_3d', 'design']
     },
     {
         id: 2,
@@ -165,7 +166,7 @@ export const education = [
             en: 'Mention in Digital Content Creation. Use in numerous high-quality audiovisual material projects provided by the university institution, as well as advanced training in video editing programs (Adobe Premiere Pro), 3D animation and modeling (Adobe After Effects, Blender) or virtual reality integration (Brainstorm Edison). Participation in numerous shoots at both amateur and professional levels.',
             gl: 'Mención en Ideación e Creación de Contidos Dixitais. Uso en numerosos proxectos de material audiovisual de alta calidade proporcionado pola institución universitaria, así como formación avanzada programas de edición de vídeo (Adobe Premiere Pro), de animación e modelado 3D (Adobe After Effects, Blender) ou de integración de realidade virtual (Brainstorm Edison). Participación en numerosas rodaxes de nivel tanto amateur como profesional.'
         },
-        roles: ['video_editor', 'animator', '3d_modeler', 'game_dev']
+        roles: ['video_editor', 'artist_2d_3d', 'design', 'game_dev']
     },
     {
         id: 3,
@@ -235,7 +236,7 @@ export const experience = [
                 }
             ]
         },
-        roles: ['video_editor', 'animator']
+        roles: ['video_editor', 'artist_2d_3d']
     },
     {
         id: 2,
@@ -261,7 +262,7 @@ export const experience = [
             en: 'Use in numerous high-quality audiovisual material projects provided by the university, as well as video editing programs (Adobe Premiere Pro), 3D animation and modeling (Adobe After Effects, Blender) or virtual reality integration (Brainstorm Edison). Participation in numerous academic shoots/projects.',
             gl: 'Uso en numerosos proxectos de material audiovisual de alta calidade proporcionado pola institución universitaria, así como de programas de edición de vídeo (Adobe Premiere Pro), de animación e modelado 3D (Adobe After Effects, Blender) ou de integración de realidade virtual (Brainstorm Edison). Participación en numerosas rodaxes/proxectos académicos.'
         },
-        roles: ['video_editor', 'animator', '3d_modeler']
+        roles: ['video_editor', 'artist_2d_3d', 'design']
     }
 ];
 
@@ -387,7 +388,7 @@ O proxecto superou diversos retos, desde a xestión do tempo ata a optimización
         },
         image: '/images/colorin.jpg',
         images: ['/images/colorin.jpg'],
-        roles: ['animator', 'video_editor', '3d_modeler'],
+        roles: ['artist_2d_3d', 'video_editor', 'design'],
         memoryUrl: 'memoria_colorindecolorado_final.pdf'
     },
     {
@@ -411,7 +412,7 @@ O proxecto superou diversos retos, desde a xestión do tempo ata a optimización
         },
         image: '/images/kafeto.jpg',
         images: ['/images/kafeto.jpg'],
-        roles: ['3d_modeler', 'animator']
+        roles: ['artist_2d_3d', 'design']
     },
     {
         id: 'penguin_saga',
@@ -504,51 +505,5 @@ O proxecto superou diversos retos, desde a xestión do tempo ata a optimización
         image: '/images/carta.jpg',
         images: ['/images/carta.jpg'],
         roles: ['video_editor']
-    },
-    {
-        id: 'estudios_academicos',
-        title: { es: 'Recopilación académica', ca: 'Recopilació acadèmica', en: 'Academic collection', gl: 'Recopilación académica' },
-        year: '2021 - 2025',
-        category: { es: 'Varios', ca: 'Diversos', en: 'Various', gl: 'Varios' },
-        type: 'academic',
-        tags: ['premiere', 'blender'],
-        summary: {
-            es: 'Showreel de prácticas universitarias incluyendo piezas de montaje, cortos experimentales y ejercicios de cámara.',
-            ca: 'Showreel de pràctiques universitaries incloent peces de muntatge, curtes experimentals i exercicis de càmera.',
-            en: 'University practicum showreel including editing pieces, experimental shorts, and camera exercises.',
-            gl: 'Showreel de prácticas universitarias incluíndo pezas de montaxe, curtas experimentais e exercicios de cámara.'
-        },
-        description: {
-            es: 'Mención a proyectos universitarios que fueron clave para el desarrollo de competencias.',
-            ca: 'Menció a projectes universitaris que van ser clau per al desenvolupament de competències.',
-            en: 'Mention of university projects that were key to competence development.',
-            gl: 'Mención a proxectos universitarios que foron clave para o desenvolvemento de competencias.'
-        },
-        image: '/images/estudios.jpg',
-        images: ['/images/estudios.jpg'],
-        roles: ['video_editor', 'animator', '3d_modeler']
-    },
-    {
-        id: 'otros',
-        title: { es: 'Otros proyectos', ca: 'Altres projectes', en: 'Other projects', gl: 'Outros proxectos' },
-        year: 'Varias fechas',
-        category: { es: 'Varios', ca: 'Diversos', en: 'Various', gl: 'Varios' },
-        type: 'personal',
-        tags: ['premiere', 'photoshop'],
-        summary: {
-            es: 'Saco de sastre de experimentación personal, sketches rápidos y pruebas técnicas fuera del ámbito académico.',
-            ca: 'Sac de sastre d\'experimentació personal, sketches ràpids i proves tècniques fora de l\'àmbit acadèmic.',
-            en: 'Mixed bag of personal experimentation, quick sketches, and technical tests outside academia.',
-            gl: 'Saco de xastre de experimentación persoal, sketches rápidos e probas técnicas fóra do ámbito académico.'
-        },
-        description: {
-            es: 'Pequeños proyectos relevantes para mostrar mi evolución formativa y profesional.',
-            ca: 'Petits projectes rellevants per mostrar la meva evolució formativa i professional.',
-            en: 'Small projects relevant to show my formative and professional evolution.',
-            gl: 'Pequenos proxectos relevantes para mostrar a miña evolución formativa e profesional.'
-        },
-        image: '/images/otros.jpg',
-        images: ['/images/otros.jpg'],
-        roles: ['all']
     }
 ];
