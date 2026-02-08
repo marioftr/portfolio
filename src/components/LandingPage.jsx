@@ -8,7 +8,6 @@ import { socialLinks } from '../data/content';
 export default function LandingPage() {
     const { language, t } = useTranslation();
     const navigate = useNavigate();
-    const [isBioExpanded, setIsBioExpanded] = useState(false);
 
     const roleMapping = {
         all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' } },
@@ -61,10 +60,8 @@ export default function LandingPage() {
                         <div 
                             className="responsive-bio-container" 
                             style={{ 
-                                cursor: 'pointer',
                                 width: '100%',
                             }}
-                            onClick={() => setIsBioExpanded(!isBioExpanded)}
                         >
                             <p className="responsive-bio" style={{ 
                                 color: 'var(--color-text-light)', 
@@ -76,69 +73,31 @@ export default function LandingPage() {
                                 marginBottom: 0
                             }}>
                                 {language === 'es'
-                                    ? 'Máster en Diseño, Modelado y Programación de Videojuegos con formación especializada en animación, programación, edición audiovisual y diseño gráfico.'
+                                    ? 'Máster en Diseño, Modelado y Programación de Videojuegos y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales. Formación especializada en animación, programación, edición audiovisual y diseño gráfico.'
                                     : language === 'ca'
-                                        ? 'Màster en Disseny, Modelatge i Programació de Videojocs amb formació especialitzada en animació, programació, edició audiovisual i disseny gràfic.'
+                                        ? 'Màster en Disseny, Modelatge i Programació de Videojocs i graduat en Comunicació Audiovisual per la Universitat de Santiago de Compostela (USC) amb menció en Ideació i Creació de Continguts Audiovisuals. Formació especialitzada en animació, programació, edició audiovisual i disseny gràfic.'
                                         : language === 'gl'
-                                            ? 'Máster en Deseño, Modelado e Programación de Videoxogos con formación especializada en animación, programación, edición audiovisual e deseño gráfico.'
-                                            : 'Master in Game Design, Modeling and Programming with specialized training in animation, programming, audiovisual editing and graphic design.'}
+                                            ? 'Máster en Deseño, Modelado e Programación de Videoxogos e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais. Formación especializada en animación, programación, edición audiovisual e deseño gráfico.'
+                                            : 'Master in Game Design, Modeling and Programming and a graduate in Audiovisual Communication from the University of Santiago de Compostela (USC) with a specialization in Audiovisual Content Ideation and Creation. Specialized training in animation, programming, audiovisual editing and graphic design.'}
                             </p>
 
-                            <div 
-                                style={{
-                                    display: 'grid',
-                                    gridTemplateRows: isBioExpanded ? '1fr' : '0fr',
-                                    opacity: isBioExpanded ? 1 : 0,
-                                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                                }}
-                            >
-                                <div style={{ overflow: 'hidden' }}>
-                                    <p style={{ 
-                                        color: 'var(--color-text-light)', 
-                                        lineHeight: 1.7, 
-                                        fontWeight: 500, 
-                                        textAlign: 'left', 
-                                        width: '100%',
-                                        marginTop: '1rem',
-                                        marginBottom: 0
-                                    }}>
-                                        {language === 'es'
-                                            ? 'Desarrollador versátil con experiencia en múltiples disciplinas creativas. Revisa los perfiles especializados para ver proyectos relevantes.'
-                                            : language === 'ca'
-                                                ? 'Desenvolupador versàtil amb experiència en múltiples disciplines creatives. Revisa els perfils especialitzats per veure projectes rellevants.'
-                                                : language === 'gl'
-                                                    ? 'Desenvolvedor versátil con experiencia en múltiples disciplinas creativas. Revisa os perfís especializados para ver proxectos relevantes.'
-                                                    : 'Versatile developer with experience in multiple creative disciplines. Check specialized profiles to see relevant projects.'}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Mobile expansion indicator */}
-                            <div className="mobile-only-flex" style={{ 
-                                display: 'none', 
-                                justifyContent: 'center', 
-                                alignItems: 'center',
+                            <p style={{ 
+                                color: 'var(--color-text-light)', 
+                                lineHeight: 1.7, 
+                                fontWeight: 500, 
+                                textAlign: 'left', 
+                                width: '100%',
                                 marginTop: '1rem',
-                                color: 'var(--color-primary)',
-                                opacity: 0.7
+                                marginBottom: 0
                             }}>
-                                <svg 
-                                    width="20" 
-                                    height="20" 
-                                    viewBox="0 0 24 24" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    strokeWidth="2" 
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round"
-                                    style={{ 
-                                        transform: isBioExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                                        transition: 'transform 0.4s ease'
-                                    }}
-                                >
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
+                                {language === 'es'
+                                    ? 'Desarrollador versátil con experiencia en múltiples disciplinas creativas. Revisa los perfiles especializados para ver proyectos relevantes.'
+                                    : language === 'ca'
+                                        ? 'Desenvolupador versàtil amb experiència en múltiples disciplines creatives. Revisa els perfils especialitzats per veure projectes rellevants.'
+                                        : language === 'gl'
+                                            ? 'Desenvolvedor versátil con experiencia en múltiples disciplinas creativas. Revisa os perfís especializados para ver proxectos relevantes.'
+                                            : 'Versatile developer with experience in multiple creative disciplines. Check specialized profiles to see relevant projects.'}
+                            </p>
                         </div>
                     </div>
 
