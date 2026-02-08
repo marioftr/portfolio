@@ -168,7 +168,7 @@ export const aptitudes = {
 
 export const education = [
     {
-        id: 1,
+        id: 'edu-1',
         year: '2025 - 2026',
         title: { es: 'Máster avanzado en diseño, modelado y programación de videojuegos', ca: 'Màster avançat en disseny, modelatge i programació de videojocs', en: 'Advanced Master\'s in Game Design, Modeling & Programming', gl: 'Máster avanzado en deseño, modelado e programación de videoxogos' },
         institution: 'Centro de Estudios de Innovación (CEI)',
@@ -182,7 +182,7 @@ export const education = [
         roles: ['game_dev', 'artist_2d_3d', 'design']
     },
     {
-        id: 2,
+        id: 'edu-2',
         year: '2021 - 2025',
         title: { es: 'Grado en comunicación audiovisual', ca: 'Grau en comunicació audiovisual', en: 'Bachelor\'s Degree in Audiovisual Communication', gl: 'Grao en comunicación audiovisual' },
         institution: 'Universidade de Santiago de Compostela (USC)',
@@ -196,7 +196,7 @@ export const education = [
         roles: ['video_editor', 'artist_2d_3d', 'design', 'game_dev']
     },
     {
-        id: 3,
+        id: 'edu-3',
         year: '2019 - 2021',
         title: { es: 'Bachillerato científico de excelencia (STEMBACH)', ca: 'Batxillerat científic d\'excel·lència (STEMBACH)', en: 'Scientific Baccalaureate of Excellence (STEMBACH)', gl: 'Bacharelato científico de excelencia (STEMBACH)' },
         institution: 'IES Ramón Cabanillas',
@@ -213,7 +213,7 @@ export const education = [
 
 export const experience = [
     {
-        id: 1,
+        id: 'exp-1',
         year: '2025',
         title: {
             es: 'Rodajes Profesionales',
@@ -264,19 +264,19 @@ export const experience = [
                 {
                     subtitle: 'Ficción Producciones - MHREC',
                     location: 'Santiago de Compostela',
-                    text: 'Participación nun contorno de rodaxe profesional como pequena parte e figurante, con comprensión práctica da dinámica e tempos de produción. Experiència directa na organización e o funcionamento dun equipo cinematográfico.'
+                    text: 'Participación nunha contorna de rodaxe profesional como pequena parte e figurante, con comprensión práctica da dinámica e tempos de produción. Experiencia directa na organización e o funcionamento dun equipo cinematográfico.'
                 },
                 {
                     subtitle: 'Alén Films - Marusía. Vientos de honor',
                     location: 'Vigo',
-                    text: 'Integración no equipo de rodaxe como figurante, con aprendizaxe do fluxo e protocolos do traballo en set.'
+                    text: 'Integración na equipa de rodaxe como figurante, con aprendizaxe do fluxo e protocolos do traballo en set.'
                 }
             ]
         },
         roles: ['video_editor', 'artist_2d_3d']
     },
     {
-        id: 2,
+        id: 'exp-2',
         year: '2023 - 2025',
         title: { es: 'Hostelería', ca: 'Hostaleria', en: 'Hospitality', gl: 'Hostalaría' },
         company: 'Restaurante Bar A Fonte',
@@ -290,7 +290,7 @@ export const experience = [
         roles: []
     },
     {
-        id: 3,
+        id: 'exp-3',
         year: '2021 - 2025',
         title: { es: 'Proyectos no profesionales', ca: 'Projectes no professionals', en: 'Non-Professional Projects', gl: 'Proxectos non profesionais' },
         company: 'Universidade de Santiago de Compostela (USC)',
@@ -571,10 +571,6 @@ Les següents imatges resumeixen de forma visual el procés d'elaboració del Tr
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
 
-## GALERIA D'IMATGES
-
-<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Escena 4" /></div><div><img src="/images/colorin5.avif" alt="Colorín Decolorado - Escena 5" /></div><div><img src="/images/colorin6.avif" alt="Colorín Decolorado - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Escena 8" /></div><div><img src="/images/colorin9.avif" alt="Colorín Decolorado - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Escena 11" /></div></div>
-
 ## RESULTATS
 
 Els resultats d'aquest projecte es divideixen en 2 vertents fonamentals: aquells associats al curtmetratge complet i aquells vinculats als tres teasers.
@@ -601,7 +597,11 @@ Dels teasers obtenim:
 
 **Producció**: Layout, Animació bidimensional, Animació tridimensional, Efectes, Elements live action, Composició.
 
-**Postproducció**: Muntatge, Etalonatge, Màscares de capa, Transicions, Disseny i mescla de so, Difusió i promoció.`,
+**Postproducció**: Muntatge, Etalonatge, Màscares de capa, Transicions, Disseny i mescla de so, Difusió i promoció.
+
+## GALERIA D'IMATGES
+
+<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Escena 4" /></div><div><img src="/images/colorin5.avif" alt="Colorín Decolorado - Escena 5" /></div><div><img src="/images/colorin6.avif" alt="Colorín Decolorado - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Escena 8" /></div><div><img src="/images/colorin9.avif" alt="Colorín Decolorado - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Escena 11" /></div></div>`,
             en: `## INTRODUCTION
 
 Design and development of Colorín Decolorado, a hybrid animation short film oriented towards children, created as a Bachelor Thesis in Audiovisual Communication with mention in Ideation and Creation of Audiovisual Content (USC).
@@ -636,10 +636,6 @@ The following images visually summarize the process of developing the Bachelor T
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
 
-## IMAGE GALLERY
-
-<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Scene 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Scene 2" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Scene 4" /></div><div class="tall"><img src="/images/colorin5.avif" alt="Colorín Decolorado - Scene 5" /></div><div class="wide"><img src="/images/colorin6.avif" alt="Colorín Decolorado - Scene 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Scene 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Scene 8" /></div><div class="tall"><img src="/images/colorin9.avif" alt="Colorín Decolorado - Scene 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Scene 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Scene 11" /></div></div>
-
 ## RESULTS
 
 The results of this project are divided into 2 fundamental aspects: those associated with the complete short film and those linked to the three teasers.
@@ -666,7 +662,11 @@ From the teasers we obtain:
 
 **Production**: Layout, 2D Animation, 3D Animation, Effects, Live Action Elements, Compositing.
 
-**Post-production**: Editing, Color Grading, Layer Masks, Transitions, Sound Design and Mixing, Distribution and Promotion.`,
+**Post-production**: Editing, Color Grading, Layer Masks, Transitions, Sound Design and Mixing, Distribution and Promotion.
+
+## IMAGE GALLERY
+
+<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Scene 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Scene 2" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Scene 4" /></div><div class="tall"><img src="/images/colorin5.avif" alt="Colorín Decolorado - Scene 5" /></div><div class="wide"><img src="/images/colorin6.avif" alt="Colorín Decolorado - Scene 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Scene 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Scene 8" /></div><div class="tall"><img src="/images/colorin9.avif" alt="Colorín Decolorado - Scene 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Scene 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Scene 11" /></div></div>`,
             gl: `## INTRODUCIÓN
 
 Deseño e desenvolvemento de Colorín Decolorado, unha curtametraxe de animación híbrida orientada ao público infantil elaborada como TFG en Comunicación Audiovisual cunha mención en Ideación e Creación de Contidos Audiovisuais (USC).
@@ -701,10 +701,6 @@ As seguintes imaxes resumen de forma visual o proceso de elaboración do Traball
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
 
-## GALERÍA DE IMAXES
-
-<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Escena 4" /></div><div><img src="/images/colorin5.avif" alt="Colorín Decolorado - Escena 5" /></div><div><img src="/images/colorin6.avif" alt="Colorín Decolorado - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Escena 8" /></div><div><img src="/images/colorin9.avif" alt="Colorín Decolorado - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Escena 11" /></div></div>
-
 ## RESULTADOS
 
 Os resultados deste proxecto divídense en 2 vertentes fundamentais: aqueles asociados á curtametraxe completa e aqueles vinculados aos tres teasers.
@@ -731,7 +727,11 @@ Dos teasers obtemos:
 
 **Produución**: Layout, Animación bidimensional, Animación tridimensional, Efectos, Elementos live action, Composición.
 
-**Postprodución**: Montaxe, Etalonaxe, Máscaras de capa, Transicións, Deseño e mestura de son, Difusión e promoción.`
+**Postprodución**: Montaxe, Etalonaxe, Máscaras de capa, Transicións, Deseño e mestura de son, Difusión e promoción.
+
+## GALERÍA DE IMAXES
+
+<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Escena 4" /></div><div><img src="/images/colorin5.avif" alt="Colorín Decolorado - Escena 5" /></div><div><img src="/images/colorin6.avif" alt="Colorín Decolorado - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Escena 8" /></div><div><img src="/images/colorin9.avif" alt="Colorín Decolorado - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Escena 11" /></div></div>`
         },
         image: '/images/colorin1.png',
         images: ['/images/colorin1.png', '/images/colorin2.avif', '/images/colorin3.avif', '/images/colorin4.avif', '/images/colorin5.avif', '/images/colorin6.avif', '/images/colorin7.avif', '/images/colorin8.avif', '/images/colorin9.avif', '/images/colorin10.avif', '/images/colorin11.avif'],

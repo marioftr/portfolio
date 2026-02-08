@@ -36,18 +36,19 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem',
-        padding: '0.6rem 1rem',
+        padding: '4px 12px',
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         backdropFilter: 'blur(8px)',
-        border: '1px solid var(--color-border)',
-        borderRadius: '12px',
+        border: '1.5px solid var(--color-border)',
+        borderRadius: '10px',
         color: 'var(--color-primary)',
         fontWeight: 800,
-        fontSize: '0.85rem',
+        fontSize: '0.8rem',
         cursor: 'pointer',
         transition: 'all 0.2s ease',
         textTransform: 'uppercase',
-        letterSpacing: '0.5px'
+        letterSpacing: '0.5px',
+        height: '32px'
     };
 
     const menuStyles = {
@@ -101,7 +102,7 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
                             : currentLang.flag)
                         : null}
                 </span>
-                <span>{language === 'es' ? 'Idioma' : language === 'ca' ? 'Idioma' : language === 'gl' ? 'Idioma' : 'Language'}</span>
+                <span className="lang-label">{language === 'es' ? 'Idioma' : language === 'ca' ? 'Idioma' : language === 'gl' ? 'Idioma' : 'Language'}</span>
                 <svg
                     width="12" height="12" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"

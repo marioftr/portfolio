@@ -60,61 +60,65 @@ export default function Navbar() {
             boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
             transition: 'none'
         }}>
-            <div className="container flex justify-between items-center navbar-content" style={{ width: '100%', gap: 'var(--spacing-sm)' }}>
-                <div className="flex items-center gap-xs sm:gap-md">
-                    <Link to="/" style={{ textDecoration: 'none' }}>
-                        <div className="nav-name" style={{ fontWeight: 900, fontSize: '1.2rem', color: 'var(--color-text)', letterSpacing: '-0.8px' }}>
-                            Mario Villanueva Torres
-                        </div>
-                    </Link>
+            <div className="container flex justify-between items-center navbar-content" style={{ width: '100%', gap: 'var(--spacing-xs)' }}>
+                <Link to="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
+                    <div className="nav-name" style={{ fontWeight: 900, fontSize: '1.2rem', color: 'var(--color-text)', letterSpacing: '-0.8px' }}>
+                        <span className="full-name">Mario Villanueva Torres</span>
+                        <span className="short-name" style={{ display: 'none' }}>Mario</span>
+                    </div>
+                </Link>
 
-                    <div className="nav-divider" style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)', margin: '0 4px' }} />
+                <div className="nav-divider" style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)', margin: '0 4px' }} />
 
-                    <div ref={dropdownRef} style={{ position: 'relative', display: 'inline-block' }}>
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="flex items-center gap-sm transition-all role-dropdown-trigger"
-                            style={{
-                                background: 'white',
-                                border: '1.5px solid var(--color-border)',
-                                borderRadius: '10px',
-                                padding: '4px 12px',
-                                fontSize: '0.8rem',
-                                fontWeight: 800,
-                                textTransform: 'uppercase',
-                                cursor: 'pointer',
-                                color: 'var(--color-primary)',
-                                boxShadow: '0 2px 5px rgba(0,0,0,0.02)',
-                                minWidth: 'clamp(120px, 15vw, 160px)',
-                                height: '32px',
-                                justifyContent: 'space-between'
-                            }}
+                <div ref={dropdownRef} className="nav-role-container" style={{ position: 'relative', flex: '1 1 auto', display: 'flex', justifyContent: 'center', minWidth: 0 }}>
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="flex items-center gap-sm transition-all role-dropdown-trigger nav-role-selector"
+                        style={{
+                            background: 'white',
+                            border: '1.5px solid var(--color-border)',
+                            borderRadius: '10px',
+                            padding: '4px 12px',
+                            fontSize: '0.75rem',
+                            fontWeight: 800,
+                            textTransform: 'uppercase',
+                            cursor: 'pointer',
+                            color: 'var(--color-primary)',
+                            boxShadow: '0 2px 5px rgba(0,0,0,0.02)',
+                            height: '32px',
+                            justifyContent: 'space-between'
+                        }}
+                    >
+                        <span className="nav-active-label" style={{ 
+                            whiteSpace: 'nowrap', 
+                            flex: 1,
+                            textAlign: 'center'
+                        }}>{activeLabel}</span>
+                        <svg
+                            width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"
+                            strokeLinecap="round" strokeLinejoin="round"
+                            style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease', flexShrink: 0 }}
                         >
-                            <span className="nav-active-label" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{activeLabel}</span>
-                            <svg
-                                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"
-                                strokeLinecap="round" strokeLinejoin="round"
-                                style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease', flexShrink: 0 }}
-                            >
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
 
 
-                        {isOpen && (
-                            <div className="animate-fade-in" style={{
-                                position: 'absolute',
-                                top: 'calc(100% + 4px)',
-                                left: 0,
-                                minWidth: '220px',
-                                background: 'white',
-                                borderRadius: '12px',
-                                border: '1.5px solid var(--color-border)',
-                                boxShadow: '0 15px 35px rgba(0,0,0,0.2)',
-                                overflow: 'hidden',
-                                padding: '4px',
-                                zIndex: 2000
-                            }}>
+                    {isOpen && (
+                        <div className="animate-fade-in" style={{
+                            position: 'absolute',
+                            top: 'calc(100% + 4px)',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            minWidth: '220px',
+                            background: 'white',
+                            borderRadius: '12px',
+                            border: '1.5px solid var(--color-border)',
+                            boxShadow: '0 15px 35px rgba(0,0,0,0.2)',
+                            overflow: 'hidden',
+                            padding: '4px',
+                            zIndex: 2000
+                        }}>
                                 <button
                                     onClick={() => handleSelect('home')}
                                     style={{
@@ -177,7 +181,6 @@ export default function Navbar() {
                             </div>
                         )}
                     </div>
-                </div>
 
                 <div className="flex items-center gap-sm sm:gap-md nav-right-section">
                     <div className="flex items-center gap-sm nav-socials">

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, memo, useMemo } from 'react';
+import { useEffect, useRef, useState, memo, useMemo, useCallback } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { allSkills } from '../data/content';
 
@@ -75,26 +75,105 @@ const VideoCarousel = memo(({ html, language }) => {
 
 export default function ProjectModal({ project, onClose }) {
     const { language, t } = useTranslation();
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const modalRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
+    const lightboxContainerRef = useRef(null);
+    const lastSelectedImageRef = useRef(null);
+    const isInternalUpdateRef = useRef(false);
+
+    // Efecto para sincronizar el scroll del lightbox con la imagen seleccionada
+    useEffect(() => {
+        if (selectedImage && project?.images) {
+            if (isInternalUpdateRef.current) {
+                isInternalUpdateRef.current = false;
+                return;
+            }
+
+            const container = lightboxContainerRef.current;
+            if (!container) {
+                // Si aún no está el contenedor, reintentamos un poco más tarde
+                const retryTimer = setTimeout(() => {
+                    if (!lightboxContainerRef.current) return;
+                    syncScroll(true);
+                }, 100);
+                return () => clearTimeout(retryTimer);
+            }
+            syncScroll(lastSelectedImageRef.current === null);
+        }
+        lastSelectedImageRef.current = selectedImage;
+    }, [selectedImage, project?.images]);
+
+    const syncScroll = (immediate) => {
+        const container = lightboxContainerRef.current;
+        if (!container || !selectedImage || !project?.images) return;
+
+        // Usar requestAnimationFrame para asegurar que el contenedor tiene dimensiones
+        requestAnimationFrame(() => {
+            const containerWidth = container.offsetWidth;
+            if (containerWidth === 0) return;
+
+            // Normalizamos la ruta para la búsqueda
+            let currentPath = selectedImage;
+            try { 
+                if (selectedImage.startsWith('http')) {
+                    currentPath = new URL(selectedImage).pathname;
+                }
+            } catch(e){}
+            
+            if (currentPath && !currentPath.startsWith('/')) currentPath = '/' + currentPath;
+
+            const index = project.images.findIndex(img => {
+                const normalizedImg = img.startsWith('/') ? img : '/' + img;
+                return normalizedImg === currentPath;
+            });
+
+            if (index !== -1) {
+                container.scrollTo({ 
+                    left: index * containerWidth, 
+                    behavior: immediate ? 'auto' : 'smooth' 
+                });
+            }
+        });
+    };
+
+    const handleLightboxScroll = useCallback(() => {
+        const container = lightboxContainerRef.current;
+        if (!container || !project?.images) return;
+
+        const containerWidth = container.offsetWidth;
+        if (containerWidth <= 0) return;
+
+        const index = Math.round(container.scrollLeft / containerWidth);
+        const newImage = project.images[index];
+        
+        if (newImage && newImage !== selectedImage) {
+            isInternalUpdateRef.current = true;
+            setSelectedImage(newImage);
+        }
+    }, [selectedImage, project?.images]);
 
     const handleNextImage = (e) => {
         if (e) e.stopPropagation();
         if (!project.images || project.images.length === 0) return;
         
-        // Normalizar la URL actual (eliminar el dominio si existe para comparar con el array)
-        const currentPath = selectedImage.startsWith('http') 
-            ? new URL(selectedImage).pathname 
-            : selectedImage;
+        let currentPath = selectedImage;
+        try { if (selectedImage.startsWith('http')) currentPath = new URL(selectedImage).pathname; } catch(e){}
+        if (currentPath && !currentPath.startsWith('/')) currentPath = '/' + currentPath;
 
-        const currentIndex = project.images.indexOf(currentPath);
+        const currentIndex = project.images.findIndex(img => {
+            const normalizedImg = img.startsWith('/') ? img : '/' + img;
+            return normalizedImg === currentPath;
+        });
         
-        // Si no se encuentra (por slash inicial o similar), buscamos coincidencia parcial
-        const safeIndex = currentIndex === -1 
-            ? project.images.findIndex(img => img.includes(currentPath) || currentPath.includes(img))
-            : currentIndex;
-
-        const nextIndex = (safeIndex + 1) % project.images.length;
+        const nextIndex = (currentIndex + 1) % project.images.length;
         setSelectedImage(project.images[nextIndex]);
     };
 
@@ -102,17 +181,16 @@ export default function ProjectModal({ project, onClose }) {
         if (e) e.stopPropagation();
         if (!project.images || project.images.length === 0) return;
         
-        const currentPath = selectedImage.startsWith('http') 
-            ? new URL(selectedImage).pathname 
-            : selectedImage;
+        let currentPath = selectedImage;
+        try { if (selectedImage.startsWith('http')) currentPath = new URL(selectedImage).pathname; } catch(e){}
+        if (currentPath && !currentPath.startsWith('/')) currentPath = '/' + currentPath;
 
-        const currentIndex = project.images.indexOf(currentPath);
-        
-        const safeIndex = currentIndex === -1 
-            ? project.images.findIndex(img => img.includes(currentPath) || currentPath.includes(img))
-            : currentIndex;
+        const currentIndex = project.images.findIndex(img => {
+            const normalizedImg = img.startsWith('/') ? img : '/' + img;
+            return normalizedImg === currentPath;
+        });
 
-        const prevIndex = (safeIndex - 1 + project.images.length) % project.images.length;
+        const prevIndex = (currentIndex - 1 + project.images.length) % project.images.length;
         setSelectedImage(project.images[prevIndex]);
     };
 
@@ -129,7 +207,7 @@ export default function ProjectModal({ project, onClose }) {
     }, [project]);
 
     // Improved parser inside the component to handle refs if needed (though we use class logic mostly)
-    const renderRichText = (text) => {
+    const renderRichText = useCallback((text) => {
         if (!text) return null;
 
         // Split by newlines, preserving empty ones
@@ -200,7 +278,8 @@ export default function ProjectModal({ project, onClose }) {
                             style={{ margin: '2rem 0' }}
                             onClick={(e) => {
                                 if (e.target.tagName === 'IMG') {
-                                    setSelectedImage(e.target.src);
+                                    const src = e.target.getAttribute('src');
+                                    setSelectedImage(src);
                                 }
                             }}
                             dangerouslySetInnerHTML={{ __html: trimmed }}
@@ -228,12 +307,25 @@ export default function ProjectModal({ project, onClose }) {
                 />
             );
         });
-    };
+    }, [language, setSelectedImage, t]);
+
+    const hasLongDescription = project?.longDescription;
+    const richContent = hasLongDescription ? (project.longDescription[language] || project.longDescription.es) : null;
+
+    // Memoizar el contenido para evitar re-rendereos costosos que causen lentitud
+    const renderedRichContent = useMemo(() => {
+        return richContent ? renderRichText(richContent) : null;
+    }, [richContent, renderRichText]);
+
+    const renderedDescription = useMemo(() => {
+        if (!project) return null;
+        return renderRichText(project.description[language] || project.description.es);
+    }, [project, language, renderRichText]);
+
+    // Comprobar si ya hay una galería en el contenido rico
+    const hasGalleryInContent = richContent && richContent.includes('custom-gallery');
 
     if (!project) return null;
-
-    const hasLongDescription = project.longDescription;
-    const richContent = hasLongDescription ? (project.longDescription[language] || project.longDescription.es) : null;
 
     return (
         <div
@@ -244,6 +336,27 @@ export default function ProjectModal({ project, onClose }) {
             }}
             onClick={onClose}
         >
+            <div
+                style={{
+                    position: 'fixed', top: '1.5rem', right: '1.5rem', zIndex: 3000
+                }}
+            >
+                <button
+                    onClick={onClose}
+                    className="modal-close-button-fixed"
+                    style={{
+                        background: 'white', borderRadius: '50%',
+                        width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.3)', cursor: 'pointer', border: 'none',
+                        transition: 'transform 0.2s'
+                    }}
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
             <div
                 ref={modalRef}
                 className="card animate-fade-in project-modal-card"
@@ -256,24 +369,6 @@ export default function ProjectModal({ project, onClose }) {
                 }}
                 onClick={(e) => e.stopPropagation()}
             >
-                <div style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', zIndex: 100 }}>
-                    <button
-                        onClick={onClose}
-                        style={{
-                            background: 'white', borderRadius: '50%',
-                            width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.15)', cursor: 'pointer', border: 'none',
-                            transition: 'transform 0.2s'
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                </div>
 
                 {/* Imagen de cabecera: Ajustada para ocupar todo el ancho superior */}
                 {(project.image || (project.images && project.images[0])) && (
@@ -282,13 +377,7 @@ export default function ProjectModal({ project, onClose }) {
                         borderRadius: '20px 20px 0 0', 
                         overflow: 'hidden', 
                         backgroundColor: '#f9f9f9',
-                        flexShrink: 0,
-                        borderBottom: '3px solid #f0f0f0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        minHeight: '180px',
-                        maxHeight: '320px',
+                        flexShrink: 0
                     }}>
                         <img
                             src={project.image || project.images[0]}
@@ -297,11 +386,7 @@ export default function ProjectModal({ project, onClose }) {
                             style={{ 
                                 width: '100%',
                                 height: 'auto',
-                                maxHeight: '220px',
-                                objectFit: 'cover',
-                                margin: '0 auto',
-                                display: 'block',
-                                background: 'white'
+                                display: 'block'
                             }}
 
                             onError={(e) => {
@@ -327,7 +412,7 @@ export default function ProjectModal({ project, onClose }) {
                     </div>
 
                     <div style={{ fontSize: '1.05rem', color: '#444', marginBottom: '2rem', lineHeight: 1.6 }}>
-                        {renderRichText(project.description[language] || project.description.es)}
+                        {renderedDescription}
                     </div>
 
                     {project.memoryUrl && (
@@ -350,18 +435,54 @@ export default function ProjectModal({ project, onClose }) {
                     )}
 
                     {project.tags && (
-                        <div className="flex flex-wrap gap-xs" style={{ marginBottom: '2rem' }}>
+                        <div className="flex flex-wrap gap-xs" style={{ 
+                            marginBottom: '2rem',
+                            width: 'calc(100% - 2.5rem)',
+                            boxSizing: 'border-box'
+                        }}>
                             {project.tags.map(tagId => (
-                                <span key={tagId} className="tag" style={{ background: '#f3f4f6', color: '#666', fontSize: '0.75rem', fontWeight: 600, border: 'none' }}>
-                                    {allSkills[tagId]?.name || tagId}
+                                <span key={tagId} className="tag" style={{ 
+                                    fontSize: '0.75rem', 
+                                    padding: '0.2rem 0.6rem',
+                                    whiteSpace: 'nowrap'
+                                }}>
+                                    {allSkills[tagId]?.name || tagId.replace('_', ' ')}
                                 </span>
                             ))}
                         </div>
                     )}
 
-                    {richContent && (
+                    {renderedRichContent && (
                         <div style={{ borderTop: '2px solid #f3f4f6', paddingTop: '2rem' }}>
-                            {renderRichText(richContent)}
+                            {renderedRichContent}
+                        </div>
+                    )}
+
+                    {/* Galería automática si no está en el contenido rico y hay más de una imagen */}
+                    {!hasGalleryInContent && project.images && project.images.length > 1 && (
+                        <div style={{ borderTop: '2px solid #f3f4f6', marginTop: '2rem', paddingTop: '2rem' }}>
+                            <h3 style={{ 
+                                fontSize: '1.4rem', 
+                                marginBottom: '1.5rem', 
+                                color: 'var(--color-primary)', 
+                                fontWeight: 700 
+                            }}>
+                                {language === 'gl' ? 'Galería de imaxes' : (language === 'en' ? 'Image Gallery' : 'Galería de imágenes')}
+                            </h3>
+                            <div className="custom-gallery">
+                                {project.images.map((img, idx) => (
+                                    <div key={idx} onClick={() => setSelectedImage(img)} style={{ cursor: 'pointer' }}>
+                                        <img 
+                                            src={img} 
+                                            alt={`${project.title} - ${idx + 1}`} 
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setSelectedImage(img);
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     )}
                 </div>
@@ -409,15 +530,23 @@ export default function ProjectModal({ project, onClose }) {
                                 onClick={handlePrevImage}
                                 style={{
                                     position: 'absolute', left: '1.5rem',
-                                    background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%',
-                                    width: '50px', height: '50px', cursor: 'pointer',
+                                    background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '50%',
+                                    width: '56px', height: '56px', cursor: 'pointer',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    zIndex: 3001, transition: 'background 0.2s', color: 'white'
+                                    zIndex: 3001, transition: 'all 0.25s ease', color: 'white',
+                                    backdropFilter: 'blur(10px)',
+                                    boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
                                 }}
-                                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.3)'}
-                                onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'rgba(255,255,255,0.9)';
+                                    e.currentTarget.style.color = '#000';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
+                                    e.currentTarget.style.color = 'white';
+                                }}
                             >
-                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                                     <polyline points="15 18 9 12 15 6"></polyline>
                                 </svg>
                             </button>
@@ -426,27 +555,83 @@ export default function ProjectModal({ project, onClose }) {
                                 onClick={handleNextImage}
                                 style={{
                                     position: 'absolute', right: '1.5rem',
-                                    background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%',
-                                    width: '50px', height: '50px', cursor: 'pointer',
+                                    background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '50%',
+                                    width: '56px', height: '56px', cursor: 'pointer',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    zIndex: 3001, transition: 'background 0.2s', color: 'white'
+                                    zIndex: 3001, transition: 'all 0.25s ease', color: 'white',
+                                    backdropFilter: 'blur(10px)',
+                                    boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
                                 }}
-                                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.3)'}
-                                onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'rgba(255,255,255,0.9)';
+                                    e.currentTarget.style.color = '#000';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
+                                    e.currentTarget.style.color = 'white';
+                                }}
                             >
-                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                                     <polyline points="9 18 15 12 9 6"></polyline>
                                 </svg>
                             </button>
                         </>
                     )}
 
-                    <img
-                        src={selectedImage}
-                        alt="Enlarged view"
-                        style={{ maxWidth: '90%', maxHeight: '85vh', objectFit: 'contain', borderRadius: '4px', cursor: 'default', boxShadow: '0 0 30px rgba(0,0,0,0.5)' }}
-                        onClick={(e) => e.stopPropagation()}
-                    />
+                    <div
+                        className="lightbox-content"
+                        ref={lightboxContainerRef}
+                        onScroll={handleLightboxScroll}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            width: '100%',
+                            height: '100%',
+                            overflowX: 'auto',
+                            overflowY: 'hidden',
+                            scrollSnapType: 'x mandatory',
+                            WebkitOverflowScrolling: 'touch',
+                            padding: 0
+                        }}
+                        onClick={(e) => {
+                            if (e.target.classList.contains('lightbox-content')) {
+                                setSelectedImage(null);
+                            }
+                        }}
+                    >
+                        {project.images.map((img, idx) => (
+                            <div 
+                                key={idx}
+                                style={{
+                                    minWidth: '100%',
+                                    width: '100%',
+                                    height: '100%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    scrollSnapAlign: 'center',
+                                    padding: isMobile ? '1rem' : '1rem 5rem'
+                                }}
+                            >
+                                <img
+                                    src={img}
+                                    alt={`View ${idx + 1}`}
+                                    loading="lazy"
+                                    decoding="async"
+                                    style={{ 
+                                        maxWidth: '95%', 
+                                        maxHeight: '85vh', 
+                                        objectFit: 'contain', 
+                                        borderRadius: '4px', 
+                                        cursor: 'default', 
+                                        boxShadow: '0 0 30px rgba(0,0,0,0.5)',
+                                        pointerEvents: 'auto'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )}
         </div>

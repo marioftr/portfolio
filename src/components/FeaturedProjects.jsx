@@ -98,9 +98,9 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                                 padding: 0, 
                                 overflow: 'hidden', 
                                 cursor: 'pointer',
-                                minWidth: 'min(350px, 90vw)',
+                                minWidth: 'min(380px, 80vw)',
                                 maxWidth: '420px',
-                                flex: '0 0 min(350px, 90vw)',
+                                flex: '0 0 min(380px, 80vw)',
                                 height: '100%'
                             }}
                             onClick={() => onProjectSelect(project)}
@@ -113,7 +113,13 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                                 e.currentTarget.style.boxShadow = 'var(--shadow-md)';
                             }}
                         >
-                            <div style={{ height: '150px', overflow: 'hidden', position: 'relative', backgroundColor: 'var(--color-secondary)' }}>
+                            <div style={{ 
+                                width: '100%',
+                                aspectRatio: '21 / 9',
+                                overflow: 'hidden', 
+                                position: 'relative', 
+                                backgroundColor: 'var(--color-secondary)' 
+                            }}>
                                 {project.image ? (
                                     <img
                                         src={project.image}
@@ -157,18 +163,18 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                                 </p>
 
                                 {/* Visible Tags */}
-                                <div className="flex flex-wrap gap-xs" style={{ marginBottom: 'var(--spacing-sm)' }}>
+                                <div className="flex flex-wrap gap-xs" style={{ marginBottom: 'var(--spacing-sm)', width: 'calc(100% - 2.5rem)' }}>
                                     {project.tags && project.tags.slice(0, 2).map(tagId => (
-                                        <span key={tagId} style={{
+                                        <span key={tagId} className="tag" style={{
                                             fontSize: '0.55rem',
                                             fontWeight: 800,
                                             padding: '0.08rem 0.35rem',
-                                            backgroundColor: 'var(--color-primary-light)',
-                                            color: 'var(--color-primary-dark)',
-                                            borderRadius: 'var(--radius-full)',
                                             textTransform: 'uppercase',
                                             border: '1px solid var(--color-primary-light)',
-                                            whiteSpace: 'nowrap'
+                                            whiteSpace: 'nowrap',
+                                            backgroundColor: 'var(--color-primary-light)',
+                                            color: 'var(--color-primary-dark)',
+                                            borderRadius: 'var(--radius-full)'
                                         }}>
                                             {allSkills[tagId]?.name || tagId.replace('_', ' ')}
                                         </span>

@@ -23,7 +23,14 @@ export default function Hero({ roleId }) {
                     <img src="/images/foto_perfil.jpg" alt="Mario Villanueva Torres" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
 
-                <h1 style={{ marginBottom: 'var(--spacing-xs)', fontSize: '2.5rem' }}>
+                <h1 style={{ 
+                    marginBottom: 'var(--spacing-xs)', 
+                    fontSize: 'clamp(1.5rem, 8vw, 2.5rem)',
+                    whiteSpace: 'nowrap',
+                    width: '100%',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                }}>
                     Mario Villanueva Torres
                 </h1>
 

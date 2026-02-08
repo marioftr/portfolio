@@ -148,6 +148,17 @@ button {
   gap: var(--spacing-md);
 }
 
+.languages-stacked-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--spacing-sm);
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .gap-lg {
   gap: var(--spacing-lg);
 }
@@ -223,6 +234,22 @@ button {
   color: var(--color-primary);
 }
 
+.nav-role-selector {
+  min-width: 140px;
+  max-width: none;
+}
+@media (max-width: 768px) {
+  .nav-role-selector {
+    max-width: 220px;
+    width: 100%;
+  }
+
+  .nav-active-label {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
 .card {
   background-color: white;
   border: 1px solid var(--color-border);
@@ -292,6 +319,44 @@ button {
     margin-bottom: 0.5rem !important;
   }
 
+  /* Navbar Adjustments */
+  .nav-name .full-name,
+  .nav-socials,
+  .nav-divider,
+  .nav-divider-right,
+  .desktop-filters,
+  .lang-label {
+    display: none !important;
+  }
+
+  .nav-name .short-name,
+  .mobile-filters {
+    display: block !important;
+  }
+
+  .mobile-filters {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .nav-name {
+    font-size: 0.95rem !important;
+    font-weight: 900 !important;
+  }
+
+  .nav-role-selector {
+    min-width: 100px !important;
+    max-width: 180px !important;
+  }
+
+  .nav-role-container {
+    margin: 0 4px !important;
+  }
+
+  .tabs-container {
+    gap: 0.5rem !important;
+  }
+
   .role-button {
     padding: 1rem 1.25rem !important;
     min-height: 60px !important;
@@ -311,6 +376,13 @@ button {
     right: 1rem !important;
   }
 
+  .languages-stacked-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+
   /* Extra small devices tweak */
   @media (max-width: 480px) {
     .responsive-title {
@@ -320,19 +392,6 @@ button {
       padding-left: 1.25rem !important;
       padding-right: 1.25rem !important;
     }
-  }
-
-  /* Navbar Mobile Tweak */
-  .nav-name {
-    font-size: 0.9rem !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100px;
-  }
-
-  .nav-divider, .nav-divider-right, .nav-socials {
-    display: none !important;
   }
 
   .role-dropdown-trigger {
@@ -393,6 +452,10 @@ button {
     width: 95vw !important;
   }
 
+  .project-modal-card > div:last-child {
+    padding: 1.25rem !important; /* Reduced padding for mobile to gain space */
+  }
+
   .project-modal-header-img {
     width: 100% !important;
     height: auto !important;
@@ -422,7 +485,9 @@ button {
   .responsive-title {
     font-size: 2.5rem !important;
   }
-
+  .mobile-only-flex {
+    display: flex !important;
+  }
   .landing-left {
     padding: 2rem !important;
   }
@@ -444,6 +509,8 @@ button {
   border-radius: var(--radius-full);
   font-size: 0.875rem;
   font-weight: 600;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .animate-fade-in {
@@ -493,12 +560,13 @@ button {
 /* Responsive Filters */
 @media (max-width: 640px) {
   .filters-container {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem;
   }
 
   .sort-button {
-    width: 100% !important;
+    width: auto !important;
   }
 }
 
@@ -515,7 +583,14 @@ button {
 
 @media (max-width: 768px) {
   .custom-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    gap: 0.75rem !important;
+    padding: 0.5rem 0 !important;
+  }
+  
+  .custom-gallery div {
+    flex: none !important;
+    width: 100% !important;
   }
 }
 
@@ -639,10 +714,10 @@ button {
 
 /* Lightbox Animations */
 .lightbox-overlay {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeInSimple 0.3s ease-out;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInSimple {
   from {
     opacity: 0;
   }

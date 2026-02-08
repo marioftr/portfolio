@@ -33,9 +33,18 @@ const PortfolioView = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('info');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isAboutExpanded, setIsAboutExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { t, language } = useTranslation();
 
   const activeRoleId = roleKeyMap[role] || 'all';
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -88,9 +97,9 @@ const PortfolioView = () => {
           borderBottom: '1px solid var(--color-border)',
           marginBottom: 'var(--spacing-md)'
         }}>
-          <div className="container">
+          <div className="container" style={{ padding: '0 1rem' }}>
             <div className="flex justify-center">
-              <div className="flex" style={{ gap: '2rem' }}>
+              <div className="flex tabs-container" style={{ gap: '1rem', width: '100%', justifyContent: 'center' }}>
                 {[
                   { id: 'info', label: { es: 'Información', ca: 'Informació', gl: 'Información', en: 'Information' } },
                   { id: 'projects', label: { es: 'Proyectos', ca: 'Projectes', gl: 'Proxectos', en: 'Projects' } },
@@ -100,8 +109,8 @@ const PortfolioView = () => {
                     key={tab.id}
                     onClick={() => handleTabClick(tab.id)}
                     style={{
-                      padding: '1rem 0.5rem',
-                      fontSize: '0.85rem',
+                      padding: '1rem 0.25rem',
+                      fontSize: 'clamp(0.7rem, 2.5vw, 0.85rem)',
                       fontWeight: 800,
                       color: activeTab === tab.id ? 'var(--color-primary)' : 'var(--color-text-light)',
                       borderBottom: `3px solid ${activeTab === tab.id ? 'var(--color-primary)' : 'transparent'}`,
@@ -113,7 +122,11 @@ const PortfolioView = () => {
                       borderTop: 'none',
                       marginBottom: '-1px',
                       textTransform: 'uppercase',
-                      letterSpacing: '1px'
+                      letterSpacing: '1px',
+                      flex: '1',
+                      maxWidth: '120px',
+                      textAlign: 'center',
+                      whiteSpace: 'nowrap'
                     }}
                   >
                     {tab.label[language] || tab.label.es}
@@ -129,11 +142,44 @@ const PortfolioView = () => {
             <div className="animate-fade-in">
               <section id="about">
                 <SectionHeader title={language === 'es' ? 'Sobre mí' : language === 'ca' ? 'Sobre mi' : language === 'gl' ? 'Sobre min' : 'About me'} />
-                <div className="card" style={{ padding: 'var(--spacing-lg) var(--spacing-lg) 1.5rem var(--spacing-lg)' }}>
-                  <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--color-text)', whiteSpace: 'pre-line', textAlign: 'left' }}>
-                    { (aboutByRole[activeRoleId] && aboutByRole[activeRoleId][language]) ? aboutByRole[activeRoleId][language] : (aboutMe[language] || aboutMe.es) }
+                <div 
+                  className={`card ${isMobile ? 'about-card-expandable' : ''}`} 
+                  style={{ 
+                    padding: 'var(--spacing-lg)',
+                    cursor: isMobile ? 'pointer' : 'default',
+                    transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
+                    position: 'relative'
+                  }}
+                  onClick={() => isMobile && setIsAboutExpanded(!isAboutExpanded)}
+                >
+                  <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--color-text)', textAlign: 'left', marginBottom: 0 }}>
+                    {((aboutByRole[activeRoleId] && aboutByRole[activeRoleId][language]) ? aboutByRole[activeRoleId][language] : (aboutMe[language] || aboutMe.es)).split('\n\n')[0]}
                   </p>
                   
+                  <div 
+                    style={{
+                      display: 'grid',
+                      gridTemplateRows: (isAboutExpanded || !isMobile) ? '1fr' : '0fr',
+                      opacity: (isAboutExpanded || !isMobile) ? 1 : 0,
+                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                  >
+                    <div style={{ overflow: 'hidden' }}>
+                      <p style={{ 
+                        fontSize: '1.05rem', 
+                        lineHeight: 1.8, 
+                        color: 'var(--color-text)', 
+                        whiteSpace: 'pre-line', 
+                        textAlign: 'left', 
+                        marginTop: '1.5rem',
+                        marginBottom: 0
+                      }}>
+                        {((aboutByRole[activeRoleId] && aboutByRole[activeRoleId][language]) ? aboutByRole[activeRoleId][language] : (aboutMe[language] || aboutMe.es)).split('\n\n').slice(1).join('\n\n')}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Location always visible below the content */}
                   <div style={{ 
                     marginTop: '1.5rem', 
                     paddingTop: '1.5rem', 
@@ -147,12 +193,39 @@ const PortfolioView = () => {
                   }}>
                     <strong>
                       {language === 'es' ? '📍 Ubicación actual:' : 
-                       language === 'ca' ? '📍 Ubicació actual:' : 
-                       language === 'gl' ? '📍 Ubicación actual:' : 
-                       '📍 Current location:'}
+                        language === 'ca' ? '📍 Ubicació actual:' : 
+                        language === 'gl' ? '📍 Ubicación actual:' : 
+                        '📍 Current location:'}
                     </strong>
                     <span>Madrid</span>
                   </div>
+
+                  {isMobile && (
+                    <div style={{ 
+                      display: 'flex', 
+                      justifyContent: 'center', 
+                      marginTop: '1.25rem',
+                      color: 'var(--color-primary)',
+                      opacity: 0.6
+                    }}>
+                      <svg 
+                        width="20" 
+                        height="20" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="3" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                        style={{ 
+                          transform: isAboutExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                        }}
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </div>
+                  )}
                 </div>
               </section>
 

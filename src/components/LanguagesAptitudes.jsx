@@ -69,41 +69,43 @@ export default function LanguagesAptitudes({ languages, aptitudes, activeRole })
                         e.currentTarget.style.borderColor = 'var(--color-border)';
                     }}
                 >
-                    <ul className="flex flex-wrap gap-md justify-start languages-list">
-                        {languages.map((lang, index) => (
-                            <li key={index} style={{ listStyle: 'none' }}>
-                                <div
-                                    className="flex flex-col language-item"
-                                    style={{ minWidth: '150px', padding: 'var(--spacing-sm)' }}
-                                >
-                                    <span style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--color-text)', marginBottom: '4px' }}>
-                                        {lang.name[language] || lang.name.es}
-                                    </span>
-                                    <div style={{ width: '100%', height: '4px', backgroundColor: 'var(--color-border)', borderRadius: '2px', overflow: 'hidden', marginBottom: '4px' }}>
+                    <div className="languages-container-desktop">
+                        <ul className="languages-stacked-list" style={{ gap: 'var(--spacing-md)' }}>
+                            {languages.map((lang, index) => (
+                                <li key={index} style={{ listStyle: 'none', flex: 1, minWidth: 0 }}>
+                                    <div
+                                        className="language-card-content"
+                                        style={{ padding: '0.25rem 0', width: '100%' }}
+                                    >
+                                        <span style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--color-text)', marginBottom: '4px', display: 'block' }}>
+                                            {lang.name[language] || lang.name.es}
+                                        </span>
+                                        <div style={{ width: '100%', height: '4px', backgroundColor: 'var(--color-border)', borderRadius: '2px', overflow: 'hidden', marginBottom: '4px' }}>
+                                            <div style={{
+                                                width: `${getProgressValue(lang.level.es)}%`,
+                                                height: '100%',
+                                                backgroundColor: 'var(--color-primary)'
+                                            }} />
+                                        </div>
                                         <div style={{
-                                            width: `${getProgressValue(lang.level.es)}%`,
-                                            height: '100%',
-                                            backgroundColor: 'var(--color-primary)'
-                                        }} />
-                                    </div>
-                                    <div style={{
-                                        maxHeight: showAllDetails ? '60px' : '0',
-                                        overflow: 'hidden',
-                                        transition: 'max-height 0.3s ease'
-                                    }}>
-                                        <p style={{ fontSize: '0.7rem', color: 'var(--color-text-light)', fontWeight: 700, paddingTop: '4px', marginBottom: '2px' }}>
-                                            {lang.level[language] || lang.level.es}
-                                        </p>
-                                        {lang.detail && lang.detail[language] && (
-                                            <p style={{ fontSize: '0.65rem', color: 'var(--color-text-light)', fontWeight: 600 }}>
-                                                {lang.detail[language]}
+                                            maxHeight: showAllDetails ? '100px' : '0',
+                                            overflow: 'hidden',
+                                            transition: 'max-height 0.3s ease'
+                                        }}>
+                                            <p style={{ fontSize: '0.75rem', color: 'var(--color-text-light)', fontWeight: 700, paddingTop: '4px', marginBottom: '2px' }}>
+                                                {lang.level[language] || lang.level.es}
                                             </p>
-                                        )}
+                                            {lang.detail && lang.detail[language] && (
+                                                <p style={{ fontSize: '0.7rem', color: 'var(--color-text-light)', fontWeight: 600 }}>
+                                                    {lang.detail[language]}
+                                                </p>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </button>
             </div>
 

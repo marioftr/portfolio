@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import LanguageDropdown from './LanguageDropdown';
@@ -7,6 +8,7 @@ import { socialLinks } from '../data/content';
 export default function LandingPage() {
     const { language, t } = useTranslation();
     const navigate = useNavigate();
+    const [isBioExpanded, setIsBioExpanded] = useState(false);
 
     const roleMapping = {
         all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' } },
@@ -33,7 +35,7 @@ export default function LandingPage() {
     return (
         <div className="flex flex-col md:flex-row min-h-screen bg-white md:overflow-hidden relative">
             {/* Left Side: Profile & Bio */}
-            <div className="flex-1 flex flex-col items-center justify-center p-md sm:p-lg md:p-xl text-center md:items-start md:text-left bg-gray-50 landing-left" style={{ borderRight: '1px solid var(--color-border)', paddingTop: '3rem', minHeight: '100vh' }}>
+            <div className="flex-1 flex flex-col items-center justify-start p-md sm:p-lg md:p-xl text-center md:items-start md:text-left bg-gray-50 landing-left" style={{ borderRight: '1px solid var(--color-border)', paddingTop: 'clamp(4rem, 10vh, 7rem)', minHeight: '100vh' }}>
                 <div className="animate-fade-in flex flex-col items-center md:items-start gap-lg" style={{ maxWidth: '600px', width: '100%' }}>
                     <div style={{
                         width: 'clamp(120px, 20vw, 150px)', 
@@ -56,15 +58,88 @@ export default function LandingPage() {
                             </p>
                         </div>
 
-                        <p className="responsive-bio" style={{ color: 'var(--color-text-light)', lineHeight: 1.7, fontWeight: 500, textAlign: 'justify', width: '100%', maxWidth: '100%' }}>
-                            {language === 'es'
-                                ? 'Máster en Diseño, Modelado y Programación de Videojuegos con formación especializada en animación, programación, edición audiovisual y diseño gráfico. Desarrollador versátil con experiencia en múltiples disciplinas creativas. Revisa los perfiles especializados para ver proyectos relevantes.'
-                                : language === 'ca'
-                                    ? 'Màster en Disseny, Modelatge i Programació de Videojocs amb formació especialitzada en animació, programació, edició audiovisual i disseny gràfic. Desenvolupador versàtil amb experiència en múltiples disciplines creatives. Revisa els perfils especialitzats per veure projectes rellevants.'
-                                    : language === 'gl'
-                                        ? 'Máster en Deseño, Modelado e Programación de Videoxogos con formación especializada en animación, programación, edición audiovisual e deseño gráfico. Desenvolvedor versátil con experiencia en múltiples disciplinas creativas. Revisa os perfís especializados para ver proxectos relevantes.'
-                                        : 'Master in Game Design, Modeling and Programming with specialized training in animation, programming, audiovisual editing and graphic design. Versatile developer with experience in multiple creative disciplines. Check specialized profiles to see relevant projects.'}
-                        </p>
+                        <div 
+                            className="responsive-bio-container" 
+                            style={{ 
+                                cursor: 'pointer',
+                                width: '100%',
+                            }}
+                            onClick={() => setIsBioExpanded(!isBioExpanded)}
+                        >
+                            <p className="responsive-bio" style={{ 
+                                color: 'var(--color-text-light)', 
+                                lineHeight: 1.7, 
+                                fontWeight: 500, 
+                                textAlign: 'justify', 
+                                width: '100%', 
+                                maxWidth: '100%',
+                                marginBottom: 0
+                            }}>
+                                {language === 'es'
+                                    ? 'Máster en Diseño, Modelado y Programación de Videojuegos con formación especializada en animación, programación, edición audiovisual y diseño gráfico.'
+                                    : language === 'ca'
+                                        ? 'Màster en Disseny, Modelatge i Programació de Videojocs amb formació especialitzada en animació, programació, edició audiovisual i disseny gràfic.'
+                                        : language === 'gl'
+                                            ? 'Máster en Deseño, Modelado e Programación de Videoxogos con formación especializada en animación, programación, edición audiovisual e deseño gráfico.'
+                                            : 'Master in Game Design, Modeling and Programming with specialized training in animation, programming, audiovisual editing and graphic design.'}
+                            </p>
+
+                            <div 
+                                style={{
+                                    display: 'grid',
+                                    gridTemplateRows: isBioExpanded ? '1fr' : '0fr',
+                                    opacity: isBioExpanded ? 1 : 0,
+                                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                                }}
+                            >
+                                <div style={{ overflow: 'hidden' }}>
+                                    <p style={{ 
+                                        color: 'var(--color-text-light)', 
+                                        lineHeight: 1.7, 
+                                        fontWeight: 500, 
+                                        textAlign: 'left', 
+                                        width: '100%',
+                                        marginTop: '1rem',
+                                        marginBottom: 0
+                                    }}>
+                                        {language === 'es'
+                                            ? 'Desarrollador versátil con experiencia en múltiples disciplinas creativas. Revisa los perfiles especializados para ver proyectos relevantes.'
+                                            : language === 'ca'
+                                                ? 'Desenvolupador versàtil amb experiència en múltiples disciplines creatives. Revisa els perfils especialitzats per veure projectes rellevants.'
+                                                : language === 'gl'
+                                                    ? 'Desenvolvedor versátil con experiencia en múltiples disciplinas creativas. Revisa os perfís especializados para ver proxectos relevantes.'
+                                                    : 'Versatile developer with experience in multiple creative disciplines. Check specialized profiles to see relevant projects.'}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Mobile expansion indicator */}
+                            <div className="mobile-only-flex" style={{ 
+                                display: 'none', 
+                                justifyContent: 'center', 
+                                alignItems: 'center',
+                                marginTop: '1rem',
+                                color: 'var(--color-primary)',
+                                opacity: 0.7
+                            }}>
+                                <svg 
+                                    width="20" 
+                                    height="20" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                    style={{ 
+                                        transform: isBioExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                                        transition: 'transform 0.4s ease'
+                                    }}
+                                >
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Social Links */}
