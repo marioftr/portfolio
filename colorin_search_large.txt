@@ -1,0 +1,105 @@
+
+  src\data\content.js:440:    },
+  src\data\content.js:441:    {
+> src\data\content.js:442:        id: 'colorin',
+  src\data\content.js:443:        title: { es: 'Colorín Decolorado', ca: 'Colorín Decolorat', en: 'Colorín Decolorado', gl: 'Colorín Decolorado' },
+  src\data\content.js:444:        year: '2025',
+  src\data\content.js:445:        category: { es: 'Cortometraje (Animación Híbrida)', ca: 'Curtmetratge (Animació Híbrida)', en: 'Short Film (Hybrid Animation)', gl: 'Curtametraxe (Animación Híbrida)' },
+  src\data\content.js:446:        type: 'academic',
+  src\data\content.js:447:        tags: ['after_effects', 'blender', 'photoshop', 'premiere'],
+  src\data\content.js:448:        summary: {
+  src\data\content.js:449:            es: 'Diseño y desarrollo de un cortometraje de animación híbrida elaborado como TFG en Comunicación Audiovisual.',
+  src\data\content.js:450:            ca: 'Disseny i desenvolupament d\'una curtmetratge de animació híbrida elaborada com a TFG en Comunicació Audiovisual.',
+  src\data\content.js:451:            en: 'Design and development of a hybrid animation short film as a Bachelor Thesis in Audiovisual Communication.',
+  src\data\content.js:452:            gl: 'Deseño e desenvolvemento dunha curtametraxe de animación híbrida elaborada como TFG en Comunicación Audiovisual.'
+  src\data\content.js:453:        },
+  src\data\content.js:454:        description: {
+  src\data\content.js:455:            es: `Diseño y desarrollo de Colorín Decolorado, un cortometraje de animación híbrida orientado al público infantil elaborado en el marco del Trabajo de Fin de Grado de Comunicación Audiovisual con mención en Ideación y Creación de Contenidos Audiovisuales (USC). La propuesta combina diferentes técnicas visuales y narrativas con la finalidad de explorar el potencial expresivo de la animación como herramienta de aprendizaje y crecimiento emocional, abordando los fundamentos teóricos del cine infantil y la animación, así como el proceso completo de preproducción del proyecto y la realización de tres teasers como muestra práctica, y una reflexión crítica sobre las decisiones adoptadas y los retos técnicos y conceptuales encontrados durante el proceso.
+  src\data\content.js:456:
+  src\data\content.js:457:## TEASERS
+  src\data\content.js:458:
+  src\data\content.js:459:A continuación se presentan los tres teasers desarrollados como muestra práctica del proyecto:
+  src\data\content.js:460:
+  src\data\content.js:461:<div class="custom-video-carousel">
+  src\data\content.js:462:  <div>
+  src\data\content.js:463:    <h3>Teaser Nero</h3>
+  src\data\content.js:464:    <p>Presentación de Nero, el gato protagonista de Colorín Decolorado</p>
+  src\data\content.js:465:    <iframe src="https://player.vimeo.com/video/1104936330" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  src\data\content.js:466:  </div>
+  src\data\content.js:467:  <div>
+  src\data\content.js:468:    <h3>Teaser Coral</h3>
+  src\data\content.js:469:    <p>Presentación de Coral, la niña protagonista de Colorín Decolorado</p>
+  src\data\content.js:470:    <iframe src="https://player.vimeo.com/video/1104936347" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  src\data\content.js:471:  </div>
+  src\data\content.js:472:  <div>
+  src\data\content.js:473:    <h3>Teaser Craión</h3>
+  src\data\content.js:474:    <p>Presentación de Craión, el sabio protagonista de Colorín Decolorado</p>
+  src\data\content.js:475:    <iframe src="https://player.vimeo.com/video/1104936375" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  src\data\content.js:476:  </div>
+  src\data\content.js:477:</div>
+  src\data\content.js:478:
+  src\data\content.js:479:## OBJETIVOS
+  src\data\content.js:480:
+  src\data\content.js:481:Este Trabajo de Fin de Grado tiene como objetivo cumplido centrarse en la experimentación práctica de distintas técnicas de animación para extraer sus ventajas y limitaciones, y así sentar las bases de un flujo de trabajo viable para la ideación de un cortometraje de animación —Colorín Decolorado— y la realización de tres teasers demostrativos.
+  src\data\content.js:482:
+  src\data\content.js:483:Para alcanzar dicho objetivo de manera ordenada, la exploración fue guiada a través de los siguientes objetivos secundarios:
+  src\data\content.js:484:
+  src\data\content.js:485:- **Elaboración de un marco teórico específico** sobre las técnicas de animación y las temáticas tratadas, que sirve de base conceptual para la experimentación práctica, justificando las decisiones metodológicas y orientando todo el proceso.
+  src\data\content.js:486:
+  src\data\content.js:487:- **Definición y categorización de las distintas técnicas de animación utilizadas** —2D full-frame, 3D e integración con live-action, entre otras—, identificando sus rasgos formales y técnicos.
+  src\data\content.js:488:
+  src\data\content.js:489:- **Demostración del sentido narrativo y visual** de dichas técnicas en el cortometraje, así como representación práctica mediante pequeños prototipos aplicados a diferentes fragmentos expositivos de los teasers.
+  src\data\content.js:490:
+  src\data\content.js:491:- **Diseño de los flujos de trabajo de cada teaser** con la finalidad de integrar de forma coherente las técnicas seleccionadas, estableciendo la secuencia de pasos y las herramientas necesarias para optimizar la eficacia.
+  src\data\content.js:492:
+  src\data\content.js:493:- **Definición de un flujo de trabajo global** que recoge la metodología a seguir para la potencial elaboración de la pieza final.
+  src\data\content.js:494:
+  src\data\content.js:495:## DIAPOSITIVAS DE LA DEFENSA
+  src\data\content.js:496:
+  src\data\content.js:497:Las siguientes imágenes resumen de forma visual el proceso de elaboración del Trabajo de Fin de Grado, y sirvieron como apoyo para la presentación realizada frente a un tribunal académico en septiembre de 2025.
+  src\data\content.js:498:
+  src\data\content.js:499:<iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
+  src\data\content.js:500:
+  src\data\content.js:501:## RESULTADOS
+  src\data\content.js:502:
+  src\data\content.js:503:Los resultados de este proyecto se dividen en 2 vertientes fundamentales: aquellos asociados al cortometraje completo y aquellos vinculados a los tres teasers.
+  src\data\content.js:504:
+  src\data\content.js:505:Del cortometraje podemos extraer los siguientes rendimientos:
+  src\data\content.js:506:
+  src\data\content.js:507:- Un guión final completo.
+  src\data\content.js:508:- Un storyboard completamente desarrollado y dos fragmentos de animatic.
+  src\data\content.js:509:- El diseño pormenorizado de los protagonistas y de los personajes secundarios.
+  src\data\content.js:510:- Una propuesta visual específica y definida.
+  src\data\content.js:511:- La base para una potencial producción futura completa.
+  src\data\content.js:512:
+  src\data\content.js:513:De los teasers obtenemos:
+  src\data\content.js:514:
+  src\data\content.js:515:- 3 fragmentos animados tangibles.
+  src\data\content.js:516:- La demostración de la viabilidad artística y técnica del proyecto.
+  src\data\content.js:517:- La aplicación total y fundamentada de un pipeline adaptado a las necesidades concretas.
+  src\data\content.js:518:- Material promocional para el conjunto de la obra.
+  src\data\content.js:519:- Feedback positivo fruto de la demostración pública de los fragmentos.
+  src\data\content.js:520:
+  src\data\content.js:521:### Flujo de Trabajo
+  src\data\content.js:522:
+  src\data\content.js:523:**Preproducción**: Concepto, Guión, Storyboard, Animatic, Diseño de personajes, Propuesta visual.
+  src\data\content.js:524:
+  src\data\content.js:525:**Producción**: Layout, Animación bidimensional, Animación tridimensional, Efectos, Elementos live action, Composición.
+  src\data\content.js:526:
+  src\data\content.js:527:**Postproducción**: Montaje, Etalonaje, Máscaras de capa, Transiciones, Diseño y mezcla de sonido, Difusión y promoción.`
+  src\data\content.js:528:        },
+  src\data\content.js:529:        image: '/images/colorin1.png',
+  src\data\content.js:530:        images: ['/images/colorin2.avif', '/images/colorin3.avif', '/images/colorin4.avif', '/images/colorin5.avif', '/images/colorin6.avif', '/images/colorin7.avif', '/images/colorin8.avif', '/images/colorin9.avif', '/images/colorin10.avif', '/images/colorin11.avif'],
+  src\data\content.js:531:        otherVideos: [
+  src\data\content.js:532:            { url: 'https://vimeo.com/1104957890?fl=pl&fe=sh', title: { es: 'Video 1', ca: 'Vídeo 1', en: 'Video 1', gl: 'Vídeo 1' } },
+  src\data\content.js:533:            { url: 'https://vimeo.com/1104957895?fl=pl&fe=sh', title: { es: 'Video 2', ca: 'Vídeo 2', en: 'Video 2', gl: 'Vídeo 2' } },
+  src\data\content.js:534:            { url: 'https://vimeo.com/1104957944?fl=pl&fe=sh', title: { es: 'Video 3', ca: 'Vídeo 3', en: 'Video 3', gl: 'Vídeo 3' } }
+  src\data\content.js:535:        ],
+  src\data\content.js:536:        roles: ['artist_2d_3d', 'video_editor', 'design'],
+  src\data\content.js:537:        memoryUrl: '/downloads/memoria_colorindecolorado_final_compressed.pdf'
+  src\data\content.js:538:    },
+  src\data\content.js:539:    {
+  src\data\content.js:540:        id: 'kafeto',
+  src\data\content.js:541:        title: 'Kafeto',
+  src\data\content.js:542:        year: '2025',
+

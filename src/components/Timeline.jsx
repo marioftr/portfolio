@@ -6,18 +6,30 @@ export default function Timeline({ education, experience }) {
     const renderDescription = (desc) => {
         if (Array.isArray(desc)) {
             return (
-                <div className="flex flex-col gap-sm">
+                <div className="flex flex-col" style={{ gap: '1.5rem' }}>
                     {desc.map((group, idx) => (
                         <div key={idx}>
-                            <h4 style={{
-                                fontSize: '0.875rem',
-                                fontWeight: 800,
-                                color: 'var(--color-primary-dark)',
-                                marginBottom: '0.2rem',
-                                textTransform: 'uppercase'
+                            <h4 className="text-accent" style={{
+                                fontSize: '0.9rem',
+                                fontWeight: 700,
+                                marginBottom: group.location ? '0.2rem' : 'var(--spacing-sm)',
+                                textTransform: 'none'
                             }}>
                                 {group.subtitle}
                             </h4>
+                            {group.location && (
+                                <p style={{
+                                    fontSize: '0.8rem',
+                                    color: 'var(--color-text-light)',
+                                    marginBottom: 'var(--spacing-sm)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '4px',
+                                    opacity: 0.8
+                                }}>
+                                    <span>📍</span> {group.location}
+                                </p>
+                            )}
                             <p style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'var(--color-text-light)' }}>
                                 {group.text}
                             </p>
@@ -34,14 +46,14 @@ export default function Timeline({ education, experience }) {
     };
 
     const renderItem = (item, isLast) => (
-        <div key={item.id} style={{
+        <div key={item.id} className="timeline-container" style={{
             position: 'relative',
             paddingLeft: 'var(--spacing-lg)',
             marginBottom: isLast ? 0 : 'var(--spacing-md)'
         }}>
             {/* Thread line */}
             {!isLast && (
-                <div style={{
+                <div className="timeline-line" style={{
                     position: 'absolute',
                     left: '7px',
                     top: '20px',
@@ -52,7 +64,7 @@ export default function Timeline({ education, experience }) {
             )}
 
             {/* Dot */}
-            <div style={{
+            <div className="timeline-dot" style={{
                 position: 'absolute',
                 left: '0',
                 top: '6px',
@@ -64,7 +76,8 @@ export default function Timeline({ education, experience }) {
                 zIndex: 2
             }} />
 
-            <div className="card" style={{ padding: 'var(--spacing-md)' }}>
+            <div className="card timeline-card" style={{ padding: 'var(--spacing-md)' }}>
+
                 <span className="tag" style={{ marginBottom: 'var(--spacing-xs)', fontSize: '0.75rem' }}>
                     {item.year}
                 </span>
@@ -77,13 +90,27 @@ export default function Timeline({ education, experience }) {
                     <p className="text-accent" style={{
                         fontSize: '0.9rem',
                         fontWeight: 700,
-                        marginBottom: 'var(--spacing-sm)'
+                        marginBottom: item.location ? '0.2rem' : 'var(--spacing-sm)'
                     }}>
                         {item.institution || item.company}
                     </p>
                 )}
 
-                <div style={{ marginTop: 'var(--spacing-sm)' }}>
+                {item.location && (
+                    <p style={{
+                        fontSize: '0.8rem',
+                        color: 'var(--color-text-light)',
+                        marginBottom: 'var(--spacing-sm)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        opacity: 0.8
+                    }}>
+                        <span>📍</span> {item.location}
+                    </p>
+                )}
+
+                <div style={{ marginTop: (item.institution || item.company) ? 'var(--spacing-sm)' : '1.5rem' }}>
                     {renderDescription(item.description[language] || item.description.es)}
                 </div>
             </div>

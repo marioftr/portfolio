@@ -1,0 +1,368 @@
+export const projects = [
+    {
+        id: 'resaca',
+        title: 'RESACA',
+        year: '2026',
+        category: { es: 'Videojuego (Unity/C#)', ca: 'Videojoc (Unity/C#)', en: 'Video Game (Unity/C#)', gl: 'Videoxogo (Unity/C#)' },
+        type: 'academic',
+        tags: ['unity', 'csharp', 'photoshop', 'audacity'],
+        memoryUrl: '/downloads/RESACA_Memoria.pdf',
+        summary: {
+            es: 'Experiencia narrativa con minijuegos y más de 40 scripts. Una demostración de sistemas de guardado, cinemáticas e interacción.',
+            ca: 'Experiència narrativa amb minijocs i més de 40 scripts. Una demostració de sistemes de guardatge, cinemàtica i interacció.',
+            en: 'Narrative experience with mini-games and over 40 scripts. A demonstration of save systems, cinematics, and interaction.',
+            gl: 'Experiència narrativa con minixogos e máis de 40 scripts. Unha demostración de sistemas de gardado, cinemáticas e interacción.'
+        },
+        description: {
+            es: 'Proyecto final del módulo de programación. Experiencia narrativa con minijuegos integrados y sistemas avanzados de interacción.',
+            ca: 'Projecte final del mòdul de programació. Experiència narrativa amb minijocs integrats i sistemes avançats d\'interacció.',
+            en: 'Programming module final project. Narrative experience with integrated mini-games and advanced interaction systems.',
+            gl: 'Proxecto final do módulo de programación. Experiència narrativa con minixogos integrados e sistemes avanzados de interacción.'
+        },
+        longDescription: {
+            es: `## INTRODUCCIÓN
+RESACA es un proyecto elaborado en el marco de Trabajo final para el módulo de Programación de Videojuegos del máster de Desarrollo de Videojuegos del Centro de Estudios de Innovación (CEI.) de Madrid.
+
+Es una DEMO jugable que presenta dos funcionalidades diferenciadas:
+- Un **“Modo historia”**, con una línea temática coherente.
+- Una **selección de minijuegos** desbloqueables.
+
+RESACA cuenta con más de **40 scripts y alrededor de 4000 líneas de código**.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## CARACTERÍSTICAS TÉCNICAS
+- **Sistema de guardado**: Serialización de datos en JSON + PlayerPrefs. Guardado automático.
+- **Cinemáticas**: Sucesión de planos animados con Cinemachine.
+- **Interacción**: Sistema de Raycast para interactuar con más de 15 objetos ("Ver info", "Interactuar", "Jugar").
+- **Postprocesado**: Ajustes de volumen, aberración cromática, etc., configurables por el usuario.
+
+## MINIJUEGOS
+### 1. TIRO AO BRANCO
+Lanzamiento de dardos con sistema de barras de carga.
+- Cálculo de puntuación basado en distancias (Mathf.Atan2, Mathf.Rad2Deg).
+- Animaciones con Cinemachine.
+
+### 2. VIENTO Y MADERA
+Juego de memoria musical ("Simón dice").
+- Lógica de listas de listas para gestionar melodías y notas.
+- Sistema de detección de errores (tiempo, orden, duración).
+
+## CONFLICTOS Y APRENDIZAJE
+El proyecto superó diversos retos, desde la gestión del tiempo hasta la optimización del editor (migración a JetBrains Rider). Supuso un avance notable en la comprensión de conceptos de programación orientada a objetos (instancias, clases abstractas) y matemáticas aplicadas a videojuegos.
+
+## GALERÍA DE IMÁGENES
+
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`,
+            ca: `## INTRODUCIÓN
+RESACA és un projecte elaborat en el marc de Treball final per al mòdul de Programació de Videojocs del màster de Desenvolupament de Videojocs del Centre d'Estudis d'Innovació (CEI.) de Madrid.
+
+És una DEMO jugable que presenta dúas funcionalitats diferenciadas:
+- Un **“Mode història”**, amb una línia temàtica coherent.
+- Unha **selecció de minijocs** desbloqueables.
+
+RESACA compta amb més de **40 scripts e arredor de 4000 liñas de código**.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## CARACTERÍSTICAS TÉCNICAS
+- **Sistema de gardado**: Serialització de dades en JSON + PlayerPrefs. Gardado automàtic.
+- **Cinemàtiques**: Successió de plans animats amb Cinemachine.
+- **Interacció**: Sistema de Raycast per interactuar amb més de 15 objectes ("Veure info", "Interactuar", "Jugar").
+- **Postprocessament**: Ajustos de volum, aberració cromática, etc., configurables per l'usuari.
+
+## MINIJOCS
+### 1. TIRO AO BRANCO
+Lanzamento de dards amb sistema de barras de càrrega.
+- Càlcul de puntuación baseado en distàncies (Mathf.Atan2, Mathf.Rad2Deg).
+- Animacións amb Cinemachine.
+
+### 2. VENTO E MADEIRA
+Xogo de memoria musical ("Simón di").
+- Lògica de llistes de llistes per gestionar melodies i notes.
+- Sistema de detecció d'errors (temps, ordre, durada).
+
+## CONFLITOS E APRENDIZAXE
+O projecte va superar diversos reptes, desde a xestión do tempo ata a optimització do editor (migración a JetBrains Rider). Supuxo un avance notable na comprensión de conceptes de programación orientada a obxectos (instancias, clases abstractas) e matemáticas aplicadas a videoxogos.
+
+## GALERIA DE IMAXES
+
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`,
+            en: `## INTRODUCTION
+RESACA is a final project for the Video Game Programming module at CEI Madrid. It's a playable DEMO featuring a Story Mode and unlockable mini-games.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## TECHNICAL FEATURES
+- **Save System**: JSON serialization + PlayerPrefs.
+- **Cinematics**: Animated shots using Cinemachine.
+- **Interaction**: Raycast system for over 15 interactable objects.
+- **Post-processing**: User-configurable volume adjustments.
+
+## MINI-GAMES
+1. **TARGET PRACTICE**: Darts game with charge bars and physics-based scoring calculations.
+2. **WIND AND WOOD**: Musical memory game involving complex list logic and error detection.
+
+## IMAGE GALLERY
+
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`,
+            gl: `## INTRODUCIÓN
+RESACA é un proxecto elaborado no marco de Traballo final para o módulo de Programación de Videoxogos do máster de Desenvolupmento de Videoxogos do Centro de Estudios de Innovación (CEI.) de Madrid.
+
+É unha DEMO xogable que presenta dúas funcionalidades diferenciadas:
+- Un **“Modo historia”**, cunha liña temática coherente.
+- Unha **selecció de minixogos** desbloqueables.
+
+RESACA compta amb més de **40 scripts e arredor de 4000 liñas de código**.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## CARACTERÍSTICAS TÉCNICAS
+- **Sistema de gardado**: Serialización de datos en JSON + PlayerPrefs. Gardado automático.
+- **Cinemáticas**: Successió de plans animats amb Cinemachine.
+- **Interacción**: Sistema de Raycast per interactuar amb més de 15 objectes ("Veure info", "Interactuar", "Jugar").
+- **Postprocessament**: Ajustos de volum, aberració cromática, etc., configurables per l'usuari.
+
+## MINIJOCS
+### 1. TIRO AO BRANCO
+Lanzamento de dards amb sistema de barras de càrrega.
+- Càlcul de puntuación baseado en distàncies (Mathf.Atan2, Mathf.Rad2Deg).
+- Animacións amb Cinemachine.
+
+### 2. VENTO E MADEIRA
+Xogo de memoria musical ("Simón di").
+- Lògica de llistes de llistes per gestionar melodies i notes.
+- Sistema de detecció d'errors (temps, ordre, durada).
+
+## CONFLITOS E APRENDIZAXE
+O proxecto va superar diversos reptes, desde a xestión do tempo ata a optimització do editor (migración a JetBrains Rider). Supuxo un avance notable na comprensión de conceptes de programación orientada a obxectos (instancias, clases abstractas) e matemáticas aplicadas a videoxogos.
+
+## GALERIA DE IMAXES
+
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`
+        },
+        image: '/images/resaca.jpg',
+        images: ['/images/resaca.jpg', '/images/resaca2.png', '/images/resaca3.png', '/images/resaca4.png', '/images/resaca5.png', '/images/resaca6.png'],
+        roles: ['game_dev']
+    },
+    {
+        id: 'colorin',
+        title: { es: 'Colorín Decolorado', ca: 'Colorín Decolorat', en: 'Colorín Decolorado', gl: 'Colorín Decolorado' },
+        year: '2025',
+        category: { es: 'Cortometraje (Animación Híbrida)', ca: 'Curtmetratge (Animació Híbrida)', en: 'Short Film (Hybrid Animation)', gl: 'Curtametraxe (Animación Híbrida)' },
+        type: 'academic',
+        tags: ['after_effects', 'blender', 'photoshop', 'premiere'],
+        summary: {
+            es: 'Diseño y desarrollo de un cortometraje de animación híbrida elaborado como TFG en Comunicación Audiovisual.',
+            ca: 'Disseny i desenvolupament d\'una curtmetratge de animació híbrida elaborada com a TFG en Comunicació Audiovisual.',
+            en: 'Design and development of a hybrid animation short film as a Bachelor Thesis in Audiovisual Communication.',
+            gl: 'Deseño e desenvolvemento dunha curtametraxe de animación híbrida elaborada como TFG en Comunicación Audiovisual.'
+        },
+        description: {
+            es: `Diseño y desarrollo de Colorín Decolorado, un cortometraje de animación híbrida orientado al público infantil elaborado en el marco del Trabajo de Fin de Grado de Comunicación Audiovisual con mención en Ideación y Creación de Contenidos Audiovisuales (USC). La propuesta combina diferentes técnicas visuales y narrativas con la finalidad de explorar el potencial expresivo de la animación como herramienta de aprendizaje y crecimiento emocional, abordando los fundamentos teóricos del cine infantil y la animación, así como el proceso completo de preproducción del proyecto y la realización de tres teasers como muestra práctica, y una reflexión crítica sobre las decisiones adoptadas y los retos técnicos y conceptuales encontrados durante el proceso.
+
+## TEASERS
+
+A continuación se presentan los tres teasers desarrollados como muestra práctica del proyecto:
+
+<div class="custom-video-carousel">
+  <div>
+    <h3>Teaser Nero</h3>
+    <p>Presentación de Nero, el gato protagonista de Colorín Decolorado</p>
+    <iframe src="https://player.vimeo.com/video/1104936330" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div>
+    <h3>Teaser Coral</h3>
+    <p>Presentación de Coral, la niña protagonista de Colorín Decolorado</p>
+    <iframe src="https://player.vimeo.com/video/1104936347" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div>
+    <h3>Teaser Craión</h3>
+    <p>Presentación de Craión, el sabio protagonista de Colorín Decolorado</p>
+    <iframe src="https://player.vimeo.com/video/1104936375" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+## OBJETIVOS
+
+Este Trabajo de Fin de Grado tiene como objetivo cumplido centrarse en la experimentación práctica de distintas técnicas de animación para extraer sus ventajas y limitaciones, y así sentar las bases de un flujo de trabajo viable para la ideación de un cortometraje de animación —Colorín Decolorado— y la realización de tres teasers demostrativos.
+
+Para alcanzar dicho objetivo de manera ordenada, la exploración fue guiada a través de los siguientes objetivos secundarios:
+
+- **Elaboración de un marco teórico específico** sobre las técnicas de animación y las temáticas tratadas, que sirve de base conceptual para la experimentación práctica, justificando las decisiones metodológicas y orientando todo el proceso.
+
+- **Definición y categorización de las distintas técnicas de animación utilizadas** —2D full-frame, 3D e integración con live-action, entre otras—, identificando sus rasgos formales y técnicos.
+
+- **Demostración del sentido narrativo y visual** de dichas técnicas en el cortometraje, así como representación práctica mediante pequeños prototipos aplicados a diferentes fragmentos expositivos de los teasers.
+
+- **Diseño de los flujos de trabajo de cada teaser** con la finalidad de integrar de forma coherente las técnicas seleccionadas, estableciendo la secuencia de pasos y las herramientas necesarias para optimizar la eficacia.
+
+- **Definición de un flujo de trabajo global** que recoge la metodología a seguir para la potencial elaboración de la pieza final.
+
+## DIAPOSITIVAS DE LA DEFENSA
+
+Las siguientes imágenes resumen de forma visual el proceso de elaboración del Trabajo de Fin de Grado, y sirvieron como apoyo para la presentación realizada frente a un tribunal académico en septiembre de 2025.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
+
+## RESULTADOS
+
+Los resultados de este proyecto se dividen en 2 vertientes fundamentales: aquellos asociados al cortometraje completo y aquellos vinculados a los tres teasers.
+
+Del cortometraje podemos extraer los siguientes rendimientos:
+
+- Un guión final completo.
+- Un storyboard completamente desarrollado y dos fragmentos de animatic.
+- El diseño pormenorizado de los protagonistas y de los personajes secundarios.
+- Una propuesta visual específica y definida.
+- La base para una potencial producción futura completa.
+
+De los teasers obtenemos:
+
+- 3 fragmentos animados tangibles.
+- La demostración de la viabilidad artística y técnica del proyecto.
+- La aplicación total y fundamentada de un pipeline adaptado a las necesidades concretas.
+- Material promocional para el conjunto de la obra.
+- Feedback positivo fruto de la demostración pública de los fragmentos.
+
+### Flujo de Trabajo
+
+**Preproducción**: Concepto, Guión, Storyboard, Animatic, Diseño de personajes, Propuesta visual.
+
+**Producción**: Layout, Animación bidimensional, Animación tridimensional, Efectos, Elementos live action, Composición.
+
+**Postproducción**: Montaje, Etalonaje, Máscaras de capa, Transiciones, Diseño y mezcla de sonido, Difusión y promoción.`
+        },
+        image: '/images/colorin1.png',
+        images: ['/images/colorin2.avif', '/images/colorin3.avif', '/images/colorin4.avif', '/images/colorin5.avif', '/images/colorin6.avif', '/images/colorin7.avif', '/images/colorin8.avif', '/images/colorin9.avif', '/images/colorin10.avif', '/images/colorin11.avif'],
+        otherVideos: [
+            { url: 'https://vimeo.com/1104957890?fl=pl&fe=sh', title: { es: 'Video 1', ca: 'Vídeo 1', en: 'Video 1', gl: 'Vídeo 1' } },
+            { url: 'https://vimeo.com/1104957895?fl=pl&fe=sh', title: { es: 'Video 2', ca: 'Vídeo 2', en: 'Video 2', gl: 'Vídeo 2' } },
+            { url: 'https://vimeo.com/1104957944?fl=pl&fe=sh', title: { es: 'Video 3', ca: 'Vídeo 3', en: 'Video 3', gl: 'Vídeo 3' } }
+        ],
+        roles: ['artist_2d_3d', 'video_editor', 'design'],
+        memoryUrl: '/downloads/memoria_colorindecolorado_final_compressed.pdf'
+    },
+    {
+        id: 'kafeto',
+        title: 'Kafeto',
+        year: '2025',
+        category: { es: 'CGI & 3D', ca: 'CGI & 3D', en: 'CGI & 3D', gl: 'CGI & 3D' },
+        type: 'academic',
+        tags: ['blender', 'after_effects'],
+        summary: {
+            es: 'Anuncio 3D fotorrealista para una marca de café ficticia. Modelado de producto, texturizado y animación de fluidos.',
+            ca: 'Anunci 3D fotorealista per a una marca de café fictícia. Modelatge de producte, texturització i animació de fluids.',
+            en: 'Photorealistic 3D commercial for a fictional coffee brand. Product modeling, texturing, and fluid animation.',
+            gl: 'Anuncio 3D fotorrealista para unha marca de café ficticia. Modelado de produto, texturizado e animación de fluídos.'
+        },
+        description: {
+            es: 'Render 3D animado en Blender. Anuncio de una cafetera para la marca imaginaria Kafeto.',
+            ca: 'Render 3D animat en Blender. Anunci d\'una cafetera per a la marca imaginària Kafeto.',
+            en: '3D animated render in Blender. Advertisement for a coffee maker for the imaginary brand Kafeto.',
+            gl: 'Render 3D animado en Blender. Anuncio dunha cafetera para a marca imaxinaria Kafeto.'
+        },
+        longDescription: {
+            es: `## INTRODUCCIÓN\nRender 3D animado en Blender de un anuncio publicitario de la marca imaginaria **Kafeto**, realizado en el marco de la materia **Animación y CGI** del Grado en Comunicación Audiovisual (USC).\n\nLa animación muestra la **construcción por piezas de una cafetera**, haciendo uso de diferentes herramientas de modelado tridimensional y simulación de líquidos y partículas de Blender.\n\n<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n\n## TÉCNICAS Y METODOLOGÍA\n\n**Modelado 3D**: El modelado tridimensional de la cafetera fue realizado a partir de **imágenes de referencia de una cafetera real**. Tanto dicho modelo como los de objetos complementarios hacen uso de diversos **modificadores del programa**, siempre partiendo del modelado con primitivas.\n\n**Textures**: Las texturas alternan entre las de creación propia y las descargues de add-ons gratuitos como **Poliigon y BlenderKit** (apoyadas en una modificación personalizada posterior).\n\n**Animación**: La animación de las diferentes partes de la cafetera fue realizada en cada objeto de manera individual, e consiste, en su mayor parte, en **traslaciones y rotaciones**. También se utilizan **modos de interpolación entre key-frames** predefinidos por el programa, com o "rebote" o "bounce" (en efectos dinámicos). El agua está conformada por un **sistema de partículas de "metaballs"** con texturas propias (transparencia, IOR 1.300, etc.), programadas para seguir un **campo de fuerza personalizado** con forma curva.\n\n**Iluminación**: Simple, consistente en un **foco "spot" cenital animado** e una **luz de área constante de frente**, así como un HDR prefabricado.\n\n**Cámara**: La cámara cuenta con una **animación de seguimiento continuo** en la primera parte y con un **plano estático** en la segunda. La profundidade de campo, la distancia focal y la apertura del diafragma digitales están **animadas para mantener el enfoque**. El desenfocament forzado durante el logo también forma parte del proyecto de Blender, e non da posproducció.\n\n**Render**: Optimizado para ser realizado en **Cycles**.\n\n**Posproducción**: Realizada en **Adobe Premiere Pro**. Consiste únicamente en un corte intermedio y en la superposición de dos cuadros de texto, sin modificar ningún otro parámetro como el color o la iluminación.\n\n## GALERÍA DEL PROYECTO\n\n<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`,
+            ca: `## INTRODUCIÓN\nRender 3D animat en Blender d'un anunci publicitari de la marca imaginària **Kafeto**, realitzat en el marc de la matèria **Animació i CGI** del Grau en Comunicació Audiovisual (USC).\n\nLa animació mostra la **construcció per peces d'una cafetera**, facent ús de diferents eines de modelatge tridimensional i simulació de líquids i partículas de Blender.\n\n<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n\n## TÈCNIQUES I METODOLOXÍA\n\n**Modelatge 3D**: El modelatge tridimensional de la cafetera va ser realitzat a partir de **imaxes de referencia dunha cafetera real**. Tant aquest model com os de obxectos complementarios fan uso de diversos **modificadors del programa**, sempre partindo do modelatge amb primitives.\n\n**Textures**: As texturas alternan entre as de creación pròpia e as descàrregues d'add-ons gratuítos com **Poliigon e BlenderKit** (suportades amb una modificación personalitzada posterior).\n\n**Animació**: A animació das diferentes partes da cafetera foi realitzada en cada obxecto de maneira individual, e consisteix, en a súa maior parte, en **traslacións e rotacións**. Tamén se utilizan **modos de interpolación entre key-frames** predefinits pel programa, com o "rebote" ou "bounce" (en efectos dinámics). A auga está conformada por un **sistema de partículas de "metaballs"** amb textures pròpies (transparencia, IOR 1.300, etc.), programadas para seguir un **campo de forza personalizado** amb forma curva.\n\n**Il·luminación**: Simple, consistente nun **foco "spot" cenital animat** e nunha **luz de área constante de fronte**, así com un HDR prefabricat.\n\n**Cámara**: A càmera compta amb una **animación de seguiment continuo** na primeira parte e cun **plano estático** na segunda. A profundidade de camp, a distancia focal e a apertura do diafragma dixitais están **animadas per mantenir o enfoque**. O desenfocament forzado durante o logo tamén forma parte do proxecto de Blender, e non da posproducció.\n\n**Render**: Optimitzat per ser realitzat en **Cycles**.\n\n**Posproducció**: Realitzada en **Adobe Premiere Pro**. Consisteix únicament en un tall intermedi e na superposición de dous cadros de texto, sen modificar ningún outro parámetro com el cor ou a il·luminación.\n\n## GALERIA DEL PROJECTE\n\n<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`,
+            en: `## INTRODUCTION\n3D animated render in Blender for a commercial of the imaginary brand **Kafeto**, produced as part of the **Animation and CGI** course of the Bachelor's Degree in Audiovisual Communication (USC).\n\nThe animation shows the **assembly of a coffee machine** using different **3D modeling tools and fluid/particle simulations** in Blender.\n\n<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n\n## TECHNIQUES AND METHODOLOGY\n\n**3D Modeling**: The 3D model was created from **reference images of a real coffee machine**. Both the main model and complementary objects use various **program modifiers**, always starting from primitive modeling.\n\n**Textures**: Textures alternate between original creations and downloads from free add-ons like **Poliigon and BlenderKit** (enhanced with custom modifications).\n\n**Animation**: Animation of different coffee machine parts was done individually on each object, consisting mainly of **translations and rotations**. **Interpolation modes between key-frames** predefined by the program are also used, such as "bounce" (in dynamic effects). Water is formed by a **"metaballs" particle system** with custom textures (transparency, IOR 1.300, etc.), programmed to follow a **custom force field** with curved shape.\n\n**Lighting**: Simple setup with an **animated cenital "spot" light** and a **constant front area light**, plus a prefabricated HDR.\n\n**Camera**: The camera features **continuous tracking animation** in the first part and a **static shot** in the second. Digital depth of field, focal distance, and aperture are **animated to maintain focus**. The forced blur during the logo is also part of the Blender project, not post-production.\n\n**Render**: Optimized for **Cycles** rendering.\n\n**Post-production**: Done in **Adobe Premiere Pro**. Consists only of intermediate cutting and text overlay, without modifying other parameters like color or lighting.\n\n## PROJECT GALLERY\n\n<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`,
+            gl: `## INTRODUCIÓN\nRender 3D animado en Blender dun anuncio publicitario da marca imaxinaria **Kafeto**, realizado no marco da materia **Animación e CGI** do Grao en Comunicación Audiovisual (USC).\n\nA animación mostra a **construcción por pezas dunha cafetera**, facendo uso de diferentes ferramentas de modelado tridimensional e simulación de líquidos e partículas de Blender.\n\n<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n\n## TÉCNICAS E METODOLOXÍA\n\n**Modelado 3D**: O modelado tridimensional da cafetera foi realizado a partir de **imaxes de referencia dunha cafetera real**. Tant aquest model com os de obxectos complementarios fan uso de diversos **modificadores do programa**, sempre partindo do modelado con primitivas.\n\n**Textures**: As texturas alternan entre as de creación pròpia e as descàrregues d'add-ons gratuítos com **Poliigon e BlenderKit** (suportades amb una modificación personalitzada posterior).\n\n**Animación**: A animación das diferentes partes da cafetera foi realitzada en cada obxecto de maneira individual, e consisteix, en a súa maior parte, en **traslacións e rotacións**. Tamén se utilizan **modos de interpolación entre key-frames** predefinits pel programa, com o "rebote" ou "bounce" (en efectos dinámics). A auga está conformada por un **sistema de partículas de "metaballs"** amb textures pròpies (transparencia, IOR 1.300, etc.), programadas para seguir un **campo de forza personalizado** amb forma curva.\n\n**Il·luminación**: Simple, consistente nun **foco "spot" cenital animat** e nunha **luz de área constante de fronte**, así com un HDR prefabricat.\n\n**Cámara**: A càmera compta amb una **animación de seguiment continuo** na primeira parte e cun **plano estático** na segunda. A profundidade de camp, a distancia focal e a apertura do diafragma dixitais están **animadas per mantenir o enfoque**. O desenfocament forzado durante o logo tamén forma parte do proxecto de Blender, e non da posproducció.\n\n**Render**: Optimitzat per ser realitzat en **Cycles**.\n\n**Posproducció**: Realitzada en **Adobe Premiere Pro**. Consisteix únicament en un tall intermedi e na superposición de dous cadros de texto, sen modificar ningún outro parámetro com el cor ou a il·luminación.\n\n## GALERIA DO PROJETE\n\n<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`
+        },
+        image: '/images/kafeto1.avif',
+        images: ['/images/kafeto2.avif', '/images/kafeto3.avif', '/images/kafeto4.avif', '/images/kafeto5.avif', '/images/kafeto6.avif', '/images/kafeto7.avif'],
+        roles: ['artist_2d_3d', 'design']
+    },
+    {
+        id: 'penguin_saga',
+        title: 'Penguin saga',
+        year: '2021',
+        category: { es: 'Videojuego (Scratch)', ca: 'Videojoc (Scratch)', en: 'Video Game (Scratch)', gl: 'Videoxogo (Scratch)' },
+        type: 'academic',
+        tags: ['scratch', 'photoshop'],
+        summary: {
+            es: 'Plataformero clásico programado visualmente en Scratch. Primer contacto con lógica de colisiones y estados.',
+            ca: 'Plataformero clàssic programat visualment a Scratch. Primer contacte amb lògica de col·lisió i estats.',
+            en: 'Classic platformer visually programmed in Scratch. First contact with collision logic and states.',
+            gl: 'Plataformeiro clásico programado visualmente en Scratch. Primeiro contacto con lóxica de colisións e estados.'
+        },
+        description: {
+            es: 'Videojuego creado en la plataforma de programación visual Scratch en 2º de Bachillerato.',
+            ca: 'Videojoc creat a la plataforma de programació visual Scratch a 2n de Batxillerat.',
+            en: 'Video game created on the visual programming platform Scratch in 2nd year of High School.',
+            gl: 'Videoxogo creado na plataforma de programación visual Scratch en 2º de Bacharelato.'
+        },
+        image: '/images/penguin.jpg',
+        images: ['/images/penguin.jpg'],
+        roles: ['game_dev']
+    },
+    {
+        id: 'narcozoo',
+        title: 'Narcozoo',
+        year: '2023',
+        category: { es: 'Diseño de videojuego', ca: 'Disseny de videojoc', en: 'Game design', gl: 'Deseño de videoxogo' },
+        type: 'academic',
+        tags: ['photoshop', 'premiere'],
+        summary: {
+            es: 'Concepto y GDD para un videojuego de gestión. Desarrollo teórico de mecánicas, economía y narrativa.',
+            ca: 'Concepte i GDD per a un videojoc de gestió. Desenvolupament teòric de mecàniques, economia i narrativa.',
+            en: 'Concept and GDD for a management video game. Theoretical development of mechanics, economy, and narrative.',
+            gl: 'Concepto e GDD para un videoxogo de xestión. Desenvolupmento teòrico de mecàniques, economia e narrativa.'
+        },
+        description: {
+            es: 'Creación de un videojuego teórico completo basado en fundamentos académicos de diseño.',
+            ca: 'Creació d\'un videojoc teòric complet basat en fundaments acadèmics de disseny.',
+            en: 'Creation of a complete theoretical video game based on academic design foundations.',
+            gl: 'Creación dun videoxogo teórico completo baseado en fundamentos académicos de deseño.'
+        },
+        image: '/images/marccop.jpg',
+        images: ['/images/marccop.jpg'],
+        roles: ['game_dev']
+    },
+    {
+        id: 'actualiteca',
+        title: 'Actualiteca',
+        year: '2023',
+        category: { es: 'Podcast / Radio', ca: 'Podcast / Ràdio', en: 'Podcast / Radio', gl: 'Podcast / Radio' },
+        type: 'academic',
+        tags: ['audacity', 'premiere'],
+        summary: {
+            es: 'Producción integral de podcast: guion, locución y diseño sonoro. Enfocado en actualidad y debate.',
+            ca: 'Producció integral de podcast: guió, locució i disseny sonor. Enfocat en actualitat i debat.',
+            en: 'Integral podcast production: script, voiceover, and sound design. Focused on current events and debate.',
+            gl: 'Produción integral de podcast: guión, locución e deseño sonoro. Enfocado en actualidade e debate.'
+        },
+        description: {
+            es: 'Podcast grabado y editado para la materia Taller de Creación Sonora.',
+            ca: 'Podcast grabat i editat per a la matèria Taller de Creació Sonora.',
+            en: 'Podcast recorded and edited for the Sound Creation Workshop.',
+            gl: 'Podcast gravado e editado para a materia Taller de Creación Sonora.'
+        },
+        image: '/images/actualidad.jpg',
+        images: ['/images/actualidad.jpg'],
+        roles: ['video_editor']
+    },
+    {
+        id: 'carta_a_fonte',
+        title: 'Carta A Fonte',
+        year: '2025',
+        category: { es: 'Diseño gráfico', ca: 'Disseny gràfic', en: 'Graphic design', gl: 'Deseño gráfico' },
+        type: 'professional',
+        tags: ['photoshop'],
+        summary: {
+            es: 'Rebranding y diseño de menú para restaurante. Trabajo directo con cliente para mejorar la legibilidad y estética.',
+            ca: 'Rebranding i disseny de menú per a restaurant. Treball directe amb client per millorar la llegibilitat i estètica.',
+            en: 'Rebranding and menu design for a restaurant. Direct work with client to improve readability and aesthetics.',
+            gl: 'Rebranding e deseño de menú para restaurante. Traballo directo con cliente para mellorar a lexitibidade e estética.'
+        },
+        description: {
+            es: 'Diseño completo de carta para Bar-Restaurante A Fonte con feedback directo del cliente.',
+            ca: 'Disseny complet de carta per a Bar-Restaurante A Fonte amb feedback directe del client.',
+            en: 'Complete menu design for Bar-Restaurant A Fonte with direct client feedback.',
+            gl: 'Deseño completo de carta para Bar-Restaurante A Fonte con feedback directo do cliente.'
+        },
+        image: '/images/carta.jpg',
+        images: ['/images/carta.jpg'],
+        roles: ['design']
+    }
+];
+

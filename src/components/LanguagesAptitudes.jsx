@@ -69,15 +69,12 @@ export default function LanguagesAptitudes({ languages, aptitudes, activeRole })
                         e.currentTarget.style.borderColor = 'var(--color-border)';
                     }}
                 >
-                    <ul className="flex flex-wrap gap-md justify-start">
+                    <ul className="flex flex-wrap gap-md justify-start languages-list">
                         {languages.map((lang, index) => (
                             <li key={index} style={{ listStyle: 'none' }}>
                                 <div
-                                    className="flex flex-col"
-                                    style={{
-                                        minWidth: '150px',
-                                        padding: 'var(--spacing-sm)'
-                                    }}
+                                    className="flex flex-col language-item"
+                                    style={{ minWidth: '150px', padding: 'var(--spacing-sm)' }}
                                 >
                                     <span style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--color-text)', marginBottom: '4px' }}>
                                         {lang.name[language] || lang.name.es}
@@ -89,7 +86,6 @@ export default function LanguagesAptitudes({ languages, aptitudes, activeRole })
                                             backgroundColor: 'var(--color-primary)'
                                         }} />
                                     </div>
-
                                     <div style={{
                                         maxHeight: showAllDetails ? '60px' : '0',
                                         overflow: 'hidden',

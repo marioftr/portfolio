@@ -25,12 +25,28 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
     const { language, t } = useTranslation();
     const [filterType, setFilterType] = useState('all');
     const [selectedTags, setSelectedTags] = useState([]);
+    const [selectedYears, setSelectedYears] = useState([]);
+    const [isYearDropdownOpen, setIsYearDropdownOpen] = useState(false);
 
     const availableTags = useMemo(() => getUniqueTags(allProjectsData || []), []);
+    
+    const availableYears = useMemo(() => {
+        const years = new Set();
+        (projects || []).forEach(p => {
+            if (p.year) years.add(p.year);
+        });
+        return Array.from(years).sort((a, b) => parseInt(b) - parseInt(a));
+    }, [projects]);
 
     const toggleTag = (tagId) => {
         setSelectedTags(prev =>
             prev.includes(tagId) ? prev.filter(t => t !== tagId) : [...prev, tagId]
+        );
+    };
+
+    const toggleYear = (year) => {
+        setSelectedYears(prev =>
+            prev.includes(year) ? prev.filter(y => y !== year) : [...prev, year]
         );
     };
 
@@ -50,12 +66,16 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
             );
         }
 
+        if (selectedYears.length > 0) {
+            filtered = filtered.filter(p => selectedYears.includes(p.year));
+        }
+
         return filtered.sort((a, b) => {
             const yearA = parseInt(a.year) || 0;
             const yearB = parseInt(b.year) || 0;
             return sortDesc ? yearB - yearA : yearA - yearB;
         });
-    }, [projects, filterType, selectedTags, sortDesc]);
+    }, [projects, filterType, selectedTags, selectedYears, sortDesc]);
 
     return (
         <div style={{ marginTop: 'var(--spacing-md)' }}>
@@ -75,14 +95,116 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                             ))}
                         </div>
 
-                        <button
-                            onClick={() => setSortDesc(!sortDesc)}
-                            className="btn btn-outline sort-button"
-                            style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem', display: 'flex', gap: '4px', whiteSpace: 'nowrap' }}
-                        >
-                            <span>{sortDesc ? '⬇' : '⬆'}</span>
-                            <span>{t('year_label')}</span>
-                        </button>
+                        <div className="flex gap-sm items-center">
+                            {/* Year Multi-select Dropdown */}
+                            <div style={{ position: 'relative', maxWidth: '180px', width: '100%' }}>
+                                <button
+                                    onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
+                                    className={`btn ${selectedYears.length > 0 ? 'btn-primary' : 'btn-outline'}`}
+                                    style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem', display: 'flex', gap: '8px', alignItems: 'center', whiteSpace: 'nowrap', width: '100%', justifyContent: 'center' }}
+                                >
+                                    <span>{t('year_label')}</span>
+                                    {selectedYears.length > 0 && (
+                                        <span style={{ 
+                                            background: 'rgba(255,255,255,0.2)', 
+                                            padding: '0 5px', 
+                                            borderRadius: '10px',
+                                            fontSize: '0.65rem'
+                                        }}>
+                                            {selectedYears.length}
+                                        </span>
+                                    )}
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transform: isYearDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                
+                                {isYearDropdownOpen && (
+                                    <>
+                                        <div 
+                                            style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 998 }} 
+                                            onClick={() => setIsYearDropdownOpen(false)}
+                                        />
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '100%',
+                                            left: 0,
+                                            marginTop: '0.5rem',
+                                            backgroundColor: 'white',
+                                            border: '1px solid var(--color-border)',
+                                            borderRadius: '8px',
+                                            boxShadow: 'var(--shadow-md)',
+                                            zIndex: 999,
+                                            minWidth: '120px',
+                                            maxWidth: '180px',
+                                            width: '100%',
+                                            padding: '0.5rem',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: '2px',
+                                            overflowX: 'auto'
+                                        }}>
+                                            {availableYears.map(year => (
+                                                <label 
+                                                    key={year}
+                                                    style={{
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '8px',
+                                                        padding: '0.4rem 0.6rem',
+                                                        cursor: 'pointer',
+                                                        fontSize: '0.8rem',
+                                                        borderRadius: '4px',
+                                                        transition: 'background 0.2s',
+                                                        backgroundColor: selectedYears.includes(year) ? 'var(--color-primary-light)' : 'transparent'
+                                                    }}
+                                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = selectedYears.includes(year) ? 'var(--color-primary-light)' : '#f9f9f9'}
+                                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = selectedYears.includes(year) ? 'var(--color-primary-light)' : 'transparent'}
+                                                >
+                                                    <input 
+                                                        type="checkbox" 
+                                                        checked={selectedYears.includes(year)}
+                                                        onChange={() => toggleYear(year)}
+                                                        style={{ cursor: 'pointer' }}
+                                                    />
+                                                    <span style={{ fontWeight: selectedYears.includes(year) ? 700 : 400, color: selectedYears.includes(year) ? 'var(--color-primary)' : 'inherit' }}>
+                                                        {year}
+                                                    </span>
+                                                </label>
+                                            ))}
+                                            {selectedYears.length > 0 && (
+                                                <button 
+                                                    onClick={() => setSelectedYears([])}
+                                                    style={{
+                                                        marginTop: '0.5rem',
+                                                        paddingTop: '0.5rem',
+                                                        borderTop: '1px solid #eee',
+                                                        fontSize: '0.7rem',
+                                                        color: '#ef4444',
+                                                        fontWeight: 700,
+                                                        background: 'none',
+                                                        border: 'none',
+                                                        borderTopStyle: 'solid',
+                                                        cursor: 'pointer',
+                                                        textAlign: 'center'
+                                                    }}
+                                                >
+                                                    {t('clear_filters')}
+                                                </button>
+                                            )}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+
+                            <button
+                                onClick={() => setSortDesc(!sortDesc)}
+                                className="btn btn-outline sort-button"
+                                style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem', display: 'flex', gap: '4px', whiteSpace: 'nowrap' }}
+                            >
+                                <span>{sortDesc ? '⬇' : '⬆'}</span>
+                            </button>
+                        </div>
                     </div>
 
                     <div style={{
@@ -170,12 +292,13 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                 </div>
             </div>
 
-            <div style={{
+            <div className="gallery-grid" style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
                 gap: 'var(--spacing-lg)',
                 marginTop: 'var(--spacing-lg)'
             }}>
+
                 {processedProjects.map((project) => (
                     <div key={project.id} className="card flex flex-col" style={{ padding: 0, overflow: 'hidden' }}>
                         <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>

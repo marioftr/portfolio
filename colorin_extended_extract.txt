@@ -1,0 +1,366 @@
+id:"colorin",title:{es:"Colorín Decolorado",ca:"Colorín Decolorat",en:"Colorín Decolorado",gl:"Colorín Decolorado"},year:"2025",category:{es:"Cortometraje (Animación Híbrida)",ca:"Curtmetratge (Animació Híbrida)",en:"Short Film (Hybrid Animation)",gl:"Curtametraxe (Animación Híbrida)"},type:"academic",tags:["after_effects","blender","photoshop","premiere"],summary:{es:"Diseño y desarrollo de un cortometraje de animación híbrida elaborado como TFG en Comunicación Audiovisual.",ca:"Disseny i desenvolupament d'una curtmetratge de animació híbrida elaborada com a TFG en Comunicació Audiovisual.",en:"Design and development of a hybrid animation short film as a Bachelor Thesis in Audiovisual Communication.",gl:"Deseño e desenvolvemento dunha curtametraxe de animación híbrida elaborada como TFG en Comunicación Audiovisual."},description:{es:`Diseño y desarrollo de Colorín Decolorado, un cortometraje de animación híbrida orientado al público infantil elaborado en el marco del Trabajo de Fin de Grado de Comunicación Audiovisual con mención en Ideación y Creación de Contenidos Audiovisuales (USC).
+
+La propuesta combina diferentes técnicas visuales y narrativas con la finalidad de explorar el potencial expresivo de la animación como herramienta de aprendizaje y crecimiento emocional, abordando los fundamentos teóricos del cine infantil y la animación, así como el proceso completo de preproducción del proyecto y la realización de tres teasers como muestra práctica, y una reflexión crítica sobre las decisiones adoptadas y los retos técnicos y conceptuales encontrados durante el proceso.`,ca:`Disseny i desenvolupament de Colorín Decolorat, una curtmetratge de animació híbrida orientada al públic infantil elaborada en el marc del Treball de Fi de Grau de Comunicació Audiovisual amb menció en Ideació i Creació de Continguts Audiovisuals (USC).
+
+La proposta combina diferents tècniques visuals i narratives amb la finalitat d'explorar el potencial expressiu de l'animació com a ferramenta d'aprenentatge i creixement emocional, abordant els fonaments teòrics del cinema infantil i l'animació, així com el procés complet de preproducció del projecte i la realització de tres teasers com a mostra pràctica, i una reflexió crítica sobre les decisions adoptades i els reptes tècnics i conceptuals trobats durant el procés.`,en:`Design and development of Colorín Decolorado, a hybrid animation short film oriented towards children, created as a Bachelor Thesis in Audiovisual Communication with mention in Ideation and Creation of Audiovisual Content (USC).
+
+The proposal combines different visual and narrative techniques to explore the expressive potential of animation as a learning and emotional growth tool, addressing the theoretical foundations of children's cinema and animation, as well as the complete pre-production process and the creation of three demo teasers, with critical reflection on decisions made and technical and conceptual challenges encountered during the process.`,gl:`Deseño e desenvolvemento de Colorín Decolorado, unha curtametraxe de animación híbrida orientada ao público infantil elaborada como TFG en Comunicación Audiovisual cunha mención en Ideación e Creación de Contidos Audiovisuais (USC).
+
+A proposta combina diferentes técnicas visuais e narrativas coa finalidade de explorar o potencial expresivo da animación como ferramenta de aprendizaxe e crecemento emocional, abordando os fundamentos teóricos do cine infantil e a animación, así como o proceso completo de preprodución do proxecto e a realización de tres teasers como mostra práctica, e unha reflexión crítica sobre as decisións adoptadas e os retos técnicos e conceptuais atopados durante o proceso.`},longDescription:{es:`## INTRODUCCIÓN
+
+Diseño y desarrollo de Colorín Decolorado, un cortometraje de animación híbrida orientado al público infantil elaborado en el marco del Trabajo de Fin de Grado de Comunicación Audiovisual con mención en Ideación y Creación de Contenidos Audiovisuales (USC).
+
+La propuesta combina diferentes técnicas visuales y narrativas con la finalidad de explorar el potencial expresivo de la animación como herramienta de aprendizaje y crecimiento emocional, abordando los fundamentos teóricos del cine infantil y la animación, así como el proceso completo de preproducción del proyecto y la realización de tres teasers como muestra práctica, y una reflexión crítica sobre las decisiones adoptadas y los retos técnicos y conceptuales encontrados durante el proceso.
+
+## TEASERS
+
+A continuación se presentan los tres teasers desarrollados como muestra práctica del proyecto:
+
+<div class="custom-video-carousel"><div><h3>Teaser Nero</h3><p>Presentación de Nero, el gato protagonista de Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936330" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Coral</h3><p>Presentación de Coral, la niña protagonista de Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936347" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Craión</h3><p>Presentación de Craión, el sabio protagonista de Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936375" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
+
+## OBJETIVOS
+
+Este Trabajo de Fin de Grado tiene como objetivo cumplido centrarse en la experimentación práctica de distintas técnicas de animación para extraer sus ventajas y limitaciones, y así sentar las bases de un flujo de trabajo viable para la ideación de un cortometraje de animación —Colorín Decolorado— y la realización de tres teasers demostrativos.
+
+Para alcanzar dicho objetivo de manera ordenada, la exploración fue guiada a través de los siguientes objetivos secundarios:
+
+- **Elaboración de un marco teórico específico** sobre las técnicas de animación y las temáticas tratadas, que sirve de base conceptual para la experimentación práctica, justificando las decisiones metodológicas y orientando todo el proceso.
+
+- **Definición y categorización de las distintas técnicas de animación utilizadas** —2D full-frame, 3D e integración con live-action, entre otras—, identificando sus rasgos formales y técnicos.
+
+- **Demostración del sentido narrativo y visual** de dichas técnicas en el cortometraje, así como representación práctica mediante pequeños prototipos aplicados a diferentes fragmentos expositivos de los teasers.
+
+- **Diseño de los flujos de trabajo de cada teaser** con la finalidad de integrar de forma coherente las técnicas seleccionadas, estableciendo la secuencia de pasos y las herramientas necesarias para optimizar la eficacia.
+
+- **Definición de un flujo de trabajo global** que recoge la metodología a seguir para la potencial elaboración de la pieza final.
+
+## DIAPOSITIVAS DE LA DEFENSA
+
+Las siguientes imágenes resumen de forma visual el proceso de elaboración del Trabajo de Fin de Grado, y sirvieron como apoyo para la presentación realizada frente a un tribunal académico en septiembre de 2025.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
+
+## RESULTADOS
+
+Los resultados de este proyecto se dividen en 2 vertientes fundamentales: aquellos asociados al cortometraje completo y aquellos vinculados a los tres teasers.
+
+Del cortometraje podemos extraer los siguientes rendimientos:
+
+- Un guión final completo.
+- Un storyboard completamente desarrollado y dos fragmentos de animatic.
+- El diseño pormenorizado de los protagonistas y de los personajes secundarios.
+- Una propuesta visual específica y definida.
+- La base para una potencial producción futura completa.
+
+De los teasers obtenemos:
+
+- 3 fragmentos animados tangibles.
+- La demostración de la viabilidad artística y técnica del proyecto.
+- La aplicación total y fundamentada de un pipeline adaptado a las necesidades concretas.
+- Material promocional para el conjunto de la obra.
+- Feedback positivo fruto de la demostración pública de los fragmentos.
+
+### Flujo de Trabajo
+
+**Preproducción**: Concepto, Guión, Storyboard, Animatic, Diseño de personajes, Propuesta visual.
+
+**Producción**: Layout, Animación bidimensional, Animación tridimensional, Efectos, Elementos live action, Composición.
+
+**Postproducción**: Montaje, Etalonaje, Máscaras de capa, Transiciones, Diseño y mezcla de sonido, Difusión y promoción.
+
+## GALERÍA DE IMÁGENES
+
+<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Escena 4" /></div><div class="tall"><img src="/images/colorin5.avif" alt="Colorín Decolorado - Escena 5" /></div><div class="wide"><img src="/images/colorin6.avif" alt="Colorín Decolorado - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Escena 8" /></div><div class="tall"><img src="/images/colorin9.avif" alt="Colorín Decolorado - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Escena 11" /></div></div>`,ca:`## INTRODUCCIÓ
+
+Disseny i desenvolupament de Colorín Decolorat, una curtmetratge de animació híbrida orientada al públic infantil elaborada en el marc del Treball de Fi de Grau de Comunicació Audiovisual amb menció en Ideació i Creació de Continguts Audiovisuals (USC).
+
+La proposta combina diferents tècniques visuals i narratives amb la finalitat d'explorar el potencial expressiu de l'animació com a ferramenta d'aprenentatge i creixement emocional, abordant els fonaments teòrics del cinema infantil i l'animació, així com el procés complet de preproducció del projecte i la realització de tres teasers com a mostra pràctica, i una reflexió crítica sobre les decisions adoptades i els reptes tècnics i conceptuals trobats durant el procés.
+
+## TEASERS
+
+A continuació es presenten els tres teasers desenvolupats com a mostra pràctica del projecte:
+
+<div class="custom-video-carousel"><div><h3>Teaser Nero</h3><p>Presentació de Nero, el gat protagonista de Colorín Decolorat</p><iframe src="https://player.vimeo.com/video/1104936330" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Coral</h3><p>Presentació de Coral, la nena protagonista de Colorín Decolorat</p><iframe src="https://player.vimeo.com/video/1104936347" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Craió</h3><p>Presentació de Craió, el savi protagonista de Colorín Decolorat</p><iframe src="https://player.vimeo.com/video/1104936375" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
+
+## OBXECTIVOS
+
+Aquest Treball de Fi de Grau té com a objectiu cumplido centrar-se en l'experimentació pràctica de diferents tècniques d'animació per extreure les seves avantatges i limitacions, i així sentar les bases d'un flux de treball viable per a la ideació d'una curtmetratge d'animació —Colorín Decolorat— i la realització de tres teasers demostrativos.
+
+Per assolir aquest objectiu de manera ordenada, l'exploració va ser guiada a través dels següents objectius secundaris:
+
+- **Elaboració d'un marc teòric específic** sobre les tècniques d'animació i les temàtiques tractades, que serveix de base conceptual per a l'experimentació pràctica, justificant les decisions metodològiques i orientant tot el procés.
+
+- **Definició i categorització de les distintas tècniques d'animació utilitzades** —2D full-frame, 3D i integració amb live-action, entre altres—, identificant els seus trets formals i tècnics.
+
+- **Demostració del sentit narratiu i visual** d'aquestes tècniques a la curtmetratge, així com representació pràctica mitjançant petits prototips aplicats a diferents fragments expositius dels teasers.
+
+- **Disseny dels fluxos de treball de cada teaser** amb la finalitat d'integrar de forma coherent les tècniques seleccionades, establint la seqüència de passos i les eines necessàries per optimitzar l'eficàcia.
+
+- **Definició d'un flux de treball global** que recull la metodologia a seguir per a la potencial elaboració de la peça final.
+
+## DIAPOSITIVES DE LA DEFENSA
+
+Les següents imatges resumeixen de forma visual el procés d'elaboració del Treball de Fi de Grau, i van servir com a suport per a la presentació realitzada davant un tribunal acadèmic en setembre de 2025.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
+
+## GALERIA D'IMATGES
+
+<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorat - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorat - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorat - Escena 4" /></div><div><img src="/images/colorin5.avif" alt="Colorín Decolorat - Escena 5" /></div><div><img src="/images/colorin6.avif" alt="Colorín Decolorat - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorat - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorat - Escena 8" /></div><div><img src="/images/colorin9.avif" alt="Colorín Decolorat - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorat - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorat - Escena 11" /></div></div>
+
+
+## RESULTATS
+
+Els resultats d'aquest projecte es divideixen en 2 vertents fonamentals: aquells associats a la curtmetratge completa i aquells vinculats als tres teasers.
+
+De la curtmetratge podem extreure els següents rendiments:
+
+- Un guió final complet.
+- Un storyboard completament desenvolupat i dos fragments d'animatic.
+- El disseny pormenoritzat dels protagonistes i dels personatges secundaris.
+- Una proposta visual específica i definida.
+- La base per a una potencial producció futura completa.
+
+Dels teasers obtenim:
+
+- 3 fragments animats tangibles.
+- La demostració de la viabilitat artística i tècnica del projecte.
+- L'aplicació total i fonamentada d'un pipeline adaptat a les necessitats concretes.
+- Material promocional per al conjunt de l'obra.
+- Feedback positiu fruit de la demostració pública dels fragments.
+
+### Flux de Treball
+
+**Preproducció**: Concepte, Guió, Storyboard, Animatic, Disseny de personatges, Proposta visual.
+
+**Producció**: Layout, Animació bidimensional, Animació tridimensional, Efectes, Elements live action, Composició.
+
+**Postproducció**: Muntatge, Etalonatge, Màscares de capa, Transicions, Disseny i mescla de so, Difusió i promoció.`,en:`## INTRODUCTION
+
+Design and development of Colorín Decolorado, a hybrid animation short film oriented towards children, created as a Bachelor Thesis in Audiovisual Communication with mention in Ideation and Creation of Audiovisual Content (USC).
+
+The proposal combines different visual and narrative techniques to explore the expressive potential of animation as a learning and emotional growth tool, addressing the theoretical foundations of children's cinema and animation, as well as the complete pre-production process and the creation of three demo teasers, with critical reflection on decisions made and technical and conceptual challenges encountered during the process.
+
+## TEASERS
+
+Below are the three teasers developed as a practical demonstration of the project:
+
+<div class="custom-video-carousel"><div><h3>Teaser Nero</h3><p>Presentation of Nero, the cat protagonist of Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936330" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Coral</h3><p>Presentation of Coral, the girl protagonist of Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936347" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Craión</h3><p>Presentation of Craión, the wise protagonist of Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936375" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
+
+## OBJECTIVES
+
+This Bachelor Thesis aims to focus on practical experimentation with different animation techniques to extract their advantages and limitations, thus laying the foundation for a viable workflow for ideating an animated short film—Colorín Decolorado—and creating three demo teasers.
+
+To achieve this goal in an organized manner, the exploration was guided through the following secondary objectives:
+
+- **Development of a specific theoretical framework** on animation techniques and covered topics, serving as a conceptual basis for practical experimentation, justifying methodological decisions and guiding the entire process.
+
+- **Definition and categorization of different animation techniques used** —2D full-frame, 3D and live-action integration, among others—, identifying their formal and technical characteristics.
+
+- **Demonstration of narrative and visual meaning** of these techniques in the short film, as well as practical representation through small prototypes applied to different expository fragments of the teasers.
+
+- **Design of workflow pipelines for each teaser** to coherently integrate selected techniques, establishing the sequence of steps and tools necessary to optimize efficiency.
+
+- **Definition of a global workflow** that outlines the methodology to follow for potential creation of the final piece.
+
+## DEFENSE PRESENTATION SLIDES
+
+The following images visually summarize the process of developing the Bachelor Thesis and served as support for the presentation given before an academic committee in September 2025.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
+
+## IMAGE GALLERY
+
+<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Scene 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Scene 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Scene 4" /></div><div class="tall"><img src="/images/colorin5.avif" alt="Colorín Decolorado - Scene 5" /></div><div class="wide"><img src="/images/colorin6.avif" alt="Colorín Decolorado - Scene 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Scene 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Scene 8" /></div><div class="tall"><img src="/images/colorin9.avif" alt="Colorín Decolorado - Scene 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Scene 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Scene 11" /></div></div>
+
+## RESULTS
+
+The results of this project are divided into 2 fundamental aspects: those associated with the complete short film and those linked to the three teasers.
+
+From the short film we can extract the following outputs:
+
+- A complete final script.
+- A fully developed storyboard and two animatic fragments.
+- Detailed design of protagonists and secondary characters.
+- A specific and defined visual proposal.
+- The foundation for potential complete future production.
+
+From the teasers we obtain:
+
+- 3 tangible animated clips.
+- Demonstration of the artistic and technical viability of the project.
+- Total and well-founded application of a pipeline adapted to specific needs.
+- Promotional material for the overall work.
+- Positive feedback from public demonstration of the clips.
+
+### Workflow
+
+**Pre-production**: Concept, Script, Storyboard, Animatic, Character Design, Visual Proposal.
+
+**Production**: Layout, 2D Animation, 3D Animation, Effects, Live Action Elements, Compositing.
+
+**Post-production**: Editing, Color Grading, Layer Masks, Transitions, Sound Design and Mixing, Distribution and Promotion.`,gl:`## INTRODUCIÓN
+
+Deseño e desenvolvemento de Colorín Decolorado, unha curtametraxe de animación híbrida orientada ao público infantil elaborada como TFG en Comunicación Audiovisual cunha mención en Ideación e Creación de Contidos Audiovisuais (USC).
+
+A proposta combina diferentes técnicas visuais e narrativas coa finalidade de explorar o potencial expresivo da animación como ferramenta de aprendizaxe e crecemento emocional, abordando os fundamentos teóricos do cine infantil e a animación, así como o proceso completo de preprodución do proxecto e a realización de tres teasers como mostra práctica, e unha reflexión crítica sobre as decisións adoptadas e os retos técnicos e conceptuais atopados durante o proceso.
+
+## TEASERS
+
+A continuación se presentan os tres teasers desenvolvidos como mostra práctica do proxecto:
+
+<div class="custom-video-carousel"><div><h3>Teaser Nero</h3><p>Presentación de Nero, o gato protagonista de Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936330" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Coral</h3><p>Presentación de Coral, a nena protagonista de Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936347" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Teaser Craión</h3><p>Presentación de Craión, o sabio protagonista de Colorín Decolorado</p><iframe src="https://player.vimeo.com/video/1104936375" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
+
+## OBXECTIVOS
+
+Este Traballo de Fin de Grao ten como obxectivo cumplido centrarse na experimentación práctica de distintas técnicas de animación para extraer as súas vantaxes e limitacións, e así sentar as bases dun fluxo de traballo viable para a ideación dunha curtametraxe de animación —Colorín Decolorado— e a realización de tres teasers demostrativos.
+
+Para alcanzar ese obxectivo de maneira ordenada, a exploración foi guiada a través dos seguintes obxectivos secundarios:
+
+- **Elaboración dun marco teórico específico** sobre as técnicas de animación e as temáticas tratadas, que serve de base conceptual para a experimentación práctica, xustificando as decisións metodolóxicas e orientando todo o proceso.
+
+- **Definición e categorización das distintas técnicas de animación utilizadas** —2D full-frame, 3D e integración con live-action, entre outras—, identificando os seus trazos formais e técnicos.
+
+- **Demostración do sentido narrativo e visual** desas técnicas na curtametraxe, así como representación práctica mediante pequenos prototipos aplicados a diferentes fragmentos expositivos dos teasers.
+
+- **Deseño dos fluxos de traballo de cada teaser** coa finalidade de integrar de forma coherente as técnicas seleccionadas, establecendo a secuencia de pasos e as ferramentas necesarias para optimizar a eficacia.
+
+- **Definición dun fluxo de traballo global** que recolla a metodoloxía a seguir para a potencial elaboración da peza final.
+
+## DIAPOSITIVAS DA DEFENSA
+
+As seguintes imaxes resumen de forma visual o proceso de elaboración do Traballo de Fin de Grao, e serviron como apoio para a presentación realizada fronte a un tribunal académico en setembro de 2025.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px;" height="450" src="https://www.canva.com/design/DAGyYsuIFkI/C7y8eMt1L-a6xJPKkImS_Q/view?embed" allowfullscreen></iframe>
+
+## GALERIA DE IMAXES
+
+<div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Escena 4" /></div><div><img src="/images/colorin5.avif" alt="Colorín Decolorado - Escena 5" /></div><div><img src="/images/colorin6.avif" alt="Colorín Decolorado - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Escena 8" /></div><div><img src="/images/colorin9.avif" alt="Colorín Decolorado - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Escena 11" /></div></div>
+
+## RESULTADOS
+
+Os resultados deste proxecto divídense en 2 vertentes fundamentais: aqueles asociados á curtametraxe completa e aqueles vinculados aos tres teasers.
+
+Da curtametraxe podemos extraer os seguintes rendimentos:
+
+- Un guión final completo.
+- Un storyboard completamente desenvolvido e dous fragmentos de animatic.
+- O deseño pormenorizado dos protagonistas e dos personaxes secundarios.
+- Unha proposta visual específica e definida.
+- A base para unha potencial producción futura completa.
+
+Dos teasers obtemos:
+
+- 3 fragmentos animados tanxibles.
+- A demostración da viabilidade artística e técnica do proxecto.
+- A aplicación total e fundamentada dun pipeline adaptado ás necesidades concretas.
+- Material promocional para o conxunto da obra.
+- Feedback positivo fruto da demostración pública dos fragmentos.
+
+### Fluxo de Traballo
+
+**Preprodución**: Concepto, Guión, Storyboard, Animatic, Deseño de personaxes, Proposta visual.
+
+**Produción**: Layout, Animación bidimensional, Animación tridimensional, Efectos, Elementos live action, Composición.
+
+**Postprodución**: Montaxe, Etalonaxe, Máscaras de capa, Transicións, Deseño e mestura de sonido, Difusión e promoción.`},image:"/images/colorin1.png",images:["/images/colorin2.avif","/images/colorin3.avif","/images/colorin4.avif","/images/colorin5.avif","/images/colorin6.avif","/images/colorin7.avif","/images/colorin8.avif","/images/colorin9.avif","/images/colorin10.avif","/images/colorin11.avif"],otherVideos:[{url:"https://vimeo.com/1104957890?fl=pl&fe=sh",title:{es:"Video 1",ca:"Vídeo 1",en:"Video 1",gl:"Vídeo 1"}},{url:"https://vimeo.com/1104957895?fl=pl&fe=sh",title:{es:"Video 2",ca:"Vídeo 2",en:"Video 2",gl:"Vídeo 2"}},{url:"https://vimeo.com/1104957944?fl=pl&fe=sh",title:{es:"Video 3",ca:"Vídeo 3",en:"Video 3",gl:"Vídeo 3"}}],roles:["artist_2d_3d","video_editor","design"],memoryUrl:"/downloads/memoria_colorindecolorado_final_compressed.pdf"},{id:"kafeto",title:"Kafeto",year:"2025",category:{es:"CGI & 3D",ca:"CGI & 3D",en:"CGI & 3D",gl:"CGI & 3D"},type:"academic",tags:["blender","after_effects"],summary:{es:"Anuncio 3D fotorrealista para una marca de café ficticia. Modelado de producto, texturizado y animación de fluidos.",ca:"Anunci 3D fotorealista per a una marca de café fictícia. Modelatge de producte, texturització i animació de fluids.",en:"Photorealistic 3D commercial for a fictional coffee brand. Product modeling, texturing, and fluid animation.",gl:"Anuncio 3D fotorrealista para unha marca de café ficticia. Modelado de produto, texturizado e animación de fluídos."},description:{es:"Render 3D animado en Blender. Anuncio de una cafetera para la marca imaginaria Kafeto.",ca:"Render 3D animat en Blender. Anunci d'una cafetera per a la marca imaginària Kafeto.",en:"3D animated render in Blender. Advertisement for a coffee maker for the imaginary brand Kafeto.",gl:"Render 3D animado en Blender. Anuncio dunha cafetera para a marca imaxinaria Kafeto."},longDescription:{es:`## INTRODUCCIÓN
+Render 3D animado en Blender de un anuncio publicitario de la marca imaginaria **Kafeto**, realizado en el marco de la materia **Animación y CGI** del Grado en Comunicación Audiovisual (USC).
+
+La animación muestra la **construcción por piezas de una cafetera**, haciendo uso de diferentes herramientas de modelado tridimensional y simulación de líquidos y partículas de Blender.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## TÉCNICAS Y METODOLOGÍA
+
+**Modelado 3D**: El modelado tridimensional de la cafetera fue realizado a partir de **imágenes de referencia de una cafetera real**. Tanto dicho modelo como los de objetos complementarios hacen uso de diversos **modificadores del programa**, siempre partiendo del modelado con primitivas.
+
+**Texturas**: Las texturas alternan entre las de creación propia y las descargadas de add-ons gratuitos como **Poliigon y BlenderKit** (apoyadas en una modificación personalizada posterior).
+
+**Animación**: La animación de las diferentes partes de la cafetera fue realizada en cada objeto de manera individual, y consiste, en su mayor parte, en **traslaciones y rotaciones**. También se utilizan **modos de interpolación entre key-frames** predefinidos por el programa, como el "rebote" o "bounce" (en efectos dinámicos). El agua está conformada por un **sistema de partículas de "metaballs"** con texturas propias (transparencia, IOR 1.300, etc.), programadas para seguir un **campo de fuerza personalizado** con forma curva.
+
+**Iluminación**: Simple, consistente en un **foco "spot" cenital animado** y una **luz de área constante de frente**, así como un HDR prefabricado.
+
+**Cámara**: La cámara cuenta con una **animación de seguimiento continuo** en la primera parte y con un **plano estático** en la segunda. La profundidad de campo, la distancia focal y la apertura del diafragma digitales están **animadas para mantener el enfoque**. El desenfoque forzado durante el logo también forma parte del proyecto de Blender, y no de la posproducción.
+
+**Render**: Optimizado para ser realizado en **Cycles**.
+
+**Posproducción**: Realizada en **Adobe Premiere Pro**. Consiste únicamente en un corte intermedio y en la superposición de dos cuadros de texto, sin modificar ningún otro parámetro como el color o la iluminación.
+
+## GALERÍA DEL PROYECTO
+
+<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`,ca:`## INTRODUCCIÓ
+Render 3D animat en Blender d'un anunci publicitari de la marca imaginària **Kafeto**, realitzat en el marc de la matèria **Animació i CGI** del Grau en Comunicació Audiovisual (USC).
+
+La animació mostra la **construcció per peces d'una cafetera**, fent ús de diferents eines de modelatge tridimensional i simulació de líquids i partícules de Blender.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## TÈCNIQUES I METODOLOGIA
+
+**Modelatge 3D**: El modelatge tridimensional de la cafetera va ser realitzat a partir de **imatges de referència d'una cafetera real**. Tant aquest model com els d'objectes complementaris fan ús de diversos **modificadors del programa**, sempre partint del modelatge amb primitives.
+
+**Textures**: Les textures alterna entre les de creació pròpia i les descàrregues d'add-ons gratuïts com **Poliigon i BlenderKit** (suportades amb una modificació personalitzada posterior).
+
+**Animació**: L'animació de les diferents parts de la cafetera va ser realitzada en cada objecte de manera individual, i consisteix, en la seva major part, en **traslacions i rotacions**. També s'utilitzen **modes d'interpolació entre key-frames** predefinits pel programa, com el "rebote" o "bounce" (en efectes dinàmics). L'aigua està conformada per un **sistema de partícules de "metaballs"** amb textures pròpies (transparència, IOR 1.300, etc.), programades per seguir un **camp de força personalitzat** amb forma corba.
+
+**Il·luminació**: Simple, consistent en un **focus "spot" cenital animat** i una **llum d'àrea constant de front**, així com un HDR prefabricat.
+
+**Càmera**: La càmera compta amb una **animació de seguiment continu** en la primera part i amb un **pla estàtic** en la segona. La profunditat de camp, la distància focal i l'obertura del diafragma digitals estan **animades per mantenir l'enfocament**. El desenfocament forçat durant el logo també forma part del projecte de Blender, i no de la postproducció.
+
+**Render**: Optimitzat per ser realitzat en **Cycles**.
+
+**Postproducció**: Realitzada a **Adobe Premiere Pro**. Consisteix únicament en un tall intermedi i en la superposició de dos quadres de text, sense modificar cap altre paràmetre com el color o la il·luminació.
+
+## GALERIA DEL PROJECTE
+
+<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div class="wide"><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`,en:`## INTRODUCTION
+3D animated render in Blender for a commercial of the imaginary brand **Kafeto**, produced as part of the **Animation and CGI** course of the Bachelor's Degree in Audiovisual Communication (USC).
+
+The animation shows the **assembly of a coffee machine** using different **3D modeling tools and fluid/particle simulations** in Blender.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## TECHNIQUES AND METHODOLOGY
+
+**3D Modeling**: The 3D model was created from **reference images of a real coffee machine**. Both the main model and complementary objects use various **program modifiers**, always starting from primitive modeling.
+
+**Textures**: Textures alternate between original creations and downloads from free add-ons like **Poliigon and BlenderKit** (enhanced with custom modifications).
+
+**Animation**: Animation of different coffee machine parts was done individually on each object, consisting mainly of **translations and rotations**. **Interpolation modes between key-frames** predefined by the program are also used, such as "bounce" (in dynamic effects). Water is formed by a **"metaballs" particle system** with custom textures (transparency, IOR 1.300, etc.), programmed to follow a **custom force field** with curved shape.
+
+**Lighting**: Simple setup with an **animated cenital "spot" light** and a **constant front area light**, plus a prefabricated HDR.
+
+**Camera**: The camera features **continuous tracking animation** in the first part and a **static shot** in the second. Digital depth of field, focal distance, and aperture are **animated to maintain focus**. The forced blur during the logo is also part of the Blender project, not post-production.
+
+**Render**: Optimized for **Cycles** rendering.
+
+**Post-production**: Done in **Adobe Premiere Pro**. Consists only of intermediate cutting and text overlay, without modifying other parameters like color or lighting.
+
+## PROJECT GALLERY
+
+<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div class="wide"><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`,gl:`## INTRODUCIÓN
+Render 3D animado en Blender dun anuncio publicitario da marca imaxinaria **Kafeto**, realizado no marco da materia **Animación e CGI** do Grao en Comunicación Audiovisual (USC).
+
+A animación mostra a **construcción por pezas dunha cafetera**, facendo uso de diferentes ferramentas de modelado tridimensional e simulación de líquidos e partículas de Blender.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/k-AKIa1uzpA" title="Kafeto - Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## TÉCNICAS E METODOLOXÍA
+
+**Modelado 3D**: O modelado tridimensional da cafetera foi realizado a partir de **imaxes de referencia dunha cafetera real**. Tanto dito modelo como os de obxectos complementarios fan uso de diversos **modificadores do programa**, sempre partindo do modelado con primitivas.
+
+**Texturas**: As texturas alternan entre as de creación propia e as descargadas de complementos gratuítos como **Poliigon e BlenderKit** (apoiadas nunha modificación personalizada posterior).
+
+**Animación**: A animación das diferentes partes da cafetera foi realizada en cada obxecto de maneira individual, e consiste, en a súa maior parte, en **traslacións e rotacións**. Tamén se utilizan **modos de interpolación entre key-frames** predefinidos polo programa, como o "rebote" ou "bounce" (en efectos dinámicos). A auga está conformada por un **sistema de partículas de "metaballs"** con texturas propias (transparencia, IOR 1.300, etc.), programadas para seguir un **campo de forza personalizado** con forma curva.
+
+**Iluminación**: Simple, consistente nun **foco "spot" cenital animado** e nunha **luz de área constante de fronte**, así como un HDR prefabricado.
+
+**Cámara**: A cámara conta cunha **animación de seguimento continuo** na primeira parte e cun **plano estático** na segunda. A profundidade de campo, a distancia focal e a apertura do diafragma dixitais están **animadas para manter o enfoque**. O desenfoque forzado durante o logo tamén forma parte do proxecto de Blender, e non da posprodución.
+
+**Render**: Optimizado para ser realizado en **Cycles**.
+
+**Posprodución**: Realizada en **Adobe Premiere Pro**. Consiste unicamente nun corte intermedio e na superposición de dous cadros de texto, sen modificar ningún outro parámetro como a cor ou a iluminación.
+
+## GALERIA DO PROXECTO
+
+<div class="custom-gallery"><div><img src="/images/kafeto2.avif" alt="Kafeto - Render 1" /></div><div><img src="/images/kafeto3.avif" alt="Kafeto - Render 2" /></div><div><img src="/images/kafeto4.avif" alt="Kafeto - Render 3" /></div><div><img src="/images/kafeto5.avif" alt="Kafeto - Render 4" /></div><div><img src="/images/kafeto6.avif" alt="Kafeto - Render 6" /></div><div><img src="/images/kafeto7.avif" alt="Kafeto - Render 7" /></div></div>`},image:"/images/kafeto1.avif",images:["/images/kafeto2.avif","/images/kafeto3.avif","/images/kafeto4.avif","/images/kafeto5.avif","/images/kafeto6.avif","/images/kafeto7.avif"],roles:["artist_2d_3d","design"]},{id:"penguin_saga",title:"Penguin saga",year:"2021",category:{es:"Videojuego (Scratch)",ca:"Videojoc (Scratch)",en:"Video Game (Scratch)",gl:"Videoxogo (Scratch)"},type:"academic",tags:["scratch","photoshop"],summary:{es:"Plataformero clásico programado visualme

@@ -102,8 +102,9 @@ export default function SkillsSection() {
                         backgroundColor: 'white'
                     }}>
                         <div style={{ padding: 'var(--spacing-lg)', borderTop: '1px solid var(--color-border)' }}>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md skills-grid">
                                 {cat.items.map(skillId => (
+
                                     <div key={skillId} className="flex flex-col gap-xs">
                                         <div className="flex items-center gap-sm">
                                             <div style={{

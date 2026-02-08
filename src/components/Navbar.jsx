@@ -60,20 +60,20 @@ export default function Navbar() {
             boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
             transition: 'none'
         }}>
-            <div className="container flex justify-between items-center" style={{ width: '100%' }}>
-                <div className="flex items-center gap-md">
+            <div className="container flex justify-between items-center navbar-content" style={{ width: '100%', gap: 'var(--spacing-sm)' }}>
+                <div className="flex items-center gap-xs sm:gap-md">
                     <Link to="/" style={{ textDecoration: 'none' }}>
-                        <div style={{ fontWeight: 900, fontSize: '1.2rem', color: 'var(--color-text)', letterSpacing: '-0.8px' }}>
+                        <div className="nav-name" style={{ fontWeight: 900, fontSize: '1.2rem', color: 'var(--color-text)', letterSpacing: '-0.8px' }}>
                             Mario Villanueva Torres
                         </div>
                     </Link>
 
-                    <div style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)', margin: '0 4px' }} />
+                    <div className="nav-divider" style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)', margin: '0 4px' }} />
 
                     <div ref={dropdownRef} style={{ position: 'relative', display: 'inline-block' }}>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="flex items-center gap-sm transition-all"
+                            className="flex items-center gap-sm transition-all role-dropdown-trigger"
                             style={{
                                 background: 'white',
                                 border: '1.5px solid var(--color-border)',
@@ -85,12 +85,12 @@ export default function Navbar() {
                                 cursor: 'pointer',
                                 color: 'var(--color-primary)',
                                 boxShadow: '0 2px 5px rgba(0,0,0,0.02)',
-                                minWidth: '160px',
+                                minWidth: 'clamp(120px, 15vw, 160px)',
                                 height: '32px',
                                 justifyContent: 'space-between'
                             }}
                         >
-                            <span style={{ whiteSpace: 'nowrap' }}>{activeLabel}</span>
+                            <span className="nav-active-label" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{activeLabel}</span>
                             <svg
                                 width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"
                                 strokeLinecap="round" strokeLinejoin="round"
@@ -99,6 +99,7 @@ export default function Navbar() {
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </button>
+
 
                         {isOpen && (
                             <div className="animate-fade-in" style={{
@@ -178,8 +179,8 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-md">
-                    <div className="flex items-center gap-sm">
+                <div className="flex items-center gap-sm sm:gap-md nav-right-section">
+                    <div className="flex items-center gap-sm nav-socials">
                         {socialLinks.map((link) => (
                             <a
                                 key={link.name}
@@ -201,10 +202,11 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    <div style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)' }} />
+                    <div className="nav-divider-right" style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)' }} />
 
                     <LanguageDropdown />
                 </div>
+
             </div>
         </nav>
     );

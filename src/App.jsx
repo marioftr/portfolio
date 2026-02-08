@@ -129,10 +129,30 @@ const PortfolioView = () => {
             <div className="animate-fade-in">
               <section id="about">
                 <SectionHeader title={language === 'es' ? 'Sobre mí' : language === 'ca' ? 'Sobre mi' : language === 'gl' ? 'Sobre min' : 'About me'} />
-                <div className="card" style={{ padding: 'var(--spacing-lg)' }}>
-                  <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--color-text)', whiteSpace: 'pre-line', textAlign: 'justify' }}>
+                <div className="card" style={{ padding: 'var(--spacing-lg) var(--spacing-lg) 1.5rem var(--spacing-lg)' }}>
+                  <p style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--color-text)', whiteSpace: 'pre-line', textAlign: 'left' }}>
                     { (aboutByRole[activeRoleId] && aboutByRole[activeRoleId][language]) ? aboutByRole[activeRoleId][language] : (aboutMe[language] || aboutMe.es) }
                   </p>
+                  
+                  <div style={{ 
+                    marginTop: '1.5rem', 
+                    paddingTop: '1.5rem', 
+                    borderTop: '1px solid var(--color-border)',
+                    fontSize: '0.95rem',
+                    color: 'var(--color-text-light)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}>
+                    <strong>
+                      {language === 'es' ? '📍 Ubicación actual:' : 
+                       language === 'ca' ? '📍 Ubicació actual:' : 
+                       language === 'gl' ? '📍 Ubicación actual:' : 
+                       '📍 Current location:'}
+                    </strong>
+                    <span>Madrid</span>
+                  </div>
                 </div>
               </section>
 

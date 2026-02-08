@@ -93,13 +93,14 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                     {projects.map((project) => (
                         <div 
                             key={project.id} 
-                            className="card flex flex-col transition-all" 
+                            className="card flex flex-col transition-all project-featured-card" 
                             style={{ 
                                 padding: 0, 
                                 overflow: 'hidden', 
                                 cursor: 'pointer',
-                                minWidth: 'calc(50% - var(--spacing-xs))',
-                                flex: '0 0 calc(33.333% - var(--spacing-xs))',
+                                minWidth: 'min(350px, 90vw)',
+                                maxWidth: '420px',
+                                flex: '0 0 min(350px, 90vw)',
                                 height: '100%'
                             }}
                             onClick={() => onProjectSelect(project)}

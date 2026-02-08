@@ -31,12 +31,14 @@ export default function LandingPage() {
     };
 
     return (
-        <div className="flex flex-col md:flex-row min-h-screen bg-white md:overflow-hidden">
+        <div className="flex flex-col md:flex-row min-h-screen bg-white md:overflow-hidden relative">
             {/* Left Side: Profile & Bio */}
-            <div className="flex-1 flex flex-col items-center justify-center p-xl text-center md:items-start md:text-left bg-gray-50" style={{ borderRight: '1px solid var(--color-border)', paddingTop: '3rem', minHeight: '100vh' }}>
+            <div className="flex-1 flex flex-col items-center justify-center p-md sm:p-lg md:p-xl text-center md:items-start md:text-left bg-gray-50 landing-left" style={{ borderRight: '1px solid var(--color-border)', paddingTop: '3rem', minHeight: '100vh' }}>
                 <div className="animate-fade-in flex flex-col items-center md:items-start gap-lg" style={{ maxWidth: '600px', width: '100%' }}>
                     <div style={{
-                        width: '150px', height: '150px', borderRadius: '50%',
+                        width: 'clamp(120px, 20vw, 150px)', 
+                        height: 'clamp(120px, 20vw, 150px)', 
+                        borderRadius: '50%',
                         overflow: 'hidden', border: '6px solid var(--color-primary)',
                         boxShadow: '0 15px 45px rgba(16, 185, 129, 0.3)', marginBottom: '1rem',
                         backgroundColor: 'white'
@@ -46,15 +48,15 @@ export default function LandingPage() {
 
                     <div style={{ width: 'fit-content', textAlign: 'inherit' }}>
                         <div style={{ width: '100%' }}>
-                            <h1 style={{ fontSize: '3rem', fontWeight: 900, marginBottom: '0.75rem', letterSpacing: '-1.5px', color: 'var(--color-text)', lineHeight: 1.1, whiteSpace: 'nowrap' }}>
+                            <h1 className="responsive-title" style={{ fontWeight: 900, marginBottom: '0.75rem', letterSpacing: '-1.5px', color: 'var(--color-text)', lineHeight: 1.1 }}>
                                 Mario Villanueva Torres
                             </h1>
-                            <p className="text-accent" style={{ fontSize: '1.2rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '1.5rem' }}>
+                            <p className="text-accent responsive-subtitle" style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '1.5rem' }}>
                                 {language === 'es' ? 'PORTFOLIO PROFESIONAL' : language === 'ca' ? 'PORTFOLIO PROFESSIONAL' : language === 'gl' ? 'PORTFOLIO PROFESIONAL' : 'PROFESSIONAL PORTFOLIO'}
                             </p>
                         </div>
 
-                        <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', lineHeight: 1.7, fontWeight: 500, textAlign: 'justify', width: '100%', maxWidth: '100%' }}>
+                        <p className="responsive-bio" style={{ color: 'var(--color-text-light)', lineHeight: 1.7, fontWeight: 500, textAlign: 'justify', width: '100%', maxWidth: '100%' }}>
                             {language === 'es'
                                 ? 'Máster en Diseño, Modelado y Programación de Videojuegos con formación especializada en animación, programación, edición audiovisual y diseño gráfico. Desarrollador versátil con experiencia en múltiples disciplinas creativas. Revisa los perfiles especializados para ver proyectos relevantes.'
                                 : language === 'ca'
@@ -66,14 +68,14 @@ export default function LandingPage() {
                     </div>
 
                     {/* Social Links */}
-                    <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
+                    <div className="social-links-container" style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', marginBottom: '1rem' }}>
                         {socialLinks.map((link, idx) => (
                             <a
                                 key={idx}
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center"
+                                className="flex items-center justify-center social-icon-landing"
                                 style={{
                                     width: '44px',
                                     height: '44px',
@@ -105,27 +107,27 @@ export default function LandingPage() {
             </div>
 
             {/* Right Side: Role Selection */}
-            <div className="flex-1 flex flex-col items-center justify-center p-xl overflow-y-auto" style={{ backgroundColor: 'var(--color-secondary)', minHeight: '100vh' }}>
+            <div className="flex-1 flex flex-col items-center justify-center p-md sm:p-lg md:p-xl overflow-y-auto landing-right" style={{ backgroundColor: 'var(--color-secondary)', minHeight: '100vh', paddingBottom: '5rem' }}>
                 <div className="flex flex-col gap-md animate-fade-in" style={{ animationDelay: '0.1s', width: '380px', maxWidth: '100%' }}>
-                    <p style={{ fontSize: '0.8rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--color-text-light)', marginBottom: '1.25rem', textAlign: 'center', opacity: 0.5 }}>
+                    <p className="select-specialty-text" style={{ fontSize: '0.8rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--color-text-light)', marginBottom: '1.25rem', textAlign: 'center', opacity: 0.5 }}>
                         {t('select_specialty')}
                     </p>
                     {Object.entries(roleMapping).map(([id, data]) => (
                         <button
                             key={id}
                             onClick={() => navigate(`/${data.path}`)}
-                            className="flex items-center justify-between transition-all btn-thick-border"
+                            className="flex items-center justify-between transition-all btn-thick-border role-button"
                             style={{
                                 cursor: 'pointer',
                                 padding: '1.25rem 1.75rem',
                                 background: id === 'all' ? 'var(--color-primary)' : 'white',
                                 color: id === 'all' ? 'white' : 'var(--color-primary)',
-                                border: `5px solid var(--color-primary)`,
+                                border: `4px solid var(--color-primary)`,
                                 boxShadow: '0 8px 20px rgba(0,0,0,0.05)',
                                 borderRadius: '24px',
                                 textAlign: 'left',
                                 width: '100%',
-                                minHeight: '80px',
+                                minHeight: 'clamp(60px, 10vh, 80px)',
                                 transition: 'all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                             }}
                             onMouseEnter={(e) => {
@@ -137,10 +139,10 @@ export default function LandingPage() {
                                 e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.05)';
                             }}
                         >
-                            <span style={{ fontWeight: 800, fontSize: '1.1rem', textTransform: 'uppercase', letterSpacing: '1px', lineHeight: 1.2, marginTop: '4px' }}>
+                            <span className="role-button-text" style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', lineHeight: 1.2 }}>
                                 {data.label[language] || data.label.es}
                             </span>
-                            <div style={{ opacity: 0.9, marginLeft: '1rem', flexShrink: 0, color: id === 'all' ? 'white' : 'var(--color-primary)', display: 'flex', alignItems: 'center' }}>
+                            <div className="role-button-icon" style={{ opacity: 0.9, marginLeft: '1rem', flexShrink: 0, color: id === 'all' ? 'white' : 'var(--color-primary)', display: 'flex', alignItems: 'center' }}>
                                 {getIcon(data.icon)}
                             </div>
                         </button>
@@ -149,7 +151,7 @@ export default function LandingPage() {
             </div>
 
             {/* Language Selector Bottom Right */}
-            <div style={{
+            <div className="landing-language-selector" style={{
                 position: 'fixed',
                 bottom: '2rem',
                 right: '2rem',
@@ -159,4 +161,5 @@ export default function LandingPage() {
             </div>
         </div>
     );
+
 }

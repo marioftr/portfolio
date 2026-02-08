@@ -1,3 +1,12 @@
+  .year-dropdown-clear-btn {
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 1001 !important;
+    background: white !important;
+    border-top: 1px solid #eee !important;
+    width: 100% !important;
+    display: block !important;
+  }
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
@@ -248,6 +257,182 @@ button {
 
   .container {
     padding: 0 var(--spacing-sm);
+  }
+
+  /* Landing Page Specific Responsiveness */
+  .responsive-title {
+    font-size: 2.2rem !important;
+    white-space: normal !important;
+  }
+
+  .responsive-subtitle {
+    font-size: 0.9rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  .responsive-bio {
+    font-size: 0.95rem !important;
+    text-align: left !important;
+  }
+
+  .landing-left {
+    min-height: auto !important;
+    padding: 5rem 2rem 4rem !important; /* Más margen superior, laterales y separación de la línea inferior */
+    border-right: none !important;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .landing-right {
+    min-height: auto !important;
+    padding: 4rem 2rem 6rem !important;
+  }
+
+  .social-links-container {
+    margin-top: 2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .role-button {
+    padding: 1rem 1.25rem !important;
+    min-height: 60px !important;
+  }
+
+  .role-button-text {
+    font-size: 0.9rem !important;
+  }
+
+  .select-specialty-text {
+    letter-spacing: 1px !important;
+    font-size: 0.7rem !important;
+  }
+
+  .landing-language-selector {
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+
+  /* Extra small devices tweak */
+  @media (max-width: 480px) {
+    .responsive-title {
+      font-size: 1.8rem !important;
+    }
+    .landing-left, .landing-right {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+  }
+
+  /* Navbar Mobile Tweak */
+  .nav-name {
+    font-size: 0.9rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+  }
+
+  .nav-divider, .nav-divider-right, .nav-socials {
+    display: none !important;
+  }
+
+  .role-dropdown-trigger {
+    min-width: 110px !important;
+    padding: 2px 8px !important;
+  }
+
+  .nav-active-label {
+    font-size: 0.7rem !important;
+  }
+
+  .navbar-content {
+    gap: 0.5rem !important;
+  }
+
+  /* Timeline Mobile Tweaks */
+  .timeline-container {
+    padding-left: 1.5rem !important;
+  }
+
+  .timeline-dot {
+    width: 12px !important;
+    height: 12px !important;
+    left: 2px !important;
+  }
+
+  .timeline-line {
+    left: 7px !important;
+  }
+
+  .timeline-card {
+    padding: 1rem !important;
+  }
+
+  /* Skills Mobile Tweaks */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Gallery Mobile Tweaks */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .filters-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+
+  .filter-actions {
+    justify-content: space-between !important;
+  }
+
+  /* Modal Mobile Tweaks */
+  .project-modal-card {
+    max-height: 95vh !important;
+    width: 95vw !important;
+  }
+
+  .project-modal-header-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 220px !important;
+    object-fit: cover !important;
+    margin: 0 auto !important;
+    display: block !important;
+    background: white !important;
+  }
+  .project-modal-header-container {
+    background: white !important;
+    min-height: 0 !important;
+    max-height: 220px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-bottom: 2px solid #f0f0f0 !important;
+  }
+
+  .custom-video-carousel iframe {
+    height: 180px !important;
+  }
+}
+
+/* Tablet Optimizations (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .responsive-title {
+    font-size: 2.5rem !important;
+  }
+
+  .landing-left {
+    padding: 2rem !important;
+  }
+
+  .landing-right {
+    padding: 2rem !important;
+  }
+
+  h1 {
+    font-size: 2.8rem;
   }
 }
 

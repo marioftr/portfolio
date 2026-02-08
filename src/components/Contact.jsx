@@ -39,8 +39,8 @@ export default function Contact() {
                                 <p style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-text-light)', textTransform: 'uppercase', marginBottom: '2px' }}>
                                     {t('contact_email')}
                                 </p>
-                                <a href="mailto:mariovt@example.com" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-text)' }}>
-                                    mariovt@example.com
+                                <a href="mailto:mvillanueva.mvt@gmail.com" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-text)' }}>
+                                    mvillanueva.mvt@gmail.com
                                 </a>
                             </div>
                         </div>
@@ -55,7 +55,9 @@ export default function Contact() {
                                 <p style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-text-light)', textTransform: 'uppercase', marginBottom: '2px' }}>
                                     {t('contact_phone')}
                                 </p>
-                                <span style={{ fontSize: '1rem', fontWeight: 600 }}>+34 600 000 000</span>
+                                <a href="tel:+34663126640" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-text)', textDecoration: 'none' }}>
+                                    +34 663 126 640
+                                </a>
                             </div>
                         </div>
                     </div>
