@@ -76,7 +76,7 @@ export default function SkillsSection({ activeRole = 'all' }) {
         .filter(Boolean);
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-md" style={{ marginTop: 'var(--spacing-md)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-md" style={{ marginTop: 'var(--spacing-md)' }}>
             {orderedCategories.map((cat, idx) => (
                 <div key={cat.id || idx} className="card" style={{ padding: 0, overflow: 'hidden', height: 'fit-content' }}>
                     <button
@@ -116,11 +116,11 @@ export default function SkillsSection({ activeRole = 'all' }) {
                         backgroundColor: 'white'
                     }}>
                         <div style={{ padding: 'var(--spacing-lg)', borderTop: '1px solid var(--color-border)' }}>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md skills-grid">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-md skills-grid">
                                 {cat.items.map(skillId => (
 
-                                    <div key={skillId} className="flex flex-col gap-xs">
-                                        <div className="flex items-center gap-sm">
+                                    <div key={skillId} className="flex flex-col gap-xs" style={{ minWidth: 0 }}>
+                                        <div className="flex items-center" style={{ gap: '0.6rem' }}>
                                             <div style={{
                                                 width: '32px',
                                                 height: '32px',
@@ -151,7 +151,12 @@ export default function SkillsSection({ activeRole = 'all' }) {
                                                     );
                                                 })()}
                                             </div>
-                                            <span className="tag" style={{ width: 'fit-content', fontSize: '0.75rem', fontWeight: 800, whiteSpace: 'nowrap' }}>
+                                            <span className="tag" style={{ 
+                                                width: 'fit-content', 
+                                                fontSize: '0.75rem', 
+                                                fontWeight: 800, 
+                                                whiteSpace: 'nowrap'
+                                            }}>
                                                 {allSkills[skillId]?.name || skillId}
                                             </span>
                                         </div>

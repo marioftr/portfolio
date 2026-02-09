@@ -185,7 +185,7 @@ export default function Timeline({ education, experience }) {
     );
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-lg" style={{ marginTop: 'var(--spacing-md)' }}>
+        <div className="flex flex-col gap-xl" style={{ marginTop: 'var(--spacing-md)' }}>
             {/* Experience Column */}
             <div>
                 <h3 style={{

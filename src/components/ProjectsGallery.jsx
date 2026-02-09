@@ -793,7 +793,7 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
 
             <div className="gallery-grid" style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 340px), 1fr))',
                 gap: 'var(--spacing-lg)',
                 marginTop: 'var(--spacing-lg)'
             }}>

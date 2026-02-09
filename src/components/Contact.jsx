@@ -17,7 +17,7 @@ export default function Contact() {
 
     return (
         <div className="card" style={{ padding: 'var(--spacing-lg)', backgroundColor: '#fff' }}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+            <div className="flex flex-col gap-lg">
                 {/* Contact Info */}
                 <div className="flex flex-col gap-md">
                     <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>

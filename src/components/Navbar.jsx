@@ -6,9 +6,9 @@ import LanguageDropdown from './LanguageDropdown';
 
 const roleKeyMap = {
     'perfil-general': 'all',
-    'editor-video': 'video_editor',
     'programador-videojuegos': 'game_dev',
-    'artista-3d': 'artist_2d_3d'
+    'artista-3d': 'artist_2d_3d',
+    'editor-video': 'video_editor'
 };
 
 const roleTitles = {
