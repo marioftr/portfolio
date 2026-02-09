@@ -1,0 +1,206 @@
+
+> long_desc_history.txt:864:+        image: '/images/narcozoo1.jpg',
+> long_desc_history.txt:865:+        images: ['/images/narcozoo1.jpg'],
+  long_desc_history.txt:866:         roles: ['game_dev']
+  long_desc_history.txt:867:     },
+  long_desc_history.txt:868:     {
+  long_desc_history.txt:869:@@ -560,40 +928,40 @@ O proxecto superou diversos retos, desde a xestión do tempo ata a optimització
+  long_desc_history.txt:870:         summary: {
+  long_desc_history.txt:871:             es: 'Producción integral de podcast: guion, locución y diseño sonoro. Enfocado en actualidad y debate.',
+  long_desc_history.txt:872:             ca: 'Producció integral de podcast: guió, locució i disseny sonor. Enfocat en actualitat i debat.',
+  long_desc_history.txt:873:-            en: 'Integral podcast production: script, voiceover, and sound design. Focused on current events and debate.',
+  long_desc_history.txt:874:+            en: 'Full podcast production: script, voiceover, and sound design. Focused on current events and debate.',
+  long_desc_history.txt:875:             gl: 'Produción integral de podcast: guión, locución e deseño sonoro. Enfocado en actualidade e debate.'
+  long_desc_history.txt:876:         },
+  long_desc_history.txt:877:         description: {
+  long_desc_history.txt:878:             es: 'Podcast grabado y editado para la materia Taller de Creación Sonora.',
+  long_desc_history.txt:879:             ca: 'Podcast grabat i editat per a la matèria Taller de Creació Sonora.',
+  long_desc_history.txt:880:-            en: 'Podcast recorded and edited for the Sound Creation Workshop.',
+  long_desc_history.txt:881:+            en: 'Podcast recorded and edited for the Sound Creation Subject.',
+  long_desc_history.txt:882:             gl: 'Podcast gravado e editado para a materia Taller de Creación Sonora.'
+  long_desc_history.txt:883:         },
+  long_desc_history.txt:884:-        image: '/images/actualidad.jpg',
+  long_desc_history.txt:885:-        images: ['/images/actualidad.jpg'],
+  long_desc_history.txt:886:+        image: '/images/actualidad1.jpg',
+  long_desc_history.txt:887:+        images: ['/images/actualidad1.jpg'],
+  long_desc_history.txt:888:         roles: ['video_editor']
+  long_desc_history.txt:889:     },
+  long_desc_history.txt:890:     {
+  long_desc_history.txt:891:         id: 'carta_a_fonte',
+  long_desc_history.txt:892:-        title: 'Carta A Fonte',
+  long_desc_history.txt:893:+        title: { es: 'Carta A Fonte', ca: 'Menú A Fonte', en: 'A Fonte Menu', gl: 'Carta A Fonte' },
+  long_desc_history.txt:894:         year: '2025',
+  long_desc_history.txt:895:-        category: { es: 'Diseño gráfico', ca: 'Disseny gràfic', en: 'Graphic design', gl: 'Deseño gráfico' },
+  long_desc_history.txt:896:+        category: { es: 'Diseño gráfico', ca: 'Disseny gràfic', en: 'Graphic Design', gl: 'Deseño gráfico' },
+  long_desc_history.txt:897:         type: 'professional',
+  long_desc_history.txt:898:-        tags: ['photoshop'],
+  long_desc_history.txt:899:+        tags: ['canva'],
+  long_desc_history.txt:900:         summary: {
+  long_desc_history.txt:901:             es: 'Rebranding y diseño de menú para restaurante. Trabajo directo con cliente para mejorar la legibilidad y estética.',
+  long_desc_history.txt:902:             ca: 'Rebranding i disseny de menú per a restaurant. Treball directe amb client per millorar la llegibilitat i estètica.',
+  long_desc_history.txt:903:-            en: 'Rebranding and menu design for a restaurant. Direct work with client to improve readability and aesthetics.',
+  long_desc_history.txt:904:-            gl: 'Rebranding e deseño de menú para restaurante. Traballo directo con cliente para mellorar a lexitibidade e estética.'
+  long_desc_history.txt:905:+            en: 'Rebranding and menu design for a restaurant. Direct work with the client to improve readability and aesthetics.',
+  long_desc_history.txt:906:+            gl: 'Rebranding e deseño de menú para restaurante. Traballo directo con cliente para mellorar a lexibilidade e estética.'
+  long_desc_history.txt:907:         },
+  long_desc_history.txt:908:         description: {
+  long_desc_history.txt:909:             es: 'Diseño completo de carta para Bar-Restaurante A Fonte con feedback directo del cliente.',
+  long_desc_history.txt:910:-            ca: 'Disseny complet de carta per a Bar-Restaurante A Fonte amb feedback directe del client.',
+  long_desc_history.txt:911:+            ca: 'Disseny complet de menú per a Bar-Restaurante A Fonte amb feedback directe del client.',
+  long_desc_history.txt:912:             en: 'Complete menu design for Bar-Restaurant A Fonte with direct client feedback.',
+  long_desc_history.txt:913:             gl: 'Deseño completo de carta para Bar-Restaurante A Fonte con feedback directo do cliente.'
+  long_desc_history.txt:914:         },
+  long_desc_history.txt:915:-        image: '/images/carta.jpg',
+  long_desc_history.txt:916:-        images: ['/images/carta.jpg'],
+  long_desc_history.txt:917:+        image: '/images/carta1.jpg',
+  long_desc_history.txt:918:+        images: ['/images/carta1.jpg'],
+  long_desc_history.txt:919:         roles: ['design']
+  long_desc_history.txt:920:     }
+  long_desc_history.txt:921: ];
+  long_desc_history.txt:922:
+  long_desc_history.txt:923:commit 1abfd6ca984ec7330e8b930440b77da9b083fbfa
+  long_desc_history.txt:924:Author: Mario Villanueva Torres <mariovillanueva.mvt@gmail.com>
+  long_desc_history.txt:925:Date:   Sat Feb 7 21:45:40 2026 +0100
+  long_desc_history.txt:926:
+  long_desc_history.txt:927:    Initial commit
+  long_desc_history.txt:928:
+  long_desc_history.txt:929:diff --git a/src/data/content.js b/src/data/content.js
+  long_desc_history.txt:930:index b931129..07acfde 100644
+  long_desc_history.txt:931:--- a/src/data/content.js
+  long_desc_history.txt:932:+++ b/src/data/content.js
+  long_desc_history.txt:933:@@ -1,4 +1,3 @@
+  long_desc_history.txt:934:-
+  long_desc_history.txt:935: export const roles = [
+  long_desc_history.txt:936:     { id: 'all', labelKey: 'role_all' },
+  long_desc_history.txt:937:     { id: 'video_editor', labelKey: 'role_video_editor' },
+  long_desc_history.txt:938:@@ -20,29 +19,29 @@ export const socialLinks = [
+  long_desc_history.txt:939:     },
+  long_desc_history.txt:940:     {
+  long_desc_history.txt:941:         name: 'GitHub',
+  long_desc_history.txt:942:-        url: 'https://github.com',
+  long_desc_history.txt:943:+        url: 'https://github.com/marioftr',
+  long_desc_history.txt:944:         icon: 'github'
+  long_desc_history.txt:945:     },
+  long_desc_history.txt:946:     {
+  long_desc_history.txt:947:         name: 'Instagram',
+  long_desc_history.txt:948:-        url: 'https://instagram.com/mario.villanueva',
+  long_desc_history.txt:949:+        url: 'https://www.instagram.com/mario_ftr',
+  long_desc_history.txt:950:         icon: 'instagram'
+  long_desc_history.txt:951:     }
+  long_desc_history.txt:952: ];
+  long_desc_history.txt:953: 
+  long_desc_history.txt:954: export const aboutMe = {
+  long_desc_history.txt:955:     es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el Centro de Estudios de Innovación, Diseño y Marketing (CEI) de Madrid.\n\nActualmente estoy desarrollando mis habilidades de programación de videojuegos, más concretamente en C# para Unity. También trabajo con Unreal Engine y sus blueprints para explorar diferentes enfoques de desarrollo. Durante mi grado en Comunicación Audiovisual cursé una asignatura de Creación de Videojuegos que me permitió explorar las bases del desarrollo.\n\nSoy un entusiasta de la edición de vídeo, del modelado 3D y del diseño, con voluntad de profundizar en estos ámbitos y de potenciar mis habilidades en un entorno profesional. En cuanto al diseño gráfico, tengo experiencia sólida con Photoshop y Canva para crear recursos visuales coherentes y atractivos.",
+  long_desc_history.txt:956:-    ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al Centre d'Estudis d'Innovació, Disseny i Màrqueting (CEI) de Madrid.\n\nActualment estic desenvolupant les meves habilitats de programació de videojocs, més concretament en C# per a Unity. També treballo amb Unreal Engine i els seus blueprints per explorar diferents enfocaments de desenvolupament. Durant el meu grau en Comunicació Audiovisual vaig cursar una assignatura de Creació de Videojocs que em va permetre explorar les bases del desenvolupament.\n\nSóc un entusiasta de l'edició de vídeo, del modelatge 3D i del disseny, amb voluntat d'aprofundir en aquests àmbits i de potenciar les meves habilitats en un entorn professional. Quant al disseny gràfic, tinc experiència sòlida amb Photoshop i Canva per crear recursos visuals coherents i atractius.",
+  long_desc_history.txt:957:+    ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al Centre d'Estudis d'Innovació, Disseny i Màrqueting (CEI) de Madrid.\n\nActualment estic desenvolupant les meves habilitats de programació de videojocs, més concretament en C# per a Unity. També treballo amb Unreal Engine i els seus blueprints per explorar diferents enfocaments de desenvolupament. Durant el meu Grau en Comunicació Audiovisual vaig cursar una assignatura de Creació de Videojocs que em va permetre explorar les bases del desenvolupament.\n\nSóc un entusiasta de l'edició de vídeo, del modelatge 3D i del disseny, amb voluntat d'aprofundir nestes àmbits e de potenciar les meves habilitats en un entorn professional. Canto ao deseño gráfico, tinc experiència sólida amb Photoshop i Canva per crear recursos visuels coherents i atractius.",
+  long_desc_history.txt:958:     en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid.\n\nCurrently developing my game programming skills, specifically in C# for Unity. I also work with Unreal Engine and its blueprints to explore different development approaches. During my degree in Audiovisual Communication, I took a Video Game Creation course that allowed me to explore development fundamentals.\n\nI am an enthusiast of video editing, 3D modeling and design, with a willingness to deepen in these areas and empower my skills in a professional environment. Regarding graphic design, I have solid experience with Photoshop and Canva to create coherent and attractive visual resources.",
+  long_desc_history.txt:959:-    gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no Centro de Estudios de Innovación (CEI) de Madrid.\n\nActualmente estou a desenvolver as miñas habilidades de programación de videoxogos, máis concretamente en C# para Unity. Tamén traballos con Unreal Engine e os seus blueprints para explorar diferentes enfoques de desenvolvemento. Durante o meu grao en Comunicación Audiovisual cursei unha asignatura de Creación de Videoxogos que me permitiu explorar as bases do desenvolvemento.\n\nSon un entusiasta da edición de vídeo, do modelado 3D e do deseño, con vontade de afondar nestes ámbitos e de potenciar as miñas habilidades nun entorno profesional. Canto ao deseño gráfico, teño experiencia sólida con Photoshop e Canva para crear recursos visuais coerentes e atractivos."
+  long_desc_history.txt:960:-};
+  long_desc_history.txt:961:+    gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no Centro de Estudios de Innovación (CEI) de Madrid.\n\nActualmente estou a desenvolver as miñas habilidades de programación de videoxogos, máis concretamente en C# para Unity. Tamén traballos con Unreal Engine e os seus blueprints para explorar diferentes enfoques de desenvolvemento. Durante o meu Grao en Comunicación Audiovisual cursei unha asignatura de Creación de Videoxogos que foi o meu primeiro contacto co desenvolupament estruturado.\n\nProgramador de videoxogos centrado en gameplay e sistemas. Desenvolvo en C# para Unity e tamén traballo con Blueprints en Unreal Engine. Creei prototipos de mecánicas, sistemas de gardado e cinemáticas aplicando boas práctiques de arquitectura e optimización."
+  long_desc_history.txt:962:+];
+  long_desc_history.txt:963: 
+  long_desc_history.txt:964: export const aboutByRole = {
+  long_desc_history.txt:965:     artist_2d_3d: {
+> long_desc_history.txt:1808:+        id: 'narcozoo',
+> long_desc_history.txt:1809:+        title: 'Narcozoo',
+  long_desc_history.txt:1810:+        year: '2023',
+  long_desc_history.txt:1811:+        category: { es: 'Diseño de videojuego', ca: 'Disseny de videojoc', en: 'Game design', gl: 'Deseño de videoxogo' },
+  long_desc_history.txt:1812:+        type: 'academic',
+  long_desc_history.txt:1813:+        tags: ['photoshop', 'premiere'],
+  long_desc_history.txt:1814:+        summary: {
+  long_desc_history.txt:1815:+            es: 'Concepto y GDD para un videojuego de gestión. Desarrollo teórico de mecánicas, economía y narrativa.',
+  long_desc_history.txt:1816:+            ca: 'Concepte i GDD per a un videojoc de gestió. Desenvolupament teòric de mecàniques, economia i narrativa.',
+  long_desc_history.txt:1817:+            en: 'Concept and GDD for a management video game. Theoretical development of mechanics, economy, and narrative.',
+  long_desc_history.txt:1818:+            gl: 'Concepto e GDD para un videoxogo de xestión. Desenvolvemento teórico de mecánicas, economía e narrativa.'
+  long_desc_history.txt:1819:+        },
+  long_desc_history.txt:1820:+        description: {
+  long_desc_history.txt:1821:+            es: 'Creación de un videojuego teórico completo basado en fundamentos académicos de diseño.',
+  long_desc_history.txt:1822:+            ca: 'Creació d\'un videojoc teòric complet basat en fundaments acadèmics de disseny.',
+  long_desc_history.txt:1823:+            en: 'Creation of a complete theoretical video game based on academic design foundations.',
+  long_desc_history.txt:1824:+            gl: 'Creación dun videoxogo teórico completo baseado en fundamentos académicos de deseño.'
+  long_desc_history.txt:1825:+        },
+  long_desc_history.txt:1826:+        image: '/images/marccop.jpg',
+  long_desc_history.txt:1827:+        images: ['/images/marccop.jpg'],
+  long_desc_history.txt:1828:+        roles: ['game_dev']
+  long_desc_history.txt:1829:+    },
+  long_desc_history.txt:1830:+    {
+  long_desc_history.txt:1831:+        id: 'actualiteca',
+  long_desc_history.txt:1832:+        title: 'Actualiteca',
+  long_desc_history.txt:1833:+        year: '2023',
+  long_desc_history.txt:1834:+        category: { es: 'Podcast / Radio', ca: 'Podcast / Ràdio', en: 'Podcast / Radio', gl: 'Podcast / Radio' },
+  long_desc_history.txt:1835:+        type: 'academic',
+  long_desc_history.txt:1836:+        tags: ['audacity', 'premiere'],
+  long_desc_history.txt:1837:+        summary: {
+  long_desc_history.txt:1838:+            es: 'Producción integral de podcast: guion, locución y diseño sonoro. Enfocado en actualidad y debate.',
+  long_desc_history.txt:1839:+            ca: 'Producció integral de podcast: guió, locució i disseny sonor. Enfocat en actualitat i debat.',
+  long_desc_history.txt:1840:+            en: 'Integral podcast production: script, voiceover, and sound design. Focused on current events and debate.',
+  long_desc_history.txt:1841:+            gl: 'Produción integral de podcast: guión, locución e deseño sonoro. Enfocado en actualidade e debate.'
+  long_desc_history.txt:1842:+        },
+  long_desc_history.txt:1843:+        description: {
+  long_desc_history.txt:1844:+            es: 'Podcast grabado y editado para la materia Taller de Creación Sonora.',
+  long_desc_history.txt:1845:+            ca: 'Podcast grabat i editat per a la matèria Taller de Creació Sonora.',
+  long_desc_history.txt:1846:+            en: 'Podcast recorded and edited for the Sound Creation Workshop.',
+  long_desc_history.txt:1847:+            gl: 'Podcast gravado e editado para a materia Taller de Creación Sonora.'
+  long_desc_history.txt:1848:+        },
+  long_desc_history.txt:1849:+        image: '/images/actualidad.jpg',
+  long_desc_history.txt:1850:+        images: ['/images/actualidad.jpg'],
+  long_desc_history.txt:1851:+        roles: ['video_editor']
+  long_desc_history.txt:1852:+    },
+  long_desc_history.txt:1853:+    {
+  long_desc_history.txt:1854:+        id: 'carta_a_fonte',
+  long_desc_history.txt:1855:+        title: 'Carta A Fonte',
+  long_desc_history.txt:1856:+        year: '2025',
+  long_desc_history.txt:1857:+        category: { es: 'Diseño gráfico', ca: 'Disseny gràfic', en: 'Graphic design', gl: 'Deseño gráfico' },
+  long_desc_history.txt:1858:+        type: 'professional',
+  long_desc_history.txt:1859:+        tags: ['photoshop', 'illustrator'],
+  long_desc_history.txt:1860:+        summary: {
+  long_desc_history.txt:1861:+            es: 'Rebranding y diseño de menú para restaurante. Trabajo directo con cliente para mejorar la legibilidad y estética.',
+  long_desc_history.txt:1862:+            ca: 'Rebranding i disseny de menú per a restaurant. Treball directe amb client per millorar la llegibilitat i estètica.',
+  long_desc_history.txt:1863:+            en: 'Rebranding and menu design for a restaurant. Direct work with client to improve readability and aesthetics.',
+  long_desc_history.txt:1864:+            gl: 'Rebranding e deseño de menú para restaurante. Traballo directo con cliente para mellorar a lexitibidade e estética.'
+  long_desc_history.txt:1865:+        },
+  long_desc_history.txt:1866:+        description: {
+  long_desc_history.txt:1867:+            es: 'Diseño completo de carta para Bar-Restaurante A Fonte con feedback directo del cliente.',
+  long_desc_history.txt:1868:+            ca: 'Disseny complet de carta per a Bar-Restaurante A Fonte amb feedback directe del client.',
+  long_desc_history.txt:1869:+            en: 'Complete menu design for Bar-Restaurant A Fonte with direct client feedback.',
+  long_desc_history.txt:1870:+            gl: 'Deseño completo de carta para Bar-Restaurante A Fonte con feedback directo do cliente.'
+  long_desc_history.txt:1871:+        },
+  long_desc_history.txt:1872:+        image: '/images/carta.jpg',
+  long_desc_history.txt:1873:+        images: ['/images/carta.jpg'],
+  long_desc_history.txt:1874:+        roles: ['video_editor']
+  long_desc_history.txt:1875:+    },
+  long_desc_history.txt:1876:+    {
+  long_desc_history.txt:1877:+        id: 'estudios_academicos',
+  long_desc_history.txt:1878:+        title: { es: 'Recopilación académica', ca: 'Recopilació acadèmica', en: 'Academic collection', gl: 'Recopilación académica' },
+  long_desc_history.txt:1879:+        year: '2021 - 2025',
+  long_desc_history.txt:1880:+        category: { es: 'Varios', ca: 'Diversos', en: 'Various', gl: 'Varios' },
+  long_desc_history.txt:1881:+        type: 'academic',
+  long_desc_history.txt:1882:+        tags: ['premiere', 'blender'],
+  long_desc_history.txt:1883:+        summary: {
+  long_desc_history.txt:1884:+            es: 'Showreel de prácticas universitarias incluyendo piezas de montaje, cortos experimentales y ejercicios de cámara.',
+  long_desc_history.txt:1885:+            ca: 'Showreel de pràctiques universitaries incloent peces de muntatge, curtes experimentals i exercicis de càmera.',
+  long_desc_history.txt:1886:+            en: 'University practicum showreel including editing pieces, experimental shorts, and camera exercises.',
+  long_desc_history.txt:1887:+            gl: 'Showreel de prácticas universitarias incluíndo pezas de montaxe, curtas experimentais e exercicios de cámara.'
+  long_desc_history.txt:1888:+        },
+  long_desc_history.txt:1889:+        description: {
+  long_desc_history.txt:1890:+            es: 'Mención a proyectos universitarios que fueron clave para el desarrollo de competencias.',
+  long_desc_history.txt:1891:+            ca: 'Menció a projectes universitaris que van ser clau per al desenvolupament de competències.',
+  long_desc_history.txt:1892:+            en: 'Mention of university projects that were key to competence development.',
+  long_desc_history.txt:1893:+            gl: 'Mención a proxectos universitarios que foron clave para o desenvolvemento de competencias.'
+  long_desc_history.txt:1894:+        },
+  long_desc_history.txt:1895:+        image: '/images/estudios.jpg',
+  long_desc_history.txt:1896:+        images: ['/images/estudios.jpg'],
+  long_desc_history.txt:1897:+        roles: ['video_editor', 'animator', '3d_modeler']
+  long_desc_history.txt:1898:+    },
+  long_desc_history.txt:1899:+    {
+  long_desc_history.txt:1900:+        id: 'otros',
+  long_desc_history.txt:1901:+        title: { es: 'Otros proyectos', ca: 'Altres projectes', en: 'Other projects', gl: 'Outros proxectos' },
+  long_desc_history.txt:1902:+        year: 'Varias fechas',
+  long_desc_history.txt:1903:+        category: { es: 'Varios', ca: 'Diversos', en: 'Various', gl: 'Varios' },
+  long_desc_history.txt:1904:+        type: 'personal',
+  long_desc_history.txt:1905:+        tags: ['premiere', 'photoshop'],
+  long_desc_history.txt:1906:+        summary: {
+  long_desc_history.txt:1907:+            es: 'Saco de sastre de experimentación personal, sketches rápidos y pruebas técnicas fuera del ámbito académico.',
+  long_desc_history.txt:1908:+            ca: 'Sac de sastre d\'experimentació personal, sketches ràpids i proves tècniques fora de l\'àmbit acadèmic.',
+  long_desc_history.txt:1909:+            en: 'Mixed bag of personal experimentation, quick sketches, and technical tests outside academia.',
+

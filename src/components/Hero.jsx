@@ -25,11 +25,10 @@ export default function Hero({ roleId }) {
 
                 <h1 style={{ 
                     marginBottom: 'var(--spacing-xs)', 
-                    fontSize: 'clamp(1.5rem, 8vw, 2.5rem)',
-                    whiteSpace: 'nowrap',
-                    width: '100%',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
+                    fontSize: 'clamp(1.5rem, 6.5vw, 2.5rem)',
+                    fontWeight: 900,
+                    color: 'var(--color-text)',
+                    lineHeight: 1.2
                 }}>
                     Mario Villanueva Torres
                 </h1>

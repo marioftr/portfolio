@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
-export default function LanguageDropdown({ placement = 'bottom' }) {
+export default function LanguageDropdown({ placement = 'bottom', showLabelMobile = true, align = 'center' }) {
     const { language, setLanguage } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -51,11 +51,25 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
         height: '32px'
     };
 
+    const getMenuTransform = (isOpen, placement, align) => {
+        let translateX = '-50%';
+        if (align === 'left') translateX = '0%';
+        if (align === 'right') translateX = '0%';
+
+        let translateY = '0';
+        if (!isOpen) {
+            translateY = placement === 'bottom' ? '-10px' : '10px';
+        }
+
+        return `translateX(${translateX}) translateY(${translateY})`;
+    };
+
     const menuStyles = {
         position: 'absolute',
         bottom: placement === 'bottom' ? 'auto' : 'calc(100% + 0.5rem)',
         top: placement === 'top' ? 'auto' : 'calc(100% + 0.5rem)',
-        right: 0,
+        left: align === 'center' ? '50%' : (align === 'left' ? '0' : 'auto'),
+        right: align === 'right' ? '0' : 'auto',
         backgroundColor: 'white',
         border: '1px solid var(--color-border)',
         borderRadius: '12px',
@@ -64,7 +78,7 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
         minWidth: '160px',
         maxHeight: isOpen ? '300px' : '0',
         opacity: isOpen ? 1 : 0,
-        transform: isOpen ? 'translateY(0)' : (placement === 'bottom' ? 'translateY(-10px)' : 'translateY(10px)'),
+        transform: getMenuTransform(isOpen, placement, align),
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         pointerEvents: isOpen ? 'auto' : 'none',
         display: 'flex',
@@ -93,7 +107,7 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 style={triggerStyles}
-                className="dropdown-trigger"
+                className={`dropdown-trigger ${!showLabelMobile ? 'mobile-compact' : ''}`}
             >
                 <span style={{ fontSize: '1.2rem', display: 'inline-flex', alignItems: 'center' }}>
                     {typeof currentLang.flag === 'string' ?
@@ -102,8 +116,20 @@ export default function LanguageDropdown({ placement = 'bottom' }) {
                             : currentLang.flag)
                         : null}
                 </span>
-                <span className="lang-label">{language === 'es' ? 'Idioma' : language === 'ca' ? 'Idioma' : language === 'gl' ? 'Idioma' : 'Language'}</span>
+                <span 
+                    className={!showLabelMobile ? 'mobile-hidden' : ''}
+                    style={{ 
+                        display: 'inline-block', 
+                        fontWeight: 800,
+                        fontSize: '0.75rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
+                    }}
+                >
+                    {language === 'es' || language === 'ca' || language === 'gl' ? 'Idioma' : 'Language'}
+                </span>
                 <svg
+                    className={!showLabelMobile ? 'mobile-hidden' : ''}
                     width="12" height="12" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
                     style={{

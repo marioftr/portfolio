@@ -402,6 +402,19 @@ export default function ProjectModal({ project, onClose }) {
                         <div className="flex items-center gap-sm" style={{ marginBottom: '0.75rem' }}>
                             <span className="tag" style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)', fontWeight: 700 }}>{project.year}</span>
                             <span style={{ color: 'var(--color-text-light)', fontSize: '0.875rem', fontWeight: 500 }}>{project.type === 'academic' ? t('project_academic') : t('project_professional')}</span>
+                            {project.isWIP && (
+                                <span className="tag" style={{ 
+                                    background: 'var(--color-primary)', 
+                                    color: 'white', 
+                                    fontWeight: 900,
+                                    fontSize: '0.75rem',
+                                    textTransform: 'uppercase',
+                                    padding: '0.2rem 0.8rem',
+                                    borderRadius: '6px'
+                                }}>
+                                    {language === 'en' ? 'Work in Progress' : (language === 'ca' ? 'En procés' : (language === 'gl' ? 'En proceso' : 'Trabajo en proceso'))}
+                                </span>
+                            )}
                         </div>
                         <h2 style={{ fontSize: '2.25rem', fontWeight: 800, marginBottom: '0.5rem', color: '#1a1a1a', letterSpacing: '-0.02em' }}>
                             {typeof project.title === 'string' ? project.title : (project.title[language] || project.title.es)}
@@ -435,16 +448,20 @@ export default function ProjectModal({ project, onClose }) {
                     )}
 
                     {project.tags && (
-                        <div className="flex flex-wrap gap-xs" style={{ 
+                        <div className="flex" style={{ 
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            gap: '0.5rem',
                             marginBottom: '2rem',
-                            width: 'calc(100% - 2.5rem)',
-                            boxSizing: 'border-box'
+                            width: '100%',
+                            maxWidth: '100%'
                         }}>
                             {project.tags.map(tagId => (
                                 <span key={tagId} className="tag" style={{ 
                                     fontSize: '0.75rem', 
                                     padding: '0.2rem 0.6rem',
-                                    whiteSpace: 'nowrap'
+                                    whiteSpace: 'nowrap',
+                                    display: 'inline-block'
                                 }}>
                                     {allSkills[tagId]?.name || tagId.replace('_', ' ')}
                                 </span>

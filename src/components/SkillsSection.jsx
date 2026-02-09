@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
-import { skillCategories, allSkills } from '../data/content';
+import { skillCategories, allSkills, skillCategoriesOrder } from '../data/content';
 import audacityImg from '../assets/optimized/audacity.png?url';
 import blenderImg from '../assets/optimized/blender.png?url';
 import brainstormImg from '../assets/optimized/brainstorm.png?url';
@@ -9,7 +9,7 @@ import capcutImg from '../assets/optimized/capcut.jpg?url';
 import davinciImg from '../assets/optimized/davinci.png?url';
 import ffmpegImg from '../assets/optimized/ffmpeg.png?url';
 import mkvtoolnixImg from '../assets/optimized/mkvtoolnix.png?url';
-import unityImg from '../assets/optimized/unity.jpg?url';
+import unityImg from '../assets/optimized/unity.png?url';
 import afterEffectsImg from '../assets/optimized/after effects.png?url';
 import mayaImg from '../assets/optimized/maya.png?url';
 import photoshopImg from '../assets/optimized/photoshop.png?url';
@@ -24,6 +24,10 @@ import affinityImg from '../assets/optimized/affinity.png?url';
 import handbrakeImg from '../assets/optimized/handbrake.png?url';
 import meguiImg from '../assets/optimized/megui.png?url';
 import veedub64Img from '../assets/optimized/veedub64.png?url';
+import riderImg from '../assets/optimized/rider.png?url';
+import copilotImg from '../assets/optimized/copilot.png?url';
+import antigravityImg from '../assets/optimized/antigravity.png?url';
+import vscodeImg from '../assets/optimized/vscode.png?url';
 
 const imageMap = {
     'audacity.png': audacityImg,
@@ -34,6 +38,7 @@ const imageMap = {
     'davinci.png': davinciImg,
     'ffmpeg.png': ffmpegImg,
     'mkvtoolnix.png': mkvtoolnixImg,
+    'unity.png': unityImg,
     'unity.jpg': unityImg,
     'after effects.png': afterEffectsImg,
     'maya.png': mayaImg,
@@ -54,17 +59,26 @@ const imageMap = {
     'affinity.png': affinityImg,
     'handbrake.png': handbrakeImg,
     'megui.png': meguiImg,
-    'veedub64.png': veedub64Img
+    'veedub64.png': veedub64Img,
+    'rider.png': riderImg,
+    'copilot.png': copilotImg,
+    'antigravity.png': antigravityImg,
+    'vscode.png': vscodeImg
 };
 
-export default function SkillsSection() {
+export default function SkillsSection({ activeRole = 'all' }) {
     const { language } = useTranslation();
     const [expandedCategory, setExpandedCategory] = useState(null);
 
+    // Filter and sort categories based on active role
+    const orderedCategories = (skillCategoriesOrder[activeRole] || skillCategoriesOrder.all)
+        .map(id => skillCategories.find(cat => cat.id === id))
+        .filter(Boolean);
+
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-md" style={{ marginTop: 'var(--spacing-md)' }}>
-            {skillCategories.map((cat, idx) => (
-                <div key={idx} className="card" style={{ padding: 0, overflow: 'hidden', height: 'fit-content' }}>
+            {orderedCategories.map((cat, idx) => (
+                <div key={cat.id || idx} className="card" style={{ padding: 0, overflow: 'hidden', height: 'fit-content' }}>
                     <button
                         onClick={() => setExpandedCategory(expandedCategory === idx ? null : idx)}
                         style={{

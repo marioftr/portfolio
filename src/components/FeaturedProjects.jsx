@@ -1,10 +1,41 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { allSkills } from '../data/content';
 
 export default function FeaturedProjects({ projects, onProjectSelect, onViewAll }) {
     const { language, t } = useTranslation();
     const scrollContainerRef = useRef(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(false);
+
+    useEffect(() => {
+        const checkScroll = () => {
+            if (scrollContainerRef.current) {
+                const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+                setCanScrollLeft(scrollLeft > 10);
+                setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+            }
+        };
+
+        const currentRef = scrollContainerRef.current;
+        if (currentRef) {
+            currentRef.addEventListener('scroll', checkScroll);
+            // Initial check after render
+            setTimeout(checkScroll, 100);
+            
+            // Check again if projects change
+            checkScroll();
+        }
+
+        window.addEventListener('resize', checkScroll);
+        
+        return () => {
+            if (currentRef) {
+                currentRef.removeEventListener('scroll', checkScroll);
+            }
+            window.removeEventListener('resize', checkScroll);
+        };
+    }, [projects]);
 
     if (!projects || projects.length === 0) {
         return null;
@@ -43,22 +74,22 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                 alignItems: 'center'
             }}>
                 {/* Left Arrow */}
-                {projects.length > 3 && (
+                {canScrollLeft && (
                     <button
                         onClick={scrollLeft}
                         className="scroll-arrow flex items-center justify-center transition-all"
                         style={{
                             position: 'absolute',
-                            left: '-2rem',
+                            left: '0.5rem', // Posicionado dentro del contenedor
                             width: '32px',
                             height: '32px',
                             borderRadius: '50%',
                             backgroundColor: 'white',
                             color: 'var(--color-primary)',
                             border: '1px solid var(--color-border)',
-                            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                             cursor: 'pointer',
-                            zIndex: 10
+                            zIndex: 20
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.backgroundColor = 'var(--color-primary)';
@@ -86,6 +117,8 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                         overflowX: 'auto',
                         overflowY: 'hidden',
                         paddingBottom: 'var(--spacing-sm)',
+                        paddingLeft: '0.25rem',
+                        paddingRight: '0.25rem',
                         scrollBehavior: 'smooth',
                         width: '100%'
                     }}
@@ -143,6 +176,30 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                                         {project.title[language] || project.title.es || project.title}
                                     </div>
                                 )}
+
+                                {project.isWIP && (
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '12px',
+                                        left: '12px',
+                                        backgroundColor: 'var(--color-primary)',
+                                        color: 'white',
+                                        padding: '4px 10px',
+                                        borderRadius: '12px',
+                                        fontSize: '0.6rem',
+                                        fontWeight: 800,
+                                        zIndex: 2,
+                                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '4px',
+                                        border: '1px solid rgba(255,255,255,0.3)'
+                                    }}>
+                                        <span style={{ fontSize: '0.7rem' }}>🏗️</span>
+                                        {language === 'es' ? 'EN PROCESO' : language === 'ca' ? 'EN PROCÉS' : language === 'gl' ? 'EN PROCESO' : 'W.I.P.'}
+                                    </div>
+                                )}
+
                                 <div style={{
                                     position: 'absolute', top: '8px', right: '8px',
                                     background: 'white', color: 'var(--color-text)',
@@ -163,7 +220,13 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                                 </p>
 
                                 {/* Visible Tags */}
-                                <div className="flex flex-wrap gap-xs" style={{ marginBottom: 'var(--spacing-sm)', width: 'calc(100% - 2.5rem)' }}>
+                                <div className="flex flex-wrap gap-xs" style={{ 
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+                                    gap: '0.25rem',
+                                    marginBottom: 'var(--spacing-sm)', 
+                                    width: '100%' 
+                                }}>
                                     {project.tags && project.tags.slice(0, 2).map(tagId => (
                                         <span key={tagId} className="tag" style={{
                                             fontSize: '0.55rem',
@@ -201,22 +264,22 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                 </div>
 
                 {/* Right Arrow */}
-                {projects.length > 3 && (
+                {canScrollRight && (
                     <button
                         onClick={scrollRight}
                         className="scroll-arrow flex items-center justify-center transition-all"
                         style={{
                             position: 'absolute',
-                            right: '-2rem',
+                            right: '0.5rem', // Posicionado dentro del contenedor
                             width: '32px',
                             height: '32px',
                             borderRadius: '50%',
                             backgroundColor: 'white',
                             color: 'var(--color-primary)',
                             border: '1px solid var(--color-border)',
-                            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                             cursor: 'pointer',
-                            zIndex: 10
+                            zIndex: 20
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.backgroundColor = 'var(--color-primary)';

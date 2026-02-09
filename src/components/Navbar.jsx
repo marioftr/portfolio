@@ -40,8 +40,8 @@ export default function Navbar() {
     }, []);
 
     const handleSelect = (path) => {
-        if (path === 'home') navigate('/');
-        else navigate(`/${path}`);
+        if (path === 'home') navigate(`/${language}`);
+        else navigate(`/${language}/${path}`);
         setIsOpen(false);
     };
 
@@ -61,7 +61,7 @@ export default function Navbar() {
             transition: 'none'
         }}>
             <div className="container flex justify-between items-center navbar-content" style={{ width: '100%', gap: 'var(--spacing-xs)' }}>
-                <Link to="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
+                <Link to={`/${language}`} style={{ textDecoration: 'none', flexShrink: 0 }}>
                     <div className="nav-name" style={{ fontWeight: 900, fontSize: '1.2rem', color: 'var(--color-text)', letterSpacing: '-0.8px' }}>
                         <span className="full-name">Mario Villanueva Torres</span>
                         <span className="short-name" style={{ display: 'none' }}>Mario</span>
@@ -207,7 +207,7 @@ export default function Navbar() {
 
                     <div className="nav-divider-right" style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)' }} />
 
-                    <LanguageDropdown />
+                    <LanguageDropdown showLabelMobile={false} align="right" />
                 </div>
 
             </div>

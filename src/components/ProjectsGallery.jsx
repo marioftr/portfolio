@@ -215,20 +215,40 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                                     onClick={() => setSortDesc(!sortDesc)}
                                     className="btn btn-outline"
                                     style={{ 
-                                        padding: '0.6rem 1rem',
+                                        padding: '0.6rem 0.8rem',
                                         display: 'flex',
                                         alignItems: 'center',
-                                        gap: '8px'
+                                        justifyContent: 'center',
+                                        minWidth: '42px',
+                                        height: '42px',
+                                        borderRadius: '10px'
                                     }}
-                                    title={language === 'es' ? 'Alternar orden' : 'Toggle sort'}
+                                    title={sortDesc ? (language === 'es' ? 'Reciente primero' : 'Newest first') : (language === 'es' ? 'Antiguo primero' : 'Oldest first')}
                                 >
-                                    <span style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase' }}>
-                                        {sortDesc 
-                                            ? (language === 'es' ? 'Descendente' : 'Descending') 
-                                            : (language === 'es' ? 'Ascendente' : 'Ascending')}
-                                    </span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transform: sortDesc ? 'rotate(0deg)' : 'rotate(180deg)', transition: 'transform 0.3s ease' }}>
-                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: sortDesc ? 'flex-start' : 'flex-end' }}>
+                                            <div style={{ width: '12px', height: '2px', backgroundColor: 'currentColor', borderRadius: '10px' }}></div>
+                                            <div style={{ width: '8px', height: '2px', backgroundColor: 'currentColor', borderRadius: '10px' }}></div>
+                                            <div style={{ width: '4px', height: '2px', backgroundColor: 'currentColor', borderRadius: '10px' }}></div>
+                                        </div>
+                                    </div>
+                                    <svg 
+                                        width="14" 
+                                        height="14" 
+                                        viewBox="0 0 24 24" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="3.5" 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round" 
+                                        style={{ 
+                                            marginLeft: '6px',
+                                            transform: sortDesc ? 'rotate(0deg)' : 'rotate(180deg)', 
+                                            transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)' 
+                                        }}
+                                    >
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <polyline points="19 12 12 19 5 12"></polyline>
                                     </svg>
                                 </button>
                             </div>
@@ -430,7 +450,31 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                                         flexShrink: 0
                                     }}
                                 >
-                                    <span>{sortDesc ? '⬇' : '⬆'}</span>
+                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: sortDesc ? 'flex-start' : 'flex-end' }}>
+                                            <div style={{ width: '10px', height: '2px', backgroundColor: 'currentColor', borderRadius: '10px' }}></div>
+                                            <div style={{ width: '6px', height: '2px', backgroundColor: 'currentColor', borderRadius: '10px' }}></div>
+                                            <div style={{ width: '3px', height: '2px', backgroundColor: 'currentColor', borderRadius: '10px' }}></div>
+                                        </div>
+                                    </div>
+                                    <svg 
+                                        width="12" 
+                                        height="12" 
+                                        viewBox="0 0 24 24" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="3.5" 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round" 
+                                        style={{ 
+                                            marginLeft: '4px',
+                                            transform: sortDesc ? 'rotate(0deg)' : 'rotate(180deg)', 
+                                            transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)' 
+                                        }}
+                                    >
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <polyline points="19 12 12 19 5 12"></polyline>
+                                    </svg>
                                 </button>
                             </div>
                         </div>
@@ -766,10 +810,25 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                                 background: 'white', color: 'var(--color-text)',
                                 padding: '2px 10px', borderRadius: '4px',
                                 fontWeight: 800, fontSize: '0.75rem',
-                                boxShadow: 'var(--shadow-sm)'
+                                boxShadow: 'var(--shadow-sm)',
+                                zIndex: 2
                             }}>
                                 {project.year}
                             </div>
+                            {project.isWIP && (
+                                <div style={{
+                                    position: 'absolute', top: '10px', left: '10px',
+                                    background: 'var(--color-primary)', color: 'white',
+                                    padding: '2px 10px', borderRadius: '4px',
+                                    fontWeight: 900, fontSize: '0.65rem',
+                                    textTransform: 'uppercase',
+                                    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                                    zIndex: 2,
+                                    letterSpacing: '0.05em'
+                                }}>
+                                    {language === 'en' ? 'Work in Progress' : (language === 'ca' ? 'En procés' : (language === 'gl' ? 'En proceso' : 'Trabajo en proceso'))}
+                                </div>
+                            )}
                         </div>
 
                         <div style={{ padding: 'var(--spacing-md)', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -786,7 +845,7 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                                 flexWrap: 'wrap',
                                 gap: '0.4rem',
                                 marginBottom: 'var(--spacing-sm)',
-                                width: 'calc(100% - 3.5rem)'
+                                width: '100%'
                             }}>
                                 {project.tags.map(tagId => (
                                     <span key={tagId} className="tag" style={{

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import LanguageDropdown from './LanguageDropdown';
@@ -8,6 +8,93 @@ import { socialLinks } from '../data/content';
 export default function LandingPage() {
     const { language, t } = useTranslation();
     const navigate = useNavigate();
+    const rolesRef = useRef(null);
+    const profileRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
+    const [isPortrait, setIsPortrait] = useState(false);
+    const [isSmallHeight, setIsSmallHeight] = useState(false);
+    const [currentSection, setCurrentSection] = useState('profile');
+    const lastScrollTime = useRef(0);
+
+    useEffect(() => {
+        const checkLayout = () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const pixelRatio = window.devicePixelRatio || 1;
+            
+            // High-res tablet detection
+            const isHighResTablet = (width >= 1024 && width <= 1700 && pixelRatio > 1.5);
+            
+            // Real phone check
+            const phone = width <= 750;
+            setIsMobile(phone);
+            
+            // Portrait orientation
+            const portrait = height > width;
+            setIsPortrait(portrait);
+            
+            // Tablet detection
+            const isTab = (width > 750 && width <= 1240) || (isHighResTablet && width > 750) || (portrait && width > 750);
+            setIsTablet(isTab);
+
+            // Small height detection
+            setIsSmallHeight(height < 750);
+        };
+        
+        checkLayout();
+        window.addEventListener('resize', checkLayout);
+        return () => window.removeEventListener('resize', checkLayout);
+    }, []);
+
+    const scrollToRoles = () => {
+        rolesRef.current?.scrollIntoView({ behavior: 'smooth' });
+        setCurrentSection('roles');
+    };
+
+    const scrollToProfile = () => {
+        profileRef.current?.scrollIntoView({ behavior: 'smooth' });
+        setCurrentSection('profile');
+    };
+
+    useEffect(() => {
+        if (!isMobile) return;
+
+        let touchStartY = 0;
+
+        const handleTouchStart = (e) => {
+            touchStartY = e.touches[0].clientY;
+        };
+
+        const handleTouchEnd = (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const deltaY = touchStartY - touchEndY;
+            const now = Date.now();
+
+            // Prevent multiple triggers during animation (100ms cooldown)
+            if (now - lastScrollTime.current < 100) return;
+
+            if (Math.abs(deltaY) > 40) { // Threshold for swipe
+                if (deltaY > 0 && currentSection === 'profile') {
+                    scrollToRoles();
+                    lastScrollTime.current = now;
+                } else if (deltaY < 0 && currentSection === 'roles') {
+                    scrollToProfile();
+                    lastScrollTime.current = now;
+                }
+            }
+        };
+
+        window.addEventListener('touchstart', handleTouchStart, { passive: true });
+        window.addEventListener('touchend', handleTouchEnd, { passive: true });
+        
+        return () => {
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchend', handleTouchEnd);
+        };
+    }, [isMobile, currentSection]);
+
+    const useVerticalStack = isMobile || isPortrait;
 
     const roleMapping = {
         all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' } },
@@ -32,27 +119,71 @@ export default function LandingPage() {
     };
 
     return (
-        <div className="flex flex-col md:flex-row min-h-screen bg-white md:overflow-hidden relative">
+        <div className={`flex ${useVerticalStack ? 'flex-col' : 'md:flex-row'} min-h-screen bg-white relative`} style={{ 
+            height: '100dvh',
+            minHeight: '100dvh',
+            overflowY: 'hidden',
+            overflowX: 'hidden'
+        }}>
             {/* Left Side: Profile & Bio */}
-            <div className="flex-1 flex flex-col items-center justify-start p-md sm:p-lg md:p-xl text-center md:items-start md:text-left bg-gray-50 landing-left" style={{ borderRight: '1px solid var(--color-border)', paddingTop: 'clamp(4rem, 10vh, 7rem)', minHeight: '100vh' }}>
-                <div className="animate-fade-in flex flex-col items-center md:items-start gap-lg" style={{ maxWidth: '600px', width: '100%' }}>
+            <div 
+                ref={profileRef}
+                className={`flex-1 flex flex-col items-center justify-center p-md sm:p-lg md:p-xl text-center ${useVerticalStack ? '' : 'md:items-start md:text-left'} bg-gray-50 landing-left`} 
+                style={{ 
+                    borderRight: useVerticalStack ? 'none' : '1px solid var(--color-border)', 
+                    borderBottom: useVerticalStack ? '1px solid var(--color-border)' : 'none',
+                    height: isMobile ? '100dvh' : (isPortrait ? '50dvh' : '100dvh'),
+                    minHeight: isMobile ? '100dvh' : 'auto',
+                    position: 'relative', 
+                    paddingLeft: isMobile ? '3rem' : (isTablet ? '8%' : '12%'), 
+                    paddingRight: isMobile ? '3rem' : (isTablet ? '6%' : '10%'),
+                    paddingTop: isMobile ? '1rem' : (useVerticalStack ? '1rem' : 'inherit'),
+                    paddingBottom: isMobile ? '1rem' : (useVerticalStack ? '1rem' : 'inherit'),
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease'
+                }}
+            >
+                <div className="animate-fade-in flex flex-col items-center md:items-start" style={{ 
+                    maxWidth: isMobile ? '450px' : '900px', 
+                    width: '100%', 
+                    justifyContent: 'center',
+                    gap: isMobile ? '0.8rem' : (isTablet ? '1rem' : 'var(--spacing-md)')
+                }}>
                     <div style={{
-                        width: 'clamp(120px, 20vw, 150px)', 
-                        height: 'clamp(120px, 20vw, 150px)', 
+                        width: isMobile ? '120px' : (isPortrait ? '150px' : (isTablet ? '130px' : 'clamp(140px, 20vw, 180px)')), 
+                        height: isMobile ? '120px' : (isPortrait ? '150px' : (isTablet ? '130px' : 'clamp(140px, 20vw, 180px)')), 
                         borderRadius: '50%',
                         overflow: 'hidden', border: '6px solid var(--color-primary)',
-                        boxShadow: '0 15px 45px rgba(16, 185, 129, 0.3)', marginBottom: '1rem',
-                        backgroundColor: 'white'
+                        boxShadow: '0 15px 45px rgba(16, 185, 129, 0.3)', 
+                        marginBottom: isMobile ? '0.5rem' : (isTablet ? '0.5rem' : '1rem'),
+                        backgroundColor: 'white',
+                        transition: 'all 0.3s ease'
                     }}>
                         <img src="/images/foto_perfil.jpg" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
 
-                    <div style={{ width: 'fit-content', textAlign: 'inherit' }}>
+                    <div style={{ width: '100%', textAlign: useVerticalStack ? 'center' : 'inherit' }}>
                         <div style={{ width: '100%' }}>
-                            <h1 className="responsive-title" style={{ fontWeight: 900, marginBottom: '0.75rem', letterSpacing: '-1.5px', color: 'var(--color-text)', lineHeight: 1.1 }}>
+                            <h1 className="responsive-title" style={{ 
+                                fontSize: isMobile ? '1.7rem' : (isPortrait ? '2.1rem' : ((isTablet && isSmallHeight) ? '1.8rem' : (isTablet ? '1.8rem' : 'clamp(2rem, 3.5vw, 2.8rem)'))), 
+                                fontWeight: 900, 
+                                marginBottom: isMobile ? '0rem' : (isTablet ? '0.2rem' : '0.4rem'), 
+                                letterSpacing: '-2px', 
+                                color: 'var(--color-text)', 
+                                lineHeight: 1.1, 
+                                whiteSpace: (isTablet && !useVerticalStack) ? 'nowrap' : 'normal',
+                                transition: 'font-size 0.3s ease'
+                            }}>
                                 Mario Villanueva Torres
                             </h1>
-                            <p className="text-accent responsive-subtitle" style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '1.5rem' }}>
+                            <p className="text-accent responsive-subtitle" style={{ 
+                                fontSize: isMobile ? '0.7rem' : (isPortrait ? '0.8rem' : '0.7rem'), 
+                                fontWeight: 800, 
+                                textTransform: 'uppercase', 
+                                letterSpacing: '4px', 
+                                marginBottom: isMobile ? '0.4rem' : '0.6rem',
+                                transition: 'font-size 0.3s ease'
+                            }}>
                                 {language === 'es' ? 'PORTFOLIO PROFESIONAL' : language === 'ca' ? 'PORTFOLIO PROFESSIONAL' : language === 'gl' ? 'PORTFOLIO PROFESIONAL' : 'PROFESSIONAL PORTFOLIO'}
                             </p>
                         </div>
@@ -61,48 +192,41 @@ export default function LandingPage() {
                             className="responsive-bio-container" 
                             style={{ 
                                 width: '100%',
+                                padding: isMobile ? '0 0.5rem' : 0,
+                                marginTop: isMobile ? '1.5rem' : (isPortrait ? '1.2rem' : (isTablet ? '0.5rem' : '1rem'))
                             }}
                         >
                             <p className="responsive-bio" style={{ 
                                 color: 'var(--color-text-light)', 
-                                lineHeight: 1.7, 
+                                lineHeight: isMobile ? 1.6 : (isPortrait ? 1.4 : (isTablet ? 1.5 : 1.6)), 
                                 fontWeight: 500, 
-                                textAlign: 'justify', 
+                                textAlign: useVerticalStack ? 'center' : 'left', 
                                 width: '100%', 
                                 maxWidth: '100%',
-                                marginBottom: 0
+                                marginBottom: isMobile ? '1.2rem' : '1rem',
+                                fontSize: isMobile ? '1.1rem' : (isPortrait ? '1.15rem' : (isTablet ? '1.05rem' : 'clamp(1rem, 1.3vw, 1.15rem)')),
+                                transition: 'all 0.3s ease'
                             }}>
                                 {language === 'es'
-                                    ? 'Máster en Diseño, Modelado y Programación de Videojuegos y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales. Formación especializada en animación, programación, edición audiovisual y diseño gráfico.'
+                                    ? 'Perfil multidisciplinar. Estoy continuamente desarrollando mis habilidades en temas relacionados con la programación, el diseño, la edición de vídeo y el modelado 3D. Selecciona una especialidad para ver mi trayectoria y proyectos en detalle.'
                                     : language === 'ca'
-                                        ? 'Màster en Disseny, Modelatge i Programació de Videojocs i graduat en Comunicació Audiovisual per la Universitat de Santiago de Compostela (USC) amb menció en Ideació i Creació de Continguts Audiovisuals. Formació especialitzada en animació, programació, edició audiovisual i disseny gràfic.'
+                                        ? 'Perfil multidisciplinari. Estic contínuament desenvolupant les meves habilitats en temes relacionats amb la programació, el disseny, l\'edició de vídeo i el modelatge 3D. Selecciona una especialitat per veure la meva trajectòria i projectes en detall.'
                                         : language === 'gl'
-                                            ? 'Máster en Deseño, Modelado e Programación de Videoxogos e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais. Formación especializada en animación, programación, edición audiovisual e deseño gráfico.'
-                                            : 'Master in Game Design, Modeling and Programming and a graduate in Audiovisual Communication from the University of Santiago de Compostela (USC) with a specialization in Audiovisual Content Ideation and Creation. Specialized training in animation, programming, audiovisual editing and graphic design.'}
-                            </p>
-
-                            <p style={{ 
-                                color: 'var(--color-text-light)', 
-                                lineHeight: 1.7, 
-                                fontWeight: 500, 
-                                textAlign: 'left', 
-                                width: '100%',
-                                marginTop: '1rem',
-                                marginBottom: 0
-                            }}>
-                                {language === 'es'
-                                    ? 'Desarrollador versátil con experiencia en múltiples disciplinas creativas. Revisa los perfiles especializados para ver proyectos relevantes.'
-                                    : language === 'ca'
-                                        ? 'Desenvolupador versàtil amb experiència en múltiples disciplines creatives. Revisa els perfils especialitzats per veure projectes rellevants.'
-                                        : language === 'gl'
-                                            ? 'Desenvolvedor versátil con experiencia en múltiples disciplinas creativas. Revisa os perfís especializados para ver proxectos relevantes.'
-                                            : 'Versatile developer with experience in multiple creative disciplines. Check specialized profiles to see relevant projects.'}
+                                            ? 'Perfil multidisciplinar. Estou continuamente desenvolvendo as miñas habilidades en temas relacionados coa programación, o deseño, a edición de vídeo e o modelado 3D. Selecciona unha especialidade para ver a miña traxectoria e proxectos en detalle.'
+                                            : 'Multidisciplinary profile. I am continuously developing my skills in topics related to programming, design, video editing, and 3D modeling. Select a specialty to see my career path and projects in detail.'}
                             </p>
                         </div>
                     </div>
 
                     {/* Social Links */}
-                    <div className="social-links-container" style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', marginBottom: '1rem' }}>
+                    <div className="social-links-container" style={{ 
+                        display: 'flex', 
+                        gap: '0.75rem', 
+                        marginTop: isMobile ? '0.8rem' : ((isTablet && isSmallHeight) ? '0.2rem' : (isTablet ? '0.5rem' : '1rem')), 
+                        marginBottom: (isTablet && isSmallHeight) ? '0rem' : '1rem',
+                        justifyContent: useVerticalStack ? 'center' : 'flex-start',
+                        width: '100%' 
+                    }}>
                         {socialLinks.map((link, idx) => (
                             <a
                                 key={idx}
@@ -111,8 +235,8 @@ export default function LandingPage() {
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center social-icon-landing"
                                 style={{
-                                    width: '44px',
-                                    height: '44px',
+                                    width: isMobile ? '48px' : (isPortrait ? '48px' : (isTablet ? '38px' : '42px')),
+                                    height: isMobile ? '48px' : (isPortrait ? '48px' : (isTablet ? '38px' : '42px')),
                                     borderRadius: '12px',
                                     backgroundColor: 'white',
                                     color: 'var(--color-primary)',
@@ -133,35 +257,141 @@ export default function LandingPage() {
                                     e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
                                 }}
                             >
-                                {getIcon(link.icon)}
+                                <div style={{ 
+                                    transform: (isTablet && !isPortrait) ? 'scale(0.85)' : 'none',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    width: '100%',
+                                    height: '100%'
+                                }}>
+                                    {getIcon(link.icon)}
+                                </div>
                             </a>
                         ))}
                     </div>
                 </div>
+
+                {/* Scroll Arrows - Positioned at bottom on mobile */}
+                {isMobile && (
+                    <div 
+                        className="animate-bounce"
+                        onClick={scrollToRoles}
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            cursor: 'pointer',
+                            color: 'var(--color-primary)',
+                            opacity: 0.9,
+                            transition: 'all 0.3s ease',
+                            position: 'absolute',
+                            bottom: '50px',
+                            left: 0,
+                            right: 0,
+                            margin: '0 auto',
+                            width: 'fit-content',
+                            zIndex: 10
+                        }}
+                    >
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '-14px' }}>
+                            <polyline points="7 13 12 18 17 13"></polyline>
+                        </svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="7 13 12 18 17 13"></polyline>
+                        </svg>
+                    </div>
+                )}
             </div>
 
             {/* Right Side: Role Selection */}
-            <div className="flex-1 flex flex-col items-center justify-center p-md sm:p-lg md:p-xl overflow-y-auto landing-right" style={{ backgroundColor: 'var(--color-secondary)', minHeight: '100vh', paddingBottom: '5rem' }}>
-                <div className="flex flex-col gap-md animate-fade-in" style={{ animationDelay: '0.1s', width: '380px', maxWidth: '100%' }}>
-                    <p className="select-specialty-text" style={{ fontSize: '0.8rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--color-text-light)', marginBottom: '1.25rem', textAlign: 'center', opacity: 0.5 }}>
+            <div 
+                className="flex-1 flex flex-col items-center landing-right" 
+                ref={rolesRef}
+                style={{ 
+                    backgroundColor: 'var(--color-secondary)', 
+                    height: isMobile ? '100dvh' : (isPortrait ? '50dvh' : '100dvh'),
+                    minHeight: isMobile ? '100dvh' : 'auto',
+                    width: '100%',
+                    position: 'relative', 
+                    paddingTop: isMobile ? '4rem' : (isPortrait ? '1.5rem' : 'var(--spacing-xl)'),
+                    paddingBottom: isMobile ? '5rem' : (isPortrait ? '2.5rem' : 'var(--spacing-xl)'),
+                    justifyContent: 'center',
+                    paddingLeft: '1.5rem',
+                    paddingRight: '1.5rem',
+                    transition: 'all 0.3s ease',
+                    overflowX: 'hidden'
+                }}
+            >
+                {/* Scroll Up Arrows - Positioned at top on mobile */}
+                {isMobile && (
+                    <div 
+                        className="animate-bounce"
+                        onClick={scrollToProfile}
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            cursor: 'pointer',
+                            color: 'var(--color-primary)',
+                            opacity: 0.9,
+                            transition: 'all 0.3s ease',
+                            position: 'absolute',
+                            top: '25px',
+                            left: 0,
+                            right: 0,
+                            margin: '0 auto',
+                            width: 'fit-content',
+                            zIndex: 10
+                        }}
+                    >
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '-14px' }}>
+                            <polyline points="17 11 12 6 7 11"></polyline>
+                        </svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="17 11 12 6 7 11"></polyline>
+                        </svg>
+                    </div>
+                )}
+
+                <div className="flex flex-col animate-fade-in" style={{ 
+                    animationDelay: '0.1s', 
+                    width: isMobile ? '100%' : (isPortrait ? '500px' : (isTablet ? '420px' : '400px')), 
+                    maxWidth: isMobile ? '450px' : '100%', 
+                    zIndex: 2,
+                    gap: isMobile ? '0.75rem' : (isPortrait ? '0.8rem' : (isTablet ? '1rem' : 'var(--spacing-md)')),
+                    transition: 'width 0.3s ease'
+                }}>
+                    <p className="select-specialty-text" style={{ 
+                        fontSize: isMobile ? '0.65rem' : (isPortrait ? '0.75rem' : (isTablet ? '0.75rem' : '0.8rem')), 
+                        fontWeight: 900, 
+                        textTransform: 'uppercase', 
+                        letterSpacing: '3px', 
+                        color: 'var(--color-text-light)', 
+                        marginBottom: isMobile ? '0.5rem' : (isPortrait ? '0.5rem' : '1.25rem'), 
+                        textAlign: 'center', 
+                        opacity: 0.5 
+                    }}>
                         {t('select_specialty')}
                     </p>
                     {Object.entries(roleMapping).map(([id, data]) => (
                         <button
                             key={id}
-                            onClick={() => navigate(`/${data.path}`)}
+                            onClick={() => navigate(`/${language}/${data.path}`)}
                             className="flex items-center justify-between transition-all btn-thick-border role-button"
                             style={{
                                 cursor: 'pointer',
-                                padding: '1.25rem 1.75rem',
+                                padding: isMobile ? '1rem 1.5rem' : (isPortrait ? '1.25rem 2rem' : (isTablet ? '1rem 1.75rem' : '1.25rem 1.75rem')),
                                 background: id === 'all' ? 'var(--color-primary)' : 'white',
                                 color: id === 'all' ? 'white' : 'var(--color-primary)',
                                 border: `4px solid var(--color-primary)`,
-                                boxShadow: '0 8px 20px rgba(0,0,0,0.05)',
-                                borderRadius: '24px',
+                                boxShadow: '0 8px 10px rgba(0,0,0,0.03)',
+                                borderRadius: '20px',
                                 textAlign: 'left',
                                 width: '100%',
-                                minHeight: 'clamp(60px, 10vh, 80px)',
+                                minHeight: isMobile ? '55px' : (isPortrait ? '65px' : (isTablet ? '50px' : 'clamp(60px, 10vh, 80px)')),
                                 transition: 'all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                             }}
                             onMouseEnter={(e) => {
@@ -173,25 +403,44 @@ export default function LandingPage() {
                                 e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.05)';
                             }}
                         >
-                            <span className="role-button-text" style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', lineHeight: 1.2 }}>
+                            <span className="role-button-text" style={{ 
+                                fontWeight: 800, 
+                                textTransform: 'uppercase', 
+                                letterSpacing: '1px', 
+                                lineHeight: 1.2,
+                                fontSize: isPortrait ? '1rem' : (isMobile ? '0.9rem' : ((isTablet && isSmallHeight) ? '0.7rem' : (isTablet ? '0.8rem' : 'inherit')))
+                            }}>
                                 {data.label[language] || data.label.es}
                             </span>
-                            <div className="role-button-icon" style={{ opacity: 0.9, marginLeft: '1rem', flexShrink: 0, color: id === 'all' ? 'white' : 'var(--color-primary)', display: 'flex', alignItems: 'center' }}>
+                            <div className="role-button-icon" style={{ 
+                                opacity: 0.9, 
+                                marginLeft: '1rem', 
+                                flexShrink: 0, 
+                                color: id === 'all' ? 'white' : 'var(--color-primary)', 
+                                display: 'flex', 
+                                alignItems: 'center',
+                                transform: isPortrait ? 'scale(1)' : (isMobile ? 'scale(0.9)' : ((isTablet && isSmallHeight) ? 'scale(0.75)' : (isTablet ? 'scale(0.85)' : 'none')))
+                            }}>
                                 {getIcon(data.icon)}
                             </div>
                         </button>
                     ))}
                 </div>
-            </div>
 
-            {/* Language Selector Bottom Right */}
-            <div className="landing-language-selector" style={{
-                position: 'fixed',
-                bottom: '2rem',
-                right: '2rem',
-                zIndex: 1000
-            }}>
-                <LanguageDropdown placement="top" />
+                {/* Language Selector Bottom Centered */}
+                <div style={{ 
+                    position: 'absolute',
+                    bottom: isMobile ? '3rem' : (isPortrait ? '1.25rem' : (isTablet ? '3.5rem' : '2.5rem')),
+                    left: 0,
+                    right: 0,
+                    margin: '0 auto',
+                    width: 'fit-content',
+                    display: 'flex', 
+                    justifyContent: 'center',
+                    zIndex: 10
+                }}>
+                    <LanguageDropdown placement="top" />
+                </div>
             </div>
         </div>
     );

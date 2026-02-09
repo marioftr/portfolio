@@ -87,48 +87,74 @@ export const allSkills = {
     handbrake: { name: 'HandBrake', description: { es: 'Transcodificador de vídeo.', ca: 'Transcodificador de vídeo.', en: 'Video transcoder.', gl: 'Transcodificador de vídeo.' } },
     veedub64: { name: 'VeeDub64', description: { es: 'Procesamiento de vídeo legacy.', ca: 'Processament de vídeo legacy.', en: 'Legacy video processing.', gl: 'Procesamento de vídeo legacy.' } },
     megui: { name: 'MeGUI', description: { es: 'GUI para codificación de vídeo.', ca: 'GUI per a codificació de vídeo.', en: 'GUI for video encoding.', gl: 'GUI para codificación de vídeo.' } },
+    rider: { name: 'JetBrains Rider', description: { es: 'IDE profesional para C# y Unity.', ca: 'IDE professional per a C# i Unity.', en: 'Professional IDE for C# and Unity.', gl: 'IDE profesional para C# e Unity.' } },
+    copilot: { name: 'GitHub Copilot', description: { es: 'Asistente de programación basado en IA.', ca: 'Assistent de programació basat en IA.', en: 'AI-based programming assistant.', gl: 'Asistente de programación baseado en IA.' } },
+    antigravity: { name: 'Antigravity', description: { es: 'Herramienta de automatización y optimización.', ca: 'Eina d\'automatització i optimització.', en: 'Automation and optimization tool.', gl: 'Ferramenta de automatización e optimización.' } },
+    vscode: { name: 'Visual Studio Code', description: { es: 'Editor de código versátil y extensible.', ca: 'Editor de codi versàtil i extensible.', en: 'Versatile and extensible code editor.', gl: 'Editor de código versátil e extensible.' } },
     csharp: { name: 'C#', description: { es: 'Lenguaje de programación.', ca: 'Llenguatge de programació.', en: 'Programming language.', gl: 'Linguaxe de programación.' } },
     scratch: { name: 'Scratch', description: { es: 'Programación visual.', ca: 'Programació visual.', en: 'Visual programming.', gl: 'Programación visual.' } },
 };
 
 export const skillCategories = [
     {
+        id: 'game_dev',
         title: { es: 'Desarrollo de videojuegos', ca: 'Desenvolupament de videojocs', en: 'Game Development', gl: 'Desenvolvemento de videoxogos' },
         items: ['unity', 'unreal']
     },
     {
+        id: 'modeling',
         title: { es: 'Modelado 2D y 3D', ca: 'Modelatge 2D i 3D', en: '2D & 3D Modeling', gl: 'Modelado 2D e 3D' },
         items: ['blender', 'maya', 'zbrush', 'substance']
     },
     {
-        title: { es: 'Adobe Creative Suite', ca: 'Adobe Creative Suite', en: 'Adobe Creative Suite', gl: 'Adobe Creative Suite' },
-        items: ['premiere', 'after_effects', 'photoshop', 'substance']
-    },
-    {
-        title: { es: 'Microsoft Office', ca: 'Microsoft Office', en: 'Microsoft Office', gl: 'Microsoft Office' },
-        items: ['word', 'excel', 'powerpoint']
-    },
-    {
+        id: 'video',
         title: { es: 'Edición de vídeo', ca: 'Edició de vídeo', en: 'Video Editing', gl: 'Edición de vídeo' },
-        items: ['premiere', 'davinci', 'capcut']
+        items: ['premiere', 'after_effects', 'davinci', 'capcut']
     },
     {
-        title: { es: 'Diseño 2D', ca: 'Disseny 2D', en: '2D Design', gl: 'Deseño 2D' },
-        items: ['photoshop', 'canva', 'affinity']
-    },
-    {
+        id: 'audio',
         title: { es: 'Edición de Audio', ca: 'Edició d\'Àudio', en: 'Audio Editing', gl: 'Edición de audio' },
         items: ['audacity']
     },
     {
+        id: 'design_2d',
+        title: { es: 'Diseño 2D', ca: 'Disseny 2D', en: '2D Design', gl: 'Deseño 2D' },
+        items: ['photoshop', 'canva', 'affinity']
+    },
+    {
+        id: 'vr_ar',
         title: { es: 'Realidad Virtual y Aumentada', ca: 'Realitat Virtual i Augmentada', en: 'VR & AR', gl: 'Realidade Virtual e Aumentada' },
         items: ['brainstorm']
     },
     {
+        id: 'programming_ia',
+        title: { es: 'Programación / IA', ca: 'Programació / IA', en: 'Programming / AI', gl: 'Programación / IA' },
+        items: ['rider', 'copilot', 'antigravity', 'vscode']
+    },
+    {
+        id: 'misc',
         title: { es: 'Herramientas / Miscelánea', ca: 'Eines / Miscel·lània', en: 'Tools / Misc', gl: 'Ferramentas / Miscelánea' },
         items: ['mkvtoolnix', 'ffmpeg', 'handbrake', 'veedub64', 'megui']
+    },
+    {
+        id: 'adobe',
+        title: { es: 'Adobe Creative Suite', ca: 'Adobe Creative Suite', en: 'Adobe Creative Suite', gl: 'Adobe Creative Suite' },
+        items: ['premiere', 'after_effects', 'photoshop', 'substance']
+    },
+    {
+        id: 'microsoft',
+        title: { es: 'Microsoft Office Suite', ca: 'Microsoft Office Suite', en: 'Microsoft Office Suite', gl: 'Microsoft Office Suite' },
+        items: ['word', 'excel', 'powerpoint']
     }
 ];
+
+export const skillCategoriesOrder = {
+    all: ['game_dev', 'modeling', 'video', 'audio', 'design_2d', 'vr_ar', 'programming_ia', 'misc', 'adobe', 'microsoft'],
+    video_editor: ['video', 'audio', 'design_2d', 'vr_ar', 'misc', 'modeling', 'game_dev', 'programming_ia', 'adobe', 'microsoft'],
+    game_dev: ['game_dev', 'programming_ia', 'modeling', 'vr_ar', 'video', 'audio', 'design_2d', 'misc', 'adobe', 'microsoft'],
+    artist_2d_3d: ['modeling', 'design_2d', 'game_dev', 'video', 'vr_ar', 'audio', 'programming_ia', 'misc', 'adobe', 'microsoft'],
+    design: ['design_2d', 'modeling', 'video', 'audio', 'vr_ar', 'game_dev', 'programming_ia', 'misc', 'adobe', 'microsoft']
+};
 
 export const languages = [
     { name: { es: 'Gallego', ca: 'Gallec', en: 'Galician', gl: 'Galego' }, level: { es: 'Nativo', ca: 'Natiu', en: 'Native', gl: 'Nativo' }, detail: { es: '', ca: '', en: '', gl: '' } },
@@ -306,6 +332,60 @@ export const experience = [
 ];
 
 export const projects = [
+    {
+        id: 'establo',
+        title: { es: 'Establo (Provisional)', ca: 'Estable (Provisional)', en: 'Stable (Provisional)', gl: 'Estábulo (Provisional)' },
+        year: '2026',
+        category: { es: 'Environment 3D', ca: 'Environment 3D', en: '3D Environment', gl: 'Environment 3D' },
+        type: 'academic',
+        tags: ['unreal', 'maya', 'substance', 'zbrush', 'photoshop'],
+        isWIP: true,
+        summary: {
+            es: 'Environment 3D completo: modelado, UVs, texturizado y montaje en Unreal Engine como trabajo final de módulo (CEI).',
+            ca: 'Environment 3D complet: modelatge, UVs, texturització i muntatge a Unreal Engine com a treball final de mòdul (CEI).',
+            en: 'Full 3D Environment: modeling, UVs, texturing, and Unreal Engine assembly as a module final project (CEI).',
+            gl: 'Environment 3D completo: modelado, UVs, texturizado e montaxe en Unreal Engine como traballo final de módulo (CEI).'
+        },
+        description: {
+            es: 'Modelado, extracción de UVs, texturizado y montaje de un entorno 3D, realizado como proyecto final para el módulo de modelado y animación de videojuegos (CEI).',
+            ca: "Modelatge, extracció d'UVs, texturització i muntatge d'un entorn 3D, realitzat com a projecte final per al mòdul de modelatge i animació de videojocs (CEI).",
+            en: 'Modeling, UV extraction, texturing, and 3D environment assembly, developed as a final project for the game modeling and animation module (CEI).',
+            gl: 'Modelado, extracción de UVs, texturizado e montaxe dunha contorna 3D, realizado como proxecto final para o módulo de modelado e animación de videoxogos (CEI).'
+        },
+        image: '/images/establo1.avif',
+        images: ['/images/establo1.avif', '/images/establo2.avif'],
+        longDescription: {
+            es: `## CONCEPT ART Y PLANIFICACIÓN
+Como fase inicial del environment, se ha desarrollado un concepto de mapa 2D que define la distribución espacial y los puntos clave de interés del establo.
+
+<div class="custom-gallery"><div><img src="/images/establo2.avif" alt="Establo - Concepto de mapa 2D" /></div></div>
+
+## ESTADO DEL PROYECTO
+Actualmente el proyecto se encuentra en fase de producción, centrada en el modelado de props y la definición de las texturas PBR.`,
+            ca: `## CONCEPT ART I PLANIFICACIÓ
+Com a fase inicial de l'environment, s'ha desenvolupat un concepte de mapa 2D que defineix la distribució espacial i els punts clau d'interès de l'estable.
+
+<div class="custom-gallery"><div><img src="/images/establo2.avif" alt="Estable - Concepte de mapa 2D" /></div></div>
+
+## ESTAT DEL PROJECTE
+Actualment el projecte es troba en fase de producció, centrada en el modelatge de props i la definició de les textures PBR.`,
+            en: `## CONCEPT ART AND PLANNING
+As the initial phase of the environment, a 2D map concept has been developed to define the spatial layout and key points of interest of the stable.
+
+<div class="custom-gallery"><div><img src="/images/establo2.avif" alt="Stable - 2D map concept" /></div></div>
+
+## PROJECT STATUS
+The project is currently in the production phase, focusing on prop modeling and the definition of PBR textures.`,
+            gl: `## CONCEPT ART E PLANIFICACIÓN
+Como fase inicial do environment, desenvolveuse un concepto de mapa 2D que define a distribución espacial e os puntos clave de interese do estábulo.
+
+<div class="custom-gallery"><div><img src="/images/establo2.avif" alt="Estábulo - Concepto de mapa 2D" /></div></div>
+
+## ESTADO DO PROXECTO
+Actualmente o proxecto atópase en fase de produción, centrada no modelado de props e a definición das texturas PBR.`
+        },
+        roles: ['artist_2d_3d']
+    },
     {
         id: 'resaca',
         title: 'RESACA',
@@ -498,7 +578,7 @@ Para alcanzar dicho objetivo de manera ordenada, la exploración fue guiada a tr
 
 - **Diseño de los flujos de trabajo de cada teaser** con la finalidad de integrar de forma coherente las técnicas seleccionadas, estableciendo la secuencia de pasos y las herramientas necesarias para optimizar la eficacia.
 
-- **Definición d'un fluxo de traballo global** que recolle a metodoloxía a seguir para a potencial elaboración da peza final.
+- **Definición de un flujo de trabajo global** que recoge la metodología a seguir para la potencial elaboración de la pieza final.
 
 ## DIAPOSITIVAS DE LA DEFENSA
 
@@ -898,48 +978,163 @@ A animación mostra a **construción por pezas dunha cafeteira**, facendo uso de
     {
         id: 'narcozoo',
         title: 'Narcozoo',
-        year: '2023',
+        year: '2025',
         category: { es: 'Diseño de videojuego', ca: 'Disseny de videojoc', en: 'Game design', gl: 'Deseño de videoxogo' },
         type: 'academic',
         tags: ['canva', 'photoshop'],
         summary: {
-            es: 'Concepto y GDD para un videojuego de gestión. Desarrollo teórico de mecánicas, economía y narrativa.',
-            ca: 'Concepte i GDD per a un videojoc de gestió. Desenvolupament teòric de mecàniques, economia i narrativa.',
-            en: 'Concept and GDD for a management video game. Theoretical development of mechanics, economy, and narrative.',
-            gl: 'Concepto e GDD para un videoxogo de xestión. Desenvolvemento teórico de mecánicas, economía e narrativa.'
+            es: 'Concepto y GDD para un videojuego de gestión desarrollado en la carrera de Comunicación Audiovisual (USC).',
+            ca: 'Concepte i GDD per a un videojoc de gestió desenvolupat a la carrera de Comunicació Audiovisual (USC).',
+            en: 'Concept and GDD for a management video game developed in the Audiovisual Communication degree (USC).',
+            gl: 'Concepto e GDD para un videoxogo de xestión desenvolvido na carreira de Comunicación Audiovisual (USC).'
         },
         description: {
-            es: 'Creación de un videojuego teórico completo basado en fundamentos académicos de diseño.',
-            ca: 'Creació d\'un videojoc teòric complet basat en fonaments acadèmics de disseny.',
-            en: 'Creation of a complete theoretical video game based on academic design foundations.',
-            gl: 'Creación dun videoxogo teórico completo baseado en fundamentos académicos de deseño.'
+            es: 'Creación de un videojuego teórico completo en el marco de la carrera de Comunicación Audiovisual en la USC.',
+            ca: 'Creació d\'un videojoc teòric complet en el marc de la carrera de Comunicació Audiovisual a la USC.',
+            en: 'Creation of a complete theoretical video game within the framework of the Audiovisual Communication degree at USC.',
+            gl: 'Creación dun videoxogo teórico completo no marco da carreira de Comunicación Audiovisual na USC.'
         },
-        image: '/images/narcozoo1.jpg',
-        images: ['/images/narcozoo1.jpg'],
-        roles: ['game_dev']
+        image: '/images/narcozoo1.png',
+        images: ['/images/narcozoo1.png'],
+        memoryUrl: '/downloads/memoria_narcozoo.pdf',
+        roles: ['game_dev'],
+        longDescription: {
+            es: `### MARCO TEÓRICO
+Fundamentado en la ludología y teoría de juegos (Mäyrä, 2008) y la definición de juego como sistema (Salen & Zimmerman, 2004). El proyecto explora la distinción entre reglas y ficción (Half-Real, Juul, 2005) y la dimensión ética (Play Matters, Sicart, 2014), posicionándose en el debate narratología vs. ludología. Aplica la teoría MDA (Mechanics, Dynamics, Aesthetics) y la retórica procedimental (Bogost, 2007) para comunicar mensajes a través de sistemas que simulan procesos reales.
+
+### GAME CONCEPT
+La narrativa sigue a Mono, un trabajador en una plantación de hierba gatera que huye tras un asedio pirata. Tras la muerte de su mentor Tom, forma una tripulación para traficar con hierba medicinal prohibida, desafiando a los perros opresores en un archipiélago oceánico habitado por animales antropomórficos.
+
+### GAME DESIGN
+- **Gestión:** Sistema de reclutamiento basado en la confianza y el respeto.
+- **Ecología:** El cultivo de recursos requiere gestionar la sobreexplotación del terreno.
+- **Exploración:** Navegación en barca con mejoras progresivas (metasistema inspirado en Wind Waker).
+- **IA y Ética:** IA reactiva NPCs y finales múltiples basados en la reputación y decisiones morales del jugador.`,
+            ca: `### MARC TEÒRIC
+Fonamentat en la ludologia i teoria de jocs (Mäyrä, 2008) i la definició de joc com a sistema (Salen & Zimmerman, 2004). El projecte explora la distinció entre regles i ficció (Half-Real, Juul, 2005) i la dimensió ètica (Play Matters, Sicart, 2014). Aplica la teoria MDA i la retòrica procedimental (Bogost, 2007) per comunicar missatges a través de sistemes que simulen processos reals.
+
+### GAME CONCEPT
+La narrativa segueix a Mono, un treballador en una plantació d'herba gatera que fuig després d'un setge pirata. Després de la mort del seu mentor Tom, forma una tripulació per traficar amb herba medicinal prohibida, desafiant els gossos opressors en un arxipèlag oceànic habitat per animals antropomòrfics.
+
+### GAME DESIGN
+- **Gestió:** Sistema de reclutament basat en la confiança i el respecte.
+- **Ecologia:** El cultiu de recursos requereix gestionar la sobreexplotació del terreny.
+- **Exploració:** Navegació en barca amb millores progressives.
+- **IA i Ètica:** IA reactiva i finals múltiples basats en la reputació i decisions morals del jugador.`,
+            en: `### THEORETICAL FRAMEWORK
+Based on ludology and game theory (Mäyrä, 2008) and the definition of game as a system (Salen & Zimmerman, 2004). The project explores the distinction between rules and fiction (Half-Real, Juul, 2005) and the ethical dimension (Play Matters, Sicart, 2014). It applies MDA theory and procedural rhetoric (Bogost, 2007) to communicate messages through systems that simulate real processes.
+
+### GAME CONCEPT
+The narrative follows Mono, a worker in a catnip plantation who flees after a pirate siege. After the death of his mentor Tom, he forms a crew to smuggle forbidden medicinal herbs, challenging the oppressive dogs in an oceanic archipelago inhabited by anthropomorphic animals.
+
+### GAME DESIGN
+- **Management:** Recruitment system based on trust and respect.
+- **Ecology:** Resource cultivation requires managing land overexploitation.
+- **Exploration:** Boat navigation with progressive upgrades.
+- **AI & Ethics:** Reactive AI and multiple endings based on reputation and moral decisions.`,
+            gl: `### MARCO TEÓRICO
+Fundamentado na ludoloxía e teoría de xogos (Mäyrä, 2008) e a definición de xogo como sistema (Salen & Zimmerman, 2004). O proxecto explora a distinción entre regras e ficción (Half-Real, Juul, 2005) e a dimensión ética (Play Matters, Sicart, 2014). Aplica a teoría MDA e a retórica procedimental (Bogost, 2007) para comunicar mensaxes a través de sistemas que simulan procesos reais.
+
+### GAME CONCEPT
+A narrativa segue a Mono, un traballador nunha plantación de herba gatera que foxe tras un asedio pirata. Tras a morte do seu mentor Tom, forma unha tripulación para traficar con herba medicinal prohibida, desafiando aos cans opresores nun arquipélago oceánico habitado por animais antropomórficos.
+
+### GAME DESIGN
+- **Xestión:** Sistema de recrutamento baseado na confianza e o respecto.
+- **Ecoloxía:** O cultivo de recursos require xestionar a sobreexplotación do terreo.
+- **Exploración:** Navegación en barca con melloras progresivas.
+- **IA e Ética:** IA reactiva e finais múltiples baseados na reputación e decisións morais do xogador.`
+        }
     },
     {
         id: 'actualiteca',
         title: 'Actualiteca',
-        year: '2023',
+        year: '2025',
         category: { es: 'Podcast / Radio', ca: 'Podcast / Ràdio', en: 'Podcast / Radio', gl: 'Podcast / Radio' },
         type: 'academic',
         tags: ['audacity', 'premiere'],
         summary: {
-            es: 'Producción integral de podcast: guion, locución y diseño sonoro. Enfocado en actualidad y debate.',
-            ca: 'Producció integral de podcast: guió, locució i disseny sonor. Enfocat en actualitat i debat.',
-            en: 'Full podcast production: script, voiceover, and sound design. Focused on current events and debate.',
-            gl: 'Produción integral de podcast: guión, locución e deseño sonoro. Enfocado en actualidade e debate.'
+            es: 'Producción de un podcast grupal para la carrera de Comunicación Audiovisual (USC) que potenció mis capacidades narrativas.',
+            ca: 'Producció d\'un podcast grupal per a la carrera de Comunicació Audiovisual (USC) que va potenciar les meves capacitats narratives.',
+            en: 'Production of a group podcast for the Audiovisual Communication degree (USC) that enhanced my narrative skills.',
+            gl: 'Produción dun podcast grupal para a carreira de Comunicación Audiovisual (USC) que potenciou as miñas capacidades narrativas.'
         },
         description: {
-            es: 'Podcast grabado y editado para la materia Taller de Creación Sonora.',
-            ca: 'Podcast grabat i editat per a la matèria Taller de Creació Sonora.',
-            en: 'Podcast recorded and edited for the Sound Creation Subject.',
-            gl: 'Podcast gravado e editado para a materia Taller de Creación Sonora.'
+            es: 'Podcast grupal desarrollado en el marco de la carrera de Comunicación Audiovisual en la USC.',
+            ca: 'Podcast grupal desenvolupat en el marc de la carrera de Comunicació Audiovisual a la USC.',
+            en: 'Group podcast developed within the framework of the Audiovisual Communication degree at USC.',
+            gl: 'Podcast grupal desenvolvido no marco da carreira de Comunicación Audiovisual na USC.'
         },
-        image: '/images/actualidad1.jpg',
-        images: ['/images/actualidad1.jpg'],
+        longDescription: {
+            es: `Podcast grupal desarrollado en el marco de la carrera de **Comunicación Audiovisual en la USC** (materia Taller de creación sonora y radiofónica), de temática actual, que potenció mis capacidades narrativas e interpretativas.
+
+Otras actividades derivadas del proyecto, y que también sirvieron para asentar mis habilidades comunicativas, fueron las crónicas informativas, los reportajes deportivos y las locuciones artísticas llevadas a cabo paralelamente.
+
+En su conjunto, estas prácticas desempeñaron un papel fundamental en mi formación en interpretación, locución y expresión oral.`,
+            ca: `Podcast grupal desenvolupat en el marc de la carrera de **Comunicació Audiovisual a la USC** (assignatura Taller de creació sonora i radiofònica), de temàtica actual, que va potenciar les meves capacitats narratives i interpretatives.
+
+Altres activitats derivades del projecte, i que també van servir per assentar les meves habilitats comunicatives, van ser les cròniques informatives, els reportatges esportius i les locucions artístiques dutes a terme paral·lelament.
+
+En el seu conjunt, aquestes pràctiques van exercir un paper fonamental en la meva formació en interpretació, locució i expressió oral.`,
+            en: `Group podcast developed within the framework of the **Audiovisual Communication degree at USC** (Sound and Radio Creation Workshop subject), with a focus on current events, which enhanced my narrative and performance skills.
+
+Other activities derived from the project, which also served to establish my communication skills, were the news reports, sports stories, and artistic voiceovers carried out in parallel.
+
+As a whole, these practices played a fundamental role in my training in performance, voiceover, and oral expression.`,
+            gl: `Podcast grupal desenvolvido no marco da carreira de **Comunicación Audiovisual na USC** (materia Taller de creación sonora e radiofónica), de temática actual, que potenciou as miñas capacidades narrativas e interpretativas.
+
+Outras actividades derivadas do proxecto, e que tamén serviron para asentar as miñas habilidades comunicativas, foron as crónicas informativas, as reportaxes deportivas e as locucións artísticas levadas a cabo paralelamente.
+
+No seu conxunto, estas prácticas desempeñaron un papel fundamental na miña formación en interpretación, locución e expresión oral.`
+        },
+        image: '/images/actualiteca1.jpg',
+        images: ['/images/actualiteca1.jpg'],
         roles: ['video_editor']
+    },
+    {
+        id: 'onda_vocal',
+        title: 'Onda Vocal',
+        year: '2024',
+        category: { es: 'Marketing & Sonido', ca: 'Màrqueting i So', en: 'Marketing & Sound', gl: 'Marketing e Son' },
+        type: 'academic',
+        tags: ['audacity', 'canva'],
+        summary: {
+            es: 'Creación de una empresa ficticia para el fomento de la lengua gallega con enfoque en doblaje y formación.',
+            ca: 'Creació d\'una empresa fictícia per al foment de la llengua gallega amb enfocament en doblatge i formació.',
+            en: 'Creation of a fictional company to promote the Galician language with a focus on dubbing and training.',
+            gl: 'Creación dunha empresa ficticia para o fomento da lingua galega con enfoque en dobrase e formación.'
+        },
+        description: {
+            es: 'Proyecto grupal de creación de empresa desarrollado en la carrera de Comunicación Audiovisual (USC).',
+            ca: 'Projecte grupal de creació d\'empresa desenvolupat a la carrera de Comunicació Audiovisual (USC).',
+            en: 'Group company creation project developed in the Audiovisual Communication degree (USC).',
+            gl: 'Proxecto grupal de creación de empresa desenvolvido na carreira de Comunicación Audiovisual (USC).'
+        },
+        longDescription: {
+            es: `Proyecto grupal de creación de una empresa ficticia desarrollado en el marco de la carrera de **Comunicación Audiovisual en la USC**, que potenció mis habilidades relacionadas con la mercadotecnia.
+
+La empresa surge en el ámbito de fomento y normalización de la lengua gallega, abarcando de esta forma 3 áreas diferenciadas: un estudio de doblaje; un servicio de alquiler de espacios y material técnico para grabación sonora; y un sistema de cursos, proyectos formativos y talleres orientados al aprendizaje y el desarrollo de diferentes competencias audiovisuales.
+
+El proyecto supuso un gran avance en mi capacidad de estudio sobre diferentes modelos de negocio, análisis de mercado, estrategias de marketing y planes económico-financieros y de recursos humanos.`,
+            ca: `Projecte grupal de creació d'una empresa fictícia desenvolupat en el marc de la carrera de **Comunicació Audiovisual a la USC**, que va potenciar les meves habilitats relacionades amb la mercadotècnia.
+
+L'empresa sorgeix en l'àmbit de foment i normalització de la llengua gallega, abastant d'aquesta manera 3 àrees diferenciades: un estudi de doblatge; un servei de lloguer d'espais i material tècnic per a gravació sonora; i un sistema de cursos, projectes formatius i tallers orientats a l'aprenentatge i el desenvolupament de diferents competències audiovisuals.
+
+El projecte va suposar un gran avanç en la meva capacitat d'estudi sobre diferents models de negoci, anàlisi de mercat, estratègies de màrqueting i plans econòmic-financers i de recursos humans.`,
+            en: `Group project for creating a fictional company developed within the framework of the **Audiovisual Communication degree at USC**, which enhanced my marketing-related skills.
+
+The company arises in the field of promotion and normalization of the Galician language, thus covering 3 differentiated areas: a dubbing studio; a service for renting spaces and technical equipment for sound recording; and a system of courses, training projects, and workshops aimed at learning and developing different audiovisual skills.
+
+The project represented a great advance in my ability to study different business models, market analysis, marketing strategies, and economic-financial and human resources plans.`,
+            gl: `Proxecto grupal de creación dunha empresa ficticia desenvolvido no marco da carreira de **Comunicación Audiovisual na USC**, que potenciou as miñas habilidades relacionadas coa mercadotecnia.
+
+A empresa xorde no ámbito de fomento e normalización da lingua galega, abranguendo desta forma 3 áreas diferenciadas: un estudio de dobraxe; un servizo de aluguer de espazos e material técnico para gravación sonora; e un sistema de cursos, proxectos formativos e obradoiros orientados á aprendizaxe e o desenvolvemento de diferentes competencias audiovisuais.
+
+O proxecto supuxo un gran avance na miña capacidade de estudo sobre diferentes modelos de negocio, análise de mercado, estratexias de márketing e plans económico-financeiros e de recursos humanos.`
+        },
+        image: '/images/ondavocal1.avif',
+        images: ['/images/ondavocal1.avif'],
+        memoryUrl: '/downloads/memoria_onda_vocal.pdf',
+        roles: ['design']
     },
     {
         id: 'carta_a_fonte',

@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Routes, Route, useParams, useNavigate } from 'react-router-dom';
+import { Routes, Route, useParams, useNavigate, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ExperienceTimeline from './components/Timeline';
@@ -12,6 +12,7 @@ import ProjectModal from './components/ProjectModal';
 import LandingPage from './components/LandingPage';
 import { useTranslation } from './hooks/useTranslation';
 import { experience, education, projects, languages, aptitudes, aboutMe, aboutByRole } from './data/content';
+import { projectList } from './data/proyectos';
 
 const roleKeyMap = {
   'perfil-general': 'all',
@@ -21,6 +22,8 @@ const roleKeyMap = {
   'artista-3d': 'artist_2d_3d'
 };
 
+const validLangs = ['es', 'en', 'gl', 'ca'];
+
 const SectionHeader = ({ title }) => (
   <div className="section-title animate-fade-in" style={{ marginTop: '3rem', marginBottom: 'var(--spacing-lg)' }}>
     <h2 style={{ fontSize: '1.75rem', fontWeight: 900, textAlign: 'center' }}>{title}</h2>
@@ -28,11 +31,20 @@ const SectionHeader = ({ title }) => (
   </div>
 );
 
+const roleTitlesMap = {
+  all: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' },
+  video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' },
+  game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
+  artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
+  design: { es: 'Diseño', ca: 'Disseny', en: 'Design', gl: 'Deseño' }
+};
+
 const PortfolioView = () => {
   const { role } = useParams();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('info');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showRoleBanner, setShowRoleBanner] = useState(true);
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { t, language } = useTranslation();
@@ -76,8 +88,43 @@ const PortfolioView = () => {
   }, [activeRoleId]);
 
   const filteredProjects = useMemo(() => {
-    if (activeRoleId === 'all') return projects;
-    return projects.filter(project => project.roles && (project.roles.includes(activeRoleId) || project.roles.includes('all')));
+    // Definimos el orden basado en el archivo proyectos.js
+    const projectOrder = projectList.map(p => p.id);
+    const visibilityMap = projectList.reduce((acc, p) => {
+      acc[p.id] = p.visible;
+      return acc;
+    }, {});
+
+    const baseProjects = projects.filter(project => {
+      // Solo mostrar si está en el archivo proyectos.js Y está marcado como visible
+      if (visibilityMap[project.id] === undefined || visibilityMap[project.id] === false) return false;
+      
+      if (activeRoleId === 'all') return true;
+      return project.roles && (project.roles.includes(activeRoleId) || project.roles.includes('all'));
+    }).map(project => {
+      // Fusionar los datos de proyectos.js (tags, isWIP, etc.) con los de content.js
+      const masterProject = projectList.find(p => p.id === project.id);
+      return {
+        ...project,
+        ...masterProject, // Sobrescribimos con lo que haya en la lista maestra (tags, isWIP, etc.)
+        // Las traducciones de title/summary/category se mantienen de content.js si masterProject no las tiene
+        title: project.title, 
+        summary: project.summary,
+        category: project.category
+      };
+    });
+    
+    // Ordenar según el orden definido en projectList de proyectos.js
+    return [...baseProjects].sort((a, b) => {
+      const indexA = projectOrder.indexOf(a.id);
+      const indexB = projectOrder.indexOf(b.id);
+      
+      // Si alguno no está en la lista (evitar errores), ponerlo al final
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      
+      return indexA - indexB;
+    });
   }, [activeRoleId]);
 
   return (
@@ -146,6 +193,7 @@ const PortfolioView = () => {
                   className={`card ${isMobile ? 'about-card-expandable' : ''}`} 
                   style={{ 
                     padding: 'var(--spacing-lg)',
+                    paddingBottom: '1.25rem',
                     cursor: isMobile ? 'pointer' : 'default',
                     transition: 'box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
                     position: 'relative'
@@ -181,21 +229,23 @@ const PortfolioView = () => {
 
                   {/* Location always visible below the content */}
                   <div style={{ 
-                    marginTop: '1.5rem', 
-                    paddingTop: '1.5rem', 
+                    marginTop: '1rem', 
+                    paddingTop: '1rem', 
                     borderTop: '1px solid var(--color-border)',
-                    fontSize: '0.95rem',
-                    color: 'var(--color-text-light)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '8px'
+                    gap: '6px',
+                    fontSize: '0.95rem',
+                    color: 'var(--color-text-light)',
+                    width: '100%'
                   }}>
+                    <span style={{ fontSize: '1rem' }}>📍</span>
                     <strong>
-                      {language === 'es' ? '📍 Ubicación actual:' : 
-                        language === 'ca' ? '📍 Ubicació actual:' : 
-                        language === 'gl' ? '📍 Ubicación actual:' : 
-                        '📍 Current location:'}
+                      {language === 'es' ? 'Ubicación actual:' : 
+                        language === 'ca' ? 'Ubicació actual:' : 
+                        language === 'gl' ? 'Ubicación actual:' : 
+                        'Current location:'}
                     </strong>
                     <span>Madrid</span>
                   </div>
@@ -266,6 +316,72 @@ const PortfolioView = () => {
                   projects={filteredProjects}
                   onProjectSelect={setSelectedProject}
                 />
+
+                {activeRoleId !== 'all' && showRoleBanner && (
+                  <div style={{ 
+                    marginTop: '2.5rem', 
+                    padding: '1rem', 
+                    backgroundColor: 'rgba(var(--color-primary-rgb, 100, 100, 100), 0.05)', 
+                    borderRadius: 'var(--radius-md)',
+                    textAlign: 'center',
+                    border: '1px dashed var(--color-border)',
+                    position: 'relative',
+                    maxWidth: '600px',
+                    margin: '3rem auto 0'
+                  }}>
+                    <button 
+                      onClick={() => setShowRoleBanner(false)}
+                      style={{
+                        position: 'absolute',
+                        top: '0.4rem',
+                        right: '0.6rem',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        opacity: 0.4,
+                        fontSize: '1.2rem',
+                        padding: '0.2rem',
+                        color: 'var(--color-text)'
+                      }}
+                      aria-label="Close"
+                    >
+                      ×
+                    </button>
+                    <p style={{ 
+                      color: 'var(--color-text-light)', 
+                      fontSize: '0.85rem', 
+                      marginBottom: '0.4rem',
+                      paddingRight: '1rem'
+                    }}>
+                      {language === 'es' 
+                        ? `Estás viendo la especialidad de ${roleTitlesMap[activeRoleId]?.es}.` 
+                        : language === 'ca'
+                        ? `Estàs veient l'especialitat de ${roleTitlesMap[activeRoleId]?.ca}.`
+                        : language === 'gl'
+                        ? `Estás vendo a especialidade de ${roleTitlesMap[activeRoleId]?.gl}.`
+                        : `You are viewing projects for ${roleTitlesMap[activeRoleId]?.en}.`}
+                    </p>
+                    <button
+                      onClick={() => navigate(`/${language}/perfil-general`)}
+                      style={{ 
+                        color: 'var(--color-primary)',
+                        fontWeight: 600,
+                        fontSize: '0.8rem',
+                        textDecoration: 'underline',
+                        cursor: 'pointer',
+                        opacity: 0.9,
+                        background: 'none',
+                        border: 'none',
+                        padding: 0
+                      }}
+                    >
+                      {language === 'es' ? 'Ver todos los proyectos' : 
+                       language === 'ca' ? 'Veure tots els projectes' : 
+                       language === 'gl' ? 'Ver todos os proxectos' : 
+                       'View all projects'}
+                    </button>
+                  </div>
+                )}
               </section>
             </div>
           )}
@@ -300,7 +416,10 @@ const PortfolioView = () => {
             Mario Villanueva Torres
           </button>
           <p style={{ opacity: 0.6, fontSize: '0.8rem', color: 'var(--color-text-light)' }}>
-            {language === 'es' ? 'Portafolio Profesional' : 'Professional Portfolio'}
+            {language === 'es' ? 'Portafolio Profesional' : 
+             language === 'ca' ? 'Portafoli Professional' : 
+             language === 'gl' ? 'Portafolio Profesional' : 
+             'Professional Portfolio'}
           </p>
           <p style={{ opacity: 0.4, fontSize: '0.75rem', marginTop: '1rem', color: 'var(--color-text-light)' }}>&copy; 2026</p>
         </div>
@@ -352,11 +471,38 @@ const PortfolioView = () => {
   );
 };
 
+const RoleRedirect = () => {
+  const { role } = useParams();
+  const { language } = useTranslation();
+  // If role is a valid language, it will be handled by the lang routes.
+  // This is for cases like /perfil-general
+  return <Navigate to={`/${language}/${role}`} replace />;
+};
+
+const LanguageRouteWrapper = ({ component }) => {
+  const { lang } = useParams();
+  const { language } = useTranslation();
+  
+  if (!validLangs.includes(lang)) {
+    // If it's not a valid lang, try to treat it as a role or just go to /es
+    return <Navigate to={`/${language}/${lang}`} replace />;
+  }
+  
+  return component;
+};
+
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/:role" element={<PortfolioView />} />
+      {/* Root redirect */}
+      <Route path="/" element={<Navigate to="/es" replace />} />
+      
+      {/* Routes with language */}
+      <Route path="/:lang" element={<LanguageRouteWrapper component={<LandingPage />} />} />
+      <Route path="/:lang/:role" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
+      
+      {/* Catch-all or missing lang (e.g., /perfil-general) */}
+      <Route path="/:role" element={<RoleRedirect />} />
     </Routes>
   );
 }
