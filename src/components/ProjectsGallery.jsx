@@ -643,42 +643,43 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                                             {allSkills[tagId]?.name || tagId}
                                         </button>
                                     ))}
+                                    
+                                    {selectedTags.length > 0 && (
+                                        <button
+                                            onClick={() => setSelectedTags([])}
+                                            style={{
+                                                backgroundColor: 'transparent',
+                                                color: '#ef4444',
+                                                border: '1px solid #ef4444',
+                                                cursor: 'pointer',
+                                                transition: 'all 0.2s ease',
+                                                textTransform: 'uppercase',
+                                                fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
+                                                padding: '0.2rem 0.6rem',
+                                                borderRadius: '4px',
+                                                whiteSpace: 'nowrap',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '6px',
+                                                fontWeight: 800
+                                            }}
+                                            onMouseEnter={(e) => {
+                                                e.currentTarget.style.backgroundColor = '#ef4444';
+                                                e.currentTarget.style.color = 'white';
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.style.backgroundColor = 'transparent';
+                                                e.currentTarget.style.color = '#ef4444';
+                                            }}
+                                        >
+                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                            </svg>
+                                            <span>{t('clear_filters')}</span>
+                                        </button>
+                                    )}
                                 </div>
-
-                                {selectedTags.length > 0 && (
-                                    <button
-                                        onClick={() => setSelectedTags([])}
-                                        title={t('clear_filters')}
-                                        style={{
-                                            width: '19px',
-                                            height: '19px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            color: '#ef4444',
-                                            cursor: 'pointer',
-                                            border: '1.5px solid currentColor',
-                                            borderRadius: '50%',
-                                            flexShrink: 0,
-                                            backgroundColor: 'transparent',
-                                            transition: 'all 0.2s ease',
-                                            padding: 0
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
-                                            e.currentTarget.style.transform = 'scale(1.1)';
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.backgroundColor = 'transparent';
-                                            e.currentTarget.style.transform = 'scale(1)';
-                                        }}
-                                    >
-                                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                                        </svg>
-                                    </button>
-                                )}
                             </div>
                         </div>
 

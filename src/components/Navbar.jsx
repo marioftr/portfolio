@@ -13,9 +13,9 @@ const roleKeyMap = {
 
 const roleTitles = {
     all: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' },
-    video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' },
     game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
     artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
+    video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' },
     design: { es: 'Diseño', ca: 'Disseny', en: 'Design', gl: 'Deseño' }
 };
 
@@ -60,17 +60,30 @@ export default function Navbar() {
             boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
             transition: 'none'
         }}>
-            <div className="container flex justify-between items-center navbar-content" style={{ width: '100%', gap: 'var(--spacing-xs)' }}>
-                <Link to={`/${language}`} style={{ textDecoration: 'none', flexShrink: 0 }}>
-                    <div className="nav-name" style={{ fontWeight: 900, fontSize: '1.2rem', color: 'var(--color-text)', letterSpacing: '-0.8px' }}>
-                        <span className="full-name">Mario Villanueva Torres</span>
-                        <span className="short-name" style={{ display: 'none' }}>Mario</span>
-                    </div>
-                </Link>
+            <div className="container navbar-content" style={{ 
+                width: '100%', 
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                position: 'relative',
+                height: '100%'
+            }}>
+                <div className="nav-left" style={{ flex: 1, display: 'flex', alignItems: 'center', minWidth: 0 }}>
+                    <Link to={`/${language}`} style={{ textDecoration: 'none', flexShrink: 0 }}>
+                        <div className="nav-name" style={{ fontWeight: 900, fontSize: '1.2rem', color: 'var(--color-text)', letterSpacing: '-0.8px' }}>
+                            <span className="full-name">Mario Villanueva Torres</span>
+                            <span className="short-name" style={{ display: 'none' }}>Mario</span>
+                        </div>
+                    </Link>
+                    <div className="nav-divider" style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)', margin: '0 12px' }} />
+                </div>
 
-                <div className="nav-divider" style={{ width: '1px', height: '20px', backgroundColor: 'var(--color-border)', margin: '0 4px' }} />
-
-                <div ref={dropdownRef} className="nav-role-container" style={{ position: 'relative', flex: '1 1 auto', display: 'flex', justifyContent: 'center', minWidth: 0 }}>
+                <div ref={dropdownRef} className="nav-role-container" style={{ 
+                    position: 'absolute', 
+                    left: '50%', 
+                    transform: 'translateX(-50%)',
+                    zIndex: 10
+                }}>
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="flex items-center gap-sm transition-all role-dropdown-trigger nav-role-selector"
@@ -78,14 +91,14 @@ export default function Navbar() {
                             background: 'white',
                             border: '1.5px solid var(--color-border)',
                             borderRadius: '10px',
-                            padding: '4px 12px',
+                            padding: '4px 16px',
                             fontSize: '0.75rem',
                             fontWeight: 800,
                             textTransform: 'uppercase',
                             cursor: 'pointer',
                             color: 'var(--color-primary)',
                             boxShadow: '0 2px 5px rgba(0,0,0,0.02)',
-                            height: '32px',
+                            height: '36px',
                             justifyContent: 'space-between'
                         }}
                     >
@@ -182,7 +195,7 @@ export default function Navbar() {
                         )}
                     </div>
 
-                <div className="flex items-center gap-sm sm:gap-md nav-right-section">
+                <div className="flex items-center gap-sm sm:gap-md nav-right-section" style={{ flex: 1, justifyContent: 'flex-end', minWidth: 0 }}>
                     <div className="flex items-center gap-sm nav-socials">
                         {socialLinks.map((link) => (
                             <a
@@ -191,14 +204,27 @@ export default function Navbar() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title={link.name}
-                                style={{ display: 'flex', transition: 'transform 0.2s' }}
+                                style={{ 
+                                    display: 'flex', 
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    transition: 'transform 0.2s',
+                                    width: '24px',
+                                    height: '24px'
+                                }}
                                 onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
                                 onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                             >
                                 <img
                                     src={`/images/logos/${link.name.toLowerCase()}.png`}
                                     alt={link.name}
-                                    style={{ width: '18px', height: '18px', opacity: 0.7 }}
+                                    style={{ 
+                                        width: '18px', 
+                                        height: '18px', 
+                                        opacity: 0.7,
+                                        objectFit: 'contain',
+                                        display: 'block'
+                                    }}
                                     onError={(e) => { e.target.style.display = 'none'; }}
                                 />
                             </a>

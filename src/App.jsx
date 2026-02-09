@@ -146,7 +146,7 @@ const PortfolioView = () => {
         }}>
           <div className="container" style={{ padding: '0 1rem' }}>
             <div className="flex justify-center">
-              <div className="flex tabs-container" style={{ gap: '1rem', width: '100%', justifyContent: 'center' }}>
+              <div className="flex tabs-container" style={{ width: '100%', justifyContent: 'center' }}>
                 {[
                   { id: 'info', label: { es: 'Información', ca: 'Informació', gl: 'Información', en: 'Information' } },
                   { id: 'projects', label: { es: 'Proyectos', ca: 'Projectes', gl: 'Proxectos', en: 'Projects' } },
@@ -156,7 +156,7 @@ const PortfolioView = () => {
                     key={tab.id}
                     onClick={() => handleTabClick(tab.id)}
                     style={{
-                      padding: '1rem 0.25rem',
+                      padding: '1rem 0.5rem',
                       fontSize: 'clamp(0.7rem, 2.5vw, 0.85rem)',
                       fontWeight: 800,
                       color: activeTab === tab.id ? 'var(--color-primary)' : 'var(--color-text-light)',
@@ -170,8 +170,8 @@ const PortfolioView = () => {
                       marginBottom: '-1px',
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
-                      flex: '1',
-                      maxWidth: '120px',
+                      flex: isMobile ? '1' : 'none',
+                      width: isMobile ? 'auto' : '150px',
                       textAlign: 'center',
                       whiteSpace: 'nowrap'
                     }}

@@ -98,9 +98,9 @@ export default function LandingPage() {
 
     const roleMapping = {
         all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' } },
-        video_editor: { path: 'editor-video', icon: 'layout', label: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' } },
         game_dev: { path: 'programador-videojuegos', icon: 'code', label: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' } },
         artist_2d_3d: { path: 'artista-3d', icon: 'box', label: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' } },
+        video_editor: { path: 'editor-video', icon: 'layout', label: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' } },
     };
 
     const getIcon = (name) => {

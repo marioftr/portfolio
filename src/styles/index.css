@@ -248,7 +248,7 @@ button {
 }
 @media (max-width: 768px) {
   .nav-role-selector {
-    max-width: 220px;
+    max-width: 280px;
     width: 100%;
   }
 
