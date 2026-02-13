@@ -114,6 +114,7 @@ export default function LandingPage() {
             case 'linkedin': return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
             case 'github': return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>;
             case 'instagram': return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>;
+            case 'view': return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>;
             default: return null;
         }
     };
@@ -218,57 +219,117 @@ export default function LandingPage() {
                         </div>
                     </div>
 
-                    {/* Social Links */}
+                    {/* Social Links & CV */}
                     <div className="social-links-container" style={{ 
                         display: 'flex', 
-                        gap: '0.75rem', 
+                        flexDirection: isMobile ? 'column' : 'row',
+                        gap: isMobile ? '1rem' : '0.75rem', 
                         marginTop: isMobile ? '0.8rem' : ((isTablet && isSmallHeight) ? '0.2rem' : (isTablet ? '0.5rem' : '1rem')), 
                         marginBottom: (isTablet && isSmallHeight) ? '0rem' : '1rem',
                         justifyContent: useVerticalStack ? 'center' : 'flex-start',
+                        alignItems: isMobile ? 'center' : 'stretch',
                         width: '100%' 
                     }}>
-                        {socialLinks.map((link, idx) => (
-                            <a
-                                key={idx}
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center justify-center social-icon-landing"
-                                style={{
-                                    width: isMobile ? '48px' : (isPortrait ? '48px' : (isTablet ? '38px' : '42px')),
-                                    height: isMobile ? '48px' : (isPortrait ? '48px' : (isTablet ? '38px' : '42px')),
-                                    borderRadius: '12px',
-                                    backgroundColor: 'white',
-                                    color: 'var(--color-primary)',
-                                    transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                                    border: '1px solid var(--color-border)',
-                                    boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(-5px)';
-                                    e.currentTarget.style.backgroundColor = 'var(--color-primary)';
-                                    e.currentTarget.style.color = 'white';
-                                    e.currentTarget.style.boxShadow = '0 10px 20px rgba(16, 185, 129, 0.2)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(0)';
-                                    e.currentTarget.style.backgroundColor = 'white';
-                                    e.currentTarget.style.color = 'var(--color-primary)';
-                                    e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
-                                }}
-                            >
-                                <div style={{ 
-                                    transform: (isTablet && !isPortrait) ? 'scale(0.85)' : 'none',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    width: '100%',
-                                    height: '100%'
-                                }}>
-                                    {getIcon(link.icon)}
-                                </div>
-                            </a>
-                        ))}
+                        <div style={{ 
+                            display: 'flex', 
+                            gap: '0.75rem',
+                            justifyContent: useVerticalStack ? 'center' : 'flex-start'
+                        }}>
+                            {socialLinks.map((link, idx) => (
+                                <a
+                                    key={idx}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center social-icon-landing"
+                                    style={{
+                                        width: isMobile ? '48px' : (isPortrait ? '48px' : (isTablet ? '38px' : '42px')),
+                                        height: isMobile ? '48px' : (isPortrait ? '48px' : (isTablet ? '38px' : '42px')),
+                                        borderRadius: '12px',
+                                        backgroundColor: 'white',
+                                        color: 'var(--color-primary)',
+                                        transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                                        border: '1px solid var(--color-border)',
+                                        boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = 'translateY(-5px)';
+                                        e.currentTarget.style.backgroundColor = 'var(--color-primary)';
+                                        e.currentTarget.style.color = 'white';
+                                        e.currentTarget.style.boxShadow = '0 10px 20px rgba(16, 185, 129, 0.2)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = 'translateY(0)';
+                                        e.currentTarget.style.backgroundColor = 'white';
+                                        e.currentTarget.style.color = 'var(--color-primary)';
+                                        e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
+                                    }}
+                                >
+                                    <div style={{ 
+                                        transform: (isTablet && !isPortrait) ? 'scale(0.85)' : 'none',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: '100%',
+                                        height: '100%'
+                                    }}>
+                                        {getIcon(link.icon)}
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+
+                        {/* View CV Button */}
+                        <a
+                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en.pdf' : '/downloads/CV_Mario_Villanueva_es.pdf'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center social-icon-landing cv-view-landing"
+                            style={{
+                                height: isMobile ? '48px' : (isPortrait ? '48px' : (isTablet ? '38px' : '42px')),
+                                borderRadius: '12px',
+                                backgroundColor: 'var(--color-primary)',
+                                color: 'white',
+                                transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                                border: '1px solid var(--color-primary)',
+                                boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
+                                marginLeft: isMobile ? '0' : '0.75rem',
+                                padding: '0 1.25rem',
+                                textDecoration: 'none',
+                                gap: '0.5rem',
+                                width: isMobile ? 'fit-content' : 'auto'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-5px)';
+                                e.currentTarget.style.backgroundColor = 'white';
+                                e.currentTarget.style.color = 'var(--color-primary)';
+                                e.currentTarget.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.backgroundColor = 'var(--color-primary)';
+                                e.currentTarget.style.color = 'white';
+                                e.currentTarget.style.boxShadow = '0 4px 10px rgba(16, 185, 129, 0.2)';
+                            }}
+                        >
+                            <div style={{ 
+                                transform: (isTablet && !isPortrait) ? 'scale(0.85)' : 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}>
+                                {getIcon('view')}
+                            </div>
+                            <span style={{ 
+                                fontWeight: 800, 
+                                fontSize: isMobile ? '0.9rem' : (isTablet ? '0.75rem' : '0.85rem'),
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px',
+                                whiteSpace: 'nowrap'
+                            }}>
+                                {t('hero_download_cv')}
+                            </span>
+                        </a>
                     </div>
                 </div>
 
