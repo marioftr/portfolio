@@ -442,7 +442,12 @@ export default function ProjectModal({ project, onClose }) {
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
                                 </svg>
-                                <span>{t('download_memory')}</span>
+                                <span>
+                                    {typeof project.memoryLabel === 'string' 
+                                        ? project.memoryLabel 
+                                        : (project.memoryLabel?.[language] || project.memoryLabel?.es || t('download_memory'))
+                                    }
+                                </span>
                             </a>
                         </div>
                     )}

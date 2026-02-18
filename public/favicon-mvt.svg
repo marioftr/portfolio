@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Filled Isometric Cube - Maximum Size -->
+  <!-- Top Face -->
+  <path d="M16 0.5L29.5 8.3L16 16.1L2.5 8.3L16 0.5Z" fill="#10B981"/>
+  <!-- Right Face -->
+  <path d="M16 16.1L29.5 8.3V23.7L16 31.5V16.1Z" fill="#059669"/>
+  <!-- Left Face -->
+  <path d="M2.5 8.3L16 16.1V31.5L2.5 23.7V8.3Z" fill="#047857"/>
+  
+  <!-- "MVT" Text Overlay - Centered and Larger -->
+  <text x="16.5" y="20.5" fill="#024d36" font-family="'Inter', sans-serif" font-weight="900" font-size="13" letter-spacing="-0.5" text-anchor="middle">MVT</text>
+  <text x="16" y="20" fill="white" font-family="'Inter', sans-serif" font-weight="900" font-size="13" letter-spacing="-0.5" text-anchor="middle">MVT</text>
+</svg>
