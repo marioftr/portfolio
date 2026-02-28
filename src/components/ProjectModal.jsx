@@ -498,8 +498,8 @@ export default function ProjectModal({ project, onClose }) {
                         </svg>
                     </button>
 
-                    {/* Navigation Arrows */}
-                    {galleryImages.length > 1 && (
+                    {/* Navigation Arrows — hidden on mobile, visible on tablet+ */}
+                    {galleryImages.length > 1 && !isMobile && (
                         <>
                             <button
                                 onClick={handlePrevImage}
