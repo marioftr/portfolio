@@ -7,10 +7,12 @@ import ProjectsGallery from './components/ProjectsGallery';
 import FeaturedProjects from './components/FeaturedProjects';
 import ContactSection from './components/Contact';
 import SkillsSection from './components/SkillsSection';
+import PortfolioTab from './components/PortfolioTab';
 import LanguagesAptitudes from './components/LanguagesAptitudes';
 import ProjectModal from './components/ProjectModal';
 import LandingPage from './components/LandingPage';
 import { useTranslation } from './hooks/useTranslation';
+import { PORTFOLIO_READY } from './config';
 import { experience, education, projects, languages, aptitudes, aboutMe, aboutByRole } from './data/content';
 import { projectList } from './data/proyectos';
 
@@ -39,17 +41,29 @@ const roleTitlesMap = {
   design: { es: 'Diseño', ca: 'Disseny', en: 'Design', gl: 'Deseño' }
 };
 
+// ─── FLAG DE DESARROLLO: ver src/config.js ───────────────────────────────────
+
 const PortfolioView = () => {
-  const { role } = useParams();
+  const { role, tab } = useParams();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('info');
+  const [activeTab, setActiveTab] = useState(tab || (PORTFOLIO_READY ? 'portfolio' : 'sobre-mi'));
   const [selectedProject, setSelectedProject] = useState(null);
-  const [showRoleBanner, setShowRoleBanner] = useState(true);
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { t, language } = useTranslation();
 
   const activeRoleId = roleKeyMap[role] || 'all';
+
+  useEffect(() => {
+    if (tab && tab !== activeTab) {
+      setActiveTab(tab);
+    } else if (!tab) {
+      // No tab in URL: redirect to the default tab
+      const defaultTab = PORTFOLIO_READY ? 'portfolio' : 'sobre-mi';
+      setActiveTab(defaultTab);
+      navigate(`/${language}/${role}/${defaultTab}`, { replace: true });
+    }
+  }, [tab, role, language, navigate]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -67,6 +81,7 @@ const PortfolioView = () => {
       scrollToTop();
     } else {
       setActiveTab(tabId);
+      navigate(`/${language}/${role}/${tabId}`);
       // Scroll to top when changing tabs
       setTimeout(() => scrollToTop(), 0);
     }
@@ -132,8 +147,6 @@ const PortfolioView = () => {
       <Navbar />
 
       <main style={{ flex: 1, paddingBottom: 'var(--spacing-xl)' }}>
-        <Hero roleId={activeRoleId} />
-
         {/* Sticky Tabs */}
         <div style={{
           position: 'sticky',
@@ -148,19 +161,20 @@ const PortfolioView = () => {
             <div className="flex justify-center">
               <div className="flex tabs-container" style={{ width: '100%', justifyContent: 'center' }}>
                 {[
-                  { id: 'info', label: { es: 'Información', ca: 'Informació', gl: 'Información', en: 'Information' } },
-                  { id: 'projects', label: { es: 'Proyectos', ca: 'Projectes', gl: 'Proxectos', en: 'Projects' } },
-                  { id: 'contact', label: { es: 'Contacto', ca: 'Contacte', gl: 'Contacto', en: 'Contact' } }
-                ].map(tab => (
+                  { id: 'portfolio', label: t('tab_portfolio') },
+                  { id: 'sobre-mi', label: t('tab_info') },
+                  { id: 'proyectos', label: t('nav_projects') },
+                  { id: 'contacto', label: t('nav_contact') }
+                ].map(tabItem => (
                   <button
-                    key={tab.id}
-                    onClick={() => handleTabClick(tab.id)}
+                    key={tabItem.id}
+                    onClick={() => handleTabClick(tabItem.id)}
                     style={{
                       padding: '1rem 0.5rem',
                       fontSize: 'clamp(0.7rem, 2.5vw, 0.85rem)',
                       fontWeight: 800,
-                      color: activeTab === tab.id ? 'var(--color-primary)' : 'var(--color-text-light)',
-                      borderBottom: `3px solid ${activeTab === tab.id ? 'var(--color-primary)' : 'transparent'}`,
+                      color: activeTab === tabItem.id ? 'var(--color-primary)' : 'var(--color-text-light)',
+                      borderBottom: `3px solid ${activeTab === tabItem.id ? 'var(--color-primary)' : 'transparent'}`,
                       transition: 'all 0.2s ease',
                       cursor: 'pointer',
                       background: 'none',
@@ -173,10 +187,11 @@ const PortfolioView = () => {
                       flex: isMobile ? '1' : 'none',
                       width: isMobile ? 'auto' : '150px',
                       textAlign: 'center',
-                      whiteSpace: 'nowrap'
+                      whiteSpace: 'nowrap',
+                      opacity: (!PORTFOLIO_READY && tabItem.id === 'portfolio' && activeTab !== 'portfolio') ? 0.45 : 1
                     }}
                   >
-                    {tab.label[language] || tab.label.es}
+                    {tabItem.label}
                   </button>
                 ))}
               </div>
@@ -185,8 +200,164 @@ const PortfolioView = () => {
         </div>
 
         <div className="container">
-          {activeTab === 'info' && (
+          {activeTab === 'portfolio' && (
+            <div>
+              {PORTFOLIO_READY ? (
+                <PortfolioTab
+                  roleId={activeRoleId}
+                  onProjectSelect={setSelectedProject}
+                  onTabClick={handleTabClick}
+                />
+              ) : (
+                <div className="animate-fade-in" style={{ position: 'relative', overflow: 'hidden', height: isMobile ? 'clamp(360px, 70vh, 460px)' : 'clamp(440px, 55vh, 560px)' }}>
+
+                  {/* Shimmer keyframes */}
+                  <style>{`
+                    @keyframes skel-shimmer {
+                      0%   { background-position: -800px 0; }
+                      100% { background-position:  800px 0; }
+                    }
+                    .skel-block {
+                      background: linear-gradient(90deg, #e2e2e2 25%, #ebebeb 50%, #e2e2e2 75%);
+                      background-size: 1600px 100%;
+                      animation: skel-shimmer 1.8s infinite linear;
+                      border-radius: 10px;
+                    }
+                  `}</style>
+
+                  {/* Skeleton grid — fondo */}
+                  <div style={{ opacity: 0.85, pointerEvents: 'none', userSelect: 'none', padding: '2rem 0 0' }}>
+                    {isMobile ? (
+                      <>
+                        {/* Mobile: 2 pills + etiqueta + 2×2 tarjetas */}
+                        <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.25rem' }}>
+                          {[100, 130].map((w, i) => (
+                            <div key={i} className="skel-block" style={{ width: w, height: 30, borderRadius: 20 }} />
+                          ))}
+                        </div>
+                        <div className="skel-block" style={{ width: 130, height: 16, marginBottom: '0.75rem', borderRadius: 6 }} />
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem', marginBottom: '0.65rem' }}>
+                          {[0,1,2,3].map(i => <div key={i} className="skel-block" style={{ aspectRatio: '4/3' }} />)}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {/* Desktop: layout completo */}
+                        <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+                          {[110, 145, 120, 135, 115].map((w, i) => (
+                            <div key={i} className="skel-block" style={{ width: w, height: 36, borderRadius: 20 }} />
+                          ))}
+                        </div>
+                        <div className="skel-block" style={{ width: 170, height: 20, marginBottom: '1rem', borderRadius: 6 }} />
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.85rem', marginBottom: '0.85rem' }}>
+                          {[0,1,2].map(i => <div key={i} className="skel-block" style={{ aspectRatio: '16/9' }} />)}
+                        </div>
+                        <div className="skel-block" style={{ width: 200, height: 20, marginBottom: '1rem', borderRadius: 6, marginTop: '2rem' }} />
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.85rem', marginBottom: '0.85rem' }}>
+                          {[0,1,2,3].map(i => <div key={i} className="skel-block" style={{ aspectRatio: '4/3' }} />)}
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.85rem' }}>
+                          {[0,1,2].map(i => <div key={i} className="skel-block" style={{ aspectRatio: '16/9' }} />)}
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Mensaje superpuesto */}
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.55) 25%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,1) 75%)',
+                    zIndex: 1,
+                    padding: '2rem',
+                    textAlign: 'center',
+                    gap: '1.5rem'
+                  }}>
+                    <div style={{
+                      background: 'white',
+                      border: '1.5px solid var(--color-border, #e5e7eb)',
+                      borderRadius: '20px',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.10)',
+                      padding: isMobile ? '1.25rem 1.25rem' : '2.5rem 3rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: isMobile ? '0.75rem' : '1.25rem',
+                      maxWidth: isMobile ? '90vw' : '520px',
+                      width: '100%'
+                    }}>
+                    <svg width={isMobile ? 40 : 64} height={isMobile ? 40 : 64} viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2"/>
+                      <path d="M8 21h8M12 17v4"/>
+                      <path d="M8.5 10.5l2 2 4-4"/>
+                    </svg>
+                    <h2 style={{ fontSize: isMobile ? '1.25rem' : '1.75rem', fontWeight: 900, margin: 0 }}>
+                      {language === 'en' ? 'Portfolio — Coming Soon'
+                        : language === 'ca' ? 'Portfolio — Pròximament'
+                        : language === 'gl' ? 'Portfolio — Proximamente'
+                        : 'Portfolio — Próximamente'}
+                    </h2>
+                    <p style={{ color: 'var(--color-text-light)', maxWidth: '400px', lineHeight: 1.6, margin: 0, fontSize: isMobile ? '0.85rem' : '1rem' }}>
+                      {language === 'en'
+                        ? 'The image reel is still being prepared. In the meantime, you can browse all projects in detail.'
+                        : language === 'ca'
+                        ? "El reel d'imatges encara s'està preparant. Mentrestant, pots consultar tots els projectes en detall."
+                        : language === 'gl'
+                        ? 'O reel de imaxes aínda está en preparación. Mentres tanto, podes consultar todos os proxectos en detalle.'
+                        : 'El reel de imágenes todavía está en preparación. Mientras tanto, puedes consultar todos los proyectos en detalle.'}
+                    </p>
+                    <button
+                      onClick={() => handleTabClick('proyectos')}
+                      style={{
+                        fontFamily: 'inherit',
+                        background: 'none',
+                        border: 'none',
+                        color: 'var(--color-primary)',
+                        cursor: 'pointer',
+                        fontSize: '0.95rem',
+                        fontWeight: 700,
+                        padding: '0',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: '3px',
+                        transition: 'opacity 0.2s'
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
+                      onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                    >
+                      {language === 'en' ? 'View projects' : language === 'ca' ? 'Veure projectes' : language === 'gl' ? 'Ver proxectos' : 'Ver proyectos'} →
+                    </button>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      background: 'rgba(var(--color-primary-rgb, 5,150,105), 0.08)',
+                      border: '1px solid var(--color-primary)',
+                      color: 'var(--color-primary)',
+                      borderRadius: '20px',
+                      padding: '0.4rem 1.2rem',
+                      fontSize: '0.85rem',
+                      fontWeight: 700
+                    }}>
+                      🚧 {language === 'en' ? 'Work in progress' : language === 'ca' ? 'En construcció' : language === 'gl' ? 'En construción' : 'En construcción'}
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {activeTab === 'sobre-mi' && (
             <div className="animate-fade-in">
+              <Hero roleId={activeRoleId} />
+              
               <section id="about">
                 <SectionHeader title={language === 'es' ? 'Sobre mí' : language === 'ca' ? 'Sobre mi' : language === 'gl' ? 'Sobre min' : 'About me'} />
                 <div 
@@ -284,7 +455,7 @@ const PortfolioView = () => {
                 <FeaturedProjects
                   projects={filteredProjects}
                   onProjectSelect={setSelectedProject}
-                  onViewAll={() => handleTabClick('projects')}
+                  onViewAll={() => handleTabClick('proyectos')}
                 />
               </section>
 
@@ -302,13 +473,13 @@ const PortfolioView = () => {
               </section>
 
               <section id="aptitudes">
-                <SectionHeader title={language === 'es' ? 'Idiomas y Aptitudes' : language === 'gl' ? 'Idiomas e Aptitudes' : 'Languages & Aptitudes'} />
+                <SectionHeader title={language === 'es' ? 'Idiomas y Aptitudes' : language === 'gl' ? 'Idiomas e Aptitudes' : language === 'ca' ? 'Idiomes i Aptituds' : 'Languages & Aptitudes'} />
                 <LanguagesAptitudes languages={languages} aptitudes={aptitudes} activeRole={activeRoleId} />
               </section>
             </div>
           )}
 
-          {activeTab === 'projects' && (
+          {activeTab === 'proyectos' && (
             <div className="animate-fade-in">
               <section id="projects">
                 <SectionHeader title={t('section_projects_title')} />
@@ -316,77 +487,11 @@ const PortfolioView = () => {
                   projects={filteredProjects}
                   onProjectSelect={setSelectedProject}
                 />
-
-                {activeRoleId !== 'all' && showRoleBanner && (
-                  <div style={{ 
-                    marginTop: '2.5rem', 
-                    padding: '1rem', 
-                    backgroundColor: 'rgba(var(--color-primary-rgb, 100, 100, 100), 0.05)', 
-                    borderRadius: 'var(--radius-md)',
-                    textAlign: 'center',
-                    border: '1px dashed var(--color-border)',
-                    position: 'relative',
-                    maxWidth: '600px',
-                    margin: '3rem auto 0'
-                  }}>
-                    <button 
-                      onClick={() => setShowRoleBanner(false)}
-                      style={{
-                        position: 'absolute',
-                        top: '0.4rem',
-                        right: '0.6rem',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        opacity: 0.4,
-                        fontSize: '1.2rem',
-                        padding: '0.2rem',
-                        color: 'var(--color-text)'
-                      }}
-                      aria-label="Close"
-                    >
-                      ×
-                    </button>
-                    <p style={{ 
-                      color: 'var(--color-text-light)', 
-                      fontSize: '0.85rem', 
-                      marginBottom: '0.4rem',
-                      paddingRight: '1rem'
-                    }}>
-                      {language === 'es' 
-                        ? `Estás viendo la especialidad de ${roleTitlesMap[activeRoleId]?.es}.` 
-                        : language === 'ca'
-                        ? `Estàs veient l'especialitat de ${roleTitlesMap[activeRoleId]?.ca}.`
-                        : language === 'gl'
-                        ? `Estás vendo a especialidade de ${roleTitlesMap[activeRoleId]?.gl}.`
-                        : `You are viewing projects for ${roleTitlesMap[activeRoleId]?.en}.`}
-                    </p>
-                    <button
-                      onClick={() => navigate(`/${language}/perfil-general`)}
-                      style={{ 
-                        color: 'var(--color-primary)',
-                        fontWeight: 600,
-                        fontSize: '0.8rem',
-                        textDecoration: 'underline',
-                        cursor: 'pointer',
-                        opacity: 0.9,
-                        background: 'none',
-                        border: 'none',
-                        padding: 0
-                      }}
-                    >
-                      {language === 'es' ? 'Ver todos los proyectos' : 
-                       language === 'ca' ? 'Veure tots els projectes' : 
-                       language === 'gl' ? 'Ver todos os proxectos' : 
-                       'View all projects'}
-                    </button>
-                  </div>
-                )}
               </section>
             </div>
           )}
 
-          {activeTab === 'contact' && (
+          {activeTab === 'contacto' && (
             <div className="animate-fade-in">
               <section id="contact">
                 <SectionHeader title={t('section_contact_title')} />
@@ -500,6 +605,7 @@ function App() {
       {/* Routes with language */}
       <Route path="/:lang" element={<LanguageRouteWrapper component={<LandingPage />} />} />
       <Route path="/:lang/:role" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
+      <Route path="/:lang/:role/:tab" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
       
       {/* Catch-all or missing lang (e.g., /perfil-general) */}
       <Route path="/:role" element={<RoleRedirect />} />

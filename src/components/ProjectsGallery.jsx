@@ -29,6 +29,7 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
     const [isYearDropdownOpen, setIsYearDropdownOpen] = useState(false);
     const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
     const [isTagDropdownOpen, setIsTagDropdownOpen] = useState(false);
+    const [showFilters, setShowFilters] = useState(false);
 
     const availableFilters = useMemo(() => {
         const types = ['all', 'academic', 'professional', 'personal'];
@@ -89,15 +90,41 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
 
     return (
         <div style={{ marginTop: 'var(--spacing-md)' }}>
-            <div className="card" style={{ 
-                marginBottom: 'var(--spacing-lg)', 
-                padding: 'var(--spacing-md)',
-                position: 'relative',
-                zIndex: 100 // Ensure filters stay above the projects grid
-            }}>
-                <div className="flex flex-col gap-sm">
-                    {/* First Row: Type, Year, Sort */}
-                    <div className="filters-container flex flex-wrap gap-sm items-center" style={{ position: 'relative' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--spacing-md)' }}>
+                <button
+                    onClick={() => setShowFilters(!showFilters)}
+                    className="btn flex items-center gap-xs"
+                    style={{
+                        padding: '0.6rem 1.5rem',
+                        fontSize: '0.85rem',
+                        fontWeight: 800,
+                        backgroundColor: showFilters ? 'var(--color-primary)' : 'white',
+                        color: showFilters ? 'white' : 'var(--color-primary)',
+                        border: '2px solid var(--color-primary)',
+                        borderRadius: '12px',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
+                    }}
+                >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                    </svg>
+                    {t('filter_button')}
+                </button>
+            </div>
+
+            {showFilters && (
+                <div className="card animate-fade-in" style={{ 
+                    marginBottom: 'var(--spacing-lg)', 
+                    padding: 'var(--spacing-md)',
+                    position: 'relative',
+                    zIndex: 100 // Ensure filters stay above the projects grid
+                }}>
+                    <div className="flex flex-col gap-sm">
+                        {/* First Row: Type, Year, Sort */}
+                        <div className="filters-container flex flex-wrap gap-sm items-center" style={{ position: 'relative' }}>
                         {/* Desktop Filters */}
                         <div className="desktop-filters" style={{ flex: '1 1 auto', display: 'flex', gap: '1rem', alignItems: 'center' }}>
                             <div className="flex flex-wrap gap-sm">
@@ -788,8 +815,9 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
+            )}
 
             <div className="gallery-grid" style={{
                 display: 'grid',

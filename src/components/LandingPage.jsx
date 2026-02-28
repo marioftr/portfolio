@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
+import { PORTFOLIO_READY } from '../config';
 import LanguageDropdown from './LanguageDropdown';
 import { socialLinks } from '../data/content';
 
@@ -440,7 +441,7 @@ export default function LandingPage() {
                     {Object.entries(roleMapping).map(([id, data]) => (
                         <button
                             key={id}
-                            onClick={() => navigate(`/${language}/${data.path}`)}
+                            onClick={() => navigate(`/${language}/${data.path}/${PORTFOLIO_READY ? 'portfolio' : 'sobre-mi'}`)}
                             className="flex items-center justify-between transition-all btn-thick-border role-button"
                             style={{
                                 cursor: 'pointer',

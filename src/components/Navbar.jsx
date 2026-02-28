@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { PORTFOLIO_READY } from '../config';
 import { useTranslation } from '../hooks/useTranslation';
 import { socialLinks } from '../data/content';
 import LanguageDropdown from './LanguageDropdown';
@@ -21,7 +22,7 @@ const roleTitles = {
 
 export default function Navbar() {
     const { language, t } = useTranslation();
-    const { role } = useParams();
+    const { role, tab } = useParams();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -41,7 +42,12 @@ export default function Navbar() {
 
     const handleSelect = (path) => {
         if (path === 'home') navigate(`/${language}`);
-        else navigate(`/${language}/${path}`);
+        else {
+            // Stay on the current tab when switching roles; fall back to the
+            // appropriate default if there's no current tab.
+            const currentTab = tab || (PORTFOLIO_READY ? 'portfolio' : 'sobre-mi');
+            navigate(`/${language}/${path}/${currentTab}`);
+        }
         setIsOpen(false);
     };
 

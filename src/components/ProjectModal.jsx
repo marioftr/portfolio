@@ -84,115 +84,55 @@ export default function ProjectModal({ project, onClose }) {
     }, []);
 
     const modalRef = useRef(null);
-    const [selectedImage, setSelectedImage] = useState(null);
     const lightboxContainerRef = useRef(null);
-    const lastSelectedImageRef = useRef(null);
-    const isInternalUpdateRef = useRef(false);
+    const [selectedIndex, setSelectedIndex] = useState(null);
 
-    // Efecto para sincronizar el scroll del lightbox con la imagen seleccionada
+    // Extract images from custom-gallery blocks in the ES longDescription (source of truth)
+    const galleryImages = useMemo(() => {
+        const content = project?.longDescription?.es || '';
+        if (!content) return [];
+        const imgs = [];
+        const lines = content.split(/\r?\n/);
+        for (const line of lines) {
+            if (line.includes('custom-gallery')) {
+                const srcRegex = /src="([^"]+)"/g;
+                let m;
+                while ((m = srcRegex.exec(line)) !== null) imgs.push(m[1]);
+            }
+        }
+        return imgs;
+    }, [project]);
+
+    const openLightbox = useCallback((src) => {
+        const idx = galleryImages.indexOf(src);
+        if (idx !== -1) setSelectedIndex(idx);
+    }, [galleryImages]);
+
+    const handlePrevImage = useCallback((e) => {
+        if (e) e.stopPropagation();
+        setSelectedIndex(i => (i - 1 + galleryImages.length) % galleryImages.length);
+    }, [galleryImages.length]);
+
+    const handleNextImage = useCallback((e) => {
+        if (e) e.stopPropagation();
+        setSelectedIndex(i => (i + 1) % galleryImages.length);
+    }, [galleryImages.length]);
+
+    const closeLightbox = useCallback(() => setSelectedIndex(null), []);
+
+    // Scroll the container to the correct slide when selectedIndex changes (arrows or programmatic)
     useEffect(() => {
-        if (selectedImage && project?.images) {
-            if (isInternalUpdateRef.current) {
-                isInternalUpdateRef.current = false;
-                return;
-            }
-
-            const container = lightboxContainerRef.current;
-            if (!container) {
-                // Si aún no está el contenedor, reintentamos un poco más tarde
-                const retryTimer = setTimeout(() => {
-                    if (!lightboxContainerRef.current) return;
-                    syncScroll(true);
-                }, 100);
-                return () => clearTimeout(retryTimer);
-            }
-            syncScroll(lastSelectedImageRef.current === null);
+        if (lightboxContainerRef.current && selectedIndex !== null) {
+            const el = lightboxContainerRef.current;
+            el.scrollTo({ left: selectedIndex * el.offsetWidth, behavior: 'instant' });
         }
-        lastSelectedImageRef.current = selectedImage;
-    }, [selectedImage, project?.images]);
+    }, [selectedIndex]);
 
-    const syncScroll = (immediate) => {
-        const container = lightboxContainerRef.current;
-        if (!container || !selectedImage || !project?.images) return;
-
-        // Usar requestAnimationFrame para asegurar que el contenedor tiene dimensiones
-        requestAnimationFrame(() => {
-            const containerWidth = container.offsetWidth;
-            if (containerWidth === 0) return;
-
-            // Normalizamos la ruta para la búsqueda
-            let currentPath = selectedImage;
-            try { 
-                if (selectedImage.startsWith('http')) {
-                    currentPath = new URL(selectedImage).pathname;
-                }
-            } catch(e){}
-            
-            if (currentPath && !currentPath.startsWith('/')) currentPath = '/' + currentPath;
-
-            const index = project.images.findIndex(img => {
-                const normalizedImg = img.startsWith('/') ? img : '/' + img;
-                return normalizedImg === currentPath;
-            });
-
-            if (index !== -1) {
-                container.scrollTo({ 
-                    left: index * containerWidth, 
-                    behavior: immediate ? 'auto' : 'smooth' 
-                });
-            }
-        });
-    };
-
-    const handleLightboxScroll = useCallback(() => {
-        const container = lightboxContainerRef.current;
-        if (!container || !project?.images) return;
-
-        const containerWidth = container.offsetWidth;
-        if (containerWidth <= 0) return;
-
-        const index = Math.round(container.scrollLeft / containerWidth);
-        const newImage = project.images[index];
-        
-        if (newImage && newImage !== selectedImage) {
-            isInternalUpdateRef.current = true;
-            setSelectedImage(newImage);
-        }
-    }, [selectedImage, project?.images]);
-
-    const handleNextImage = (e) => {
-        if (e) e.stopPropagation();
-        if (!project.images || project.images.length === 0) return;
-        
-        let currentPath = selectedImage;
-        try { if (selectedImage.startsWith('http')) currentPath = new URL(selectedImage).pathname; } catch(e){}
-        if (currentPath && !currentPath.startsWith('/')) currentPath = '/' + currentPath;
-
-        const currentIndex = project.images.findIndex(img => {
-            const normalizedImg = img.startsWith('/') ? img : '/' + img;
-            return normalizedImg === currentPath;
-        });
-        
-        const nextIndex = (currentIndex + 1) % project.images.length;
-        setSelectedImage(project.images[nextIndex]);
-    };
-
-    const handlePrevImage = (e) => {
-        if (e) e.stopPropagation();
-        if (!project.images || project.images.length === 0) return;
-        
-        let currentPath = selectedImage;
-        try { if (selectedImage.startsWith('http')) currentPath = new URL(selectedImage).pathname; } catch(e){}
-        if (currentPath && !currentPath.startsWith('/')) currentPath = '/' + currentPath;
-
-        const currentIndex = project.images.findIndex(img => {
-            const normalizedImg = img.startsWith('/') ? img : '/' + img;
-            return normalizedImg === currentPath;
-        });
-
-        const prevIndex = (currentIndex - 1 + project.images.length) % project.images.length;
-        setSelectedImage(project.images[prevIndex]);
-    };
+    const handleLightboxScroll = useCallback((e) => {
+        const el = e.currentTarget;
+        const idx = Math.round(el.scrollLeft / el.offsetWidth);
+        if (idx !== selectedIndex) setSelectedIndex(idx);
+    }, [selectedIndex]);
 
     useEffect(() => {
         if (project) {
@@ -210,15 +150,26 @@ export default function ProjectModal({ project, onClose }) {
     const renderRichText = useCallback((text) => {
         if (!text) return null;
 
-        // Split by newlines, preserving empty ones
-        const lines = text.split(/\r?\n/);
+        const rawLines = text.split(/\r?\n/);
+
+        // Remove empty lines adjacent to HTML blocks or headings to avoid excess whitespace
+        const isBlockLine = (l) => {
+            const t = l.trim();
+            return t.startsWith('<div') || t.startsWith('<iframe') || t.startsWith('<img') || t.startsWith('## ') || t.startsWith('### ');
+        };
+        const lines = rawLines.filter((line, i) => {
+            if (line.trim() !== '') return true;
+            const prev = i > 0 ? rawLines[i - 1] : '';
+            const next = i < rawLines.length - 1 ? rawLines[i + 1] : '';
+            return !isBlockLine(prev) && !isBlockLine(next);
+        });
 
         return lines.map((line, index) => {
             const trimmed = line.trim();
 
             // Empty line: spacer
             if (trimmed === '') {
-                return <div key={index} style={{ height: '1.25rem' }} aria-hidden="true" />;
+                return <div key={index} style={{ height: '0.75rem' }} aria-hidden="true" />;
             }
 
             // Headings
@@ -275,11 +226,10 @@ export default function ProjectModal({ project, onClose }) {
                     return (
                         <div
                             key={index}
-                            style={{ margin: '2rem 0' }}
+                            style={{ margin: '1rem 0' }}
                             onClick={(e) => {
                                 if (e.target.tagName === 'IMG') {
-                                    const src = e.target.getAttribute('src');
-                                    setSelectedImage(src);
+                                    openLightbox(e.target.getAttribute('src'));
                                 }
                             }}
                             dangerouslySetInnerHTML={{ __html: trimmed }}
@@ -307,7 +257,7 @@ export default function ProjectModal({ project, onClose }) {
                 />
             );
         });
-    }, [language, setSelectedImage, t]);
+    }, [language, openLightbox, t]);
 
     const hasLongDescription = project?.longDescription;
     const richContent = hasLongDescription ? (project.longDescription[language] || project.longDescription.es) : null;
@@ -416,7 +366,14 @@ export default function ProjectModal({ project, onClose }) {
                                 </span>
                             )}
                         </div>
-                        <h2 style={{ fontSize: '2.25rem', fontWeight: 800, marginBottom: '0.5rem', color: '#1a1a1a', letterSpacing: '-0.02em' }}>
+                        <h2 style={{ 
+                            fontSize: isMobile ? '1.5rem' : '2.25rem', 
+                            fontWeight: 800, 
+                            marginBottom: '0.5rem', 
+                            color: '#1a1a1a', 
+                            letterSpacing: '-0.02em',
+                            lineHeight: 1.2
+                        }}>
                             {typeof project.title === 'string' ? project.title : (project.title[language] || project.title.es)}
                         </h2>
                         <p style={{ fontSize: '1.1rem', color: 'var(--color-primary)', fontWeight: 600 }}>
@@ -493,14 +450,10 @@ export default function ProjectModal({ project, onClose }) {
                             </h3>
                             <div className="custom-gallery">
                                 {project.images.map((img, idx) => (
-                                    <div key={idx} onClick={() => setSelectedImage(img)} style={{ cursor: 'pointer' }}>
+                                    <div key={idx} onClick={() => openLightbox(img)} style={{ cursor: 'pointer' }}>
                                         <img 
                                             src={img} 
                                             alt={`${project.title} - ${idx + 1}`} 
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setSelectedImage(img);
-                                            }}
                                         />
                                     </div>
                                 ))}
@@ -511,7 +464,7 @@ export default function ProjectModal({ project, onClose }) {
             </div>
 
             {/* Lightbox Overlay */}
-            {selectedImage && (
+            {selectedIndex !== null && galleryImages[selectedIndex] && (
                 <div
                     className="lightbox-overlay"
                     style={{
@@ -522,14 +475,14 @@ export default function ProjectModal({ project, onClose }) {
                     }}
                     onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedImage(null);
+                        closeLightbox();
                     }}
                 >
                     {/* Close Button */}
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
-                            setSelectedImage(null);
+                            closeLightbox();
                         }}
                         style={{
                             position: 'absolute', top: '1.5rem', right: '1.5rem',
@@ -546,7 +499,7 @@ export default function ProjectModal({ project, onClose }) {
                     </button>
 
                     {/* Navigation Arrows */}
-                    {project.images && project.images.length > 1 && (
+                    {galleryImages.length > 1 && (
                         <>
                             <button
                                 onClick={handlePrevImage}
@@ -600,29 +553,30 @@ export default function ProjectModal({ project, onClose }) {
                         </>
                     )}
 
+                    {/* Counter */}
+                    <div style={{ position: 'absolute', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', color: 'white', fontSize: '0.9rem', fontWeight: 500, background: 'rgba(0,0,0,0.5)', padding: '0.3rem 0.8rem', borderRadius: '1rem', zIndex: 3001 }}>
+                        {selectedIndex + 1} / {galleryImages.length}
+                    </div>
+
+                    {/* Scroll container — works on all devices; arrows handle keyboard/click navigation */}
                     <div
-                        className="lightbox-content"
                         ref={lightboxContainerRef}
                         onScroll={handleLightboxScroll}
                         style={{
                             display: 'flex',
-                            alignItems: 'center',
                             width: '100%',
                             height: '100%',
                             overflowX: 'auto',
                             overflowY: 'hidden',
                             scrollSnapType: 'x mandatory',
                             WebkitOverflowScrolling: 'touch',
+                            scrollbarWidth: 'none',
                             padding: 0
                         }}
-                        onClick={(e) => {
-                            if (e.target.classList.contains('lightbox-content')) {
-                                setSelectedImage(null);
-                            }
-                        }}
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        {project.images.map((img, idx) => (
-                            <div 
+                        {galleryImages.map((img, idx) => (
+                            <div
                                 key={idx}
                                 style={{
                                     minWidth: '100%',
@@ -637,19 +591,14 @@ export default function ProjectModal({ project, onClose }) {
                             >
                                 <img
                                     src={img}
-                                    alt={`View ${idx + 1}`}
-                                    loading="lazy"
-                                    decoding="async"
-                                    style={{ 
-                                        maxWidth: '95%', 
-                                        maxHeight: '85vh', 
-                                        objectFit: 'contain', 
-                                        borderRadius: '4px', 
-                                        cursor: 'default', 
-                                        boxShadow: '0 0 30px rgba(0,0,0,0.5)',
-                                        pointerEvents: 'auto'
+                                    alt={`Vista ${idx + 1}`}
+                                    style={{
+                                        maxWidth: '100%',
+                                        maxHeight: '85vh',
+                                        objectFit: 'contain',
+                                        borderRadius: '4px',
+                                        boxShadow: '0 0 30px rgba(0,0,0,0.5)'
                                     }}
-                                    onClick={(e) => e.stopPropagation()}
                                 />
                             </div>
                         ))}

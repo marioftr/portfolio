@@ -38,6 +38,27 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
+/* Utility Classes */
+.desktop-only {
+  display: flex !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
 /* Global Resets */
 * {
   box-sizing: border-box;
@@ -144,6 +165,26 @@ button {
   justify-content: center;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .mobile-column {
+    flex-direction: column !important;
+  }
+  
+  .mobile-center {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
 .gap-xs {
   gap: var(--spacing-xs);
 }
@@ -191,7 +232,19 @@ button {
 
 @media (min-width: 768px) {
   .md\:flex-row {
-    flex-direction: row;
+    flex-direction: row !important;
+  }
+
+  .md\:items-start {
+    align-items: flex-start !important;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start !important;
+  }
+
+  .md\:text-left {
+    text-align: left !important;
   }
 
   .md\:grid-cols-2 {
@@ -611,18 +664,16 @@ button {
 
 /* Custom Image Gallery (Modern Grid) */
 .custom-gallery {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  grid-auto-rows: auto;
-  grid-auto-flow: dense !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
   gap: 1rem !important;
-  margin: 2.5rem 0 !important;
+  margin: 1rem 0 !important;
   padding: 0 !important;
 }
 
 @media (max-width: 768px) {
   .custom-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
     gap: 0.75rem !important;
     padding: 0.5rem 0 !important;
   }
@@ -640,6 +691,8 @@ button {
   border-radius: 12px !important;
   cursor: pointer;
   transition: transform 0.3s ease;
+  flex: 0 1 calc(33.333% - 0.75rem) !important;
+  min-width: 140px;
 }
 
 /* Grid Spans */

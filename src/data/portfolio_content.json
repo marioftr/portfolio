@@ -1,0 +1,85 @@
+{
+  "resaca_main": {
+    "title": {
+      "es": "RESACA - Gameplay & Trailer",
+      "en": "RESACA - Gameplay & Trailer",
+      "ca": "RESACA - Gameplay i Tràiler",
+      "gl": "RESACA - Gameplay e Tráiler"
+    },
+    "process_labels": [
+      { "es": "Combate e IU", "en": "Combat & UI", "ca": "Combat i IU", "gl": "Combate e IU" },
+      { "es": "Sistema de Inventario", "en": "Inventory System", "ca": "Sistema d'Inventari", "gl": "Sistema de Inventario" },
+      { "es": "Mecánicas de Diálogo", "en": "Dialogue Mechanics", "ca": "Mecàniques de Diàleg", "gl": "Mecánicas de Diálogo" },
+      { "es": "Exploración del Mapa", "en": "Map Exploration", "ca": "Exploració del Mapa", "gl": "Exploración do Mapa" },
+      { "es": "Seguimiento de Objetivos", "en": "Objective Tracking", "ca": "Seguiment d'Objectius", "gl": "Seguimento de Obxectivos" }
+    ]
+  },
+  "establo_env": {
+    "title": {
+      "es": "El Establo - Entorno Sandbox",
+      "en": "The Stable - Sandbox Environment",
+      "ca": "L'Estable - Entorn Sandbox",
+      "gl": "O Establo - Contorna Sandbox"
+    },
+    "process_labels": [
+      { "es": "Mapa Conceptual del Nivel", "en": "Conceptual Level Mapping", "ca": "Mapa Conceptual del Nivell", "gl": "Mapa Conceptual do Nivel" },
+      { "es": "Assets 3D Modulares", "en": "Modular 3D Assets", "ca": "Assets 3D Modulars", "gl": "Assets 3D Modulares" },
+      { "es": "Modelado del Layout en Maya", "en": "Maya Layout Modeling", "ca": "Modelat del Layout en Maya", "gl": "Modelado do Layout en Maya" }
+    ]
+  },
+  "bridle_asset": {
+    "title": {
+      "es": "Brida de Caballo - Texturizado Realista",
+      "en": "Horse Bridle - Realistic Texturing",
+      "ca": "Brida de Cavall - Texturitzat Realista",
+      "gl": "Brida de Cabalo - Texturizado Realista"
+    },
+    "process_labels": [
+      { "es": "Modelado Low-Poly en Maya", "en": "Maya Low-Poly Modeling", "ca": "Modelat Low-Poly en Maya", "gl": "Modelado Low-Poly en Maya" },
+      { "es": "Detalle High-Poly en ZBrush", "en": "ZBrush High-Poly Details", "ca": "Detall High-Poly en ZBrush", "gl": "Detalle High-Poly en ZBrush" },
+      { "es": "Texturizado en Substance (Vista 1)", "en": "Substance Texturing (View 1)", "ca": "Texturitzat en Substance (Vista 1)", "gl": "Texturizado en Substance (Vista 1)" },
+      { "es": "Texturizado en Substance (Vista 2)", "en": "Substance Texturing (View 2)", "ca": "Texturitzat en Substance (Vista 2)", "gl": "Texturizado en Substance (Vista 2)" }
+    ]
+  },
+  "barrel_asset": {
+    "title": {
+      "es": "Barril Western - Madera y Metal",
+      "en": "Western Barrel - Wood & Metal",
+      "ca": "Barril Western - Fusta i Metall",
+      "gl": "Barril Western - Madeira e Metal"
+    },
+    "process_labels": [
+      { "es": "Malla Base en Maya", "en": "Maya Base Mesh", "ca": "Malla Base en Maya", "gl": "Malla Base en Maya" },
+      { "es": "Esculpido High-Poly en ZBrush", "en": "ZBrush High-Poly Sculpt", "ca": "Esculpit High-Poly en ZBrush", "gl": "Esculpido High-Poly en ZBrush" },
+      { "es": "Texturizado Final (Frontal)", "en": "Final Texturing (Front)", "ca": "Texturitzat Final (Frontal)", "gl": "Texturizado Final (Frontal)" },
+      { "es": "Texturizado Final (Superior)", "en": "Final Texturing (Top)", "ca": "Texturitzat Final (Superior)", "gl": "Texturizado Final (Superior)" }
+    ]
+  },
+  "kafeto_asset": {
+    "title": {
+      "es": "Cafetera Interactiva - Props 3D",
+      "en": "Interactive Coffee Machine - 3D Props",
+      "ca": "Cafetera Interactiva - Props 3D",
+      "gl": "Cafeteira Interactiva - Props 3D"
+    },
+    "process_labels": [
+      { "es": "Modelado y Detalles 1", "en": "Modeling & Details 1", "ca": "Modelat i Detalls 1", "gl": "Modelado e Detall 1" },
+      { "es": "Modelado y Detalles 2", "en": "Modeling & Details 2", "ca": "Modelat i Detalls 2", "gl": "Modelado e Detall 2" },
+      { "es": "Progreso de Texturizado", "en": "Texturing Progress", "ca": "Progrés de Texturitzat", "gl": "Progreso de Texturizado" },
+      { "es": "Configuración Final In-Game", "en": "Final In-Game Setup", "ca": "Configuració Final In-Game", "gl": "Configuración Final En-Xogo" }
+    ]
+  },
+  "spatial_design": {
+    "title": {
+      "es": "Diseño Espacial 3D - Layout de Entorno",
+      "en": "3D Spatial Design - Environment Layout",
+      "ca": "Disseny Espacial 3D - Layout d'Entorn",
+      "gl": "Deseño Espacial 3D - Layout de Contorna"
+    },
+    "process_labels": [
+      { "es": "Desglose de Layout 1", "en": "Layout Breakdown 1", "ca": "Desglossament de Layout 1", "gl": "Desglose de Layout 1" },
+      { "es": "Desglose de Layout 2", "en": "Layout Breakdown 2", "ca": "Desglossament de Layout 2", "gl": "Desglose de Layout 2" },
+      { "es": "Desglose de Layout 3", "en": "Layout Breakdown 3", "ca": "Desglossament de Layout 3", "gl": "Desglose de Layout 3" }
+    ]
+  }
+}

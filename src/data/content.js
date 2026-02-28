@@ -353,7 +353,23 @@ export const projects = [
             gl: 'Modelado, extracción de UVs, texturizado e montaxe dunha contorna 3D, realizado como proxecto final para o módulo de modelado e animación de videoxogos (CEI).'
         },
         image: '/images/establo1.avif',
-        images: ['/images/establo1.avif', '/images/establo_mapa.png', '/images/Establo_Maya01.png', '/images/Establo_Maya02.png', '/images/Establo_Maya03.png', '/images/BridaCaballo_Maya.png', '/images/BridaCaballo_ZBrush.png', '/images/BridaCaballo_3DSubstance_01.jpg', '/images/BridaCaballo_3DSubstance_02.jpg', '/images/BridaCaballo_3DSubstance_03.jpg'],
+        images: [
+            '/images/establo1.avif', 
+            '/images/establo_mapa.png', 
+            '/images/Establo_Maya01.png', 
+            '/images/Establo_Maya02.png', 
+            '/images/Establo_Maya03.png', 
+            '/images/Barril_Maya.png', 
+            '/images/Barril_ZBrush.png', 
+            '/images/Barril_3DSubstance_01.jpg', 
+            '/images/Barril_3DSubstance_02.jpg', 
+            '/images/Barril_3DSubstance_03.jpg', 
+            '/images/BridaCaballo_Maya.png', 
+            '/images/BridaCaballo_ZBrush.png', 
+            '/images/BridaCaballo_3DSubstance_01.jpg', 
+            '/images/BridaCaballo_3DSubstance_02.jpg', 
+            '/images/BridaCaballo_3DSubstance_03.jpg'
+        ],
         longDescription: {
             es: `## CONCEPT ART Y PLANIFICACIÓN
 Como fase inicial del environment, se ha desarrollado un mapa conceptual que define la distribución espacial y los puntos clave de interés del establo.
@@ -448,128 +464,346 @@ Como parte dos activos do escenario, modelouse un conxunto de bridas para cabalo
         },
         longDescription: {
             es: `## INTRODUCCIÓN
-RESACA es un proyecto elaborado en el marco de Trabajo final para el módulo de Programación de Videojuegos del máster de Desarrollo de Videojuegos del Centro de Estudios de Innovación (CEI.) de Madrid.
 
-Es una DEMO jugable que presenta dos funcionalidades diferenciadas:
-- Un **“Modo historia”**, con una línea temática coherente.
-- Una **selección de minijuegos** desbloqueables.
+RESACA es el proyecto final del módulo de Programación de Videojuegos del Máster de Desarrollo de Videojuegos del CEI de Madrid. Se trata de una **DEMO jugable** construida sobre dos pilares:
 
-RESACA cuenta con más de **40 scripts y alrededor de 4000 líneas de código**.
+- **Modo historia**: una partida lineal con trama, exploración y minijuegos encadenados.
+- **Selección libre de minijuegos**: acceso directo a los desafíos ya completados en el modo historia, con opciones adicionales desbloqueables.
+
+El proyecto suma **más de 40 scripts y cerca de 4.000 líneas de código**. Todos los assets externos utilizados son de uso libre y están referenciados en el panel de agradecimientos del propio juego.
 
 <iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## CARACTERÍSTICAS TÉCNICAS
-- **Sistema de guardado**: Serialización de datos en JSON + PlayerPrefs. Guardado automático.
-- **Cinemáticas**: Sucesión de planos animados con Cinemachine.
-- **Interacción**: Sistema de Raycast para interactuar con más de 15 objetos ("Ver info", "Interactuar", "Jugar").
-- **Postprocesado**: Ajustes de volumen, aberración cromática, etc., configurables por el usuario.
+## MENÚ PRINCIPAL
 
-## MINIJUEGOS
-### 1. TIRO AL BLANCO
-Lanzamiento de dardos con sistema de barras de carga.
-- Cálculo de puntuación basado en distancias (Mathf.Atan2, Mathf.Rad2Deg).
-- Animaciones con Cinemachine.
+El menú de inicio concentra varias funcionalidades que reflejan el estado de progresión del jugador. Los botones de "Récords" y la selección de minijuegos permanecen bloqueados hasta completar cada desafío por primera vez. El menú de opciones permite configurar pantalla completa, volumen de música y efectos; y, una vez desbloqueada la primera habitación, aparece un toggle para activar o desactivar la cinemática introductoria.
 
-### 2. VIENTO Y MADERA
-Juego de memoria musical ("Simón dice").
-- Lógica de listas de listas para gestionar melodías y notas.
-- Sistema de detección de errores (tiempo, orden, duración).
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Panel del menú de inicio" /></div><div><img src="/images/resaca9.jpeg" alt="Resaca - Panel de selección de minijuego" /></div><div><img src="/images/resaca10.jpeg" alt="Resaca - Panel Tiro al Blanco con selección de tiradas" /></div><div><img src="/images/resaca11.jpeg" alt="Resaca - Panel de récords personales" /></div><div><img src="/images/resaca12.jpeg" alt="Resaca - Panel de agradecimientos" /></div></div>
 
-## CONFLICTOS Y APRENDIZAJE
-El proyecto superó diversos retos, desde la gestión del tiempo hasta la optimización del editor (migración a JetBrains Rider). Supuso un avance notable en la comprensión de conceptos de programación orientada a objetos (instancias, clases abstractas) e matemáticas aplicadas a videojuegos.
+<div class="custom-gallery"><div><img src="/images/resaca7.jpeg" alt="Resaca - Menú de opciones" /></div><div><img src="/images/resaca8.jpeg" alt="Resaca - Código de comprobación del estado del toggle" /></div></div>
 
-## GALERÍA DE IMÁGENES
+## CINEMÁTICA
 
-<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`,
+Al iniciar partida por primera vez se reproduce una cinemática de unos treinta segundos: una sucesión de cuatro planos animados con **Cinemachine**, gestionados mediante corrutinas encadenadas. La escena no es la misma con la que interactúa el jugador, sino una copia limpia sin scripts ni UI, lo que permite aplicar postprocesado intensificado para acentuar la estética del juego.
+
+<div class="custom-gallery"><div><img src="/images/resaca15.jpeg" alt="Resaca - Fotograma de la cinemática" /></div><div><img src="/images/resaca16.jpeg" alt="Resaca - Fotograma de la cinemática" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca13.jpeg" alt="Resaca - Corrutina que gestiona la animación de la cinemática" /></div><div><img src="/images/resaca14.jpeg" alt="Resaca - Corrutina que gestiona los fundidos a negro" /></div></div>
+
+## ESCENARIO Y SISTEMA DE INTERACCIÓN
+
+La escena principal es un habitáculo dividido en tres zonas (habitación, salón y baño) que se desbloquean progresivamente al superar cada minijuego. El escenario integra **más de 100 assets decorativos y 15 objetos interactuables**, gestionados mediante **Raycast** que diferencia tres tipos de interacción:
+
+- **Ver info** *(automático al apuntar)*: perfila el objeto en blanco y muestra su nombre y botón de acción.
+- **Interactuar** *('E')*: devuelve aleatoriamente una frase de un array de strings propio de ese objeto, mostrada en formato subtítulo.
+- **Jugar** *('F')*: accede al minijuego vinculado al objeto al que se apunta (la diana o la guitarra).
+
+Los controles completos están integrados de forma diegética en la escena: una tabla optométrica colgada en la habitación.
+
+<div class="custom-gallery"><div><img src="/images/resaca18.jpeg" alt="Resaca - Interfaz al interactuar con un objeto" /></div><div><img src="/images/resaca23.jpeg" alt="Resaca - Controles mostrados diegéticamente como tabla optométrica" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca17.jpeg" alt="Resaca - Script de interacción con un objeto" /></div></div>
+
+## POSTPROCESADO
+
+El menú de pausa incluye, además de los controles habituales, un **slider de postprocesado** que permite ajustar o desactivar completamente los efectos de imagen (aberración cromática, viñeta, bloom, etc.). Esta funcionalidad tiene un objetivo de accesibilidad explícito: evitar que efectos visuales intensos resulten incómodos para el jugador.
+
+<div class="custom-gallery"><div><img src="/images/resaca19.jpeg" alt="Resaca - Menú de opciones durante la partida" /></div><div><img src="/images/resaca20.jpeg" alt="Resaca - Valores por defecto del perfil de postprocesado" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca21.jpeg" alt="Resaca - Imagen con postprocesado al máximo" /></div><div><img src="/images/resaca22.jpeg" alt="Resaca - Imagen con postprocesado desactivado" /></div></div>
+
+## MINIJUEGO 1: TIRO AL BLANCO
+
+El jugador lanza dardos mediante un sistema de **dos barras de carga secuenciales** (horizontal y vertical) que determinan la dirección y la fuerza del tiro. Una mira visualiza en tiempo real sobre la diana el punto al que se dirigirá el dardo antes de lanzar.
+
+La puntuación replica el funcionamiento de una **diana estándar de dardos**: sectores de 18°, orden oficial de números ({ 20, 1, 18, 4, 13... }) y multiplicadores de zona. El cálculo requirió el uso de \`Mathf.Atan2\`, \`Mathf.Rad2Deg\` y \`Mathf.FloorToInt\` para obtener el sector exacto en el que impacta cada dardo en el espacio tridimensional de Unity.
+
+El número de tiradas (3 o 5) es la **variable central** del minijuego: el bucle de juego, el sistema de récords y la serialización de guardado se adaptan automáticamente a este valor, lo que facilita su escalabilidad sin necesidad de reescribir lógica.
+
+<div class="custom-gallery"><div><img src="/images/resaca24.jpeg" alt="Resaca - Tiro al Blanco: pantalla de inicio" /></div><div><img src="/images/resaca25.jpeg" alt="Resaca - Tiro al Blanco: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca26.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Horizontal" /></div><div><img src="/images/resaca27.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Vertical" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca28.jpeg" alt="Resaca - Animación del dardo saliendo disparado" /></div><div><img src="/images/resaca29.jpeg" alt="Resaca - Animación del dardo acercándose a la diana" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca30.jpeg" alt="Resaca - Script que calcula la puntuación por tirada" /></div></div>
+
+## MINIJUEGO 2: VIENTO Y MADERA
+
+Un juego de memoria musical al estilo *Simón dice*: el juego reproduce una sección de melodía con su partitura en pantalla y el jugador debe repetirla pulsando las notas correctas con la duración adecuada. Se considera error si se supera el tiempo de reacción, se pulsa una nota incorrecta o la pulsación no dura lo que debe.
+
+La arquitectura del minijuego se construye sobre una **lista de listas**: una lista *A* de secciones, cada una conteniendo una lista *B* de notas con sus duraciones. Añadir una nueva melodía se reduce a definir una nueva lista *A*, sin modificar la lógica central. La DEMO incluye la melodía de *Cumpleaños feliz*, elegida tanto por su reconocimiento global como por su sencillez visual en partitura. El sistema soporta cualquier melodía dentro de las 2 octavas centrales (Do3–Si4) con duraciones de corchea, negra o blanca.
+
+La inclusión de este minijuego requirió aplicar **conocimientos de teoría musical** (lectura de partitura, claves y escalas) para representar correctamente la melodía en la interfaz del juego.
+
+<div class="custom-gallery"><div><img src="/images/resaca31.jpeg" alt="Resaca - Viento y Madera: pantalla de inicio" /></div><div><img src="/images/resaca32.jpeg" alt="Resaca - Viento y Madera: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca33.jpeg" alt="Resaca - Viento y Madera: pantalla de juego con flauta y partitura" /></div><div><img src="/images/resaca34.jpeg" alt="Resaca - Viento y Madera: panel de resultados" /></div></div>
+
+## SISTEMA DE GUARDADO
+
+El guardado es **completamente automático**: sin intervención del jugador, el estado de la partida se serializa en **JSON** y se apoya en **PlayerPrefs** para procesos que requieren mayor velocidad. El juego carga al abrir, guarda al cerrar y también guarda en cada cambio de escena para reflejar el progreso en tiempo real: posición del personaje, puertas abiertas, luces encendidas, minijuegos completados o récords obtenidos.
+
+En la pantalla de resultados, el botón "Guardar nuevo récord" se desactiva automáticamente si la puntuación actual es inferior al récord almacenado.`,
             ca: `## INTRODUCCIÓ
-RESACA és un projecte elaborat en el marc de Treball final per al mòdul de Programació de Videojocs del màster de Desenvolupament de Videojocs del Centre d'Estudis d'Innovació (CEI.) de Madrid.
 
-É una DEMO jugable que presenta dues funcionalitats diferenciades:
-- Un **“Mode història”**, amb una línia temàtica coherent.
-- Una selecció de minijocs desbloqueables.
+RESACA és el projecte final del mòdul de Programació de Videojocs del Màster de Desenvolupament de Videojocs del CEI de Madrid. Es tracta d'una **DEMO jugable** construïda sobre dos pilars:
 
-RESACA compta amb més de **40 scripts i al voltant de 4000 línies de codi**.
+- **Mode història**: una partida lineal amb trama, exploració i minijocs encadenats.
+- **Selecció lliure de minijocs**: accés directe als desafiaments ja completats en el mode història, amb opcions addicionals desbloqueables.
+
+El projecte suma **més de 40 scripts i prop de 4.000 línies de codi**. Tots els assets externs utilitzats són d'ús lliure i estan referenciats al panell d'agraïments del propi joc.
 
 <iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## CARACTERÍSTIQUES TÈCNIQUES
-- **Sistema de guardatge**: Serialització de dades en JSON + PlayerPrefs. Guardat automàtic.
-- **Cinemàtiques**: Successió de plans animats amb Cinemachine.
-- **Interacció**: Sistema de Raycast per interactuar amb més de 15 objectes ("Veure info", "Interactuar", "Jugar").
-- **Postprocessament**: Ajustos de volum, aberració cromàtica, etc., configurables per l'usuari.
+## MENÚ PRINCIPAL
 
-## MINIJOCS
-### 1. TIR AL BLANC
-Llançament de dards amb sistema de barres de càrrega.
-- Càlcul de puntuació basat en distàncies (Mathf.Atan2, Mathf.Rad2Deg).
-- Animacions amb Cinemachine.
+El menú d'inici concentra diverses funcionalitats que reflecteixen l'estat de progressió del jugador. Els botons de "Rècords" i la selecció de minijocs romanen bloquejats fins a completar cada desafiament per primera vegada. El menú d'opcions permet configurar pantalla completa, volum de música i efectes; i, un cop desbloquejada la primera habitació, apareix un toggle per activar o desactivar la cinemàtica introductòria.
 
-### 2. VENT I FUSTA
-Joc de memòria musical ("Simó diu").
-- Lògica de llistes de llistes per gestionar melodies i notes.
-- Sistema de detecció d'errors (temps, ordre, durada).
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Panel del menú de inicio" /></div><div><img src="/images/resaca9.jpeg" alt="Resaca - Panel de selección de minijuego" /></div><div><img src="/images/resaca10.jpeg" alt="Resaca - Panel Tiro al Blanco con selección de tiradas" /></div><div><img src="/images/resaca11.jpeg" alt="Resaca - Panel de récords personales" /></div><div><img src="/images/resaca12.jpeg" alt="Resaca - Panel de agradecimientos" /></div></div>
 
-## CONFLICTES I APRENENTATGE
-El projecte va superar diversos reptes, des de la gestió del temps fins a l'optimització de l'editor (migració a JetBrains Rider). Va suposar un avenç notable en la comprensió de conceptes de programació orientada a objectes (instàncies, classes abstractes) i matemàtiques aplicades a videojocs.
+<div class="custom-gallery"><div><img src="/images/resaca7.jpeg" alt="Resaca - Menú de opciones" /></div><div><img src="/images/resaca8.jpeg" alt="Resaca - Código de comprobación del estado del toggle" /></div></div>
 
-## GALERIA D'IMATGES
+## CINEMÀTICA
 
-<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`,
+En iniciar partida per primera vegada es reprodueix una cinemàtica d'uns trenta segons: una successió de quatre plans animats amb **Cinemachine**, gestionats mitjançant corrutines encadenades. L'escena no és la mateixa amb la qual interactua el jugador, sinó una còpia neta sense scripts ni UI, cosa que permet aplicar postprocessament intensificat per accentuar l'estètica del joc.
+
+<div class="custom-gallery"><div><img src="/images/resaca15.jpeg" alt="Resaca - Fotograma de la cinemática" /></div><div><img src="/images/resaca16.jpeg" alt="Resaca - Fotograma de la cinemática" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca13.jpeg" alt="Resaca - Corrutina que gestiona la animación de la cinemática" /></div><div><img src="/images/resaca14.jpeg" alt="Resaca - Corrutina que gestiona los fundidos a negro" /></div></div>
+
+## ESCENARI I SISTEMA D'INTERACCIÓ
+
+L'escena principal és un habitacle dividit en tres zones (habitació, saló i bany) que es desbloquegen progressivament en superar cada minijoc. L'escenari integra **més de 100 assets decoratius i 15 objectes interactuables**, gestionats mitjançant **Raycast** que diferencia tres tipus d'interacció:
+
+- **Veure info** *(automàtic en apuntar)*: perfila l'objecte en blanc i mostra el seu nom i botó d'acció.
+- **Interactuar** *('E')*: retorna aleatòriament una frase d'un array de strings propi d'aquell objecte, mostrada en format subtítol.
+- **Jugar** *('F')*: accedeix al minijoc vinculat a l'objecte al qual s'apunta (la diana o la guitarra).
+
+Els controls complets estan integrats de forma diegètica a l'escena: una taula optomètrica penjada a l'habitació.
+
+<div class="custom-gallery"><div><img src="/images/resaca18.jpeg" alt="Resaca - Interfaz al interactuar con un objeto" /></div><div><img src="/images/resaca23.jpeg" alt="Resaca - Controles mostrados diegéticamente como tabla optométrica" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca17.jpeg" alt="Resaca - Script de interacción con un objeto" /></div></div>
+
+## POSTPROCESSAMENT
+
+El menú de pausa inclou, a més dels controls habituals, un **slider de postprocessament** que permet ajustar o desactivar completament els efectes d'imatge (aberració cromàtica, vinyeta, bloom, etc.). Aquesta funcionalitat té un objectiu d'accessibilitat explícit: evitar que efectes visuals intensos resultin incòmodes per al jugador.
+
+<div class="custom-gallery"><div><img src="/images/resaca19.jpeg" alt="Resaca - Menú de opciones durante la partida" /></div><div><img src="/images/resaca20.jpeg" alt="Resaca - Valores por defecto del perfil de postprocesado" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca21.jpeg" alt="Resaca - Imagen con postprocesado al máximo" /></div><div><img src="/images/resaca22.jpeg" alt="Resaca - Imagen con postprocesado desactivado" /></div></div>
+
+## MINIJOC 1: TIR AL BLANC
+
+El jugador llança dards mitjançant un sistema de **dues barres de càrrega seqüencials** (horitzontal i vertical) que determinen la direcció i la força del tir. Una mira visualitza en temps real sobre la diana el punt al qual se dirigirà el dard abans de llançar.
+
+La puntuació replica el funcionament d'una **diana estàndard de dards**: sectors de 18°, ordre oficial de números ({ 20, 1, 18, 4, 13... }) i multiplicadors de zona. El càlcul va requerir l'ús de \`Mathf.Atan2\`, \`Mathf.Rad2Deg\` i \`Mathf.FloorToInt\` per obtenir el sector exacte en el qual impacta cada dard a l'espai tridimensional de Unity.
+
+El nombre de tirades (3 o 5) és la **variable central** del minijoc: el bucle de joc, el sistema de rècords i la serialització de guardatge s'adapten automàticament a aquest valor, cosa que en facilita l'escalabilitat sense necessitat de reescriure la lògica.
+
+<div class="custom-gallery"><div><img src="/images/resaca24.jpeg" alt="Resaca - Tiro al Blanco: pantalla de inicio" /></div><div><img src="/images/resaca25.jpeg" alt="Resaca - Tiro al Blanco: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca26.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Horizontal" /></div><div><img src="/images/resaca27.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Vertical" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca28.jpeg" alt="Resaca - Animación del dardo saliendo disparado" /></div><div><img src="/images/resaca29.jpeg" alt="Resaca - Animación del dardo acercándose a la diana" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca30.jpeg" alt="Resaca - Script que calcula la puntuación por tirada" /></div></div>
+
+## MINIJOC 2: VENT I FUSTA
+
+Un joc de memòria musical a l'estil *Simó diu*: el joc reprodueix una secció de melodia amb la seva partitura en pantalla i el jugador ha de repetir-la prement les notes correctes amb la durada adequada. Es considera error si se supera el temps de reacció, es prem una nota incorrecta o la pulsació no dura el que ha de durar.
+
+L'arquitectura del minijoc es construeix sobre una **llista de llistes**: una llista *A* de seccions, cadascuna contenint una llista *B* de notes amb les seves duracions. Afegir una nova melodia es redueix a definir una nova llista *A*, sense modificar la lògica central. La DEMO inclou la melodia d'*Aniversari feliç*, triada tant pel seu reconeixement global com per la seva senzillesa visual en partitura. El sistema suporta qualsevol melodia dins de les 2 octaves centrals (Do3–Si4) amb duracions de corxera, negra o blanca.
+
+La inclusió d'aquest minijoc va requerir aplicar **coneixements de teoria musical** (lectura de partitura, claus i escales) per representar correctament la melodia a la interfície del joc.
+
+<div class="custom-gallery"><div><img src="/images/resaca31.jpeg" alt="Resaca - Viento y Madera: pantalla de inicio" /></div><div><img src="/images/resaca32.jpeg" alt="Resaca - Viento y Madera: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca33.jpeg" alt="Resaca - Viento y Madera: pantalla de juego con flauta y partitura" /></div><div><img src="/images/resaca34.jpeg" alt="Resaca - Viento y Madera: panel de resultados" /></div></div>
+
+## SISTEMA DE GUARDATGE
+
+El guardatge és **completament automàtic**: sense intervenció del jugador, l'estat de la partida se serialitza en **JSON** i es recolza en **PlayerPrefs** per a processos que requereixen més velocitat. El joc carrega en obrir, guarda en tancar i també guarda en cada canvi d'escena per reflectir el progrés en temps real: posició del personatge, portes obertes, llums enceses, minijocs completats o rècords obtinguts.
+
+A la pantalla de resultats, el botó "Guardar nou rècord" es desactiva automàticament si la puntuació actual és inferior al rècord emmagatzemat.`,
             en: `## INTRODUCTION
-RESACA is a final project for the Video Game Programming module at CEI Madrid. It's a playable DEMO featuring a Story Mode and unlockable mini-games.
+
+RESACA is the final project for the Video Game Programming module at CEI Madrid's Master's in Video Game Development. It is a **playable DEMO** built on two pillars:
+
+- **Story mode**: a linear playthrough with narrative, exploration and chained mini-games.
+- **Free mini-game selection**: direct access to challenges already completed in story mode, with additional unlockable options.
+
+The project comprises **over 40 scripts and nearly 4,000 lines of code**. All external assets used are free-to-use and credited in the game's acknowledgements panel.
 
 <iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## TECHNICAL FEATURES
-- **Save System**: JSON serialization + PlayerPrefs.
-- **Cinematics**: Animated shots using Cinemachine.
-- **Interaction**: Raycast system for over 15 interactable objects.
-- **Post-processing**: User-configurable volume adjustments.
+## MAIN MENU
 
-## MINI-GAMES
-1. **TARGET PRACTICE**: Darts game with charge bars and physics-based scoring calculations.
-2. **WIND AND WOOD**: Musical memory game involving complex list logic and error detection.
+The start menu consolidates several features reflecting the player's progression. The "Records" buttons and mini-game selection remain locked until each challenge is completed for the first time. The options menu allows configuring full-screen mode, music and effects volume; and, once the first room is unlocked, a toggle appears to enable or disable the intro cinematic.
 
-## IMAGE GALLERY
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Panel del menú de inicio" /></div><div><img src="/images/resaca9.jpeg" alt="Resaca - Panel de selección de minijuego" /></div><div><img src="/images/resaca10.jpeg" alt="Resaca - Panel Tiro al Blanco con selección de tiradas" /></div><div><img src="/images/resaca11.jpeg" alt="Resaca - Panel de récords personales" /></div><div><img src="/images/resaca12.jpeg" alt="Resaca - Panel de agradecimientos" /></div></div>
 
-<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`,
+<div class="custom-gallery"><div><img src="/images/resaca7.jpeg" alt="Resaca - Menú de opciones" /></div><div><img src="/images/resaca8.jpeg" alt="Resaca - Código de comprobación del estado del toggle" /></div></div>
+
+## CINEMATIC
+
+When starting a new game for the first time, a roughly thirty-second cinematic plays: a sequence of four shots animated with **Cinemachine**, managed through chained coroutines. The scene is not the same one the player interacts with, but a clean copy without scripts or UI, allowing intensified post-processing to be applied to accentuate the game's aesthetic.
+
+<div class="custom-gallery"><div><img src="/images/resaca15.jpeg" alt="Resaca - Fotograma de la cinemática" /></div><div><img src="/images/resaca16.jpeg" alt="Resaca - Fotograma de la cinemática" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca13.jpeg" alt="Resaca - Corrutina que gestiona la animación de la cinemática" /></div><div><img src="/images/resaca14.jpeg" alt="Resaca - Corrutina que gestiona los fundidos a negro" /></div></div>
+
+## SETTING AND INTERACTION SYSTEM
+
+The main scene is a dwelling divided into three areas (bedroom, living room and bathroom) progressively unlocked after completing each mini-game. The setting integrates **over 100 decorative assets and 15 interactable objects**, managed via **Raycast** that distinguishes three interaction types:
+
+- **View info** *(automatic when aiming)*: outlines the object in white and shows its name and action button.
+- **Interact** *('E')*: randomly returns a line from a string array specific to that object, displayed as a subtitle.
+- **Play** *('F')*: enters the mini-game linked to the targeted object (the dartboard or the guitar).
+
+The full controls are integrated diegetically in the scene: an eye-chart hanging in the bedroom.
+
+<div class="custom-gallery"><div><img src="/images/resaca18.jpeg" alt="Resaca - Interfaz al interactuar con un objeto" /></div><div><img src="/images/resaca23.jpeg" alt="Resaca - Controles mostrados diegéticamente como tabla optométrica" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca17.jpeg" alt="Resaca - Script de interacción con un objeto" /></div></div>
+
+## POST-PROCESSING
+
+The pause menu includes, in addition to the usual controls, a **post-processing slider** that allows adjusting or completely disabling image effects (chromatic aberration, vignette, bloom, etc.). This feature has an explicit accessibility goal: preventing intense visual effects from being uncomfortable for the player.
+
+<div class="custom-gallery"><div><img src="/images/resaca19.jpeg" alt="Resaca - Menú de opciones durante la partida" /></div><div><img src="/images/resaca20.jpeg" alt="Resaca - Valores por defecto del perfil de postprocesado" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca21.jpeg" alt="Resaca - Imagen con postprocesado al máximo" /></div><div><img src="/images/resaca22.jpeg" alt="Resaca - Imagen con postprocesado desactivado" /></div></div>
+
+## MINI-GAME 1: TARGET PRACTICE
+
+The player throws darts using a system of **two sequential charge bars** (horizontal and vertical) that determine the direction and force of the throw. A crosshair visualises in real time on the dartboard the point where the dart will land before throwing.
+
+The scoring replicates a **standard dartboard**: 18° sectors, official number order ({ 20, 1, 18, 4, 13... }) and zone multipliers. The calculation required using \`Mathf.Atan2\`, \`Mathf.Rad2Deg\` and \`Mathf.FloorToInt\` to obtain the exact sector where each dart lands in Unity's three-dimensional space.
+
+The number of throws (3 or 5) is the **central variable** of the mini-game: the game loop, records system and save serialisation automatically adapt to this value, facilitating scalability without rewriting logic.
+
+<div class="custom-gallery"><div><img src="/images/resaca24.jpeg" alt="Resaca - Tiro al Blanco: pantalla de inicio" /></div><div><img src="/images/resaca25.jpeg" alt="Resaca - Tiro al Blanco: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca26.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Horizontal" /></div><div><img src="/images/resaca27.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Vertical" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca28.jpeg" alt="Resaca - Animación del dardo saliendo disparado" /></div><div><img src="/images/resaca29.jpeg" alt="Resaca - Animación del dardo acercándose a la diana" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca30.jpeg" alt="Resaca - Script que calcula la puntuación por tirada" /></div></div>
+
+## MINI-GAME 2: WIND AND WOOD
+
+A musical memory game in the style of *Simon Says*: the game plays a melodic section with its sheet music on screen and the player must repeat it by pressing the correct notes with the right duration. An error is triggered if the reaction time is exceeded, an incorrect note is pressed, or the press does not last as long as it should.
+
+The mini-game's architecture is built on a **list of lists**: a list *A* of sections, each containing a list *B* of notes with their durations. Adding a new melody reduces to defining a new list *A*, without modifying the core logic. The DEMO includes the melody of *Happy Birthday*, chosen for both its global recognition and its visual simplicity in sheet music form. The system supports any melody within the two central octaves (C3–B4) with eighth note, quarter note or half note durations.
+
+The inclusion of this mini-game required applying **music theory knowledge** (score reading, clefs and scales) to correctly represent the melody in the game's interface.
+
+<div class="custom-gallery"><div><img src="/images/resaca31.jpeg" alt="Resaca - Viento y Madera: pantalla de inicio" /></div><div><img src="/images/resaca32.jpeg" alt="Resaca - Viento y Madera: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca33.jpeg" alt="Resaca - Viento y Madera: pantalla de juego con flauta y partitura" /></div><div><img src="/images/resaca34.jpeg" alt="Resaca - Viento y Madera: panel de resultados" /></div></div>
+
+## SAVE SYSTEM
+
+The save is **fully automatic**: without player intervention, the game state is serialised to **JSON**, with **PlayerPrefs** used for processes requiring higher speed. The game loads on opening, saves on closing, and also saves on every scene change to reflect progress in real time: character position, open doors, lights on, completed mini-games and obtained records.
+
+On the results screen, the "Save new record" button is automatically disabled if the current score is lower than the stored record.`,
             gl: `## INTRODUCIÓN
-RESACA é un proxecto elaborado no marco de Traballo final para o módulo de Programación de Videoxogos do máster de Desenvolvemento de Videoxogos do Centro de Estudos de Innovación (CEI.) de Madrid.
 
-É unha DEMO xogable que presenta dúas funcionalidades diferenciadas:
-- Un **“Modo historia”**, cunha liña temática coherente.
-- Unha **selección de minixogos** desbloqueables.
+RESACA é o proxecto final do módulo de Programación de Videoxogos do Máster de Desenvolvemento de Videoxogos do CEI de Madrid. Trátase dunha **DEMO xogable** construída sobre dous piares:
 
-RESACA conta con máis de **40 scripts e arredor de 4000 liñas de código**.
+- **Modo historia**: unha partida lineal con trama, exploración e minixogos encadeados.
+- **Selección libre de minixogos**: acceso directo aos desafíos xa completados no modo historia, con opcións adicionais desbloqueables.
+
+O proxecto suma **máis de 40 scripts e preto de 4.000 liñas de código**. Todos os assets externos utilizados son de uso libre e están referenciados no panel de agradecementos do propio xogo.
 
 <iframe width="100%" height="360" src="https://www.youtube.com/embed/MAB_WVZ_87E" title="Resaca - Gameplay Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## CARACTERÍSTICAS TÉCNICAS
-- **Sistema de gardado**: Serialización de datos en JSON + PlayerPrefs. Gardado automático.
-- **Cinemáticas**: Sucesión de planos animados con Cinemachine.
-- **Interacción**: Sistema de Raycast para interactuar con máis de 15 obxectos ("Ver info", "Interactuar", "Xogar").
-- **Postprocesado**: Axustes de volume, aberración cromática, etc., configurables polo usuario.
+## MENÚ PRINCIPAL
 
-## MINIXOGOS
-### 1. TIRO AO BRANCO
-Lanzamento de dardos con sistema de barras de carga.
-- Cálculo de puntuación baseado en distancias (Mathf.Atan2, Mathf.Rad2Deg).
-- Animacións con Cinemachine.
+O menú de inicio concentra varias funcionalidades que reflicten o estado de progresión do xogador. Os botóns de "Récords" e a selección de minixogos permanecen bloqueados ata completar cada desafío por primeira vez. O menú de opcións permite configurar pantalla completa, volume de música e efectos; e, unha vez desbloqueada a primeira habitación, aparece un toggle para activar ou desactivar a cinemática introductoria.
 
-### 2. VENTO E MADEIRA
-Xogo de memoria musical ("Simón di").
-- Lóxica de listas de listas para xestionar melodías e notas.
-- Sistema de detección de erros (tempo, orde, duración).
+<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Panel del menú de inicio" /></div><div><img src="/images/resaca9.jpeg" alt="Resaca - Panel de selección de minijuego" /></div><div><img src="/images/resaca10.jpeg" alt="Resaca - Panel Tiro al Blanco con selección de tiradas" /></div><div><img src="/images/resaca11.jpeg" alt="Resaca - Panel de récords personales" /></div><div><img src="/images/resaca12.jpeg" alt="Resaca - Panel de agradecimientos" /></div></div>
 
-## CONFLITOS E APRENDIZAXE
-O proxecto superou diversos retos, desde a xestión do tempo ata a optimización do editor (migración a JetBrains Rider). Supuxo un avance notable na comprensión de conceptos de programación orientada a obxectos (instancias, clases abstractas) e matemáticas aplicadas a videoxogos.
+<div class="custom-gallery"><div><img src="/images/resaca7.jpeg" alt="Resaca - Menú de opciones" /></div><div><img src="/images/resaca8.jpeg" alt="Resaca - Código de comprobación del estado del toggle" /></div></div>
 
-## GALERÍA DE IMAXES
+## CINEMÁTICA
 
-<div class="custom-gallery"><div><img src="/images/resaca2.png" alt="Resaca - Gameplay 1" /></div><div><img src="/images/resaca3.png" alt="Resaca - Gameplay 2" /></div><div><img src="/images/resaca4.png" alt="Resaca - Gameplay 3" /></div><div><img src="/images/resaca5.png" alt="Resaca - Gameplay 4" /></div><div><img src="/images/resaca6.png" alt="Resaca - Gameplay 5" /></div></div>`
+Ao iniciar partida por primeira vez reprodúcese unha cinemática duns trinta segundos: unha sucesión de catro planos animados con **Cinemachine**, xestionados mediante corrutinas encadeadas. A escena non é a mesma coa que interactúa o xogador, senón unha copia limpa sen scripts nin UI, o que permite aplicar postprocesado intensificado para acentuar a estética do xogo.
+
+<div class="custom-gallery"><div><img src="/images/resaca15.jpeg" alt="Resaca - Fotograma de la cinemática" /></div><div><img src="/images/resaca16.jpeg" alt="Resaca - Fotograma de la cinemática" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca13.jpeg" alt="Resaca - Corrutina que gestiona la animación de la cinemática" /></div><div><img src="/images/resaca14.jpeg" alt="Resaca - Corrutina que gestiona los fundidos a negro" /></div></div>
+
+## ESCENARIO E SISTEMA DE INTERACCIÓN
+
+A escena principal é un habitáculo dividido en tres zonas (habitación, salón e baño) que se desbloquean progresivamente ao superar cada minixogo. O escenario integra **máis de 100 assets decorativos e 15 obxectos interactuables**, xestionados mediante **Raycast** que diferencia tres tipos de interacción:
+
+- **Ver info** *(automático ao apuntar)*: perfila o obxecto en branco e mostra o seu nome e botón de acción.
+- **Interactuar** *('E')*: devolve aleatoriamente unha frase dun array de strings propio dese obxecto, mostrada en formato subtítulo.
+- **Xogar** *('F')*: accede ao minixogo vinculado ao obxecto ao que se apunta (a diana ou a guitarra).
+
+Os controis completos están integrados de forma diegética na escena: unha táboa optométrica colgada na habitación.
+
+<div class="custom-gallery"><div><img src="/images/resaca18.jpeg" alt="Resaca - Interfaz al interactuar con un objeto" /></div><div><img src="/images/resaca23.jpeg" alt="Resaca - Controles mostrados diegéticamente como tabla optométrica" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca17.jpeg" alt="Resaca - Script de interacción con un objeto" /></div></div>
+
+## POSTPROCESADO
+
+O menú de pausa inclúe, ademais dos controis habituais, un **slider de postprocesado** que permite axustar ou desactivar completamente os efectos de imaxe (aberración cromática, viñeta, bloom, etc.). Esta funcionalidade ten un obxectivo de accesibilidade explícito: evitar que efectos visuais intensos resulten incómodos para o xogador.
+
+<div class="custom-gallery"><div><img src="/images/resaca19.jpeg" alt="Resaca - Menú de opciones durante la partida" /></div><div><img src="/images/resaca20.jpeg" alt="Resaca - Valores por defecto del perfil de postprocesado" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca21.jpeg" alt="Resaca - Imagen con postprocesado al máximo" /></div><div><img src="/images/resaca22.jpeg" alt="Resaca - Imagen con postprocesado desactivado" /></div></div>
+
+## MINIXOGO 1: TIRO AO BRANCO
+
+O xogador lanza dardos mediante un sistema de **dúas barras de carga secuenciais** (horizontal e vertical) que determinan a dirección e a forza do tiro. Unha mira visualiza en tempo real sobre a diana o punto ao que se dirixirá o dardo antes de lanzar.
+
+A puntuación replica o funcionamento dunha **diana estándar de dardos**: sectores de 18°, orde oficial de números ({ 20, 1, 18, 4, 13... }) e multiplicadores de zona. O cálculo requiriu o uso de \`Mathf.Atan2\`, \`Mathf.Rad2Deg\` e \`Mathf.FloorToInt\` para obter o sector exacto no que impacta cada dardo no espazo tridimensional de Unity.
+
+O número de tiradas (3 ou 5) é a **variable central** do minixogo: o bucle de xogo, o sistema de récords e a serialización de gardado adáptanse automaticamente a este valor, o que facilita a súa escalabilidade sen necesidade de reescribir lóxica.
+
+<div class="custom-gallery"><div><img src="/images/resaca24.jpeg" alt="Resaca - Tiro al Blanco: pantalla de inicio" /></div><div><img src="/images/resaca25.jpeg" alt="Resaca - Tiro al Blanco: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca26.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Horizontal" /></div><div><img src="/images/resaca27.jpeg" alt="Resaca - Tiro al Blanco: fase de Carga Vertical" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca28.jpeg" alt="Resaca - Animación del dardo saliendo disparado" /></div><div><img src="/images/resaca29.jpeg" alt="Resaca - Animación del dardo acercándose a la diana" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca30.jpeg" alt="Resaca - Script que calcula la puntuación por tirada" /></div></div>
+
+## MINIXOGO 2: VENTO E MADEIRA
+
+Un xogo de memoria musical ao estilo *Simón di*: o xogo reproduce unha sección de melodía coa súa partitura en pantalla e o xogador debe repetila premendo as notas correctas coa duración adecuada. Considérase erro se se supera o tempo de reacción, se preme unha nota incorrecta ou a pulsación non dura o que debe.
+
+A arquitectura do minixogo constrúese sobre unha **lista de listas**: unha lista *A* de seccións, cada unha contendo unha lista *B* de notas coas súas duracións. Engadir unha nova melodía redúcese a definir unha nova lista *A*, sen modificar a lóxica central. A DEMO inclúe a melodía de *Parabéns*, elixida tanto polo seu recoñecemento global como pola súa sinxeleza visual en partitura. O sistema soporta calquera melodía dentro das 2 oitavas centrais (Do3–Si4) con duracións de corchea, negra ou branca.
+
+A inclusión deste minixogo requiriu aplicar **coñecementos de teoría musical** (lectura de partitura, claves e escalas) para representar correctamente a melodía na interface do xogo.
+
+<div class="custom-gallery"><div><img src="/images/resaca31.jpeg" alt="Resaca - Viento y Madera: pantalla de inicio" /></div><div><img src="/images/resaca32.jpeg" alt="Resaca - Viento y Madera: pantalla de tutorial" /></div></div>
+
+<div class="custom-gallery"><div><img src="/images/resaca33.jpeg" alt="Resaca - Viento y Madera: pantalla de juego con flauta y partitura" /></div><div><img src="/images/resaca34.jpeg" alt="Resaca - Viento y Madera: panel de resultados" /></div></div>
+
+## SISTEMA DE GARDADO
+
+O gardado é **completamente automático**: sen intervención do xogador, o estado da partida serialízase en **JSON** e apóiase en **PlayerPrefs** para procesos que requiren maior velocidade. O xogo carga ao abrir, garda ao pechar e tamén garda en cada cambio de escena para reflectir o progreso en tempo real: posición do personaxe, portas abertas, luces acendidas, minixogos completados ou récords obtidos.
+
+Na pantalla de resultados, o botón "Gardar novo récord" desactívase automaticamente se a puntuación actual é inferior ao récord almacenado.`
         },
         image: '/images/resaca1.jpg',
-        images: ['/images/resaca1.jpg', '/images/resaca2.png', '/images/resaca3.png', '/images/resaca4.png', '/images/resaca5.png', '/images/resaca6.png'],
+        images: [
+            '/images/resaca1.jpg',
+            '/images/resaca2.png', '/images/resaca3.png', '/images/resaca4.png', '/images/resaca5.png', '/images/resaca6.png',
+            '/images/resaca7.jpeg', '/images/resaca8.jpeg', '/images/resaca9.jpeg', '/images/resaca10.jpeg',
+            '/images/resaca11.jpeg', '/images/resaca12.jpeg', '/images/resaca13.jpeg', '/images/resaca14.jpeg',
+            '/images/resaca15.jpeg', '/images/resaca16.jpeg', '/images/resaca17.jpeg', '/images/resaca18.jpeg',
+            '/images/resaca19.jpeg', '/images/resaca20.jpeg', '/images/resaca21.jpeg', '/images/resaca22.jpeg',
+            '/images/resaca23.jpeg', '/images/resaca24.jpeg', '/images/resaca25.jpeg', '/images/resaca26.jpeg',
+            '/images/resaca27.jpeg', '/images/resaca28.jpeg', '/images/resaca29.jpeg', '/images/resaca30.jpeg',
+            '/images/resaca31.jpeg', '/images/resaca32.jpeg', '/images/resaca33.jpeg', '/images/resaca34.jpeg'
+        ],
         roles: ['game_dev']
     },
     {
