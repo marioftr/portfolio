@@ -177,7 +177,7 @@ export default function ProjectModal({ project, onClose }) {
                 return (
                     <h3 key={index} style={{
                         fontSize: '1.4rem',
-                        marginTop: '1.5rem',
+                        marginTop: index === 0 ? '0.5rem' : '3rem',
                         marginBottom: '1rem',
                         color: 'var(--color-primary)',
                         fontWeight: 700,
@@ -192,7 +192,7 @@ export default function ProjectModal({ project, onClose }) {
                 return (
                     <h4 key={index} style={{
                         fontSize: '1.15rem',
-                        marginTop: '1.25rem',
+                        marginTop: index === 0 ? '0' : '2.4rem',
                         marginBottom: '0.75rem',
                         color: 'var(--color-primary)',
                         fontWeight: 600
@@ -204,7 +204,10 @@ export default function ProjectModal({ project, onClose }) {
 
             // Lists
             if (trimmed.startsWith('- ')) {
-                const content = trimmed.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                const content = trimmed.replace('- ', '')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
+                    .replace(/_([^_\n]+)_/g, '<em>$1</em>');
                 return (
                     <div key={index} style={{ display: 'flex', gap: '0.75rem', marginLeft: '0.5rem', marginBottom: '0.5rem' }}>
                         <span style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>•</span>
@@ -248,7 +251,10 @@ export default function ProjectModal({ project, onClose }) {
             }
 
             // Default Paragraph
-            const htmlContent = trimmed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            const htmlContent = trimmed
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
+                .replace(/_([^_\n]+)_/g, '<em>$1</em>');
             return (
                 <p
                     key={index}

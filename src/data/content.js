@@ -888,6 +888,12 @@ De los teasers obtenemos:
 
 **Postproducción**: Montaje, Etalonaje, Máscaras de capa, Transiciones, Diseño y mezcla de sonido, Difusión y promoción.
 
+## ANIMATICS
+
+A continuación se presentan las pruebas de animatic realizadas para el cortometraje:
+
+<div class="custom-video-carousel"><div><h3>Primera prueba de animatic</h3><p>Primera aproximación al animatic del cortometraje</p><iframe src="https://player.vimeo.com/video/1104957890" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Segunda prueba de animatic</h3><p>Segunda aproximación al animatic del cortometraje</p><iframe src="https://player.vimeo.com/video/1104957895" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Animatic del teaser de Craión</h3><p>Prueba de animatic para el teaser del personaje Craión</p><iframe src="https://player.vimeo.com/video/1104957944" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
+
 ## GALERÍA DE IMÁGENES
 
 <div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Escena 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Escena 3" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Escena 4" /></div><div class="tall"><img src="/images/colorin5.avif" alt="Colorín Decolorado - Escena 5" /></div><div class="wide"><img src="/images/colorin6.avif" alt="Colorín Decolorado - Escena 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Escena 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Escena 8" /></div><div class="tall"><img src="/images/colorin9.avif" alt="Colorín Decolorado - Escena 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Escena 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Escena 11" /></div></div>`,
@@ -952,6 +958,12 @@ Dels teasers obtenim:
 **Producció**: Layout, Animació bidimensional, Animació tridimensional, Efectes, Elements live action, Composició.
 
 **Postproducció**: Muntatge, Etalonatge, Màscares de capa, Transicions, Disseny i mescla de so, Difusió i promoció.
+
+## ANIMÀTICS
+
+A continuació es presenten les proves d'animàtic realitzades per al curtmetratge:
+
+<div class="custom-video-carousel"><div><h3>Primera prova d'animàtic</h3><p>Primera aproximació a l'animàtic del curtmetratge</p><iframe src="https://player.vimeo.com/video/1104957890" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Segona prova d'animàtic</h3><p>Segona aproximació a l'animàtic del curtmetratge</p><iframe src="https://player.vimeo.com/video/1104957895" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Animàtic del teaser de Craió</h3><p>Prova d'animàtic per al teaser del personatge Craió</p><iframe src="https://player.vimeo.com/video/1104957944" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
 
 ## GALERIA D'IMATGES
 
@@ -1018,6 +1030,12 @@ From the teasers we obtain:
 
 **Post-production**: Editing, Color Grading, Layer Masks, Transitions, Sound Design and Mixing, Distribution and Promotion.
 
+## ANIMATICS
+
+Below are the animatic tests produced for the short film:
+
+<div class="custom-video-carousel"><div><h3>First animatic test</h3><p>First draft of the short film's animatic</p><iframe src="https://player.vimeo.com/video/1104957890" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Second animatic test</h3><p>Second draft of the short film's animatic</p><iframe src="https://player.vimeo.com/video/1104957895" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Craión teaser animatic</h3><p>Animatic test for the Craión character teaser</p><iframe src="https://player.vimeo.com/video/1104957944" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
+
 ## IMAGE GALLERY
 
 <div class="custom-gallery"><div><img src="/images/colorin2.avif" alt="Colorín Decolorado - Scene 2" /></div><div><img src="/images/colorin3.avif" alt="Colorín Decolorado - Scene 2" /></div><div><img src="/images/colorin4.avif" alt="Colorín Decolorado - Scene 4" /></div><div class="tall"><img src="/images/colorin5.avif" alt="Colorín Decolorado - Scene 5" /></div><div class="wide"><img src="/images/colorin6.avif" alt="Colorín Decolorado - Scene 6" /></div><div><img src="/images/colorin7.avif" alt="Colorín Decolorado - Scene 7" /></div><div><img src="/images/colorin8.avif" alt="Colorín Decolorado - Scene 8" /></div><div class="tall"><img src="/images/colorin9.avif" alt="Colorín Decolorado - Scene 9" /></div><div><img src="/images/colorin10.avif" alt="Colorín Decolorado - Scene 10" /></div><div><img src="/images/colorin11.avif" alt="Colorín Decolorado - Scene 11" /></div></div>`,
@@ -1082,6 +1100,12 @@ Dos teasers obtemos:
 **Produución**: Layout, Animación bidimensional, Animación tridimensional, Efectos, Elementos live action, Composición.
 
 **Postprodución**: Montaxe, Etalonaxe, Máscaras de capa, Transicións, Deseño e mestura de son, Difusión e promoción.
+
+## ANIMATICS
+
+A continuación preséntanse as probas de animatic realizadas para a curtametraxe:
+
+<div class="custom-video-carousel"><div><h3>Primeira proba de animatic</h3><p>Primeira aproximación ao animatic da curtametraxe</p><iframe src="https://player.vimeo.com/video/1104957890" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Segunda proba de animatic</h3><p>Segunda aproximación ao animatic da curtametraxe</p><iframe src="https://player.vimeo.com/video/1104957895" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div><h3>Animatic do teaser de Craión</h3><p>Proba de animatic para o teaser do personaxe Craión</p><iframe src="https://player.vimeo.com/video/1104957944" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>
 
 ## GALERÍA DE IMAXES
 
