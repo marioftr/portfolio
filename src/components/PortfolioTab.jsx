@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import { projectList } from '../data/proyectos';
 import { projects as contentProjects } from '../data/content';
@@ -124,8 +125,9 @@ profileImages.design = [
     { src: '/images/colorin10.avif', type: 'image', title: 'Colorín Decolorado - Merchandising', projectId: 'colorin' }
 ];
 
-export default function Portfolio({ roleId, onProjectSelect, onTabClick }) {
+export default function Portfolio({ roleId, onProjectSelect, onTabClick, externalOpenIndex, onExternalClose, switchProfileSlug, switchProfileLabel }) {
     const { t, language } = useTranslation();
+    const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     useEffect(() => {
@@ -135,6 +137,22 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick }) {
     }, []);
 
     const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+
+    // Abrir lightbox desde un componente padre (ej. PortfolioOverview)
+    useEffect(() => {
+        if (externalOpenIndex != null) setSelectedItemIndex(externalOpenIndex);
+    }, [externalOpenIndex]);
+
+    // Notificar al padre cuando el lightbox se cierra
+    const wasOpenRef = useRef(false);
+    useEffect(() => {
+        if (selectedItemIndex !== null) {
+            wasOpenRef.current = true;
+        } else if (wasOpenRef.current) {
+            wasOpenRef.current = false;
+            onExternalClose?.();
+        }
+    }, [selectedItemIndex]);
     // isVideoPlaying stored per-slide index so switching slides auto-stops
     const [videoPlayingIdx, setVideoPlayingIdx] = useState(null);
     // Active process step by INDEX — null = last step (Resultado Final)
@@ -440,6 +458,36 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick }) {
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
                     </button>
+
+                    {/* Botón Cambiar de perfil — solo visible cuando se abre desde el perfil general */}
+                    {switchProfileSlug && (
+                        <button
+                            onClick={(e) => { e.stopPropagation(); setSelectedItemIndex(null); navigate(`/${language}/${switchProfileSlug}/portfolio`); }}
+                            style={{
+                                position: 'absolute',
+                                top: isMobile ? '1rem' : '2rem',
+                                left: isMobile ? '1rem' : '2rem',
+                                zIndex: 1000001,
+                                background: 'white',
+                                border: 'none',
+                                borderRadius: '20px',
+                                padding: '0.4rem 1rem',
+                                cursor: 'pointer',
+                                fontWeight: 700,
+                                fontSize: '0.8rem',
+                                color: 'var(--color-primary)',
+                                fontFamily: 'inherit',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '4px'
+                            }}
+                        >
+                            {switchProfileLabel
+                                ? (language === 'en' ? `Switch to ${switchProfileLabel} →` : language === 'ca' ? `Canviar a ${switchProfileLabel} →` : `Cambiar a perfil de ${switchProfileLabel} →`)
+                                : (language === 'en' ? 'Switch profile →' : language === 'ca' ? 'Canviar de perfil →' : 'Cambiar de perfil →')
+                            }
+                        </button>
+                    )}
 
                     {!isMobile && (
                         <>

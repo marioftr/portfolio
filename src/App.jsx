@@ -1,5 +1,4 @@
 import { useState, useMemo, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { Routes, Route, useParams, useNavigate, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -26,14 +25,7 @@ const roleKeyMap = {
   'perfil-general': 'all',
   'editor-video': 'video_editor',
   'programador-videojuegos': 'game_dev',
-  'artista-3d': 'artist_2d_3d'
-};
-
-// ─── Mapa inverso: roleId → slug de URL ──────────────────────────────────────
-const roleSlugMap = {
-  game_dev:     'programador-videojuegos',
-  artist_2d_3d: 'artista-3d',
-  video_editor: 'editor-video'
+  'artista-2d-3d': 'artist_2d_3d'
 };
 
 // ─── Flags de portfolio por perfil ───────────────────────────────────────────
@@ -62,7 +54,7 @@ const roleTitlesMap = {
 // ─── PortfolioOverview (perfil general → tab Portfolio) ──────────────────────
 const PROFILE_ORDERED = [
   { id: 'game_dev',     slug: 'programador-videojuegos' },
-  { id: 'artist_2d_3d', slug: 'artista-3d' },
+  { id: 'artist_2d_3d', slug: 'artista-2d-3d' },
   { id: 'video_editor', slug: 'editor-video' }
 ];
 
@@ -72,12 +64,12 @@ const SECTION_TITLES_OV = {
   video_editor: { es: 'Edición de Vídeo',           en: 'Video Editing',       ca: 'Edició de Vídeo',              gl: 'Edición de Vídeo' }
 };
 
-const PortfolioOverview = () => {
+const PortfolioOverview = ({ onProjectSelect, onTabClick }) => {
   const { language } = useTranslation();
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
   const [expanded, setExpanded] = useState({});
-  const [lightbox, setLightbox] = useState(null); // { profileId, index }
+  const [ovLightbox, setOvLightbox] = useState(null); // { profileId, slug, itemIndex }
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -87,34 +79,6 @@ const PortfolioOverview = () => {
   }, []);
 
   const previewCount = isMobile ? 2 : 3;
-
-  const openLightbox = (profileId, index) => {
-    setLightbox({ profileId, index });
-    document.body.style.overflow = 'hidden';
-  };
-  const closeLightbox = () => {
-    setLightbox(null);
-    document.body.style.overflow = 'auto';
-  };
-
-  const lightboxItems = lightbox ? (profileImages[lightbox.profileId] || []) : [];
-  const currentItem = lightbox ? lightboxItems[lightbox.index] : null;
-
-  const goLightbox = (newIdx) => {
-    if (newIdx < 0 || newIdx >= lightboxItems.length) return;
-    setLightbox(prev => ({ ...prev, index: newIdx }));
-  };
-
-  useEffect(() => {
-    if (!lightbox) return;
-    const handleKey = (e) => {
-      if (e.key === 'Escape')      closeLightbox();
-      if (e.key === 'ArrowRight')  goLightbox(lightbox.index + 1);
-      if (e.key === 'ArrowLeft')   goLightbox(lightbox.index - 1);
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [lightbox]);
 
   return (
     <>
@@ -166,7 +130,7 @@ const PortfolioOverview = () => {
                       padding: '0.25rem 0', fontFamily: 'inherit'
                     }}
                   >
-                    {language === 'en' ? 'General profile' : language === 'ca' ? 'Perfil general' : 'Ver perfil general'} →
+                    {language === 'en' ? 'Switch profile' : language === 'ca' ? 'Canviar de perfil' : 'Cambiar de perfil'} →
                   </button>
                 )}
               </div>
@@ -204,7 +168,7 @@ const PortfolioOverview = () => {
                     {showItems.map((item, idx) => (
                       <div
                         key={idx}
-                        onClick={() => openLightbox(id, idx)}
+                        onClick={() => setOvLightbox({ profileId: id, slug, itemIndex: idx })}
                         style={{
                           borderRadius: 'var(--radius-md)', overflow: 'hidden',
                           boxShadow: 'var(--shadow-sm)', aspectRatio: '16 / 9',
@@ -261,60 +225,19 @@ const PortfolioOverview = () => {
         })}
       </section>
 
-      {/* Lightbox */}
-      {lightbox && createPortal(
-        <div
-          style={{ position: 'fixed', inset: 0, zIndex: 999999, backgroundColor: 'rgba(0,0,0,0.97)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-          onClick={closeLightbox}
-        >
-          {/* Close */}
-          <button onClick={closeLightbox} style={{ position: 'absolute', top: isMobile ? '1rem' : '2rem', right: isMobile ? '1rem' : '2rem', zIndex: 1000001, backgroundColor: 'white', border: 'none', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-
-          {/* Ver perfil completo */}
-          <button
-            onClick={(e) => { e.stopPropagation(); closeLightbox(); navigate(`/${language}/${roleSlugMap[lightbox.profileId]}/portfolio`); }}
-            style={{ position: 'absolute', top: isMobile ? '1rem' : '2rem', left: isMobile ? '1rem' : '2rem', zIndex: 1000001, background: 'white', border: 'none', borderRadius: '20px', padding: '0.4rem 1rem', cursor: 'pointer', fontWeight: 700, fontSize: '0.8rem', color: 'var(--color-primary)', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
-          >
-            {language === 'en' ? 'General profile →' : language === 'ca' ? 'Perfil general →' : 'Ver perfil general →'}
-          </button>
-
-          {/* Prev / Next */}
-          {!isMobile && lightboxItems.length > 1 && (
-            <>
-              <button onClick={(e) => { e.stopPropagation(); goLightbox(lightbox.index - 1); }}
-                style={{ position: 'absolute', left: '1.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.5)', borderRadius: '50%', width: '56px', height: '56px', cursor: lightbox.index === 0 ? 'default' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000000, color: 'white', opacity: lightbox.index === 0 ? 0.3 : 1 }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <button onClick={(e) => { e.stopPropagation(); goLightbox(lightbox.index + 1); }}
-                style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.5)', borderRadius: '50%', width: '56px', height: '56px', cursor: lightbox.index === lightboxItems.length - 1 ? 'default' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000000, color: 'white', opacity: lightbox.index === lightboxItems.length - 1 ? 0.3 : 1 }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-            </>
-          )}
-
-          {/* Media content */}
-          <div onClick={e => e.stopPropagation()} style={{ maxWidth: isMobile ? '100%' : '80vw', maxHeight: isMobile ? '75vh' : '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>
-            {currentItem?.type === 'video' && currentItem?.videoUrl ? (
-              <iframe
-                src={currentItem.videoUrl + '?autoplay=1'}
-                style={{ width: isMobile ? '95vw' : '70vw', height: isMobile ? '53vw' : '40vw', maxHeight: '70vh', border: 'none', borderRadius: '8px' }}
-                allow="autoplay; fullscreen"
-                title={currentItem.title || ''}
-              />
-            ) : currentItem ? (
-              <img src={currentItem.src} alt={currentItem.title || ''} style={{ maxWidth: '100%', maxHeight: isMobile ? '70vh' : '78vh', objectFit: 'contain', borderRadius: '6px' }} />
-            ) : null}
-          </div>
-
-          {/* Counter + title */}
-          <div style={{ position: 'absolute', bottom: isMobile ? '1rem' : '2rem', left: '50%', transform: 'translateX(-50%)', color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem', fontWeight: 600, textAlign: 'center', pointerEvents: 'none' }}>
-            {currentItem?.title && <div style={{ marginBottom: '0.25rem', color: 'white', fontSize: '0.9rem' }}>{currentItem.title}</div>}
-            {lightbox.index + 1} / {lightboxItems.length}
-          </div>
-        </div>,
-        document.body
+      {/* Lightbox del perfil general: reutiliza el lightbox completo de PortfolioTab */}
+      {ovLightbox && (
+        <div style={{ display: 'none' }}>
+          <PortfolioTab
+            roleId={ovLightbox.profileId}
+            externalOpenIndex={ovLightbox.itemIndex}
+            onExternalClose={() => setOvLightbox(null)}
+            switchProfileSlug={ovLightbox.slug}
+            switchProfileLabel={SECTION_TITLES_OV[ovLightbox.profileId]?.[language] || SECTION_TITLES_OV[ovLightbox.profileId]?.es}
+            onProjectSelect={onProjectSelect}
+            onTabClick={onTabClick}
+          />
+        </div>
       )}
     </>
   );
@@ -487,7 +410,7 @@ const PortfolioView = () => {
             <div>
               {activeRoleId === 'all' ? (
                 // Perfil general: overview con una fila por perfil
-                <PortfolioOverview />
+                <PortfolioOverview onProjectSelect={setSelectedProject} onTabClick={handleTabClick} />
               ) : PORTFOLIO_READY[activeRoleId] ? (
                 // Perfil específico listo
                 <PortfolioTab
