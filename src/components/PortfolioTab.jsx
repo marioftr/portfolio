@@ -19,7 +19,7 @@ export const profileImages = {
                     { src: '/images/resaca3.png', label_index: 2 },
                     { src: '/images/resaca5.png', label_index: 3 },
                     { src: '/images/resaca6.png', label_index: 4 },
-                    { src: '/images/resaca4.png', label: 'Resultado Final' },
+                    { src: '/images/resaca4.png', label_index: 5 },
                     { src: '/images/resaca4.png', type: 'video', videoUrl: 'https://www.youtube.com/embed/MAB_WVZ_87E', label: 'Gameplay Trailer' }
                 ]
             },
@@ -32,22 +32,30 @@ export const profileImages = {
                     { src: '/images/establo_mapa.png', label_index: 0 },
                     { src: '/images/Establo_Maya03.png', label_index: 1 },
                     { src: '/images/Establo_Maya02.png', label_index: 2 },
-                    { src: '/images/establo1.avif', label: 'Resultado Final' }
+                    { src: '/images/establo1.avif', label_index: 3 }
                 ]
             }
         ],
         artist_2d_3d: [
             { 
-                src: '/images/BridaCaballo_3DSubstance_01.jpg', 
+                src: '/images/WoodCart_3DSubstance_01.jpg', 
                 type: 'image', 
-                title_key: 'bridle_asset', 
+                title_key: 'wood_cart_asset', 
                 projectId: 'establo',
                 process: [
-                    { src: '/images/BridaCaballo_Maya.png', label_index: 0 },
-                    { src: '/images/BridaCaballo_ZBrush.png', label_index: 1 },
-                    { src: '/images/BridaCaballo_3DSubstance_03.jpg', label_index: 2 },
-                    { src: '/images/BridaCaballo_3DSubstance_02.jpg', label_index: 3 },
-                    { src: '/images/BridaCaballo_3DSubstance_01.jpg', label: 'Resultado Final' }
+                    { src: '/images/WoodCart_PureRef.png', label_index: 0 },
+                    { src: '/images/WoodCart_ZBrush_01.png', label_index: 1 },
+                    { src: '/images/WoodCart_ZBrush_02.png', label_index: 2 },
+                    { src: '/images/WoodCart_ZBrush_03.png', label_index: 3 },
+                    { src: '/images/WoodCart_ZBrush_04.png', label_index: 4 },
+                    { src: '/images/WoodCart_3DSubstance_02.jpg', label: 'Vista general inferior' },
+                    { src: '/images/WoodCart_3DSubstance_03.jpg', label: 'Detalle en Substance 3D (Vista 1)' },
+                    { src: '/images/WoodCart_3DSubstance_04.jpg', label: 'Detalle en Substance 3D (Vista 2)' },
+                    { src: '/images/WoodCart_3DSubstance_05.jpg', label: 'Detalle en Substance 3D (Vista 3)' },
+                    { src: '/images/WoodCart_3DSubstance_06.jpg', label: 'Detalle en Substance 3D (Vista 4)' },
+                    { src: '/images/WoodCart_3DSubstance_07.jpg', label: 'Detalle en Substance 3D (Vista 5)' },
+                    { src: '/images/WoodCart_3DSubstance_08.jpg', label: 'Detalle en Substance 3D (Vista 6)' },
+                    { src: '/images/WoodCart_3DSubstance_01.jpg', label_index: 5 }
                 ]
             },
             { 
@@ -60,7 +68,20 @@ export const profileImages = {
                     { src: '/images/Barril_ZBrush.png', label_index: 1 },
                     { src: '/images/Barril_3DSubstance_03.jpg', label_index: 2 },
                     { src: '/images/Barril_3DSubstance_02.jpg', label_index: 3 },
-                    { src: '/images/Barril_3DSubstance_01.jpg', label: 'Resultado Final' }
+                    { src: '/images/Barril_3DSubstance_01.jpg', label_index: 4 }
+                ]
+            },
+            { 
+                src: '/images/BridaCaballo_3DSubstance_01.jpg', 
+                type: 'image', 
+                title_key: 'bridle_asset', 
+                projectId: 'establo',
+                process: [
+                    { src: '/images/BridaCaballo_Maya.png', label_index: 0 },
+                    { src: '/images/BridaCaballo_ZBrush.png', label_index: 1 },
+                    { src: '/images/BridaCaballo_3DSubstance_03.jpg', label_index: 2 },
+                    { src: '/images/BridaCaballo_3DSubstance_02.jpg', label_index: 3 },
+                    { src: '/images/BridaCaballo_3DSubstance_01.jpg', label_index: 4 }
                 ]
             },
             { 
@@ -73,7 +94,7 @@ export const profileImages = {
                     { src: '/images/kafeto6.avif', label_index: 1 },
                     { src: '/images/kafeto7.avif', label_index: 2 },
                     { src: '/images/kafeto4.avif', label_index: 3 },
-                    { src: '/images/kafeto3.avif', label: 'Resultado Final' }
+                    { src: '/images/kafeto3.avif', label_index: 4 }
                 ]
             },
             { 
@@ -85,19 +106,7 @@ export const profileImages = {
                     { src: '/images/resaca4.png', label_index: 0 },
                     { src: '/images/resaca5.png', label_index: 1 },
                     { src: '/images/resaca6.png', label_index: 2 },
-                    { src: '/images/resaca3.png', label: 'Resultado Final' }
-                ]
-            },
-            { 
-                src: '/images/colorin9.avif', 
-                type: 'image', 
-                title: 'Colorín Decolorado - Art & Layout', 
-                projectId: 'colorin',
-                process: [
-                    { src: '/images/colorin7.avif', label: 'Character Design' },
-                    { src: '/images/colorin6.avif', label: 'Background Art' },
-                    { src: '/images/colorin8.avif', label: 'Layout Composition' },
-                    { src: '/images/colorin9.avif', label: 'Resultado Final' }
+                    { src: '/images/resaca3.png', label_index: 3 }
                 ]
             }
         ],
@@ -403,20 +412,6 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                     renderGrid(imagesData, 0)
                 )}
                 
-                {!isGeneralProfile && (
-                    <div style={{ 
-                        marginTop: '2rem', 
-                        textAlign: 'center',
-                        padding: 'var(--spacing-lg)',
-                        backgroundColor: 'rgba(var(--color-primary-rgb, 5, 150, 105), 0.03)',
-                        borderRadius: 'var(--radius-lg)',
-                        border: '1px dashed var(--color-border)'
-                    }}>
-                        <p style={{ fontStyle: 'italic', color: 'var(--color-text-light)' }}>
-                            {language === 'en' ? 'More projects and reels coming soon...' : 'Más proyectos y reels próximamente...'}
-                        </p>
-                    </div>
-                )}
             </section>
 
             {/* Lightbox / Overlay - Usamos createPortal para que escape de cualquier contexto de apilamiento */}

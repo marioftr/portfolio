@@ -667,6 +667,7 @@ button {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
+  align-items: flex-start !important;
   gap: 1rem !important;
   margin: 1rem 0 !important;
   padding: 0 !important;
@@ -695,6 +696,21 @@ button {
   min-width: 140px;
 }
 
+.custom-gallery.four-col div {
+  flex: 0 1 calc(25% - 0.75rem) !important;
+  min-width: 120px;
+}
+
+.custom-gallery div.featured {
+  flex: 0 0 100% !important;
+  min-width: 0 !important;
+}
+
+.custom-gallery div.featured img {
+  height: auto !important;
+  object-fit: initial !important;
+}
+
 /* Grid Spans */
 .custom-gallery div.wide {
   grid-column: span 3 !important;
@@ -712,7 +728,7 @@ button {
 
 .custom-gallery img {
   width: 100% !important;
-  height: 100% !important;
+  height: 200px !important;
   display: block !important;
   transition: transform 0.4s ease !important;
   object-fit: cover !important;

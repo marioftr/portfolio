@@ -11,7 +11,7 @@
 export const projectList = [
     {
         id: 'establo',
-        title: 'Establo (Provisional)',
+        title: 'Establo 3D',
         year: '2026',
         visible: true,
         roles: ['artist_2d_3d'],

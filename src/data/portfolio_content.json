@@ -11,7 +11,8 @@
       { "es": "Sistema de Inventario", "en": "Inventory System", "ca": "Sistema d'Inventari", "gl": "Sistema de Inventario" },
       { "es": "Mecánicas de Diálogo", "en": "Dialogue Mechanics", "ca": "Mecàniques de Diàleg", "gl": "Mecánicas de Diálogo" },
       { "es": "Exploración del Mapa", "en": "Map Exploration", "ca": "Exploració del Mapa", "gl": "Exploración do Mapa" },
-      { "es": "Seguimiento de Objetivos", "en": "Objective Tracking", "ca": "Seguiment d'Objectius", "gl": "Seguimento de Obxectivos" }
+      { "es": "Seguimiento de Objetivos", "en": "Objective Tracking", "ca": "Seguiment d'Objectius", "gl": "Seguimento de Obxectivos" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
   },
   "establo_env": {
@@ -24,7 +25,8 @@
     "process_labels": [
       { "es": "Mapa Conceptual del Nivel", "en": "Conceptual Level Mapping", "ca": "Mapa Conceptual del Nivell", "gl": "Mapa Conceptual do Nivel" },
       { "es": "Assets 3D Modulares", "en": "Modular 3D Assets", "ca": "Assets 3D Modulars", "gl": "Assets 3D Modulares" },
-      { "es": "Modelado del Layout en Maya", "en": "Maya Layout Modeling", "ca": "Modelat del Layout en Maya", "gl": "Modelado do Layout en Maya" }
+      { "es": "Modelado del Layout en Maya", "en": "Maya Layout Modeling", "ca": "Modelat del Layout en Maya", "gl": "Modelado do Layout en Maya" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
   },
   "bridle_asset": {
@@ -38,7 +40,8 @@
       { "es": "Modelado Low-Poly en Maya", "en": "Maya Low-Poly Modeling", "ca": "Modelat Low-Poly en Maya", "gl": "Modelado Low-Poly en Maya" },
       { "es": "Detalle High-Poly en ZBrush", "en": "ZBrush High-Poly Details", "ca": "Detall High-Poly en ZBrush", "gl": "Detalle High-Poly en ZBrush" },
       { "es": "Texturizado en Substance (Vista 1)", "en": "Substance Texturing (View 1)", "ca": "Texturitzat en Substance (Vista 1)", "gl": "Texturizado en Substance (Vista 1)" },
-      { "es": "Texturizado en Substance (Vista 2)", "en": "Substance Texturing (View 2)", "ca": "Texturitzat en Substance (Vista 2)", "gl": "Texturizado en Substance (Vista 2)" }
+      { "es": "Texturizado en Substance (Vista 2)", "en": "Substance Texturing (View 2)", "ca": "Texturitzat en Substance (Vista 2)", "gl": "Texturizado en Substance (Vista 2)" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
   },
   "barrel_asset": {
@@ -52,7 +55,8 @@
       { "es": "Malla Base en Maya", "en": "Maya Base Mesh", "ca": "Malla Base en Maya", "gl": "Malla Base en Maya" },
       { "es": "Esculpido High-Poly en ZBrush", "en": "ZBrush High-Poly Sculpt", "ca": "Esculpit High-Poly en ZBrush", "gl": "Esculpido High-Poly en ZBrush" },
       { "es": "Texturizado Final (Frontal)", "en": "Final Texturing (Front)", "ca": "Texturitzat Final (Frontal)", "gl": "Texturizado Final (Frontal)" },
-      { "es": "Texturizado Final (Superior)", "en": "Final Texturing (Top)", "ca": "Texturitzat Final (Superior)", "gl": "Texturizado Final (Superior)" }
+      { "es": "Texturizado Final (Superior)", "en": "Final Texturing (Top)", "ca": "Texturitzat Final (Superior)", "gl": "Texturizado Final (Superior)" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
   },
   "kafeto_asset": {
@@ -63,10 +67,11 @@
       "gl": "Cafeteira Interactiva - Props 3D"
     },
     "process_labels": [
-      { "es": "Modelado y Detalles 1", "en": "Modeling & Details 1", "ca": "Modelat i Detalls 1", "gl": "Modelado e Detall 1" },
-      { "es": "Modelado y Detalles 2", "en": "Modeling & Details 2", "ca": "Modelat i Detalls 2", "gl": "Modelado e Detall 2" },
-      { "es": "Progreso de Texturizado", "en": "Texturing Progress", "ca": "Progrés de Texturitzat", "gl": "Progreso de Texturizado" },
-      { "es": "Configuración Final In-Game", "en": "Final In-Game Setup", "ca": "Configuració Final In-Game", "gl": "Configuración Final En-Xogo" }
+      { "es": "Modelado cafetera (sin texturizar)", "en": "Coffee Machine Modeling (untextured)", "ca": "Modelat cafetera (sense texturitzar)", "gl": "Modelado cafeteira (sen texturizar)" },
+      { "es": "Modelado cafetera (texturas base)", "en": "Coffee Machine Modeling (base textures)", "ca": "Modelat cafetera (textures base)", "gl": "Modelado cafeteira (texturas base)" },
+      { "es": "Modelado cafetera (final) y detalles", "en": "Coffee Machine Modeling (final) & Details", "ca": "Modelat cafetera (final) i detalls", "gl": "Modelado cafeteira (final) e detalles" },
+      { "es": "Layout escena y nodos de material", "en": "Scene Layout & Material Nodes", "ca": "Layout escena i nodes de material", "gl": "Layout escena e nodos de material" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
   },
   "spatial_design": {
@@ -77,9 +82,26 @@
       "gl": "Deseño Espacial 3D - Layout de Contorna"
     },
     "process_labels": [
-      { "es": "Desglose de Layout 1", "en": "Layout Breakdown 1", "ca": "Desglossament de Layout 1", "gl": "Desglose de Layout 1" },
-      { "es": "Desglose de Layout 2", "en": "Layout Breakdown 2", "ca": "Desglossament de Layout 2", "gl": "Desglose de Layout 2" },
-      { "es": "Desglose de Layout 3", "en": "Layout Breakdown 3", "ca": "Desglossament de Layout 3", "gl": "Desglose de Layout 3" }
+      { "es": "Layout habitación", "en": "Bedroom Layout", "ca": "Layout habitació", "gl": "Layout habitación" },
+      { "es": "Layout baño", "en": "Bathroom Layout", "ca": "Layout bany", "gl": "Layout baño" },
+      { "es": "Layout global (vista superior)", "en": "Global Layout (top view)", "ca": "Layout global (vista superior)", "gl": "Layout global (vista superior)" },
+      { "es": "Layout salón", "en": "Living Room Layout", "ca": "Layout saló", "gl": "Layout salón" }
+    ]
+  },
+  "wood_cart_asset": {
+    "title": {
+      "es": "Carro de Madera - Prop 3D",
+      "en": "Wood Cart - 3D Prop",
+      "ca": "Carro de Fusta - Prop 3D",
+      "gl": "Carro de Madeira - Prop 3D"
+    },
+    "process_labels": [
+      { "es": "Panel de Referencias (PureRef)", "en": "Reference Board (PureRef)", "ca": "Tauler de Refer\u00e8ncies (PureRef)", "gl": "Panel de Referencias (PureRef)" },
+      { "es": "Malla High-Poly en ZBrush (Vista 1)", "en": "ZBrush High-Poly Mesh (View 1)", "ca": "Malla High-Poly en ZBrush (Vista 1)", "gl": "Malla High-Poly en ZBrush (Vista 1)" },
+      { "es": "Malla Decimada (Vista 1)", "en": "Decimated Mesh (View 1)", "ca": "Malla Decimada (Vista 1)", "gl": "Malla Decimada (Vista 1)" },
+      { "es": "Malla High-Poly en ZBrush (Vista 2)", "en": "ZBrush High-Poly Mesh (View 2)", "ca": "Malla High-Poly en ZBrush (Vista 2)", "gl": "Malla High-Poly en ZBrush (Vista 2)" },
+      { "es": "Malla Decimada (Vista 2)", "en": "Decimated Mesh (View 2)", "ca": "Malla Decimada (Vista 2)", "gl": "Malla Decimada (Vista 2)" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
   }
 }
