@@ -85,6 +85,18 @@ export const profileImages = {
                 ]
             },
             { 
+                src: '/images/resaca3.png', 
+                type: 'image', 
+                title_key: 'spatial_design', 
+                projectId: 'resaca',
+                process: [
+                    { src: '/images/resaca4.png', label_index: 0 },
+                    { src: '/images/resaca5.png', label_index: 1 },
+                    { src: '/images/resaca6.png', label_index: 2 },
+                    { src: '/images/resaca3.png', label_index: 3 }
+                ]
+            },
+            { 
                 src: '/images/kafeto3.avif', 
                 type: 'image', 
                 title_key: 'kafeto_asset', 
@@ -95,18 +107,6 @@ export const profileImages = {
                     { src: '/images/kafeto7.avif', label_index: 2 },
                     { src: '/images/kafeto4.avif', label_index: 3 },
                     { src: '/images/kafeto3.avif', label_index: 4 }
-                ]
-            },
-            { 
-                src: '/images/resaca3.png', 
-                type: 'image', 
-                title_key: 'spatial_design', 
-                projectId: 'resaca',
-                process: [
-                    { src: '/images/resaca4.png', label_index: 0 },
-                    { src: '/images/resaca5.png', label_index: 1 },
-                    { src: '/images/resaca6.png', label_index: 2 },
-                    { src: '/images/resaca3.png', label_index: 3 }
                 ]
             }
         ],
@@ -138,9 +138,17 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
     const { t, language } = useTranslation();
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [usePortraitLayout, setUsePortraitLayout] = useState(
+        window.innerWidth < 768 || (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+    );
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+            setUsePortraitLayout(
+                window.innerWidth < 768 || (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+            );
+        };
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -616,8 +624,8 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                             minHeight: 0,
                                             width: '100%',
                                             display: 'flex',
-                                            flexDirection: isMobile ? 'column' : 'row',
-                                            gap: isMobile ? '0.75rem' : '1.5rem',
+                                            flexDirection: usePortraitLayout ? 'column' : 'row',
+                                            gap: usePortraitLayout ? '0.75rem' : '1.5rem',
                                             alignItems: 'stretch'
                                         }}
                                         onClick={e => e.stopPropagation()}
@@ -689,22 +697,40 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                             )}
                                         </div>
 
+                                        {/* Label foto activa — solo en portrait */}
+                                        {usePortraitLayout && hasProcess && processImages[effectiveActiveIdx] && (
+                                            <div
+                                                onClick={e => e.stopPropagation()}
+                                                style={{
+                                                    flexShrink: 0,
+                                                    textAlign: 'center',
+                                                    color: 'rgba(255,255,255,0.9)',
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: 600,
+                                                    padding: '0.15rem 1rem 0',
+                                                    lineHeight: 1.3
+                                                }}
+                                            >
+                                                {processImages[effectiveActiveIdx].label}
+                                            </div>
+                                        )}
+
                                         {/* Sidebar del proceso — columna derecha en desktop, tira horizontal en mobile */}
                                         {hasProcess && (
                                             <div
                                                 style={{
-                                                    width: isMobile ? '100%' : '200px',
+                                                    width: usePortraitLayout ? '100%' : '200px',
                                                     flexShrink: 0,
                                                     display: 'flex',
-                                                    flexDirection: isMobile ? 'row' : 'column',
+                                                    flexDirection: usePortraitLayout ? 'row' : 'column',
                                                     gap: '0.75rem',
-                                                    overflowY: isMobile ? 'hidden' : 'auto',
-                                                    overflowX: isMobile ? 'auto' : 'hidden',
-                                                    padding: isMobile ? '0.25rem 0' : '0.5rem 0',
+                                                    overflowY: usePortraitLayout ? 'hidden' : 'auto',
+                                                    overflowX: usePortraitLayout ? 'auto' : 'hidden',
+                                                    padding: usePortraitLayout ? '0.25rem 0' : '0.5rem 0',
                                                     scrollbarWidth: 'none'
                                                 }}
                                             >
-                                                {!isMobile && (
+                                                {!usePortraitLayout && (
                                                     <p style={{
                                                         fontFamily: 'inherit',
                                                         color: 'rgba(255,255,255,0.45)',
@@ -733,15 +759,15 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                                 flexShrink: 0,
                                                                 cursor: 'pointer',
                                                                 display: 'flex',
-                                                                flexDirection: isMobile ? 'column' : 'row',
+                                                                flexDirection: usePortraitLayout ? 'column' : 'row',
                                                                 alignItems: 'center',
                                                                 gap: '0.5rem',
                                                                 opacity: isActive ? 1 : 0.45,
                                                                 transition: 'opacity 0.2s',
-                                                                minWidth: isMobile ? '90px' : 'auto'
+                                                                minWidth: usePortraitLayout ? '90px' : 'auto'
                                                             }}
                                                         >
-                                                            <div style={{ position: 'relative', flexShrink: 0, width: isMobile ? '72px' : '80px', height: isMobile ? '54px' : '60px' }}>
+                                                            <div style={{ position: 'relative', flexShrink: 0, overflow: 'hidden', borderRadius: '8px', width: usePortraitLayout ? '72px' : '80px', height: usePortraitLayout ? '54px' : '60px' }}>
                                                                 <img
                                                                     src={pImg.src}
                                                                     alt=""
@@ -751,7 +777,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                                         objectFit: 'cover',
                                                                         borderRadius: '8px',
                                                                         border: isActive ? '2px solid var(--color-primary)' : '2px solid rgba(255,255,255,0.1)',
-                                                                        boxShadow: isActive ? '0 0 10px var(--color-primary)' : 'none'
+                                                                        boxShadow: isActive ? '0 0 8px rgba(5,150,105,0.6)' : 'none'
                                                                     }}
                                                                 />
                                                                 {(pImg.type === 'video' || pImg.videoUrl) && (
@@ -768,7 +794,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                                     </div>
                                                                 )}
                                                             </div>
-                                                            {!isMobile && (
+                                                            {!usePortraitLayout && (
                                                                 <span style={{
                                                                     fontFamily: 'inherit',
                                                                     color: isActive ? 'var(--color-primary)' : 'rgba(255,255,255,0.8)',
