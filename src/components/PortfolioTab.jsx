@@ -5,7 +5,7 @@ import { projectList } from '../data/proyectos';
 import { projects as contentProjects } from '../data/content';
 import portfolioContent from '../data/portfolio_content.json';
 
-const profileImages = {
+export const profileImages = {
     all: {
         game_dev: [
             { 

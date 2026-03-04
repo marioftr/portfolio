@@ -1,23 +1,42 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { PORTFOLIO_READY } from '../config';
 import { useTranslation } from '../hooks/useTranslation';
 import { socialLinks } from '../data/content';
 import LanguageDropdown from './LanguageDropdown';
+import {
+    PORTFOLIO_READY_GAME_DEV,
+    PORTFOLIO_READY_ARTIST_2D_3D,
+    PORTFOLIO_READY_VIDEO_EDITOR
+} from '../config';
 
 const roleKeyMap = {
     'perfil-general': 'all',
     'programador-videojuegos': 'game_dev',
-    'artista-3d': 'artist_2d_3d',
+    'artista-2d-3d': 'artist_2d_3d',
     'editor-video': 'video_editor'
 };
 
+// Lista ordenada para el dropdown (un item por perfil, sin duplicados)
+const navItems = [
+    { path: 'perfil-general',          id: 'all' },
+    { path: 'programador-videojuegos', id: 'game_dev' },
+    { path: 'artista-2d-3d',              id: 'artist_2d_3d' },
+    { path: 'editor-video',            id: 'video_editor' }
+];
+
+const PORTFOLIO_FLAGS = {
+    game_dev:     PORTFOLIO_READY_GAME_DEV,
+    artist_2d_3d: PORTFOLIO_READY_ARTIST_2D_3D,
+    video_editor: PORTFOLIO_READY_VIDEO_EDITOR
+};
+
+const anyReady = Object.values(PORTFOLIO_FLAGS).some(Boolean);
+
 const roleTitles = {
-    all: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' },
+    all: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' },
     game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
     artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
-    video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' },
-    design: { es: 'Diseño', ca: 'Disseny', en: 'Design', gl: 'Deseño' }
+    video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' }
 };
 
 export default function Navbar() {
@@ -43,10 +62,12 @@ export default function Navbar() {
     const handleSelect = (path) => {
         if (path === 'home') navigate(`/${language}`);
         else {
-            // Stay on the current tab when switching roles; fall back to the
-            // appropriate default if there's no current tab.
-            const currentTab = tab || (PORTFOLIO_READY ? 'portfolio' : 'sobre-mi');
-            navigate(`/${language}/${path}/${currentTab}`);
+            // Tab por defecto según el perfil destino
+            const destRoleId = roleKeyMap[path] || 'all';
+            const destTab = destRoleId === 'all'
+                ? (anyReady ? 'portfolio' : 'sobre-mi')
+                : (PORTFOLIO_FLAGS[destRoleId] ? 'portfolio' : 'sobre-mi');
+            navigate(`/${language}/${path}/${destTab}`);
         }
         setIsOpen(false);
     };
@@ -129,20 +150,19 @@ export default function Navbar() {
                             top: 'calc(100% + 4px)',
                             left: '50%',
                             transform: 'translateX(-50%)',
-                            minWidth: '220px',
                             background: 'white',
                             borderRadius: '12px',
                             border: '1.5px solid var(--color-border)',
                             boxShadow: '0 15px 35px rgba(0,0,0,0.2)',
                             overflow: 'hidden',
-                            padding: '4px',
+                            padding: '4px 8px',
                             zIndex: 2000
                         }}>
                                 <button
                                     onClick={() => handleSelect('home')}
                                     style={{
                                         width: '100%',
-                                        padding: '8px 12px',
+                                        padding: '8px 16px',
                                         textAlign: 'left',
                                         fontSize: '0.8rem',
                                         fontWeight: 800,
@@ -167,14 +187,13 @@ export default function Navbar() {
 
                                 <div style={{ height: '1px', backgroundColor: 'var(--color-border)', margin: '4px 8px' }} />
 
-                                {Object.entries(roleKeyMap).map(([path, id]) => {
-                                    return (
+                                {navItems.map(({ path, id }) => (
                                         <button
                                             key={path}
                                             onClick={() => handleSelect(path)}
                                             style={{
                                                 width: '100%',
-                                                padding: '8px 12px',
+                                                padding: '8px 16px',
                                                 textAlign: 'left',
                                                 fontSize: '0.8rem',
                                                 fontWeight: activeRoleId === id ? 800 : 500,
@@ -184,7 +203,8 @@ export default function Navbar() {
                                                 borderRadius: '8px',
                                                 cursor: 'pointer',
                                                 transition: 'all 0.2s',
-                                                marginBottom: '1px'
+                                                marginBottom: '1px',
+                                                whiteSpace: 'nowrap'
                                             }}
                                             onMouseEnter={(e) => {
                                                 if (activeRoleId !== id) e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.03)';
@@ -195,8 +215,7 @@ export default function Navbar() {
                                         >
                                             {roleTitles[id][language] || roleTitles[id].es}
                                         </button>
-                                    );
-                                })}
+                                    ))}
                             </div>
                         )}
                     </div>

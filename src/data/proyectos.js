@@ -5,7 +5,7 @@
  * - El orden en este array es el orden exacto en el que aparecerán en la web.
  * - Para ocultar un proyecto sin borrarlo, pon `visible: false`.
  * - Los perfiles se asignan mediante la propiedad `roles`. 
- *   Valores posibles: 'all', 'game_dev', 'video_editor', 'artist_2d_3d', 'design'.
+ *   Valores posibles: 'all', 'game_dev', 'video_editor', 'artist_2d_3d'.
  */
 
 export const projectList = [
@@ -33,7 +33,7 @@ export const projectList = [
         title: 'Colorín Decolorado',
         year: '2025',
         visible: true,
-        roles: ['artist_2d_3d', 'video_editor', 'design'],
+        roles: ['artist_2d_3d', 'video_editor'],
         tags: ['blender', 'premiere', 'after_effects', 'canva', 'photoshop'],
         description_es: 'Diseño y desarrollo de un cortometraje de animación híbrida elaborado como TFG en Comunicación Audiovisual.'
     },
@@ -42,7 +42,7 @@ export const projectList = [
         title: 'Kafeto',
         year: '2025',
         visible: true,
-        roles: ['artist_2d_3d', 'design'],
+        roles: ['artist_2d_3d'],
         tags: ['blender'],
         description_es: 'Render 3D animado en Blender. Anuncio de una cafetera para la marca imaginaria Kafeto.'
     },
@@ -69,7 +69,7 @@ export const projectList = [
         title: 'Carta A Fonte',
         year: '2025',
         visible: true,
-        roles: ['design'],
+        roles: ['artist_2d_3d'],
         tags: ['canva'],
         description_es: 'Rebranding y diseño de menú para restaurante. Trabajo directo con cliente para mejorar la legibilidad y estética.'
     },
@@ -78,7 +78,7 @@ export const projectList = [
         title: 'Onda Vocal',
         year: '2024',
         visible: true,
-        roles: ['design'],
+        roles: ['artist_2d_3d'],
         tags: ['audacity', 'canva'],
         description_es: 'Proyecto grupal de creación de empresa desarrollado en la carrera de Comunicación Audiovisual (USC).'
     },

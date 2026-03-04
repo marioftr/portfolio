@@ -1,8 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
-import { PORTFOLIO_READY } from '../config';
 import LanguageDropdown from './LanguageDropdown';
+import {
+    PORTFOLIO_READY_GAME_DEV,
+    PORTFOLIO_READY_ARTIST_2D_3D,
+    PORTFOLIO_READY_VIDEO_EDITOR
+} from '../config';
 import { socialLinks } from '../data/content';
 
 
@@ -97,8 +101,19 @@ export default function LandingPage() {
 
     const useVerticalStack = isMobile || isPortrait;
 
+    const PORTFOLIO_FLAGS = {
+        game_dev:     PORTFOLIO_READY_GAME_DEV,
+        artist_2d_3d: PORTFOLIO_READY_ARTIST_2D_3D,
+        video_editor: PORTFOLIO_READY_VIDEO_EDITOR
+    };
+    const anyReady = Object.values(PORTFOLIO_FLAGS).some(Boolean);
+    const getDefaultTab = (roleId) => {
+        if (roleId === 'all') return anyReady ? 'portfolio' : 'sobre-mi';
+        return PORTFOLIO_FLAGS[roleId] ? 'portfolio' : 'sobre-mi';
+    };
+
     const roleMapping = {
-        all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil Completo', ca: 'Perfil Complet', en: 'Full Profile', gl: 'Perfil Completo' } },
+        all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' } },
         game_dev: { path: 'programador-videojuegos', icon: 'code', label: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' } },
         artist_2d_3d: { path: 'artista-3d', icon: 'box', label: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' } },
         video_editor: { path: 'editor-video', icon: 'layout', label: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' } },
@@ -114,6 +129,7 @@ export default function LandingPage() {
             case 'link': return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>;
             case 'linkedin': return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
             case 'github': return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>;
+            case 'artstation': return <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.164-1.333H9.044L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/></svg>;
             case 'instagram': return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>;
             case 'view': return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>;
             default: return null;
@@ -441,7 +457,7 @@ export default function LandingPage() {
                     {Object.entries(roleMapping).map(([id, data]) => (
                         <button
                             key={id}
-                            onClick={() => navigate(`/${language}/${data.path}/${PORTFOLIO_READY ? 'portfolio' : 'sobre-mi'}`)}
+                            onClick={() => navigate(`/${language}/${data.path}/${getDefaultTab(id)}`)}
                             className="flex items-center justify-between transition-all btn-thick-border role-button"
                             style={{
                                 cursor: 'pointer',

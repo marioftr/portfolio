@@ -2,8 +2,7 @@ export const roles = [
     { id: 'all', labelKey: 'role_all' },
     { id: 'game_dev', labelKey: 'role_game_dev' },
     { id: 'artist_2d_3d', labelKey: 'role_artist_2d_3d' },
-    { id: 'video_editor', labelKey: 'role_video_editor' },
-    { id: 'design', labelKey: 'role_design' }
+    { id: 'video_editor', labelKey: 'role_video_editor' }
 ];
 
 export const socialLinks = [
@@ -21,6 +20,11 @@ export const socialLinks = [
         name: 'GitHub',
         url: 'https://github.com/marioftr',
         icon: 'github'
+    },
+    {
+        name: 'ArtStation',
+        url: 'https://www.artstation.com/marioftr',
+        icon: 'artstation'
     },
     {
         name: 'Instagram',
@@ -55,12 +59,6 @@ export const aboutByRole = {
         en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid and graduated in Audiovisual Communication from the University of Santiago de Compostela (USC) with a specialization in Audiovisual Content Ideation and Creation.\n\nGame developer focused on gameplay and systems. I develop in C# for Unity and also work with Blueprints in Unreal Engine. I've built prototypes, save systems and cinematics following solid architecture and optimization practices.",
         gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no CEI de Madrid e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais.\n\nProgramador de videoxogos centrado en gameplay e sistemas. Desenvolvo en C# para Unity e tamén traballo con Blueprints en Unreal Engine. Creei prototipos de mecánicas, sistemas de gardado e cinemáticas aplicando boas prácticas de arquitectura e optimización."
     },
-    design: {
-        es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el CEI de Madrid y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales.\n\nDiseñador gráfico con foco en comunicación visual y branding. Uso Photoshop y Canva para crear assets visuales, layouts y materiales para impresión y web. Tengo experiencia en rebranding y trabajo directo con clientes para resolver problemas de legibilidad y estética.",
-        ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al CEI de Madrid i graduat en Comunicació Audiovisual per la Universitat de Santiago de Compostela (USC) amb menció en Ideació i Creació de Continguts Audiovisuals.\n\nDissenyador gràfic amb focus en comunicació visual i branding. Utilitzo Photoshop i Canva per crear assets visuals, layouts i materials per a impressió i web. Tinc experiència en rebranding i treball directe amb clients per resoldre problemes de llegibilitat i estètica.",
-        en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid and graduated in Audiovisual Communication from the University of Santiago de Compostela (USC) with a specialization in Audiovisual Content Ideation and Creation.\n\nGraphic designer focused on visual communication and branding. I use Photoshop and Canva to create visual assets, layouts and materials for print and web. Experienced in rebranding and direct client work to solve readability and aesthetic issues.",
-        gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no CEI de Madrid e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais.\n\nDeseñador gráfico con foco na comunicación visual e branding. Uso Photoshop e Canva para crear assets visuais, layouts e materiales para impresión e web. Teño experiencia en rebranding e traballo directo con clientes para resolver problemas de lexibilidade e estética."
-    }
 };
 
 export const allSkills = {
@@ -152,8 +150,7 @@ export const skillCategoriesOrder = {
     all: ['game_dev', 'modeling', 'video', 'audio', 'design_2d', 'vr_ar', 'programming_ia', 'misc', 'adobe', 'microsoft'],
     video_editor: ['video', 'audio', 'design_2d', 'vr_ar', 'misc', 'modeling', 'game_dev', 'programming_ia', 'adobe', 'microsoft'],
     game_dev: ['game_dev', 'programming_ia', 'modeling', 'vr_ar', 'video', 'audio', 'design_2d', 'misc', 'adobe', 'microsoft'],
-    artist_2d_3d: ['modeling', 'design_2d', 'game_dev', 'video', 'vr_ar', 'audio', 'programming_ia', 'misc', 'adobe', 'microsoft'],
-    design: ['design_2d', 'modeling', 'video', 'audio', 'vr_ar', 'game_dev', 'programming_ia', 'misc', 'adobe', 'microsoft']
+    artist_2d_3d: ['modeling', 'design_2d', 'game_dev', 'video', 'vr_ar', 'audio', 'programming_ia', 'misc', 'adobe', 'microsoft']
 };
 
 export const languages = [
@@ -185,10 +182,6 @@ export const aptitudes = {
         { es: 'Excelente <b>percepción espacial</b> y volumétrica.', ca: 'Excel·lent <b>percepció espacial</b> i volumètrica.', en: 'Excellent spatial and volumetric perception.', gl: 'Excelente percepción espacial e volumétrica.' },
         { es: 'Creatividad para el <b>diseño de entornos</b> y personajes.', ca: 'Creativitat per al <b>disseny d\'entorns</b> i personatges.', en: 'Creativity for environment and character design.', gl: 'Creatividade para o deseño de contornas e personaxes.' },
         { es: 'Dominio de los <b>12 principios de la animación</b>.', ca: 'Domini dels <b>12 principis de l\'animació</b>.', en: 'Mastery of the 12 principles of animation.', gl: 'Dominio dos 12 principios da animación.' }
-    ],
-    design: [
-        { es: 'Sensibilidad para la <b>composición visual</b> y la armonía de color.', ca: 'Sensibilitat per a la <b>composició visual</b> i l\'harmonia de color.', en: 'Sensitivity to visual composition and color harmony.', gl: 'Sensibilidade para a composición visual e a harmonía de cor.' },
-        { es: 'Capacidad de <b>comunicación visual</b> clara y efectiva.', ca: 'Capacitat de <b>comunicació visual</b> clara i efectiva.', en: 'Ability for clear and effective visual communication.', gl: 'Capacidade de comunicación visual clara e efectiva.' }
     ]
 };
 
