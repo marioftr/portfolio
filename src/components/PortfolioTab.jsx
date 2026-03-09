@@ -491,7 +491,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
             <section className="animate-fade-in container" style={{ paddingBottom: '0' }}>
 <div className="section-title" style={{ marginTop: '3rem', marginBottom: 'var(--spacing-lg)' }}>
                 <h2 style={{ fontSize: '1.75rem', fontWeight: 900, textAlign: 'center' }}>
-                        {language === 'en' ? 'Portfolio Highlights' : 'Portfolio'}
+                        {'Portfolio'}
                     </h2>
                     <div className="title-underline" style={{ margin: '0.5rem auto 0' }} />
                 </div>
