@@ -103,5 +103,68 @@
       { "es": "Malla Decimada (Vista 2)", "en": "Decimated Mesh (View 2)", "ca": "Malla Decimada (Vista 2)", "gl": "Malla Decimada (Vista 2)" },
       { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
+  },
+  "nero_character": {
+    "title": {
+      "es": "Nero - Personaje Colorín Decolorado",
+      "en": "Nero - Colorín Decolorado Character",
+      "ca": "Nero - Personatge Colorín Decolorat",
+      "gl": "Nero - Personaxe Colorín Decolorado"
+    },
+    "process_labels": [
+      { "es": "Referencias de poses", "en": "Pose References", "ca": "Referències de poses", "gl": "Referencias de poses" },
+      { "es": "Storyboard del teaser", "en": "Teaser Storyboard", "ca": "Storyboard del tràiler", "gl": "Storyboard do teaser" },
+      { "es": "Layout de prueba en 3D", "en": "3D Layout Test", "ca": "Layout de prova en 3D", "gl": "Layout de proba en 3D" },
+      { "es": "Prueba: giro de cabeza", "en": "Test: Head Turn", "ca": "Prova: gir de cap", "gl": "Proba: xiro de cabeza" },
+      { "es": "Prueba: loop de pestañeo", "en": "Test: Blink Loop", "ca": "Prova: loop de parpelleig", "gl": "Proba: loop de pestanexo" },
+      { "es": "Proceso de coloreado", "en": "Coloring Process", "ca": "Procés de coloració", "gl": "Proceso de coloreado" },
+      { "es": "Superposición de elementos 3D", "en": "3D Element Overlay", "ca": "Superposició d'elements 3D", "gl": "Superposición de elementos 3D" },
+      { "es": "Close-up en espacio 3D", "en": "3D Space Close-up", "ca": "Close-up en espai 3D", "gl": "Close-up en espazo 3D" },
+      { "es": "Layout de cámara 3D", "en": "3D Camera Layout", "ca": "Layout de càmera 3D", "gl": "Layout de cámara 3D" },
+      { "es": "Geometría base", "en": "Base Geometry", "ca": "Geometria base", "gl": "Xeometría base" },
+      { "es": "Resultado final 2D", "en": "Final 2D Result", "ca": "Resultat final 2D", "gl": "Resultado final 2D" },
+      { "es": "Resultado Final (Teaser)", "en": "Final Result (Teaser)", "ca": "Resultat Final (Tràiler)", "gl": "Resultado Final (Teaser)" }
+    ]
+  },
+  "coral_character": {
+    "title": {
+      "es": "Coral - Personaje Colorín Decolorado",
+      "en": "Coral - Colorín Decolorado Character",
+      "ca": "Coral - Personatge Colorín Decolorat",
+      "gl": "Coral - Personaxe Colorín Decolorado"
+    },
+    "process_labels": [
+      { "es": "Storyboard", "en": "Storyboard", "ca": "Storyboard", "gl": "Storyboard" },
+      { "es": "Capturas del animatic", "en": "Animatic Captures", "ca": "Captures de l'animàtic", "gl": "Capturas do animatic" },
+      { "es": "Layout de la escena 2D", "en": "2D Scene Layout", "ca": "Layout de l'escena 2D", "gl": "Layout da escena 2D" },
+      { "es": "Loop: chasqueo de dedos", "en": "Loop: Finger Snap", "ca": "Loop: petec de dits", "gl": "Loop: estalo de dedos" },
+      { "es": "Proceso de coloreado", "en": "Coloring Process", "ca": "Procés de coloració", "gl": "Proceso de coloreado" },
+      { "es": "Layout del espacio 3D", "en": "3D Space Layout", "ca": "Layout de l'espai 3D", "gl": "Layout do espazo 3D" },
+      { "es": "Geometría base", "en": "Base Geometry", "ca": "Geometria base", "gl": "Xeometría base" },
+      { "es": "Resultado final 2D", "en": "Final 2D Result", "ca": "Resultat final 2D", "gl": "Resultado final 2D" },
+      { "es": "Resultado Final (Teaser)", "en": "Final Result (Teaser)", "ca": "Resultat Final (Tràiler)", "gl": "Resultado Final (Teaser)" }
+    ]
+  },
+  "craion_character": {
+    "title": {
+      "es": "Craión - Personaje Colorín Decolorado",
+      "en": "Craión - Colorín Decolorado Character",
+      "ca": "Craión - Personatge Colorín Decolorat",
+      "gl": "Craión - Personaxe Colorín Decolorado"
+    },
+    "process_labels": [
+      { "es": "Storyboard", "en": "Storyboard", "ca": "Storyboard", "gl": "Storyboard" },
+      { "es": "Animatic", "en": "Animatic", "ca": "Animàtic", "gl": "Animatic" },
+      { "es": "Layout 2D de prueba", "en": "2D Layout Test", "ca": "Layout 2D de prova", "gl": "Layout 2D de proba" },
+      { "es": "Evolución del personaje", "en": "Character Evolution", "ca": "Evolució del personatge", "gl": "Evolución do personaxe" },
+      { "es": "Animación del personaje", "en": "Character Animation", "ca": "Animació del personatge", "gl": "Animación do personaxe" },
+      { "es": "Edición de partes de live action", "en": "Live Action Editing", "ca": "Edició de parts de live action", "gl": "Edición de partes de live action" },
+      { "es": "Combinación 2D + live action", "en": "2D + Live Action Combination", "ca": "Combinació 2D + live action", "gl": "Combinación 2D + live action" },
+      { "es": "Combinación 2D + live action", "en": "2D + Live Action Combination", "ca": "Combinació 2D + live action", "gl": "Combinación 2D + live action" },
+      { "es": "Layout de escena híbrida", "en": "Hybrid Scene Layout", "ca": "Layout d'escena híbrida", "gl": "Layout de escena híbrida" },
+      { "es": "Geometría base", "en": "Base Geometry", "ca": "Geometria base", "gl": "Xeometría base" },
+      { "es": "Resultado final 2D", "en": "Final 2D Result", "ca": "Resultat final 2D", "gl": "Resultado final 2D" },
+      { "es": "Resultado Final (Teaser)", "en": "Final Result (Teaser)", "ca": "Resultat Final (Tràiler)", "gl": "Resultado Final (Teaser)" }
+    ]
   }
 }

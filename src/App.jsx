@@ -181,15 +181,18 @@ const PortfolioOverview = ({ onProjectSelect, onTabClick }) => {
                         <img src={item.src} alt={item.title || ''} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         {item.type === 'video' && (
                           <div style={{
-                            position: 'absolute', top: '50%', left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            backgroundColor: 'var(--color-primary)', padding: '10px', borderRadius: '50%',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                            position: 'absolute', top: '8px', left: '8px',
+                            backgroundColor: 'var(--color-primary)', color: 'white',
+                            padding: '3px 8px', borderRadius: '10px',
+                            fontSize: '0.6rem', fontWeight: 800, zIndex: 2,
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                            display: 'flex', alignItems: 'center', gap: '4px',
+                            border: '1px solid rgba(255,255,255,0.3)'
                           }}>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style={{ marginLeft: '2px' }}>
+                            <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
                               <polygon points="5 3 19 12 5 21 5 3" />
                             </svg>
+                            VIDEO
                           </div>
                         )}
                       </div>

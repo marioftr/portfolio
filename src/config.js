@@ -6,6 +6,6 @@
 // adaptada al estado de cada flag individual.
 export const PORTFOLIO_READY_GAME_DEV     = false;
 export const PORTFOLIO_READY_ARTIST_2D_3D = true;
-export const PORTFOLIO_READY_VIDEO_EDITOR = false;
+export const PORTFOLIO_READY_VIDEO_EDITOR = true;
 
 // ─────────────────────────────────────────────────────────────────────────────

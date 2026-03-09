@@ -83,8 +83,7 @@ export const profileImages = {
                     { src: '/images/BridaCaballo_3DSubstance_02.jpg', label_index: 3 },
                     { src: '/images/BridaCaballo_3DSubstance_01.jpg', label_index: 4 }
                 ]
-            },
-            { 
+            },            { 
                 src: '/images/resaca3.png', 
                 type: 'image', 
                 title_key: 'spatial_design', 
@@ -94,6 +93,63 @@ export const profileImages = {
                     { src: '/images/resaca5.png', label_index: 1 },
                     { src: '/images/resaca6.png', label_index: 2 },
                     { src: '/images/resaca3.png', label_index: 3 }
+                ]
+            },
+            { 
+                src: '/images/cd_nero_imagen1.avif', 
+                type: 'video', 
+                title_key: 'nero_character', 
+                projectId: 'colorin',
+                process: [
+                    { src: '/images/cd_nero_imagen11.avif', label_index: 0 },
+                    { src: '/images/cd_nero_imagen10.avif', label_index: 1 },
+                    { src: '/images/cd_nero_imagen3.avif',  label_index: 2 },
+                    { src: '/images/cd_nero_imagen4.avif',  label_index: 3 },
+                    { src: '/images/cd_nero_imagen5.avif',  label_index: 4 },
+                    { src: '/images/cd_nero_imagen6.avif',  label_index: 5 },
+                    { src: '/images/cd_nero_imagen9.avif',  label_index: 6 },
+                    { src: '/images/cd_nero_imagen7.avif',  label_index: 7 },
+                    { src: '/images/cd_nero_imagen8.avif',  label_index: 8 },
+                    { src: '/images/cd_nero_imagen2.avif',  label_index: 9 },
+                    { src: '/images/cd_nero_imagen1.avif',  label_index: 10 },
+                    { src: '/images/cd_nero_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936330', label_index: 11 }
+                ]
+            },
+            { 
+                src: '/images/cd_coral_imagen1.avif', 
+                type: 'video', 
+                title_key: 'coral_character', 
+                projectId: 'colorin',
+                process: [
+                    { src: '/images/cd_coral_imagen7.avif', label_index: 0 },
+                    { src: '/images/cd_coral_imagen8.avif', label_index: 1 },
+                    { src: '/images/cd_coral_imagen3.avif', label_index: 2 },
+                    { src: '/images/cd_coral_imagen4.avif', label_index: 3 },
+                    { src: '/images/cd_coral_imagen5.avif', label_index: 4 },
+                    { src: '/images/cd_coral_imagen6.avif', label_index: 5 },
+                    { src: '/images/cd_coral_imagen2.avif', label_index: 6 },
+                    { src: '/images/cd_coral_imagen1.avif', label_index: 7 },
+                    { src: '/images/cd_coral_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936347', label_index: 8 }
+                ]
+            },
+            { 
+                src: '/images/cd_craion_imagen1.avif', 
+                type: 'video', 
+                title_key: 'craion_character', 
+                projectId: 'colorin',
+                process: [
+                    { src: '/images/cd_craion_imagen10.avif', label_index: 0 },
+                    { src: '/images/cd_craion_imagen10.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104957944', label_index: 1 },
+                    { src: '/images/cd_craion_imagen5.avif',  label_index: 2 },
+                    { src: '/images/cd_craion_imagen4.avif',  label_index: 3 },
+                    { src: '/images/cd_craion_imagen6.avif',  label_index: 4 },
+                    { src: '/images/cd_craion_imagen7.avif',  label_index: 5 },
+                    { src: '/images/cd_craion_imagen8.avif',  label_index: 6 },
+                    { src: '/images/cd_craion_imagen9.avif',  label_index: 7 },
+                    { src: '/images/cd_craion_imagen3.avif',  label_index: 8 },
+                    { src: '/images/cd_craion_imagen2.avif',  label_index: 9 },
+                    { src: '/images/cd_craion_imagen1.avif',  label_index: 10 },
+                    { src: '/images/cd_craion_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936375', label_index: 11 }
                 ]
             },
             { 
@@ -111,9 +167,63 @@ export const profileImages = {
             }
         ],
         video_editor: [
-            { src: '/images/colorin2.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936330', title: 'Colorín Decolorado - Teaser Nero', projectId: 'colorin' },
-            { src: '/images/colorin3.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936347', title: 'Colorín Decolorado - Teaser Coral', projectId: 'colorin' },
-            { src: '/images/colorin4.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936375', title: 'Colorín Decolorado - Teaser Craión', projectId: 'colorin' }
+            { 
+                src: '/images/cd_nero_imagen1.avif', 
+                type: 'video', 
+                title_key: 'nero_character', 
+                projectId: 'colorin',
+                process: [
+                    { src: '/images/cd_nero_imagen11.avif', label_index: 0 },
+                    { src: '/images/cd_nero_imagen10.avif', label_index: 1 },
+                    { src: '/images/cd_nero_imagen3.avif',  label_index: 2 },
+                    { src: '/images/cd_nero_imagen4.avif',  label_index: 3 },
+                    { src: '/images/cd_nero_imagen5.avif',  label_index: 4 },
+                    { src: '/images/cd_nero_imagen6.avif',  label_index: 5 },
+                    { src: '/images/cd_nero_imagen9.avif',  label_index: 6 },
+                    { src: '/images/cd_nero_imagen7.avif',  label_index: 7 },
+                    { src: '/images/cd_nero_imagen8.avif',  label_index: 8 },
+                    { src: '/images/cd_nero_imagen2.avif',  label_index: 9 },
+                    { src: '/images/cd_nero_imagen1.avif',  label_index: 10 },
+                    { src: '/images/cd_nero_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936330', label_index: 11 }
+                ]
+            },
+            { 
+                src: '/images/cd_coral_imagen1.avif', 
+                type: 'video', 
+                title_key: 'coral_character', 
+                projectId: 'colorin',
+                process: [
+                    { src: '/images/cd_coral_imagen7.avif', label_index: 0 },
+                    { src: '/images/cd_coral_imagen8.avif', label_index: 1 },
+                    { src: '/images/cd_coral_imagen3.avif', label_index: 2 },
+                    { src: '/images/cd_coral_imagen4.avif', label_index: 3 },
+                    { src: '/images/cd_coral_imagen5.avif', label_index: 4 },
+                    { src: '/images/cd_coral_imagen6.avif', label_index: 5 },
+                    { src: '/images/cd_coral_imagen2.avif', label_index: 6 },
+                    { src: '/images/cd_coral_imagen1.avif', label_index: 7 },
+                    { src: '/images/cd_coral_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936347', label_index: 8 }
+                ]
+            },
+            { 
+                src: '/images/cd_craion_imagen1.avif', 
+                type: 'video', 
+                title_key: 'craion_character', 
+                projectId: 'colorin',
+                process: [
+                    { src: '/images/cd_craion_imagen10.avif', label_index: 0 },
+                    { src: '/images/cd_craion_imagen10.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104957944', label_index: 1 },
+                    { src: '/images/cd_craion_imagen5.avif',  label_index: 2 },
+                    { src: '/images/cd_craion_imagen4.avif',  label_index: 3 },
+                    { src: '/images/cd_craion_imagen6.avif',  label_index: 4 },
+                    { src: '/images/cd_craion_imagen7.avif',  label_index: 5 },
+                    { src: '/images/cd_craion_imagen8.avif',  label_index: 6 },
+                    { src: '/images/cd_craion_imagen9.avif',  label_index: 7 },
+                    { src: '/images/cd_craion_imagen3.avif',  label_index: 8 },
+                    { src: '/images/cd_craion_imagen2.avif',  label_index: 9 },
+                    { src: '/images/cd_craion_imagen1.avif',  label_index: 10 },
+                    { src: '/images/cd_craion_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936375', label_index: 11 }
+                ]
+            }
         ]
     }
 };
@@ -357,21 +467,18 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                     />
                     {item.type === 'video' && (
                         <div style={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            backgroundColor: 'var(--color-primary)',
-                            padding: '12px',
-                            borderRadius: '50%',
-                            boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
+                            position: 'absolute', top: '8px', left: '8px',
+                            backgroundColor: 'var(--color-primary)', color: 'white',
+                            padding: '3px 8px', borderRadius: '10px',
+                            fontSize: '0.6rem', fontWeight: 800, zIndex: 2,
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                            display: 'flex', alignItems: 'center', gap: '4px',
+                            border: '1px solid rgba(255,255,255,0.3)'
                         }}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" style={{ marginLeft: '2px' }}>
+                            <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
                                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
                             </svg>
+                            VIDEO
                         </div>
                     )}
                 </div>
@@ -588,34 +695,36 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                     }}
                                     onClick={() => setSelectedItemIndex(null)}
                                 >
-                                    {/* INFO — título y categoría centrados */}
-                                    <div
-                                        style={{ width: '100%', textAlign: 'center', flexShrink: 0 }}
-                                        onClick={e => e.stopPropagation()}
-                                    >
-                                        <div style={{
-                                            fontFamily: 'inherit',
-                                            color: 'var(--color-primary)',
-                                            fontSize: '0.7rem',
-                                            fontWeight: 900,
-                                            textTransform: 'uppercase',
-                                            letterSpacing: '2px'
-                                        }}>
-                                            {sectionTitles[item.categoryLabel]?.[language] || sectionTitles[item.categoryLabel]?.es}
+                                    {/* Portrait: INFO at top */}
+                                    {usePortraitLayout && (
+                                        <div
+                                            style={{ width: '100%', textAlign: 'center', flexShrink: 0 }}
+                                            onClick={e => e.stopPropagation()}
+                                        >
+                                            <div style={{
+                                                fontFamily: 'inherit',
+                                                color: 'var(--color-primary)',
+                                                fontSize: '0.7rem',
+                                                fontWeight: 900,
+                                                textTransform: 'uppercase',
+                                                letterSpacing: '2px'
+                                            }}>
+                                                {sectionTitles[item.categoryLabel]?.[language] || sectionTitles[item.categoryLabel]?.es}
+                                            </div>
+                                            <h3 style={{
+                                                fontFamily: 'inherit',
+                                                color: 'white',
+                                                fontSize: isMobile ? '1.2rem' : '1.5rem',
+                                                fontWeight: 900,
+                                                margin: '0.2rem 0 0',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis'
+                                            }}>
+                                                {displayTitle}
+                                            </h3>
                                         </div>
-                                        <h3 style={{
-                                            fontFamily: 'inherit',
-                                            color: 'white',
-                                            fontSize: isMobile ? '1.2rem' : '1.5rem',
-                                            fontWeight: 900,
-                                            margin: '0.2rem 0 0',
-                                            whiteSpace: 'nowrap',
-                                            overflow: 'hidden',
-                                            textOverflow: 'ellipsis'
-                                        }}>
-                                            {displayTitle}
-                                        </h3>
-                                    </div>
+                                    )}
 
                                     {/* MAIN ROW: imagen + sidebar proceso */}
                                     <div
@@ -630,72 +739,188 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                         }}
                                         onClick={e => e.stopPropagation()}
                                     >
-                                        {/* Imagen / Vídeo principal */}
-                                        <div style={{
-                                            flex: 1,
-                                            minWidth: 0,
-                                            minHeight: 0,
-                                            height: '100%',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            overflow: 'hidden'
-                                        }}>
-                                            {isCurrentVideo ? (
-                                                <div style={{
-                                                    width: '100%',
-                                                    maxWidth: 'min(100%, calc(100vh * 16/9 * 0.6))',
-                                                    aspectRatio: '16/9',
-                                                    borderRadius: '12px',
-                                                    overflow: 'hidden',
-                                                    boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
-                                                    position: 'relative',
-                                                    backgroundColor: '#000'
-                                                }}>
-                                                    {!isVideoPlaying ? (
-                                                        <div
-                                                            style={{ width: '100%', height: '100%', cursor: 'pointer', position: 'relative' }}
-                                                            onClick={() => setVideoPlayingIdx(idx)}
-                                                        >
-                                                            <img src={displaySrc} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} alt="Preview" />
-                                                            <div style={{
-                                                                position: 'absolute', top: '50%', left: '50%',
-                                                                transform: 'translate(-50%, -50%)',
-                                                                backgroundColor: 'var(--color-primary)',
-                                                                width: '64px', height: '64px', borderRadius: '50%',
-                                                                display: 'flex', alignItems: 'center', justifyContent: 'center'
-                                                            }}>
-                                                                <svg width="30" height="30" viewBox="0 0 24 24" fill="white" style={{ marginLeft: '4px' }}>
-                                                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                                                </svg>
-                                                            </div>
+                                        {/* Desktop: columna izquierda (info + imagen + botón) / Portrait: solo imagen */}
+                                        {!usePortraitLayout ? (
+                                            <div style={{
+                                                flex: 1, minWidth: 0, minHeight: 0,
+                                                display: 'flex', flexDirection: 'column', gap: '0.6rem'
+                                            }}>
+                                                {/* Desktop INFO */}
+                                                <div style={{ textAlign: 'center', flexShrink: 0 }}>
+                                                    <div style={{
+                                                        fontFamily: 'inherit',
+                                                        color: 'var(--color-primary)',
+                                                        fontSize: '0.7rem',
+                                                        fontWeight: 900,
+                                                        textTransform: 'uppercase',
+                                                        letterSpacing: '2px'
+                                                    }}>
+                                                        {sectionTitles[item.categoryLabel]?.[language] || sectionTitles[item.categoryLabel]?.es}
+                                                    </div>
+                                                    <h3 style={{
+                                                        fontFamily: 'inherit',
+                                                        color: 'white',
+                                                        fontSize: '1.5rem',
+                                                        fontWeight: 900,
+                                                        margin: '0.2rem 0 0',
+                                                        whiteSpace: 'nowrap',
+                                                        overflow: 'hidden',
+                                                        textOverflow: 'ellipsis'
+                                                    }}>
+                                                        {displayTitle}
+                                                    </h3>
+                                                </div>
+                                                {/* Desktop media */}
+                                                <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                                                    {isCurrentVideo ? (
+                                                        <div style={{
+                                                            width: '100%',
+                                                            maxWidth: 'min(100%, calc(100vh * 16/9 * 0.6))',
+                                                            aspectRatio: '16/9',
+                                                            borderRadius: '12px',
+                                                            overflow: 'hidden',
+                                                            boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
+                                                            position: 'relative',
+                                                            backgroundColor: '#000'
+                                                        }}>
+                                                            {!isVideoPlaying ? (
+                                                                <div
+                                                                    style={{ width: '100%', height: '100%', cursor: 'pointer', position: 'relative' }}
+                                                                    onClick={() => setVideoPlayingIdx(idx)}
+                                                                >
+                                                                    <img src={displaySrc} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} alt="Preview" />
+                                                                    <div style={{
+                                                                        position: 'absolute', top: '50%', left: '50%',
+                                                                        transform: 'translate(-50%, -50%)',
+                                                                        backgroundColor: 'var(--color-primary)',
+                                                                        width: '64px', height: '64px', borderRadius: '50%',
+                                                                        display: 'flex', alignItems: 'center', justifyContent: 'center'
+                                                                    }}>
+                                                                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white" style={{ marginLeft: '4px' }}>
+                                                                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            ) : (
+                                                                <iframe
+                                                                    width="100%" height="100%"
+                                                                    src={currentVideoUrl.includes('?') ? `${currentVideoUrl}&autoplay=1` : `${currentVideoUrl}?autoplay=1`}
+                                                                    frameBorder="0" allowFullScreen
+                                                                    allow="autoplay; fullscreen"
+                                                                />
+                                                            )}
                                                         </div>
                                                     ) : (
-                                                        <iframe
-                                                            width="100%" height="100%"
-                                                            src={currentVideoUrl.includes('?') ? `${currentVideoUrl}&autoplay=1` : `${currentVideoUrl}?autoplay=1`}
-                                                            frameBorder="0" allowFullScreen
-                                                            allow="autoplay; fullscreen"
+                                                        <img
+                                                            src={displaySrc}
+                                                            alt={displayTitle}
+                                                            style={{
+                                                                maxWidth: '100%',
+                                                                maxHeight: '100%',
+                                                                width: 'auto',
+                                                                height: 'auto',
+                                                                objectFit: 'contain',
+                                                                borderRadius: '10px',
+                                                                boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
+                                                                display: 'block'
+                                                            }}
                                                         />
                                                     )}
                                                 </div>
-                                            ) : (
-                                                <img
-                                                    src={displaySrc}
-                                                    alt={displayTitle}
-                                                    style={{
-                                                        maxWidth: '100%',
-                                                        maxHeight: '100%',
-                                                        width: 'auto',
-                                                        height: 'auto',
-                                                        objectFit: 'contain',
-                                                        borderRadius: '10px',
+                                                {/* Desktop BUTTON */}
+                                                <div style={{ flexShrink: 0, textAlign: 'center' }}>
+                                                    <button
+                                                        onClick={() => handleViewFullProject(item.projectId)}
+                                                        style={{
+                                                            fontFamily: 'inherit',
+                                                            background: 'none',
+                                                            border: '1px solid var(--color-primary)',
+                                                            color: 'var(--color-primary)',
+                                                            cursor: 'pointer',
+                                                            fontSize: '0.85rem',
+                                                            fontWeight: 700,
+                                                            padding: '0.35rem 1.2rem',
+                                                            borderRadius: '20px',
+                                                            display: 'inline-flex',
+                                                            alignItems: 'center',
+                                                            gap: '6px',
+                                                            transition: 'background 0.2s, color 0.2s'
+                                                        }}
+                                                        onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-primary)'; e.currentTarget.style.color = 'white'; }}
+                                                        onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = 'var(--color-primary)'; }}
+                                                    >
+                                                        {language === 'en' ? 'View Full Project' : 'Ver proyecto completo'} ➜
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            /* Portrait: Imagen / Vídeo principal */
+                                            <div style={{
+                                                flex: 1,
+                                                minWidth: 0,
+                                                minHeight: 0,
+                                                height: '100%',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                overflow: 'hidden'
+                                            }}>
+                                                {isCurrentVideo ? (
+                                                    <div style={{
+                                                        width: '100%',
+                                                        maxWidth: 'min(100%, calc(100vh * 16/9 * 0.6))',
+                                                        aspectRatio: '16/9',
+                                                        borderRadius: '12px',
+                                                        overflow: 'hidden',
                                                         boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
-                                                        display: 'block'
-                                                    }}
-                                                />
-                                            )}
-                                        </div>
+                                                        position: 'relative',
+                                                        backgroundColor: '#000'
+                                                    }}>
+                                                        {!isVideoPlaying ? (
+                                                            <div
+                                                                style={{ width: '100%', height: '100%', cursor: 'pointer', position: 'relative' }}
+                                                                onClick={() => setVideoPlayingIdx(idx)}
+                                                            >
+                                                                <img src={displaySrc} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} alt="Preview" />
+                                                                <div style={{
+                                                                    position: 'absolute', top: '50%', left: '50%',
+                                                                    transform: 'translate(-50%, -50%)',
+                                                                    backgroundColor: 'var(--color-primary)',
+                                                                    width: '64px', height: '64px', borderRadius: '50%',
+                                                                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                                                                }}>
+                                                                    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" style={{ marginLeft: '4px' }}>
+                                                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        ) : (
+                                                            <iframe
+                                                                width="100%" height="100%"
+                                                                src={currentVideoUrl.includes('?') ? `${currentVideoUrl}&autoplay=1` : `${currentVideoUrl}?autoplay=1`}
+                                                                frameBorder="0" allowFullScreen
+                                                                allow="autoplay; fullscreen"
+                                                            />
+                                                        )}
+                                                    </div>
+                                                ) : (
+                                                    <img
+                                                        src={displaySrc}
+                                                        alt={displayTitle}
+                                                        style={{
+                                                            maxWidth: '100%',
+                                                            maxHeight: '100%',
+                                                            width: 'auto',
+                                                            height: 'auto',
+                                                            objectFit: 'contain',
+                                                            borderRadius: '10px',
+                                                            boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
+                                                            display: 'block'
+                                                        }}
+                                                    />
+                                                )}
+                                            </div>
+                                        )}
 
                                         {/* Label foto activa — solo en portrait */}
                                         {usePortraitLayout && hasProcess && processImages[effectiveActiveIdx] && (
@@ -811,34 +1036,36 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                         )}
                                     </div>
 
-                                    {/* BUTTON */}
-                                    <div
-                                        style={{ flexShrink: 0, textAlign: 'center' }}
-                                        onClick={e => e.stopPropagation()}
-                                    >
-                                        <button
-                                            onClick={() => handleViewFullProject(item.projectId)}
-                                            style={{
-                                                fontFamily: 'inherit',
-                                                background: 'none',
-                                                border: '1px solid var(--color-primary)',
-                                                color: 'var(--color-primary)',
-                                                cursor: 'pointer',
-                                                fontSize: '0.85rem',
-                                                fontWeight: 700,
-                                                padding: '0.35rem 1.2rem',
-                                                borderRadius: '20px',
-                                                display: 'inline-flex',
-                                                alignItems: 'center',
-                                                gap: '6px',
-                                                transition: 'background 0.2s, color 0.2s'
-                                            }}
-                                            onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-primary)'; e.currentTarget.style.color = 'white'; }}
-                                            onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = 'var(--color-primary)'; }}
+                                    {/* Portrait: BUTTON at bottom */}
+                                    {usePortraitLayout && (
+                                        <div
+                                            style={{ flexShrink: 0, textAlign: 'center' }}
+                                            onClick={e => e.stopPropagation()}
                                         >
-                                            {language === 'en' ? 'View Full Project' : 'Ver proyecto completo'} ➜
-                                        </button>
-                                    </div>
+                                            <button
+                                                onClick={() => handleViewFullProject(item.projectId)}
+                                                style={{
+                                                    fontFamily: 'inherit',
+                                                    background: 'none',
+                                                    border: '1px solid var(--color-primary)',
+                                                    color: 'var(--color-primary)',
+                                                    cursor: 'pointer',
+                                                    fontSize: '0.85rem',
+                                                    fontWeight: 700,
+                                                    padding: '0.35rem 1.2rem',
+                                                    borderRadius: '20px',
+                                                    display: 'inline-flex',
+                                                    alignItems: 'center',
+                                                    gap: '6px',
+                                                    transition: 'background 0.2s, color 0.2s'
+                                                }}
+                                                onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-primary)'; e.currentTarget.style.color = 'white'; }}
+                                                onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = 'var(--color-primary)'; }}
+                                            >
+                                                {language === 'en' ? 'View Full Project' : 'Ver proyecto completo'} ➜
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             );
                         })}
