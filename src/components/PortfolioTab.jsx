@@ -42,6 +42,9 @@ export const profileImages = {
                 type: 'image', 
                 title_key: 'wood_cart_asset', 
                 projectId: 'establo',
+                externalLinks: [
+                    { platform: 'artstation', url: 'https://marioftr.artstation.com/projects/3E5bn2' }
+                ],
                 process: [
                     { src: '/images/WoodCart_PureRef.png', label_index: 0 },
                     { src: '/images/WoodCart_ZBrush_01.png', label_index: 1 },
@@ -76,6 +79,9 @@ export const profileImages = {
                 type: 'image', 
                 title_key: 'bridle_asset', 
                 projectId: 'establo',
+                externalLinks: [
+                    { platform: 'artstation', url: 'https://marioftr.artstation.com/projects/8BKmam' }
+                ],
                 process: [
                     { src: '/images/BridaCaballo_Maya.png', label_index: 0 },
                     { src: '/images/BridaCaballo_ZBrush.png', label_index: 1 },
@@ -575,26 +581,34 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                             onClick={(e) => { e.stopPropagation(); setSelectedItemIndex(null); navigate(`/${language}/${switchProfileSlug}/portfolio`); }}
                             style={{
                                 position: 'absolute',
-                                top: isMobile ? '1rem' : '2rem',
-                                left: isMobile ? '1rem' : '2rem',
+                                ...(isMobile
+                                    ? { bottom: '1.25rem', left: '50%', transform: 'translateX(-50%)' }
+                                    : { top: '2rem', left: '2rem' }
+                                ),
                                 zIndex: 1000001,
-                                background: 'white',
-                                border: 'none',
-                                borderRadius: '20px',
-                                padding: '0.4rem 1rem',
+                                background: 'rgba(255,255,255,0.12)',
+                                border: '1px solid rgba(255,255,255,0.35)',
+                                backdropFilter: 'blur(8px)',
+                                borderRadius: '10px',
+                                padding: '0.45rem 1.1rem',
                                 cursor: 'pointer',
                                 fontWeight: 700,
                                 fontSize: '0.8rem',
-                                color: 'var(--color-primary)',
+                                color: 'white',
                                 fontFamily: 'inherit',
                                 display: 'inline-flex',
                                 alignItems: 'center',
-                                gap: '4px'
+                                gap: '6px',
+                                whiteSpace: 'nowrap',
+                                transition: 'background 0.2s, border-color 0.2s'
                             }}
+                            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; }}
                         >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
                             {switchProfileLabel
-                                ? (language === 'en' ? `Switch to ${switchProfileLabel} →` : language === 'ca' ? `Canviar a ${switchProfileLabel} →` : `Cambiar a perfil de ${switchProfileLabel} →`)
-                                : (language === 'en' ? 'Switch profile →' : language === 'ca' ? 'Canviar de perfil →' : 'Cambiar de perfil →')
+                                ? (language === 'en' ? `Switch to ${switchProfileLabel}` : language === 'ca' ? `Canviar de perfil a ${switchProfileLabel}` : `Cambiar de perfil a ${switchProfileLabel}`)
+                                : (language === 'en' ? 'Switch profile' : language === 'ca' ? 'Canviar de perfil' : 'Cambiar de perfil')
                             }
                         </button>
                     )}
@@ -828,7 +842,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                     )}
                                                 </div>
                                                 {/* Desktop BUTTON */}
-                                                <div style={{ flexShrink: 0, textAlign: 'center' }}>
+                                                <div style={{ flexShrink: 0, textAlign: 'center', display: 'flex', gap: '0.6rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                                                     <button
                                                         onClick={() => handleViewFullProject(item.projectId)}
                                                         style={{
@@ -840,7 +854,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                             fontSize: '0.85rem',
                                                             fontWeight: 700,
                                                             padding: '0.35rem 1.2rem',
-                                                            borderRadius: '20px',
+                                                            borderRadius: '10px',
                                                             display: 'inline-flex',
                                                             alignItems: 'center',
                                                             gap: '6px',
@@ -851,6 +865,36 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                     >
                                                         {language === 'en' ? 'View Full Project' : 'Ver proyecto completo'} ➜
                                                     </button>
+                                                    {item.externalLinks?.map((link, li) => {
+                                                        const names = { artstation: 'ArtStation', github: 'GitHub', itch: 'itch.io', behance: 'Behance', vimeo: 'Vimeo', youtube: 'YouTube' };
+                                                        const label = { es: 'Ver en', en: 'View on', ca: 'Veure a', gl: 'Ver en' }[language] || 'Ver en';
+                                                        return (
+                                                            <a key={li} href={link.url} target="_blank" rel="noopener noreferrer"
+                                                                style={{
+                                                                    fontFamily: 'inherit',
+                                                                    background: 'none',
+                                                                    border: '1px solid rgba(255,255,255,0.4)',
+                                                                    color: 'rgba(255,255,255,0.85)',
+                                                                    cursor: 'pointer',
+                                                                    fontSize: '0.85rem',
+                                                                    fontWeight: 700,
+                                                                    padding: '0.35rem 1.2rem',
+                                                                    borderRadius: '10px',
+                                                                    display: 'inline-flex',
+                                                                    alignItems: 'center',
+                                                                    gap: '6px',
+                                                                    textDecoration: 'none',
+                                                                    transition: 'background 0.2s, color 0.2s, border-color 0.2s'
+                                                                }}
+                                                                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.borderColor = 'white'; e.currentTarget.style.color = 'white'; }}
+                                                                onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; e.currentTarget.style.color = 'rgba(255,255,255,0.85)'; }}
+                                                            >
+                                                                {link.platform === 'artstation' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.129-1.268H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/></svg>}
+                                                                {link.platform === 'github' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>}
+                                                                {label} {names[link.platform] || link.platform}
+                                                            </a>
+                                                        );
+                                                    })}
                                                 </div>
                                             </div>
                                         ) : (
@@ -943,6 +987,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                         {/* Sidebar del proceso — columna derecha en desktop, tira horizontal en mobile */}
                                         {hasProcess && (
                                             <div
+                                                className="process-sidebar"
                                                 style={{
                                                     width: usePortraitLayout ? '100%' : '200px',
                                                     flexShrink: 0,
@@ -952,7 +997,6 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                     overflowY: usePortraitLayout ? 'hidden' : 'auto',
                                                     overflowX: usePortraitLayout ? 'auto' : 'hidden',
                                                     padding: usePortraitLayout ? '0.25rem 0' : '0.5rem 0',
-                                                    scrollbarWidth: 'none'
                                                 }}
                                             >
                                                 {!usePortraitLayout && (
@@ -1020,14 +1064,20 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                                 )}
                                                             </div>
                                                             {!usePortraitLayout && (
-                                                                <span style={{
-                                                                    fontFamily: 'inherit',
-                                                                    color: isActive ? 'var(--color-primary)' : 'rgba(255,255,255,0.8)',
-                                                                    fontSize: '0.72rem',
-                                                                    fontWeight: isActive ? 700 : 400,
-                                                                    lineHeight: 1.3,
-                                                                    flex: 1
-                                                                }}>{pImg.label}</span>
+                                                                <>
+                                                                    <span style={{
+                                                                        fontFamily: 'inherit',
+                                                                        color: isActive ? 'var(--color-primary)' : 'rgba(255,255,255,0.8)',
+                                                                        fontSize: '0.72rem',
+                                                                        fontWeight: isActive ? 700 : 400,
+                                                                        lineHeight: 1.3,
+                                                                        flex: 1,
+                                                                        minWidth: 0,
+                                                                        overflow: 'hidden',
+                                                                        wordBreak: 'break-word'
+                                                                    }}>{pImg.label}</span>
+                                                                    <span style={{ flexShrink: 0, width: '8px' }} />
+                                                                </>
                                                             )}
                                                         </div>
                                                     );
@@ -1039,7 +1089,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                     {/* Portrait: BUTTON at bottom */}
                                     {usePortraitLayout && (
                                         <div
-                                            style={{ flexShrink: 0, textAlign: 'center' }}
+                                            style={{ flexShrink: 0, textAlign: 'center', display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }}
                                             onClick={e => e.stopPropagation()}
                                         >
                                             <button
@@ -1053,7 +1103,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                     fontSize: '0.85rem',
                                                     fontWeight: 700,
                                                     padding: '0.35rem 1.2rem',
-                                                    borderRadius: '20px',
+                                                    borderRadius: '10px',
                                                     display: 'inline-flex',
                                                     alignItems: 'center',
                                                     gap: '6px',
@@ -1064,6 +1114,36 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                             >
                                                 {language === 'en' ? 'View Full Project' : 'Ver proyecto completo'} ➜
                                             </button>
+                                            {item.externalLinks?.map((link, li) => {
+                                                const names = { artstation: 'ArtStation', github: 'GitHub', itch: 'itch.io', behance: 'Behance', vimeo: 'Vimeo', youtube: 'YouTube' };
+                                                const label = { es: 'Ver en', en: 'View on', ca: 'Veure a', gl: 'Ver en' }[language] || 'Ver en';
+                                                return (
+                                                    <a key={li} href={link.url} target="_blank" rel="noopener noreferrer"
+                                                        style={{
+                                                            fontFamily: 'inherit',
+                                                            background: 'none',
+                                                            border: '1px solid rgba(255,255,255,0.4)',
+                                                            color: 'rgba(255,255,255,0.85)',
+                                                            cursor: 'pointer',
+                                                            fontSize: '0.85rem',
+                                                            fontWeight: 700,
+                                                            padding: '0.35rem 1.2rem',
+                                                            borderRadius: '10px',
+                                                            display: 'inline-flex',
+                                                            alignItems: 'center',
+                                                            gap: '6px',
+                                                            textDecoration: 'none',
+                                                            transition: 'background 0.2s, color 0.2s, border-color 0.2s'
+                                                        }}
+                                                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.borderColor = 'white'; e.currentTarget.style.color = 'white'; }}
+                                                        onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; e.currentTarget.style.color = 'rgba(255,255,255,0.85)'; }}
+                                                    >
+                                                        {link.platform === 'artstation' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.129-1.268H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/></svg>}
+                                                        {link.platform === 'github' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>}
+                                                        {label} {names[link.platform] || link.platform}
+                                                    </a>
+                                                );
+                                            })}
                                         </div>
                                     )}
                                 </div>

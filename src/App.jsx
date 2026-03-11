@@ -59,9 +59,9 @@ const PROFILE_ORDERED = [
 ];
 
 const SECTION_TITLES_OV = {
-  game_dev:     { es: 'Desarrollo de Videojuegos', en: 'Game Development',   ca: 'Desenvolupament de Videojocs', gl: 'Desenvolvemento de Videoxogos' },
-  artist_2d_3d: { es: 'Arte 2D & 3D',              en: '2D & 3D Art',         ca: 'Art 2D i 3D',                  gl: 'Arte 2D e 3D' },
-  video_editor: { es: 'Edición de Vídeo',           en: 'Video Editing',       ca: 'Edició de Vídeo',              gl: 'Edición de Vídeo' }
+  game_dev:     { es: 'Programador de Videojuegos', en: 'Game Programmer',  ca: 'Programador de Videojocs', gl: 'Programador de Videoxogos' },
+  artist_2d_3d: { es: 'Artista 2D y 3D',            en: '2D & 3D Artist',   ca: 'Artista 2D i 3D',          gl: 'Artista 2D e 3D' },
+  video_editor: { es: 'Editor de Vídeo',             en: 'Video Editor',     ca: 'Editor de Vídeo',          gl: 'Editor de Vídeo' }
 };
 
 const PortfolioOverview = ({ onProjectSelect, onTabClick }) => {

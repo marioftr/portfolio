@@ -299,6 +299,30 @@ button {
 .btn-outline:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.process-sidebar {
+  scrollbar-width: none;
+}
+.process-sidebar:hover {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.35) transparent;
+}
+.process-sidebar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.process-sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 2px;
+}
+.process-sidebar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.35);
+}
+.process-sidebar::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .nav-role-selector {

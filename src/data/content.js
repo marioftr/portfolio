@@ -326,129 +326,6 @@ export const experience = [
 
 export const projects = [
     {
-        id: 'wood_cart',
-        title: { es: '3D Wood Cart', ca: '3D Wood Cart', en: '3D Wood Cart', gl: '3D Wood Cart' },
-        year: '2026',
-        category: { es: 'Prop 3D', ca: 'Prop 3D', en: '3D Prop', gl: 'Prop 3D' },
-        type: 'academic',
-        tags: ['maya', 'zbrush', 'substance'],
-        summary: {
-            es: 'Prop 3D de un carro de madera: referencias en PureRef, modelado low poly en Maya, esculpido high poly en ZBrush y texturizado PBR en Substance Painter.',
-            ca: 'Prop 3D d\'un carro de fusta: referències en PureRef, modelatge low poly a Maya, esculpit high poly a ZBrush i texturització PBR a Substance Painter.',
-            en: '3D prop of a wood cart: reference gathering in PureRef, low poly modeling in Maya, high poly sculpting in ZBrush and PBR texturing in Substance Painter.',
-            gl: 'Prop 3D dun carro de madeira: referencias en PureRef, modelado low poly en Maya, esculpido high poly en ZBrush e texturizado PBR en Substance Painter.'
-        },
-        description: {
-            es: 'Prop 3D de un carro de madera: búsqueda de referencias en PureRef, modelado low poly en Maya, esculpido high poly en ZBrush y texturizado PBR en Substance Painter.',
-            ca: 'Prop 3D d\'un carro de fusta: cerca de referències en PureRef, modelatge low poly a Maya, esculpit high poly a ZBrush i texturització PBR a Substance Painter.',
-            en: '3D prop of a wood cart: reference search in PureRef, low poly modeling in Maya, high poly sculpting in ZBrush and PBR texturing in Substance Painter.',
-            gl: 'Prop 3D dun carro de madeira: busca de referencias en PureRef, modelado low poly en Maya, esculpido high poly en ZBrush e texturizado PBR en Substance Painter.'
-        },
-        image: '/images/WoodCart_3DSubstance_01.jpg',
-        images: [
-            '/images/WoodCart_3DSubstance_01.jpg',
-            '/images/WoodCart_PureRef.png',
-            '/images/WoodCart_3DSubstance_02.jpg',
-            '/images/WoodCart_3DSubstance_03.jpg',
-            '/images/WoodCart_3DSubstance_04.jpg',
-            '/images/WoodCart_3DSubstance_05.jpg',
-            '/images/WoodCart_3DSubstance_06.jpg',
-            '/images/WoodCart_3DSubstance_07.jpg',
-            '/images/WoodCart_3DSubstance_08.jpg',
-            '/images/WoodCart_ZBrush_01.png',
-            '/images/WoodCart_ZBrush_02.png',
-            '/images/WoodCart_ZBrush_03.png',
-            '/images/WoodCart_ZBrush_04.png'
-        ],
-        longDescription: {
-            es: `## RESULTADO FINAL
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Madera - Resultado Final" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Madera - Vista General 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Madera - Detalle 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Madera - Detalle 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Madera - Detalle 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Madera - Detalle 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Madera - Detalle 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Madera - Detalle 6" /></div></div>
-
-## BÚSQUEDA DE REFERENCIAS
-Antes de modelar, se recopilaron imágenes de referencia de carros de madera históricos y se organizaron en un panel de referencias con **PureRef**, estableciendo la paleta visual, materiales y proporciones del prop.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_PureRef.png" alt="Carro de Madera - Panel de Referencias (PureRef)" /></div></div>
-
-## MODELADO LOW POLY (MAYA)
-El modelo de baja poligonización fue creado en **Autodesk Maya**. Se trabajaron los volúmenes principales del carro y, previo al paso a ZBrush, se añadieron **support loops** y **subdivisiones** para garantizar que las formas se escultían correctamente sin distorsiones en la malla.
-
-## ESCULPIDO HIGH POLY (ZBRUSH)
-Sobre el modelo low poly importado, se esculpieron en **ZBrush** los detalles de superficie: vetas de la madera envejecida, irregularidades, desgaste en los herrajes y texturas orgánicas de cada componente. Se presenta tanto el modelo de malla completa como la maya decimada con 35.000 polígonos.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_ZBrush_01.png" alt="Carro de Madera - ZBrush Mesh" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Carro de Madera - ZBrush Maya Decimada" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Carro de Madera - ZBrush Mesh (perspectiva 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Carro de Madera - ZBrush Maya Decimada (perspectiva 2)" /></div></div>
-
-## TEXTURIZADO PBR (SUBSTANCE PAINTER)
-Con los mapas de normales extraídos del high poly, se aplicó un flujo **PBR** completo en **Substance Painter**: madera envejecida con variaciones de tono y veta, metal oxidado en los herrajes y detalles de suciedad y desgaste acumulado.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Madera - Texturizado Final" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Madera - Vista General 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Madera - Detalle 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Madera - Detalle 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Madera - Detalle 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Madera - Detalle 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Madera - Detalle 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Madera - Detalle 6" /></div></div>`,
-            ca: `## RESULTAT FINAL
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Fusta - Resultat Final" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Fusta - Vista General 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Fusta - Detall 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Fusta - Detall 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Fusta - Detall 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Fusta - Detall 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Fusta - Detall 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Fusta - Detall 6" /></div></div>
-
-## CERCA DE REFERÈNCIES
-Abans de modelar, es van recopilar imatges de referència de carros de fusta històrics i es van organitzar en un tauler de referències amb **PureRef**, establint la paleta visual, materials i proporcions del prop.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_PureRef.png" alt="Carro de Fusta - Tauler de Referències (PureRef)" /></div></div>
-
-## MODELATGE LOW POLY (MAYA)
-El model de baixa poligonització va ser creat a **Autodesk Maya**. Es van treballar els volums principals del carro i, previ al pas a ZBrush, s'hi van afegir **support loops** i **subdivisions** per garantir que les formes s'esculpien correctament sense distorsions a la malla.
-
-## ESCULPIT HIGH POLY (ZBRUSH)
-Sobre el model low poly importat, es van esculpir a **ZBrush** els detalls de superfície: vetes de la fusta envellida, irregularitats, desgast als ferratges i textures orgàniques de cada component. Es presenta tant el model de malla completa com la maya decimada amb 35.000 polígons.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_ZBrush_01.png" alt="Carro de Fusta - ZBrush Malla" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Carro de Fusta - ZBrush Maya Decimada" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Carro de Fusta - ZBrush Malla (perspectiva 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Carro de Fusta - ZBrush Maya Decimada (perspectiva 2)" /></div></div>
-
-## TEXTURITZACIÓ PBR (SUBSTANCE PAINTER)
-Amb els mapes de normals extrets del high poly, s'hi va aplicar un flux **PBR** complet a **Substance Painter**: fusta envellida amb variacions de to i veta, metall oxidat als ferratges i detalls de brutícia i desgast acumulat.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Fusta - Texturització Final" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Fusta - Vista General 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Fusta - Detall 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Fusta - Detall 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Fusta - Detall 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Fusta - Detall 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Fusta - Detall 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Fusta - Detall 6" /></div></div>`,
-            en: `## FINAL RESULT
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Wood Cart - Final Result" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Wood Cart - General View 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Wood Cart - Detail 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Wood Cart - Detail 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Wood Cart - Detail 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Wood Cart - Detail 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Wood Cart - Detail 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Wood Cart - Detail 6" /></div></div>
-
-## REFERENCE GATHERING
-Before modeling, reference images of historical wooden carts were collected and organized into a reference board using **PureRef**, establishing the visual palette, materials and proportions of the prop.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_PureRef.png" alt="Wood Cart - Reference Board (PureRef)" /></div></div>
-
-## LOW POLY MODELING (MAYA)
-The low-poly base mesh was created in **Autodesk Maya**. The main volumes of the cart were blocked out and, prior to the ZBrush pass, **support loops** and **subdivisions** were added to ensure the shapes sculpted cleanly without mesh distortion.
-
-## HIGH POLY SCULPTING (ZBRUSH)
-Over the imported low poly, surface details were sculpted in **ZBrush**: wood grain on the aged timber, irregularities, hardware wear and organic textures on each component. Both the full mesh model and the decimated mesh with 35,000 polygons are presented.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_ZBrush_01.png" alt="Wood Cart - ZBrush Mesh" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Wood Cart - ZBrush Decimated Mesh" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Wood Cart - ZBrush Mesh (perspective 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Wood Cart - ZBrush Decimated Mesh (perspective 2)" /></div></div>
-
-## PBR TEXTURING (SUBSTANCE PAINTER)
-Using normal maps baked from the high poly, a full **PBR** workflow was applied in **Substance Painter**: aged wood with tone and grain variation, oxidized metal on the hardware, and accumulated dirt and wear details.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Wood Cart - Final Texturing" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Wood Cart - General View 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Wood Cart - Detail 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Wood Cart - Detail 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Wood Cart - Detail 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Wood Cart - Detail 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Wood Cart - Detail 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Wood Cart - Detail 6" /></div></div>`,
-            gl: `## RESULTADO FINAL
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Madeira - Resultado Final" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Madeira - Vista Xeral 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Madeira - Detalle 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Madeira - Detalle 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Madeira - Detalle 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Madeira - Detalle 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Madeira - Detalle 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Madeira - Detalle 6" /></div></div>
-
-## BUSCA DE REFERENCIAS
-Antes de modelar, recompilouse imaxes de referencia de carros de madeira históricos e organizáronse nun panel de referencias con **PureRef**, establecendo a paleta visual, materiais e proporcións do prop.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_PureRef.png" alt="Carro de Madeira - Panel de Referencias (PureRef)" /></div></div>
-
-## MODELADO LOW POLY (MAYA)
-O modelo de baixa poligonización foi creado en **Autodesk Maya**. Traballouse nos volumes principais do carro e, previo ao paso a ZBrush, engadíronse **support loops** e **subdivisiones** para garantir que as formas se esculpían correctamente sen distorsións na malla.
-
-## ESCULPIDO HIGH POLY (ZBRUSH)
-Sobre o modelo low poly importado, esculpíronse en **ZBrush** os detalles de superficie: vetas da madeira envellecida, irregularidades, desgaste nos ferraxes e texturas orgánicas de cada compoñente. Preséntase tanto o modelo de malla completa como a maya decimada con 35.000 polígonos.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_ZBrush_01.png" alt="Carro de Madeira - ZBrush Mesh" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Carro de Madeira - ZBrush Maya Decimada" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Carro de Madeira - ZBrush Mesh (perspectiva 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Carro de Madeira - ZBrush Maya Decimada (perspectiva 2)" /></div></div>
-
-## TEXTURIZADO PBR (SUBSTANCE PAINTER)
-Cos mapas de normais extraídos do high poly, aplicouse un fluxo **PBR** completo en **Substance Painter**: madeira envellecida con variacións de ton e veta, metal oxidado nos ferraxes e detalles de sucidade e desgaste acumulado.
-
-<div class="custom-gallery"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Madeira - Texturizado Final" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Madeira - Vista Xeral 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Madeira - Detalle 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Madeira - Detalle 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Madeira - Detalle 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Madeira - Detalle 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Madeira - Detalle 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Madeira - Detalle 6" /></div></div>`
-        },
-        roles: ['artist_2d_3d']
-    },
-    {
         id: 'establo',
         title: { es: 'Establo 3D', ca: 'Estable 3D', en: 'Stable 3D', gl: 'Estábulo 3D' },
         year: '2026',
@@ -650,6 +527,9 @@ Como parte dos activos do escenario, modelouse un carro de madeira seguindo o fl
         type: 'academic',
         tags: ['unity', 'csharp', 'photoshop', 'audacity'],
         memoryUrl: '/downloads/RESACA_Memoria.pdf',
+        externalLinks: [
+            { platform: 'github', url: 'https://github.com/marioftr/ResacaJuego' }
+        ],
         summary: {
             es: 'Experiencia narrativa con minijuegos y más de 40 scripts. Una demostración de sistemas de guardado, cinemáticas e interacción.',
             ca: 'Experiència narrativa amb minijocs i més de 40 scripts. Una demostració de sistemes de guardatge, cinemàtica i interacció.',
