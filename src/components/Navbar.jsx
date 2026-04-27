@@ -19,8 +19,8 @@ const roleKeyMap = {
 // Lista ordenada para el dropdown (un item por perfil, sin duplicados)
 const navItems = [
     { path: 'perfil-general',          id: 'all' },
-    { path: 'programador-videojuegos', id: 'game_dev' },
     { path: 'artista-2d-3d',              id: 'artist_2d_3d' },
+    { path: 'programador-videojuegos', id: 'game_dev' },
     { path: 'editor-video',            id: 'video_editor' }
 ];
 
@@ -34,8 +34,8 @@ const anyReady = Object.values(PORTFOLIO_FLAGS).some(Boolean);
 
 const roleTitles = {
     all: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' },
-    game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
     artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
+    game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
     video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' }
 };
 

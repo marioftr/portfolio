@@ -46,15 +46,15 @@ const SectionHeader = ({ title }) => (
 
 const roleTitlesMap = {
   all: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' },
-  video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' },
+  artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
   game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
-  artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' }
+  video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' }
 };
 
 // ─── PortfolioOverview (perfil general → tab Portfolio) ──────────────────────
 const PROFILE_ORDERED = [
-  { id: 'game_dev',     slug: 'programador-videojuegos' },
   { id: 'artist_2d_3d', slug: 'artista-2d-3d' },
+  { id: 'game_dev',     slug: 'programador-videojuegos' },
   { id: 'video_editor', slug: 'editor-video' }
 ];
 

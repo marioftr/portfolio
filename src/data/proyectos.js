@@ -11,13 +11,13 @@
 export const projectList = [
     {
         id: 'establo',
-        title: 'Establo 3D',
+        title: 'The Stable',
         year: '2026',
         visible: true,
         roles: ['artist_2d_3d'],
-        tags: ['unreal', 'maya', 'substance', 'zbrush', 'photoshop'],
-        isWIP: true,
-        description_es: 'Modelado, extracción de UVs, texturizado y montaje de un entorno 3D, realizado como proyecto final para el módulo de modelado y animación de videojuegos (CEI).'
+        tags: ['unreal', 'maya', 'substance', 'zbrush', 'premiere','photoshop'],
+        isWIP: false,
+        description_es: 'Escena final de un establo rural desarrollada con referencias, blockout en Maya, refinado de piezas y UVs, texturizado PBR y render en Unreal Engine.'
     },
     {
         id: 'resaca',

@@ -391,6 +391,28 @@ export default function ProjectModal({ project, onClose }) {
                         {renderedDescription}
                     </div>
 
+                    {project.tags && (
+                        <div className="flex" style={{ 
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            gap: '0.5rem',
+                            marginBottom: '2rem',
+                            width: '100%',
+                            maxWidth: '100%'
+                        }}>
+                            {project.tags.map(tagId => (
+                                <span key={tagId} className="tag" style={{ 
+                                    fontSize: '0.75rem', 
+                                    padding: '0.2rem 0.6rem',
+                                    whiteSpace: 'nowrap',
+                                    display: 'inline-block'
+                                }}>
+                                    {allSkills[tagId]?.name || tagId.replace('_', ' ')}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
                     {(project.memoryUrl || project.externalLinks?.length > 0) && (
                         <div style={{ marginBottom: '2rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center' }}>
                             {project.memoryUrl && (
@@ -444,28 +466,6 @@ export default function ProjectModal({ project, onClose }) {
                                     </a>
                                 );
                             })}
-                        </div>
-                    )}
-
-                    {project.tags && (
-                        <div className="flex" style={{ 
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            gap: '0.5rem',
-                            marginBottom: '2rem',
-                            width: '100%',
-                            maxWidth: '100%'
-                        }}>
-                            {project.tags.map(tagId => (
-                                <span key={tagId} className="tag" style={{ 
-                                    fontSize: '0.75rem', 
-                                    padding: '0.2rem 0.6rem',
-                                    whiteSpace: 'nowrap',
-                                    display: 'inline-block'
-                                }}>
-                                    {allSkills[tagId]?.name || tagId.replace('_', ' ')}
-                                </span>
-                            ))}
                         </div>
                     )}
 

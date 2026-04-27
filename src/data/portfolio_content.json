@@ -17,16 +17,19 @@
   },
   "establo_env": {
     "title": {
-      "es": "El Establo - Entorno Sandbox",
-      "en": "The Stable - Sandbox Environment",
-      "ca": "L'Estable - Entorn Sandbox",
-      "gl": "O Establo - Contorna Sandbox"
+      "es": "The Stable",
+      "en": "The Stable",
+      "ca": "The Stable",
+      "gl": "The Stable"
     },
     "process_labels": [
-      { "es": "Mapa Conceptual del Nivel", "en": "Conceptual Level Mapping", "ca": "Mapa Conceptual del Nivell", "gl": "Mapa Conceptual do Nivel" },
-      { "es": "Assets 3D Modulares", "en": "Modular 3D Assets", "ca": "Assets 3D Modulars", "gl": "Assets 3D Modulares" },
-      { "es": "Modelado del Layout en Maya", "en": "Maya Layout Modeling", "ca": "Modelat del Layout en Maya", "gl": "Modelado do Layout en Maya" },
-      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
+      { "es": "Collage de props del proyecto", "en": "Project Props Collage", "ca": "Collage de props del projecte", "gl": "Colaxe de props do proxecto" },
+      { "es": "Mapa conceptual del nivel", "en": "Conceptual Level Map", "ca": "Mapa conceptual del nivell", "gl": "Mapa conceptual do nivel" },
+      { "es": "Blocking y modelado base en Maya", "en": "Blocking and Base Modeling in Maya", "ca": "Blocking i modelatge base en Maya", "gl": "Blocking e modelado base en Maya" },
+      { "es": "Detalle del layout en Maya", "en": "Maya Layout Detail", "ca": "Detall del layout en Maya", "gl": "Detalle do layout en Maya" },
+      { "es": "Detalle del modelado final en Maya", "en": "Final Maya Modeling Detail", "ca": "Detall del modelatge final en Maya", "gl": "Detalle do modelado final en Maya" },
+      { "es": "Render principal del entorno", "en": "Main Environment Render", "ca": "Render principal de l'entorn", "gl": "Render principal da contorna" },
+      { "es": "Render alternativo del entorno", "en": "Alternate Environment Render", "ca": "Render alternatiu de l'entorn", "gl": "Render alternativo da contorna" }
     ]
   },
   "bridle_asset": {

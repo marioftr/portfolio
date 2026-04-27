@@ -22,21 +22,28 @@ export const profileImages = {
                     { src: '/images/resaca4.png', label_index: 5 },
                     { src: '/images/resaca4.png', type: 'video', videoUrl: 'https://www.youtube.com/embed/MAB_WVZ_87E', label: 'Gameplay Trailer' }
                 ]
-            },
-            { 
-                src: '/images/establo1.avif', 
-                type: 'image', 
-                title_key: 'establo_env', 
-                projectId: 'establo',
-                process: [
-                    { src: '/images/establo_mapa.png', label_index: 0 },
-                    { src: '/images/Establo_Maya03.png', label_index: 1 },
-                    { src: '/images/Establo_Maya02.png', label_index: 2 },
-                    { src: '/images/establo1.avif', label_index: 3 }
-                ]
             }
         ],
         artist_2d_3d: [
+            {
+                src: '/images/IMG_Stable_5.png',
+                type: 'video',
+                title: 'Establo 3D',
+                projectId: 'establo',
+                videoUrl: 'https://www.youtube.com/embed/v2D9x7ZD-n4',
+                process: [
+                    { src: '/images/MapaConceptual.png', label: 'Mapa Conceptual del Entorno' },
+                    { src: '/images/IMG_StableConcept_Maya_1.png', label: 'Blockout en Maya (Vista 1)' },
+                    { src: '/images/IMG_StableConcept_Maya_2.png', label: 'Blockout en Maya (Vista 2)' },
+                    { src: '/images/unreal_terreno1.png', label: 'Construcción de Terreno (Vista 1)' },
+                    { src: '/images/unreal_terreno2.png', label: 'Construcción de Terreno (Vista 2)' },
+                    { src: '/images/unreal_exterior.png', label: 'Construcción de Exterior (Vista 1)' },
+                    { src: '/images/unreal_decals1.png', label: 'Aplicación de Decals (Vista 1)' },
+                    { src: '/images/unreal_decals2.png', label: 'Aplicación de Decals (Vista 2)' },
+                    { src: '/images/unreal_posprocesado.png', label: 'Ajuste de Posprocesado' },
+                    { src: '/images/IMG_Stable_5.png', type: 'video', videoUrl: 'https://www.youtube.com/embed/v2D9x7ZD-n4', label: 'Resultado Final (Showcase)' }
+                ]
+            },
             { 
                 src: '/images/WoodCart_3DSubstance_01.jpg', 
                 type: 'image', 
@@ -317,6 +324,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
 
     // Si es perfil general (all), usamos la estructura de secciones
     const isGeneralProfile = roleId === 'all';
+    const generalProfileOrder = ['artist_2d_3d', 'game_dev', 'video_editor'];
 
     // Obtenemos las imágenes (directamente o por secciones)
     const imagesData = profileImages[roleId] || profileImages.all;
@@ -324,11 +332,11 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
     // Aplanamos todos los items para la navegación del Lightbox
     const flatItems = useMemo(() => {
         if (isGeneralProfile) {
-            return Object.entries(imagesData)
-                .filter(([key]) => key !== 'design')
-                .reduce((acc, [sectionKey, sectionItems]) => {
-                    return [...acc, ...sectionItems.map(item => ({ ...item, categoryLabel: sectionKey }))];
-                }, []);
+            return generalProfileOrder
+                .flatMap((sectionKey) => {
+                    const sectionItems = imagesData[sectionKey] || [];
+                    return sectionItems.map(item => ({ ...item, categoryLabel: sectionKey }));
+                });
         }
         return (imagesData || []).map(item => ({ ...item, categoryLabel: roleId }));
     }, [imagesData, isGeneralProfile, roleId]);
@@ -505,8 +513,8 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                 {isGeneralProfile ? (
                     (() => {
                         let currentFlatIndex = 0;
-                        return Object.entries(imagesData)
-                            .filter(([key]) => key !== 'design')
+                        return generalProfileOrder
+                            .map((sectionKey) => [sectionKey, imagesData[sectionKey] || []])
                             .map(([sectionKey, sectionItems], index, array) => {
                                 const grid = (
                                     <div key={sectionKey} style={{ marginBottom: index === array.length - 1 ? '0' : '2.5rem' }}>

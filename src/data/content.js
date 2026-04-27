@@ -1,7 +1,7 @@
 export const roles = [
     { id: 'all', labelKey: 'role_all' },
-    { id: 'game_dev', labelKey: 'role_game_dev' },
     { id: 'artist_2d_3d', labelKey: 'role_artist_2d_3d' },
+    { id: 'game_dev', labelKey: 'role_game_dev' },
     { id: 'video_editor', labelKey: 'role_video_editor' }
 ];
 
@@ -327,198 +327,303 @@ export const experience = [
 export const projects = [
     {
         id: 'establo',
-        title: { es: 'Establo 3D', ca: 'Estable 3D', en: 'Stable 3D', gl: 'Estábulo 3D' },
+        title: { es: 'The Stable', ca: 'The Stable', en: 'The Stable', gl: 'The Stable' },
         year: '2026',
-        category: { es: 'Environment 3D', ca: 'Environment 3D', en: '3D Environment', gl: 'Environment 3D' },
+        category: { es: 'Environment 3D & Props', ca: 'Environment 3D & Props', en: '3D Environment & Props', gl: 'Environment 3D & Props' },
         type: 'academic',
         tags: ['unreal', 'maya', 'substance', 'zbrush', 'photoshop'],
-        isWIP: true,
+        memoryUrl: '/downloads/memoria_thestable.pdf',
+        isWIP: false,
         summary: {
-            es: 'Environment 3D completo: modelado, UVs, texturizado y montaje en Unreal Engine como trabajo final de módulo (CEI).',
-            ca: 'Environment 3D complet: modelatge, UVs, texturització i muntatge a Unreal Engine com a treball final de mòdul (CEI).',
-            en: 'Full 3D Environment: modeling, UVs, texturing, and Unreal Engine assembly as a module final project (CEI).',
-            gl: 'Environment 3D completo: modelado, UVs, texturizado e montaxe en Unreal Engine como traballo final de módulo (CEI).'
+            es: 'Escena final de un establo rural desarrollada de principio a fin con referencias, modelado en Maya, texturizado PBR y render en Unreal Engine.',
+            ca: "Escena final d'un estable rural desenvolupada de principi a fi amb referències, modelatge en Maya, texturització PBR i render a Unreal Engine.",
+            en: 'Final rural stable scene developed end to end with references, Maya modeling, PBR texturing and Unreal Engine rendering.',
+            gl: 'Escena final dun estábulo rural desenvolvida de principio a fin con referencias, modelado en Maya, texturizado PBR e render en Unreal Engine.'
         },
         description: {
-            es: 'Modelado, extracción de UVs, texturizado y montaje de un entorno 3D, realizado como proyecto final para el módulo de modelado y animación de videojuegos (CEI).',
-            ca: "Modelatge, extracció d'UVs, texturització i muntatge d'un entorn 3D, realitzat com a projecte final per al mòdul de modelatge i animació de videojocs (CEI).",
-            en: 'Modeling, UV extraction, texturing, and 3D environment assembly, developed as a final project for the game modeling and animation module (CEI).',
-            gl: 'Modelado, extracción de UVs, texturizado e montaxe dunha contorna 3D, realizado como proxecto final para o módulo de modelado e animación de videoxogos (CEI).'
+            es: 'Proyecto final del módulo de modelado y animación de videojuegos en CEI. Se trabajó el bloque base en Maya, el refinado de piezas y UVs, el texturizado PBR en Substance Painter y la iluminación final en Unreal Engine.',
+            ca: "Projecte final del mòdul de modelatge i animació de videojocs al CEI. S'ha treballat el bloc base en Maya, l'acabat de peces i UVs, la texturització PBR a Substance Painter i la il·luminació final a Unreal Engine.",
+            en: 'Final project for the game modeling and animation module at CEI. The base blockout, piece refinement and UVs were handled in Maya, then PBR texturing in Substance Painter and final lighting in Unreal Engine.',
+            gl: 'Proxecto final do módulo de modelado e animación de videoxogos no CEI. Traballouse o bloque base en Maya, o refinado de pezas e UVs, o texturizado PBR en Substance Painter e a iluminación final en Unreal Engine.'
         },
-        image: '/images/establo_props_collage.jpg',
+        image: '/images/IMG_Stable_5.png',
         images: [
-            '/images/establo1.avif',
-            '/images/establo_mapa.png',
-            '/images/Establo_Maya01.png',
-            '/images/Establo_Maya02.png',
-            '/images/Establo_Maya03.png',
-            '/images/Barril_Maya.png',
-            '/images/Barril_ZBrush.png',
-            '/images/Barril_3DSubstance_01.jpg',
-            '/images/Barril_3DSubstance_02.jpg',
-            '/images/Barril_3DSubstance_03.jpg',
-            '/images/BridaCaballo_Maya.png',
-            '/images/BridaCaballo_ZBrush.png',
-            '/images/BridaCaballo_3DSubstance_01.jpg',
-            '/images/BridaCaballo_3DSubstance_02.jpg',
-            '/images/BridaCaballo_3DSubstance_03.jpg',
-            '/images/WoodCart_PureRef.png',
-            '/images/WoodCart_3DSubstance_01.jpg',
-            '/images/WoodCart_3DSubstance_02.jpg',
-            '/images/WoodCart_3DSubstance_03.jpg',
-            '/images/WoodCart_3DSubstance_04.jpg',
-            '/images/WoodCart_3DSubstance_05.jpg',
-            '/images/WoodCart_3DSubstance_06.jpg',
-            '/images/WoodCart_3DSubstance_07.jpg',
-            '/images/WoodCart_3DSubstance_08.jpg',
-            '/images/WoodCart_ZBrush_01.png',
-            '/images/WoodCart_ZBrush_02.png',
-            '/images/WoodCart_ZBrush_03.png',
-            '/images/WoodCart_ZBrush_04.png'
+            '/images/IMG_Stable_5.png',
+            '/images/referencias.png',
+            '/images/MapaConceptual.png',
+            '/images/IMG_StableConcept_Maya_1.png',
+            '/images/IMG_StableConcept_Maya_2.png',
+            '/images/IMG_StableConcept_Maya_3.png',
+            '/images/IMG_Maya_AssetsAndProps_1.png',
+            '/images/IMG_Maya_AssetsAndProps_2.png',
+            '/images/IMG_Maya_AssetsAndProps_3.png',
+            '/images/IMG_Maya_AssetsAndProps_4.png',
+            '/images/IMG_Maya_AssetsAndProps_5.png',
+            '/images/IMG_Maya_AssetsAndProps_6.png',
+            '/images/IMG_Maya_UVs_1.png',
+            '/images/IMG_Maya_UVs_2.png',
+            '/images/IMG_Maya_UVs_3.png',
+            '/images/IMG_Maya_UVs_4.png',
+            '/images/IMG_Maya_UVs_5.png',
+            '/images/IMG_Maya_UVs_6.png',
+            '/images/IMG_Substance_AssetsAndProps_1.png',
+            '/images/IMG_Substance_AssetsAndProps_2.png',
+            '/images/IMG_Substance_AssetsAndProps_3.png',
+            '/images/IMG_Substance_AssetsAndProps_4.png',
+            '/images/IMG_Substance_AssetsAndProps_5.png',
+            '/images/IMG_Substance_AssetsAndProps_6.png',
+            '/images/StandardCubeMap.png',
+            '/images/unreal_construccion1.png',
+            '/images/unreal_construccion2.png',
+            '/images/unreal_terreno1.png',
+            '/images/unreal_terreno2.png',
+            '/images/unreal_exterior.png',
+            '/images/unreal_decals1.png',
+            '/images/unreal_decals2.png',
+            '/images/unreal_posprocesado.png',
+            '/images/IMG_Stable_2.png',
+            '/images/IMG_Stable_4.png',
+            '/images/Stable_Images_0000.png'
         ],
         longDescription: {
-            es: `## CONCEPT ART Y PLANIFICACIÓN
-Como fase inicial del environment, se ha desarrollado un mapa conceptual que define la distribución espacial y los puntos clave de interés del establo.
+            es: `## INTRODUCCIÓN
+The Stable es una escena de environment rural desarrollada como proyecto final del módulo de modelado y animación de videojuegos en CEI, documentada en memoria técnica y presentada con dos piezas de vídeo complementarias:
 
-<div class="custom-gallery"><div><img src="/images/establo_mapa.png" alt="Establo - Mapa Conceptual" /></div></div>
+- **Teaser**: pieza breve para presentar la atmósfera general del entorno.
+- **Showcase**: recorrido técnico del proceso y del resultado final.
 
-## PROCESO DE MODELADO
-Actualmente el proyecto se encuentra en fase de producción. Se ha trabajado en el **blocking** y modelado detallado de la estructura del establo utilizando **Autodesk Maya**, asegurando una escala correcta para su posterior implementación en **Unreal Engine**.
+<div class="custom-video-carousel"><div><h3>Teaser</h3><p>Pieza de presentación enfocada en atmósfera y tono del escenario.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/3SvrQhu0R3Y" title="The Stable - Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div><h3>Showcase</h3><p>Vídeo principal para mostrar el workflow y el render final del proyecto.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/v2D9x7ZD-n4" title="The Stable - Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
 
-<div class="custom-gallery"><div class="featured"><img src="/images/Establo_Maya01.png" alt="Establo - Proceso Maya 1" /></div><div><img src="/images/Establo_Maya02.png" alt="Establo - Proceso Maya 2" /></div><div><img src="/images/Establo_Maya03.png" alt="Establo - Proceso Maya 3" /></div></div>
+## PREPRODUCCIÓN
+La fase inicial se organizó con referencias visuales y un mapa conceptual para definir la escala, la distribución de volúmenes y la intención artística del establo.
 
-## DETALLE DE PROPS: BRIDAS DE CABALLO
-Como parte de los activos del escenario, se ha modelado un conjunto de bridas para caballos siguiendo el flujo de trabajo de alta y baja poligonización:
-- **Modelado base (Maya):** Definición de la geometría principal y proporciones.
-- **Esculpido High Poly (ZBrush):** Añadido de detalles finos, pliegues y desgaste para la extracción de mapas de normales.
-- **Texturizado PBR (Substance Painter):** Aplicación de materiales realistas (cuero, metal) y detalles de suciedad.
+<div class="custom-gallery"><div><img src="/images/referencias.png" alt="The Stable - Referencias" /></div><div><img src="/images/MapaConceptual.png" alt="The Stable - Mapa conceptual" /></div></div>
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/BridaCaballo_3DSubstance_01.jpg" alt="Bridas - Resultado Final" /></div><div><img src="/images/BridaCaballo_Maya.png" alt="Bridas - Maya" /></div><div><img src="/images/BridaCaballo_ZBrush.png" alt="Bridas - ZBrush High Poly" /></div><div><img src="/images/BridaCaballo_3DSubstance_02.jpg" alt="Bridas - Substance 2" /></div><div><img src="/images/BridaCaballo_3DSubstance_03.jpg" alt="Bridas - Substance 3" /></div></div>
+## MODELADO EN MAYA
+El entorno se bloqueó y refinó en Maya, trabajando primero la estructura principal y después el set de props que sostienen la lectura del espacio.
 
-## DETALLE DE PROPS: BARRIL
-Como parte de los activos del escenario, se ha modelado un barril siguiendo el flujo de trabajo de alta y baja poligonización:
-- **Modelado base (Maya):** Definición de la geometría principal y proporciones.
-- **Esculpido High Poly (ZBrush):** Añadido de detalles finos y desgaste para la extracción de mapas de normales.
-- **Texturizado PBR (Substance Painter):** Aplicación de materiales realistas (madera, metal) y detalles de suciedad.
+<div class="custom-gallery three-col"><div><img src="/images/IMG_StableConcept_Maya_1.png" alt="The Stable - Maya 1" /></div><div><img src="/images/IMG_StableConcept_Maya_2.png" alt="The Stable - Maya 2" /></div><div><img src="/images/IMG_StableConcept_Maya_3.png" alt="The Stable - Maya 3" /></div></div>
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/Barril_3DSubstance_01.jpg" alt="Barril - Resultado Final" /></div><div><img src="/images/Barril_Maya.png" alt="Barril - Maya" /></div><div><img src="/images/Barril_ZBrush.png" alt="Barril - ZBrush High Poly" /></div><div><img src="/images/Barril_3DSubstance_02.jpg" alt="Barril - Substance 2" /></div><div><img src="/images/Barril_3DSubstance_03.jpg" alt="Barril - Substance 3" /></div></div>
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_AssetsAndProps_1.png" alt="The Stable - Maya assets 1" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_2.png" alt="The Stable - Maya assets 2" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_3.png" alt="The Stable - Maya assets 3" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_4.png" alt="The Stable - Maya assets 4" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_5.png" alt="The Stable - Maya assets 5" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_6.png" alt="The Stable - Maya assets 6" /></div></div>
 
-## DETALLE DE PROPS: CARRO DE MADERA
-Como parte de los activos del escenario, se ha modelado un carro de madera siguiendo el flujo de trabajo completo:
-- **Referencias (PureRef):** Recopilación y organización de imágenes de referencia en un panel visual.
-- **Modelado Low Poly (Maya):** Definición de los volúmenes principales con support loops y subdivisiones previas al paso a ZBrush.
-- **Esculpido High Poly (ZBrush):** Detalles de superficie, vetas de madera y desgaste en herrajes. Se presenta tanto el modelo de malla completa como la maya decimada con 35.000 polígonos.
-- **Texturizado PBR (Substance Painter):** Madera envejecida, metal oxidado y detalles de suciedad acumulada.
+## UVS Y PREPARACIÓN DE ASSETS
+Con la geometría cerrada, se prepararon UVs y organización técnica de los assets para asegurar consistencia en el paso de texturizado.
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Madera - Resultado Final" /></div><div><img src="/images/WoodCart_PureRef.png" alt="Carro de Madera - Panel de Referencias" /></div><div><img src="/images/WoodCart_ZBrush_01.png" alt="Carro de Madera - ZBrush Mesh" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Carro de Madera - ZBrush Maya Decimada" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Carro de Madera - ZBrush Mesh (perspectiva 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Carro de Madera - ZBrush Maya Decimada (perspectiva 2)" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Madera - Vista General 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Madera - Detalle 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Madera - Detalle 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Madera - Detalle 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Madera - Detalle 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Madera - Detalle 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Madera - Detalle 6" /></div></div>`,
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_UVs_1.png" alt="The Stable - UVs 1" /></div><div><img src="/images/IMG_Maya_UVs_2.png" alt="The Stable - UVs 2" /></div><div><img src="/images/IMG_Maya_UVs_3.png" alt="The Stable - UVs 3" /></div><div><img src="/images/IMG_Maya_UVs_4.png" alt="The Stable - UVs 4" /></div><div><img src="/images/IMG_Maya_UVs_5.png" alt="The Stable - UVs 5" /></div><div><img src="/images/IMG_Maya_UVs_6.png" alt="The Stable - UVs 6" /></div></div>
 
-            ca: `## CONCEPT ART I PLANIFICACIÓ
-Com a fase inicial de l'environment, s'ha desenvolupat un mapa conceptual que defineix la distribució espacial i els punts clau d'interès de l'estable.
+## DETALLADO DE PIEZAS EN ZBRUSH
+En esta fase se añadieron detalles high poly y desgaste en props concretos para mejorar la lectura de materiales antes del bake y del texturizado.
 
-<div class="custom-gallery"><div><img src="/images/establo_mapa.png" alt="Estable - Mapa Conceptual" /></div></div>
+## TEXTURIZADO EN SUBSTANCE PAINTER
+Se aplicó un flujo PBR para materiales de madera, metal y desgaste, buscando coherencia entre piezas y variación suficiente para evitar repetición visual.
 
-## PROCÉS DE MODELATGE
-Actualment el projecte es troba en fase de producció. S'ha treballat en el **blocking** i modelatge detallat de l'estructura de l'estable utilitzant **Autodesk Maya**, assegurant una escala correcta per a la seva posterior implementació a **Unreal Engine**.
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Substance_AssetsAndProps_1.png" alt="The Stable - Substance 1" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_2.png" alt="The Stable - Substance 2" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_3.png" alt="The Stable - Substance 3" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_4.png" alt="The Stable - Substance 4" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_5.png" alt="The Stable - Substance 5" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_6.png" alt="The Stable - Substance 6" /></div></div>
 
-<div class="custom-gallery"><div class="featured"><img src="/images/Establo_Maya01.png" alt="Estable - Procés Maya 1" /></div><div><img src="/images/Establo_Maya02.png" alt="Estable - Procés Maya 2" /></div><div><img src="/images/Establo_Maya03.png" alt="Estable - Procés Maya 3" /></div></div>
+## CONSTRUCCIÓN DE TERRENO Y EXTERIOR EN UNREAL
+En Unreal se trabajó la construcción del terreno y del exterior, usando el cubemap aplicado en planos como apoyo de iluminación y lectura espacial.
 
-## DETALL DE PROPS: BRIDES DE CAVALL
-Com a part dels actius de l'escenari, s'ha modelat un conjunt de brides per a cavalls seguint el flux de treball d'alta i baixa poligonització:
-- **Modelatge base (Maya):** Definició de la geometria principal i proporcions.
-- **Esculpit High Poly (ZBrush):** Afegit de detalls fins, plecs i desgast per a l'extracció de mapes de normals.
-- **Texturització PBR (Substance Painter):** Aplicació de materials realistes (cuir, metall) i detalls de brutícia.
+<div class="custom-gallery two-by-two"><div><img src="/images/unreal_terreno1.png" alt="The Stable - Terreno Unreal 1" /></div><div><img src="/images/unreal_terreno2.png" alt="The Stable - Terreno Unreal 2" /></div><div><img src="/images/unreal_exterior.png" alt="The Stable - Exterior Unreal" /></div><div><img src="/images/StandardCubeMap.png" alt="The Stable - Cubemap en Unreal" /></div></div>
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/BridaCaballo_3DSubstance_01.jpg" alt="Brides - Resultat Final" /></div><div><img src="/images/BridaCaballo_Maya.png" alt="Brides - Maya" /></div><div><img src="/images/BridaCaballo_ZBrush.png" alt="Brides - ZBrush High Poly" /></div><div><img src="/images/BridaCaballo_3DSubstance_02.jpg" alt="Brides - Substance 2" /></div><div><img src="/images/BridaCaballo_3DSubstance_03.jpg" alt="Brides - Substance 3" /></div></div>
+## INTERIOR CON DECALS Y POSPROCESADO
+En fases posteriores se ajustaron decals de interior y parámetros de posprocesado para unificar materiales, contraste y atmósfera final del escenario.
 
-## DETALL DE PROPS: BARRIL
-Com a part dels actius de l'escenari, s'ha modelat un barril seguint el flux de treball d'alta i baixa poligonització:
-- **Modelatge base (Maya):** Definició de la geometria principal i proporcions.
-- **Esculpit High Poly (ZBrush):** Afegit de detalls fins i desgast per a l'extracció de mapes de normals.
-- **Texturització PBR (Substance Painter):** Aplicació de materials realistes (fusta, metall) i detalls de brutícia.
+<div class="custom-gallery three-col"><div><img src="/images/unreal_decals1.png" alt="The Stable - Decals interior 1" /></div><div><img src="/images/unreal_decals2.png" alt="The Stable - Decals interior 2" /></div><div><img src="/images/unreal_posprocesado.png" alt="The Stable - Posprocesado Unreal" /></div></div>
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/Barril_3DSubstance_01.jpg" alt="Barril - Resultat Final" /></div><div><img src="/images/Barril_Maya.png" alt="Barril - Maya" /></div><div><img src="/images/Barril_ZBrush.png" alt="Barril - ZBrush High Poly" /></div><div><img src="/images/Barril_3DSubstance_02.jpg" alt="Barril - Substance 2" /></div><div><img src="/images/Barril_3DSubstance_03.jpg" alt="Barril - Substance 3" /></div></div>
+## RENDERIZADO FINAL EN UNREAL
+Con la base técnica cerrada, se resolvió la fase estética final: iluminación, encuadre y composición de cámara para las tomas definitivas.
 
-## DETALL DE PROPS: CARRO DE FUSTA
-Com a part dels actius de l'escenari, s'ha modelat un carro de fusta seguint el flux de treball complet:
-- **Referències (PureRef):** Recopilació i organització d'imatges de referència en un tauler visual.
-- **Modelatge Low Poly (Maya):** Definició dels volums principals amb support loops i subdivisions prèvies al pas a ZBrush.
-- **Esculpit High Poly (ZBrush):** Detalls de superfície, vetes de fusta i desgast als ferratges. Es presenta tant el model de malla completa com la maya decimada amb 35.000 polígons.
-- **Texturització PBR (Substance Painter):** Fusta envellida, metall oxidat i detalls de brutícia acumulada.
+<div class="custom-gallery two-by-two"><div><img src="/images/IMG_Stable_2.png" alt="The Stable - Render 2" /></div><div><img src="/images/IMG_Stable_5.png" alt="The Stable - Render principal" /></div><div><img src="/images/IMG_Stable_4.png" alt="The Stable - Render 4" /></div><div><img src="/images/Stable_Images_0000.png" alt="The Stable - Render extra" /></div></div>
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Fusta - Resultat Final" /></div><div><img src="/images/WoodCart_PureRef.png" alt="Carro de Fusta - Tauler de Referències" /></div><div><img src="/images/WoodCart_ZBrush_01.png" alt="Carro de Fusta - ZBrush Malla" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Carro de Fusta - ZBrush Maya Decimada" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Carro de Fusta - ZBrush Malla (perspectiva 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Carro de Fusta - ZBrush Maya Decimada (perspectiva 2)" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Fusta - Vista General 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Fusta - Detall 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Fusta - Detall 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Fusta - Detall 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Fusta - Detall 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Fusta - Detall 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Fusta - Detall 6" /></div></div>`,
+## RENDER PASSES DEL SHOWCASE
+Como cierre técnico del flujo, este vídeo recoge los passes del showcase para mostrar cómo se construye la imagen final por capas.
 
-            en: `## CONCEPT ART AND PLANNING
-As the initial phase of the environment, a conceptual map has been developed to define the spatial layout and key points of interest of the stable.
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/QTOkFs4Hg30" title="The Stable - Render Passes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<div class="custom-gallery"><div><img src="/images/establo_mapa.png" alt="Stable - Conceptual Map" /></div></div>
+## POSTPRODUCCIÓN EN PREMIERE PRO
+En Premiere Pro, el foco principal fue la creación de un ambiente sonoro que reforzase la atmósfera del proyecto, especialmente en el teaser. La postproducción se centró de forma prioritaria en el audio, por encima de la edición de vídeo.
 
-## MODELING PROCESS
-The project is currently in the production phase. We have worked on the **blocking** and detailed modeling of the stable structure using **Autodesk Maya**, ensuring correct scaling for its later implementation in **Unreal Engine**.
+## DIFICULTADES Y APRENDIZAJES
+Las principales dificultades estuvieron en las limitaciones técnicas y temporales durante la producción. Aun así, el resultado final fue satisfactorio y cumplió los objetivos planteados para la entrega final.`,
 
-<div class="custom-gallery"><div class="featured"><img src="/images/Establo_Maya01.png" alt="Stable - Maya Process 1" /></div><div><img src="/images/Establo_Maya02.png" alt="Stable - Maya Process 2" /></div><div><img src="/images/Establo_Maya03.png" alt="Stable - Maya Process 3" /></div></div>
+            ca: `## INTRODUCCIÓ
+The Stable és una escena d'environment rural desenvolupada com a projecte final del mòdul de modelatge i animació de videojocs al CEI, documentada en memòria tècnica i presentada amb dues peces de vídeo complementàries:
 
-## PROP DETAIL: HORSE BRIDLES
-As part of the scenery's assets, a set of horse bridles has been modeled following the high and low poly workflow:
-- **Base Modeling (Maya):** Definition of main geometry and proportions.
-- **High Poly Sculpting (ZBrush):** Fine details, folds, and wear added for normal map extraction.
-- **PBR Texturing (Substance Painter):** Realistic materials application (leather, metal) and dirt details.
+- **Teaser**: peça breu per presentar l'atmosfera general de l'entorn.
+- **Showcase**: recorregut tècnic del procés i del resultat final.
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/BridaCaballo_3DSubstance_01.jpg" alt="Bridles - Final Result" /></div><div><img src="/images/BridaCaballo_Maya.png" alt="Bridles - Maya" /></div><div><img src="/images/BridaCaballo_ZBrush.png" alt="Bridles - ZBrush High Poly" /></div><div><img src="/images/BridaCaballo_3DSubstance_02.jpg" alt="Bridles - Substance 2" /></div><div><img src="/images/BridaCaballo_3DSubstance_03.jpg" alt="Bridles - Substance 3" /></div></div>
+<div class="custom-video-carousel"><div><h3>Teaser</h3><p>Peça de presentació enfocada en atmosfera i to de l'escenari.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/3SvrQhu0R3Y" title="The Stable - Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div><h3>Showcase</h3><p>Vídeo principal per mostrar el workflow i el render final del projecte.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/v2D9x7ZD-n4" title="The Stable - Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
 
-## PROP DETAIL: BARREL
-As part of the scenery's assets, a barrel has been modeled following the high and low poly workflow:
-- **Base Modeling (Maya):** Definition of main geometry and proportions.
-- **High Poly Sculpting (ZBrush):** Fine details and wear added for normal map extraction.
-- **PBR Texturing (Substance Painter):** Realistic materials application (wood, metal) and dirt details.
+## PREPRODUCCIÓ
+La fase inicial es va organitzar amb referències visuals i un mapa conceptual per definir l'escala, la distribució de volums i la intenció artística de l'estable.
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/Barril_3DSubstance_01.jpg" alt="Barrel - Final Result" /></div><div><img src="/images/Barril_Maya.png" alt="Barrel - Maya" /></div><div><img src="/images/Barril_ZBrush.png" alt="Barrel - ZBrush High Poly" /></div><div><img src="/images/Barril_3DSubstance_02.jpg" alt="Barrel - Substance 2" /></div><div><img src="/images/Barril_3DSubstance_03.jpg" alt="Barrel - Substance 3" /></div></div>
+<div class="custom-gallery"><div><img src="/images/referencias.png" alt="The Stable - Referències" /></div><div><img src="/images/MapaConceptual.png" alt="The Stable - Mapa conceptual" /></div></div>
 
-## PROP DETAIL: WOOD CART
-As part of the scenery's assets, a wood cart has been modeled following the full workflow:
-- **References (PureRef):** Collection and organization of reference images into a visual board.
-- **Low Poly Modeling (Maya):** Definition of main volumes with support loops and subdivisions prior to the ZBrush pass.
-- **High Poly Sculpting (ZBrush):** Surface details, wood grain and hardware wear. Both the full mesh model and the decimated mesh with 35,000 polygons are presented.
-- **PBR Texturing (Substance Painter):** Aged wood, oxidized metal and accumulated dirt details.
+## MODELATGE A MAYA
+L'entorn es va bloquejar i refinar a Maya, treballant primer l'estructura principal i després el set de props que sostenen la lectura de l'espai.
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Wood Cart - Final Result" /></div><div><img src="/images/WoodCart_PureRef.png" alt="Wood Cart - Reference Board" /></div><div><img src="/images/WoodCart_ZBrush_01.png" alt="Wood Cart - ZBrush Mesh" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Wood Cart - ZBrush Decimated Mesh" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Wood Cart - ZBrush Mesh (perspective 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Wood Cart - ZBrush Decimated Mesh (perspective 2)" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Wood Cart - General View 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Wood Cart - Detail 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Wood Cart - Detail 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Wood Cart - Detail 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Wood Cart - Detail 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Wood Cart - Detail 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Wood Cart - Detail 6" /></div></div>`,
+<div class="custom-gallery three-col"><div><img src="/images/IMG_StableConcept_Maya_1.png" alt="The Stable - Maya 1" /></div><div><img src="/images/IMG_StableConcept_Maya_2.png" alt="The Stable - Maya 2" /></div><div><img src="/images/IMG_StableConcept_Maya_3.png" alt="The Stable - Maya 3" /></div></div>
 
-            gl: `## CONCEPT ART E PLANIFICACIÓN
-Como fase inicial do environment, desenvolveuse un mapa conceptual que define a distribución espacial e os puntos clave de interese do estábulo.
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_AssetsAndProps_1.png" alt="The Stable - Maya assets 1" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_2.png" alt="The Stable - Maya assets 2" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_3.png" alt="The Stable - Maya assets 3" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_4.png" alt="The Stable - Maya assets 4" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_5.png" alt="The Stable - Maya assets 5" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_6.png" alt="The Stable - Maya assets 6" /></div></div>
 
-<div class="custom-gallery"><div class="featured"><img src="/images/establo_mapa.png" alt="Estábulo - Mapa Conceptual" /></div></div>
+## UVS I PREPARACIÓ D'ASSETS
+Amb la geometria tancada, es van preparar UVs i organització tècnica dels assets per assegurar consistència al pas de texturització.
 
-## PROCESO DE MODELADO
-Actualmente o proxecto atópase en fase de produción. Traballouse no **blocking** e modelado detallado da estrutura do estábulo utilizando **Autodesk Maya**, asegurando unha escala correcta para a súa posterior implementación en **Unreal Engine**.
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_UVs_1.png" alt="The Stable - UVs 1" /></div><div><img src="/images/IMG_Maya_UVs_2.png" alt="The Stable - UVs 2" /></div><div><img src="/images/IMG_Maya_UVs_3.png" alt="The Stable - UVs 3" /></div><div><img src="/images/IMG_Maya_UVs_4.png" alt="The Stable - UVs 4" /></div><div><img src="/images/IMG_Maya_UVs_5.png" alt="The Stable - UVs 5" /></div><div><img src="/images/IMG_Maya_UVs_6.png" alt="The Stable - UVs 6" /></div></div>
 
-<div class="custom-gallery"><div class="featured"><img src="/images/Establo_Maya01.png" alt="Estábulo - Proceso Maya 1" /></div><div><img src="/images/Establo_Maya02.png" alt="Estábulo - Proceso Maya 2" /></div><div><img src="/images/Establo_Maya03.png" alt="Estábulo - Proceso Maya 3" /></div></div>
+## DETALLAT DE PECES A ZBRUSH
+En aquesta fase es van afegir detalls high poly i desgast en props concrets per millorar la lectura de materials abans del bake i del texturitzat.
 
-## DETALLE DE PROPS: BRIDAS DE CABALO
-Como parte dos activos do escenario, modelouse un conxunto de bridas para cabalos seguindo o fluxo de traballo de alta e baixa poligonización:
-- **Modelado base (Maya):** Definición da xeometría principal e proporcións.
-- **Esculpido High Poly (ZBrush):** Engadido de detalles finos, pregues e desgaste para a extracción de mapas de normais.
-- **Texturizado PBR (Substance Painter):** Aplicación de materiais realistas (coiro, metal) e detalles de sucidade.
+## TEXTURITZACIÓ A SUBSTANCE PAINTER
+Es va aplicar un flux PBR per a materials de fusta, metall i desgast, buscant coherència entre peces i variació suficient per evitar repetició visual.
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/BridaCaballo_3DSubstance_01.jpg" alt="Bridas - Resultado Final" /></div><div><img src="/images/BridaCaballo_Maya.png" alt="Bridas - Maya" /></div><div><img src="/images/BridaCaballo_ZBrush.png" alt="Bridas - ZBrush High Poly" /></div><div><img src="/images/BridaCaballo_3DSubstance_02.jpg" alt="Bridas - Substance 2" /></div><div><img src="/images/BridaCaballo_3DSubstance_03.jpg" alt="Bridas - Substance 3" /></div></div>
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Substance_AssetsAndProps_1.png" alt="The Stable - Substance 1" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_2.png" alt="The Stable - Substance 2" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_3.png" alt="The Stable - Substance 3" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_4.png" alt="The Stable - Substance 4" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_5.png" alt="The Stable - Substance 5" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_6.png" alt="The Stable - Substance 6" /></div></div>
 
-## DETALLE DE PROPS: BARRIL
-Como parte dos activos do escenario, modelouse un barril seguindo o fluxo de traballo de alta e baixa poligonización:
-- **Modelado base (Maya):** Definición da xeometría principal e proporcións.
-- **Esculpido High Poly (ZBrush):** Engadido de detalles finos e desgaste para a extracción de mapas de normais.
-- **Texturizado PBR (Substance Painter):** Aplicación de materiais realistas (madeira, metal) e detalles de sucidade.
+## CONSTRUCCIÓ DE TERRENY I EXTERIOR A UNREAL
+A Unreal es va treballar la construcció del terreny i de l'exterior, fent servir el cubemap aplicat en plans com a suport d'il·luminació i lectura espacial.
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/Barril_3DSubstance_01.jpg" alt="Barril - Resultado Final" /></div><div><img src="/images/Barril_Maya.png" alt="Barril - Maya" /></div><div><img src="/images/Barril_ZBrush.png" alt="Barril - ZBrush High Poly" /></div><div><img src="/images/Barril_3DSubstance_02.jpg" alt="Barril - Substance 2" /></div><div><img src="/images/Barril_3DSubstance_03.jpg" alt="Barril - Substance 3" /></div></div>
+<div class="custom-gallery two-by-two"><div><img src="/images/unreal_terreno1.png" alt="The Stable - Terreny Unreal 1" /></div><div><img src="/images/unreal_terreno2.png" alt="The Stable - Terreny Unreal 2" /></div><div><img src="/images/unreal_exterior.png" alt="The Stable - Exterior Unreal" /></div><div><img src="/images/StandardCubeMap.png" alt="The Stable - Cubemap Unreal" /></div></div>
 
-## DETALLE DE PROPS: CARRO DE MADEIRA
-Como parte dos activos do escenario, modelouse un carro de madeira seguindo o fluxo de traballo completo:
-- **Referencias (PureRef):** Recompilación e organización de imaxes de referencia nun panel visual.
-- **Modelado Low Poly (Maya):** Definición dos volumes principais con support loops e subdivisiones previas ao paso a ZBrush.
-- **Esculpido High Poly (ZBrush):** Detalles de superficie, vetas de madeira e desgaste nos ferraxes. Preséntase tanto o modelo de malla completa como a maya decimada con 35.000 polígonos.
-- **Texturizado PBR (Substance Painter):** Madeira envellecida, metal oxidado e detalles de sucidade acumulada.
+## INTERIOR AMB DECALS I POSTPROCESSAT
+En fases posteriors es van ajustar decals d'interior i paràmetres de postprocessat per unificar materials, contrast i atmosfera final de l'escenari.
 
-<div class="custom-gallery four-col"><div class="featured"><img src="/images/WoodCart_3DSubstance_01.jpg" alt="Carro de Madeira - Resultado Final" /></div><div><img src="/images/WoodCart_PureRef.png" alt="Carro de Madeira - Panel de Referencias" /></div><div><img src="/images/WoodCart_ZBrush_01.png" alt="Carro de Madeira - ZBrush Mesh" /></div><div><img src="/images/WoodCart_ZBrush_02.png" alt="Carro de Madeira - ZBrush Maya Decimada" /></div><div><img src="/images/WoodCart_ZBrush_03.png" alt="Carro de Madeira - ZBrush Mesh (perspectiva 2)" /></div><div><img src="/images/WoodCart_ZBrush_04.png" alt="Carro de Madeira - ZBrush Maya Decimada (perspectiva 2)" /></div><div><img src="/images/WoodCart_3DSubstance_02.jpg" alt="Carro de Madeira - Vista Xeral 2" /></div><div><img src="/images/WoodCart_3DSubstance_03.jpg" alt="Carro de Madeira - Detalle 1" /></div><div><img src="/images/WoodCart_3DSubstance_04.jpg" alt="Carro de Madeira - Detalle 2" /></div><div><img src="/images/WoodCart_3DSubstance_05.jpg" alt="Carro de Madeira - Detalle 3" /></div><div><img src="/images/WoodCart_3DSubstance_06.jpg" alt="Carro de Madeira - Detalle 4" /></div><div><img src="/images/WoodCart_3DSubstance_07.jpg" alt="Carro de Madeira - Detalle 5" /></div><div><img src="/images/WoodCart_3DSubstance_08.jpg" alt="Carro de Madeira - Detalle 6" /></div></div>`
-        },
-        roles: ['artist_2d_3d']
-    },
+<div class="custom-gallery three-col"><div><img src="/images/unreal_decals1.png" alt="The Stable - Decals interior 1" /></div><div><img src="/images/unreal_decals2.png" alt="The Stable - Decals interior 2" /></div><div><img src="/images/unreal_posprocesado.png" alt="The Stable - Postprocessat Unreal" /></div></div>
+
+## RENDERITZAT FINAL A UNREAL
+Amb la base tècnica tancada, es va resoldre la fase estètica final: il·luminació, enquadrament i composició de càmera per a les preses definitives.
+
+<div class="custom-gallery two-by-two"><div><img src="/images/IMG_Stable_2.png" alt="The Stable - Render 2" /></div><div><img src="/images/IMG_Stable_5.png" alt="The Stable - Render principal" /></div><div><img src="/images/IMG_Stable_4.png" alt="The Stable - Render 4" /></div><div><img src="/images/Stable_Images_0000.png" alt="The Stable - Render extra" /></div></div>
+
+## RENDER PASSES DEL SHOWCASE
+Com a tancament tècnic del flux, aquest vídeo recull els passes del showcase per mostrar com es construeix la imatge final per capes.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/QTOkFs4Hg30" title="The Stable - Render Passes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## POSTPRODUCCIÓ A PREMIERE PRO
+A Premiere Pro, el focus principal va ser la creació d'un ambient sonor que reforcés l'atmosfera del projecte, especialment al teaser. La postproducció es va centrar de manera prioritària en l'àudio, per sobre de l'edició de vídeo.
+
+## DIFICULTATS I APRENENTATGES
+Les principals dificultats van estar en les limitacions tècniques i temporals durant la producció. Tot i així, el resultat final va ser satisfactori i va complir els objectius plantejats per a l'entrega final.`,
+
+            en: `## INTRODUCTION
+The Stable is a rural environment scene developed as the final project for the game modeling and animation module at CEI, documented in a technical report and presented with two complementary video pieces:
+
+- **Teaser**: a short piece focused on presenting the overall atmosphere of the environment.
+- **Showcase**: a technical walkthrough of the process and final result.
+
+<div class="custom-video-carousel"><div><h3>Teaser</h3><p>Presentation piece focused on the mood and tone of the scene.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/3SvrQhu0R3Y" title="The Stable - Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div><h3>Showcase</h3><p>Main video showing the workflow and final render of the project.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/v2D9x7ZD-n4" title="The Stable - Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+
+## PRE-PRODUCTION
+The initial phase was organized with visual references and a conceptual map to define scale, volume distribution and the artistic direction of the stable.
+
+<div class="custom-gallery"><div><img src="/images/referencias.png" alt="The Stable - References" /></div><div><img src="/images/MapaConceptual.png" alt="The Stable - Concept map" /></div></div>
+
+## MODELING IN MAYA
+The environment was blocked out and refined in Maya, first shaping the main structure and then the prop set that supports spatial readability.
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_StableConcept_Maya_1.png" alt="The Stable - Maya 1" /></div><div><img src="/images/IMG_StableConcept_Maya_2.png" alt="The Stable - Maya 2" /></div><div><img src="/images/IMG_StableConcept_Maya_3.png" alt="The Stable - Maya 3" /></div></div>
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_AssetsAndProps_1.png" alt="The Stable - Maya assets 1" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_2.png" alt="The Stable - Maya assets 2" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_3.png" alt="The Stable - Maya assets 3" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_4.png" alt="The Stable - Maya assets 4" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_5.png" alt="The Stable - Maya assets 5" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_6.png" alt="The Stable - Maya assets 6" /></div></div>
+
+## UVS AND ASSET PREPARATION
+Once geometry was closed, UVs and technical asset organization were prepared to ensure consistency in the texturing stage.
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_UVs_1.png" alt="The Stable - UVs 1" /></div><div><img src="/images/IMG_Maya_UVs_2.png" alt="The Stable - UVs 2" /></div><div><img src="/images/IMG_Maya_UVs_3.png" alt="The Stable - UVs 3" /></div><div><img src="/images/IMG_Maya_UVs_4.png" alt="The Stable - UVs 4" /></div><div><img src="/images/IMG_Maya_UVs_5.png" alt="The Stable - UVs 5" /></div><div><img src="/images/IMG_Maya_UVs_6.png" alt="The Stable - UVs 6" /></div></div>
+
+## ZBRUSH DETAILING
+At this stage, high-poly detail and controlled wear were added on selected props to improve material readability before baking and texturing.
+
+## TEXTURING IN SUBSTANCE PAINTER
+A PBR workflow was applied for wood, metal and wear materials, aiming for consistency across assets while keeping enough variation to avoid repetition.
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Substance_AssetsAndProps_1.png" alt="The Stable - Substance 1" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_2.png" alt="The Stable - Substance 2" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_3.png" alt="The Stable - Substance 3" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_4.png" alt="The Stable - Substance 4" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_5.png" alt="The Stable - Substance 5" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_6.png" alt="The Stable - Substance 6" /></div></div>
+
+## TERRAIN AND EXTERIOR DEVELOPMENT IN UNREAL
+In Unreal, the terrain and exterior were developed while using the cubemap applied in planes as support for lighting and spatial readability.
+
+<div class="custom-gallery two-by-two"><div><img src="/images/unreal_terreno1.png" alt="The Stable - Unreal terrain 1" /></div><div><img src="/images/unreal_terreno2.png" alt="The Stable - Unreal terrain 2" /></div><div><img src="/images/unreal_exterior.png" alt="The Stable - Unreal exterior" /></div><div><img src="/images/StandardCubeMap.png" alt="The Stable - Unreal cubemap" /></div></div>
+
+## INTERIOR DECALS AND POST-PROCESSING
+In later stages, interior decals and post-processing parameters were tuned to unify materials, contrast and final scene atmosphere.
+
+<div class="custom-gallery three-col"><div><img src="/images/unreal_decals1.png" alt="The Stable - Interior decals 1" /></div><div><img src="/images/unreal_decals2.png" alt="The Stable - Interior decals 2" /></div><div><img src="/images/unreal_posprocesado.png" alt="The Stable - Unreal post-processing" /></div></div>
+
+## FINAL RENDERING IN UNREAL
+With the technical base completed, the final aesthetic pass focused on lighting, framing and camera composition for the final shots.
+
+<div class="custom-gallery two-by-two"><div><img src="/images/IMG_Stable_2.png" alt="The Stable - Render 2" /></div><div><img src="/images/IMG_Stable_5.png" alt="The Stable - Main render" /></div><div><img src="/images/IMG_Stable_4.png" alt="The Stable - Render 4" /></div><div><img src="/images/Stable_Images_0000.png" alt="The Stable - Extra render" /></div></div>
+
+## SHOWCASE RENDER PASSES
+As a technical closure of the workflow, this video presents the showcase passes to show how the final image is built layer by layer.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/QTOkFs4Hg30" title="The Stable - Render Passes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## POST-PRODUCTION IN PREMIERE PRO
+In Premiere Pro, the main focus was creating a sound atmosphere to reinforce the project's mood, especially in the teaser. Post-production was primarily focused on audio rather than video editing.
+
+## CHALLENGES AND LEARNINGS
+The main challenges were technical and time constraints during production. Even so, the final result was satisfactory and met the objectives set for the final delivery.`,
+
+            gl: `## INTRODUCIÓN
+The Stable é unha escena de environment rural desenvolvida como proxecto final do módulo de modelado e animación de videoxogos no CEI, documentada en memoria técnica e presentada con dúas pezas de vídeo complementarias:
+
+- **Teaser**: peza breve para presentar a atmosfera xeral do entorno.
+- **Showcase**: percorrido técnico do proceso e do resultado final.
+
+<div class="custom-video-carousel"><div><h3>Teaser</h3><p>Pezas de presentación enfocada na atmosfera e no ton do escenario.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/3SvrQhu0R3Y" title="The Stable - Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div><h3>Showcase</h3><p>Vídeo principal para mostrar o workflow e o render final do proxecto.</p><iframe width="100%" height="360" src="https://www.youtube.com/embed/v2D9x7ZD-n4" title="The Stable - Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+
+## PREPRODUCIÓN
+A fase inicial organizouse con referencias visuais e un mapa conceptual para definir a escala, a distribución de volumes e a intención artística do estábulo.
+
+<div class="custom-gallery"><div><img src="/images/referencias.png" alt="The Stable - Referencias" /></div><div><img src="/images/MapaConceptual.png" alt="The Stable - Mapa conceptual" /></div></div>
+
+## MODELADO EN MAYA
+O entorno bloqueouse e refinouse en Maya, traballando primeiro a estrutura principal e despois o set de props que sosteñen a lectura do espazo.
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_StableConcept_Maya_1.png" alt="The Stable - Maya 1" /></div><div><img src="/images/IMG_StableConcept_Maya_2.png" alt="The Stable - Maya 2" /></div><div><img src="/images/IMG_StableConcept_Maya_3.png" alt="The Stable - Maya 3" /></div></div>
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_AssetsAndProps_1.png" alt="The Stable - Maya assets 1" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_2.png" alt="The Stable - Maya assets 2" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_3.png" alt="The Stable - Maya assets 3" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_4.png" alt="The Stable - Maya assets 4" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_5.png" alt="The Stable - Maya assets 5" /></div><div><img src="/images/IMG_Maya_AssetsAndProps_6.png" alt="The Stable - Maya assets 6" /></div></div>
+
+## UVS E PREPARACIÓN DE ASSETS
+Coa xeometría pechada, preparáronse UVs e organización técnica dos assets para asegurar consistencia no paso de texturizado.
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Maya_UVs_1.png" alt="The Stable - UVs 1" /></div><div><img src="/images/IMG_Maya_UVs_2.png" alt="The Stable - UVs 2" /></div><div><img src="/images/IMG_Maya_UVs_3.png" alt="The Stable - UVs 3" /></div><div><img src="/images/IMG_Maya_UVs_4.png" alt="The Stable - UVs 4" /></div><div><img src="/images/IMG_Maya_UVs_5.png" alt="The Stable - UVs 5" /></div><div><img src="/images/IMG_Maya_UVs_6.png" alt="The Stable - UVs 6" /></div></div>
+
+## DETALLADO DE PEZAS EN ZBRUSH
+Nesta fase engadíronse detalles high poly e desgaste en props concretos para mellorar a lectura de materiais antes do bake e do texturizado.
+
+## TEXTURIZACIÓN EN SUBSTANCE PAINTER
+Aplicouse un fluxo PBR para materiais de madeira, metal e desgaste, buscando coherencia entre pezas e variación suficiente para evitar repetición visual.
+
+<div class="custom-gallery three-col"><div><img src="/images/IMG_Substance_AssetsAndProps_1.png" alt="The Stable - Substance 1" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_2.png" alt="The Stable - Substance 2" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_3.png" alt="The Stable - Substance 3" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_4.png" alt="The Stable - Substance 4" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_5.png" alt="The Stable - Substance 5" /></div><div><img src="/images/IMG_Substance_AssetsAndProps_6.png" alt="The Stable - Substance 6" /></div></div>
+
+## CONSTRUCIÓN DE TERREO E EXTERIOR EN UNREAL
+En Unreal traballouse a construción do terreo e do exterior, empregando o cubemap aplicado en planos como apoio de iluminación e lectura espacial.
+
+<div class="custom-gallery two-by-two"><div><img src="/images/unreal_terreno1.png" alt="The Stable - Terreo Unreal 1" /></div><div><img src="/images/unreal_terreno2.png" alt="The Stable - Terreo Unreal 2" /></div><div><img src="/images/unreal_exterior.png" alt="The Stable - Exterior Unreal" /></div><div><img src="/images/StandardCubeMap.png" alt="The Stable - Cubemap Unreal" /></div></div>
+
+## INTERIOR CON DECALS E POSPROCESADO
+En fases posteriores axustáronse decals de interior e parámetros de posprocesado para unificar materiais, contraste e atmosfera final do escenario.
+
+<div class="custom-gallery three-col"><div><img src="/images/unreal_decals1.png" alt="The Stable - Decals interior 1" /></div><div><img src="/images/unreal_decals2.png" alt="The Stable - Decals interior 2" /></div><div><img src="/images/unreal_posprocesado.png" alt="The Stable - Posprocesado Unreal" /></div></div>
+
+## RENDERIZADO FINAL EN UNREAL
+Coa base técnica pechada, resolveuse a fase estética final: iluminación, encadre e composición de cámara para as tomas definitivas.
+
+<div class="custom-gallery two-by-two"><div><img src="/images/IMG_Stable_2.png" alt="The Stable - Render 2" /></div><div><img src="/images/IMG_Stable_5.png" alt="The Stable - Render principal" /></div><div><img src="/images/IMG_Stable_4.png" alt="The Stable - Render 4" /></div><div><img src="/images/Stable_Images_0000.png" alt="The Stable - Render extra" /></div></div>
+
+## RENDER PASSES DO SHOWCASE
+Como peche técnico do fluxo, este vídeo recolle os passes do showcase para mostrar como se constrúe a imaxe final por capas.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/QTOkFs4Hg30" title="The Stable - Render Passes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## POSPRODUCIÓN EN PREMIERE PRO
+En Premiere Pro, o foco principal foi a creación dun ambiente sonoro que reforzase a atmosfera do proxecto, especialmente no teaser. A posprodución centrouse de forma prioritaria no audio, por enriba da edición de vídeo.
+
+## DIFICULTADES E APRENDIZAXES
+As principais dificultades estiveron nas limitacións técnicas e temporais durante a produción. Aínda así, o resultado final foi satisfactorio e cumpriu os obxectivos formulados para a entrega final.`,
+         },
+         roles: ['artist_2d_3d']
+     },
     {
         id: 'resaca',
         title: 'RESACA',
@@ -1672,3 +1777,5 @@ O proxecto supuxo un gran avance na miña capacidade de estudo sobre diferentes 
         roles: ['design']
     }
 ];
+
+
