@@ -23,7 +23,7 @@ export const socialLinks = [
     },
     {
         name: 'ArtStation',
-        url: 'https://www.artstation.com/marioftr',
+        url: 'https://marioftr.artstation.com/',
         icon: 'artstation'
     },
     {
@@ -333,6 +333,9 @@ export const projects = [
         type: 'academic',
         tags: ['unreal', 'maya', 'substance', 'zbrush', 'photoshop'],
         memoryUrl: '/downloads/memoria_thestable.pdf',
+        externalLinks: [
+            { platform: 'artstation', url: 'https://marioftr.artstation.com/projects/4NAlJn' }
+        ],
         isWIP: false,
         summary: {
             es: 'Escena final de un establo rural desarrollada de principio a fin con referencias, modelado en Maya, texturizado PBR y render en Unreal Engine.',

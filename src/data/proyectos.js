@@ -59,7 +59,7 @@ export const projectList = [
         id: 'actualiteca',
         title: 'Actualiteca',
         year: '2025',
-        visible: true,
+        visible: false,
         roles: ['video_editor'],
         tags: ['audacity'],
         description_es: 'Podcast grupal desarrollado en el marco de la carrera de Comunicación Audiovisual en la USC.'
@@ -77,7 +77,7 @@ export const projectList = [
         id: 'onda_vocal',
         title: 'Onda Vocal',
         year: '2024',
-        visible: true,
+        visible: false,
         roles: ['artist_2d_3d'],
         tags: ['audacity', 'canva'],
         description_es: 'Proyecto grupal de creación de empresa desarrollado en la carrera de Comunicación Audiovisual (USC).'
@@ -86,7 +86,7 @@ export const projectList = [
         id: 'penguin_saga',
         title: 'Penguin Saga',
         year: '2021',
-        visible: true,
+        visible: false,
         roles: ['game_dev'],
         tags: ['scratch', 'photoshop'],
         description_es: 'Videojuego creado en la plataforma de programación visual Scratch en 2º de Bachillerato.'

@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import ProjectModal from './ProjectModal';
-import { allSkills, projects as allProjectsData } from '../data/content';
+import { allSkills } from '../data/content';
 
 const getUniqueTags = (projects) => {
     const tags = new Set();
@@ -39,7 +39,7 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
         });
     }, [projects]);
 
-    const availableTags = useMemo(() => getUniqueTags(allProjectsData || []), []);
+    const availableTags = useMemo(() => getUniqueTags(projects || []), [projects]);
     
     const availableYears = useMemo(() => {
         const years = new Set();
@@ -65,27 +65,36 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
 
     const processedProjects = useMemo(() => {
         if (!projects) return [];
-        let filtered = [...projects];
+
+        let filtered = projects.map((project, originalIndex) => ({ project, originalIndex }));
 
         if (filterType !== 'all') {
-            filtered = filtered.filter(p => p.type === filterType);
+            filtered = filtered.filter(({ project }) => project.type === filterType);
         }
 
         if (selectedTags.length > 0) {
-            filtered = filtered.filter(p =>
-                selectedTags.every(tag => p.tags && p.tags.includes(tag))
+            filtered = filtered.filter(({ project }) =>
+                selectedTags.every(tag => project.tags && project.tags.includes(tag))
             );
         }
 
         if (selectedYears.length > 0) {
-            filtered = filtered.filter(p => selectedYears.includes(p.year));
+            filtered = filtered.filter(({ project }) => selectedYears.includes(project.year));
         }
 
-        return filtered.sort((a, b) => {
-            const yearA = parseInt(a.year) || 0;
-            const yearB = parseInt(b.year) || 0;
-            return sortDesc ? yearB - yearA : yearA - yearB;
+        filtered.sort((a, b) => {
+            const yearA = parseInt(a.project.year) || 0;
+            const yearB = parseInt(b.project.year) || 0;
+
+            if (yearA !== yearB) {
+                return sortDesc ? yearB - yearA : yearA - yearB;
+            }
+
+            // Keep deterministic inversion for same-year projects.
+            return sortDesc ? b.originalIndex - a.originalIndex : a.originalIndex - b.originalIndex;
         });
+
+        return filtered.map(({ project }) => project);
     }, [projects, filterType, selectedTags, selectedYears, sortDesc]);
 
     return (

@@ -31,6 +31,9 @@ export const profileImages = {
                 title: 'Establo 3D',
                 projectId: 'establo',
                 videoUrl: 'https://www.youtube.com/embed/v2D9x7ZD-n4',
+                externalLinks: [
+                    { platform: 'artstation', url: 'https://marioftr.artstation.com/projects/4NAlJn' }
+                ],
                 process: [
                     { src: '/images/MapaConceptual.png', label: 'Mapa Conceptual del Entorno' },
                     { src: '/images/IMG_StableConcept_Maya_1.png', label: 'Blockout en Maya (Vista 1)' },
