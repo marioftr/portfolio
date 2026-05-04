@@ -87,14 +87,15 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
             const yearB = parseInt(b.project.year) || 0;
 
             if (yearA !== yearB) {
-                return sortDesc ? yearB - yearA : yearA - yearB;
+                return yearB - yearA;
             }
 
-            // Keep deterministic inversion for same-year projects.
-            return sortDesc ? b.originalIndex - a.originalIndex : a.originalIndex - b.originalIndex;
+            // Canonical tie-break: source order from project list.
+            return a.originalIndex - b.originalIndex;
         });
 
-        return filtered.map(({ project }) => project);
+        const ordered = filtered.map(({ project }) => project);
+        return sortDesc ? ordered : ordered.reverse();
     }, [projects, filterType, selectedTags, selectedYears, sortDesc]);
 
     return (

@@ -298,7 +298,7 @@ export default function LandingPage() {
 
                         {/* View CV Button */}
                         <a
-                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en.pdf' : '/downloads/CV_Mario_Villanueva_es.pdf'}
+                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_may26.pdf' : '/downloads/CV_Mario_Villanueva_es_may26.pdf'}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center social-icon-landing cv-view-landing"

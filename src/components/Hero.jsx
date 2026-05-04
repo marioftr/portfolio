@@ -74,7 +74,7 @@ export default function Hero({ roleId }) {
 
                     <div className="justify-center md:justify-start" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', width: '100%' }}>
                         <a 
-                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en.pdf' : '/downloads/CV_Mario_Villanueva_es.pdf'} 
+                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_may26.pdf' : '/downloads/CV_Mario_Villanueva_es_may26.pdf'} 
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary flex items-center gap-xs"

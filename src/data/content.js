@@ -34,7 +34,7 @@ export const socialLinks = [
 ];
 
 export const aboutMe = {
-    es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el CEI de Madrid y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales.\n\nActualmente estoy desarrollando mis habilidades de programación de videojuegos, más concretamente en C# para Unity. También trabajo con Unreal Engine y sus blueprints para explorar diferentes enfoques de desarrollo. Durante mi formación académica he explorado diversas ramas del sector multimedia.\n\nSoy un entusiasta de la edición de vídeo, del modelado 3D y del diseño, con voluntad de profundizar en estos ámbitos y de potenciar mis habilidades en un entorno profesional. En cuanto al diseño gráfico, tengo experiencia sólida con Photoshop y Canva para crear recursos visuales coherentes y atractivos.",
+    es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el CEI de Madrid y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales.\n\nActualmente trabajo como QA Tester en Universally Speaking, en Madrid, una experiencia que me aporta una visión más completa de los procesos de validación, la detección de errores y los estándares de calidad dentro del sector del videojuego.\n\nManejo principalmente flujos de modelado hard surface con Autodesk Maya, Substance Painter y Unreal Engine, aunque también trabajo con C# y Unity cuando el proyecto lo requiere, e incluso diseño 2D en Aseprite. Durante mi formación académica he explorado diversas ramas del sector multimedia.\n\nSoy un entusiasta de la edición de vídeo, del modelado 3D y del diseño, con voluntad de profundizar en estos ámbitos y de potenciar mis habilidades en un entorno profesional. En cuanto al diseño gráfico, tengo experiencia sólida con Photoshop y Canva para crear recursos visuales coherentes y atractivos.",
     ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al CEI de Madrid i graduat en Comunicació Audiovisual per la Universitat de Santiago de Compostela (USC) amb menció en Ideació i Creació de Continguts Audiovisuals.\n\nActualment estic desenvolupant les meves habilitats de programació de videojocs, més concretament en C# per a Unity. També treballo amb Unreal Engine i els seus blueprints per explorar diferents enfocaments de desenvolupament. Durant la meva formació acadèmica he explorat diverses branques del sector multimèdia.\n\nSóc un entusiasta de l'edició de vídeo, del modelatge 3D i del disseny, amb voluntat d'aprofundir en aquests àmbits i de potenciar les meves habilitats en un entorn professional. Pel que fa al disseny gràfic, tinc experiència sòlida amb Photoshop i Canva per crear recursos visuals coherents i atractivos.",
     en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid and graduated in Audiovisual Communication from the University of Santiago de Compostela (USC) with a specialization in Audiovisual Content Ideation and Creation.\n\nCurrently developing my game programming skills, specifically in C# for Unity. I also work with Unreal Engine and its blueprints to explore different development approaches. Throughout my academic training, I have explored various branches of the multimedia sector.\n\nI am an enthusiast of video editing, 3D modeling and design, with a willingness to deepen in these areas and empower my skills in a professional environment. Regarding graphic design, I have solid experience with Photoshop and Canva to create coherent and attractive visual resources.",
     gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no CEI de Madrid e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais.\n\nActualmente estou a desenvolver as miñas habilidades de programación de videoxogos, máis concretamente en C# para Unity. Tamén traballo con Unreal Engine e os seus blueprints para explorar diferentes enfoques de desenvolvolvemento. Durante a miña formación académica explorei diversas ramas do sector multimedia.\n\nSon un entusiasta da edición de vídeo, do modelado 3D e do deseño, con vontade de afondar nestes ámbitos e de potenciar as miñas habilidades nunha contorna profesional. En canto ao deseño gráfico, teño experiencia sólida con Photoshop e Canva para crear recursos visuais coherentes e atractivos."
@@ -42,7 +42,7 @@ export const aboutMe = {
 
 export const aboutByRole = {
     artist_2d_3d: {
-        es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el CEI de Madrid y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales.\n\nArtista 2D y 3D con experiencia en modelado, esculpido y animación. Trabajo con Autodesk Maya, ZBrush y Blender, y aplico flujo PBR en Substance Painter para texturizado. He participado en proyectos académicos y comerciales donde produzco desde assets hasta animaciones finales.",
+        es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el CEI de Madrid y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales.\n\nActualmente trabajo como QA Tester en Universally Speaking, en Madrid, una experiencia que me aporta una visión más completa de los procesos de validación, la detección de errores y los estándares de calidad dentro del sector del videojuego.\n\nArtista 2D y 3D con foco en el flujo de modelado hard surface para entornos y props, trabajando principalmente con Autodesk Maya, Substance Painter y Unreal Engine. También manejo C# y Unity para colaborar en prototipos y pequeños sistemas, y cuento con experiencia en Blender, Photoshop y Aseprite como apoyo en distintas fases del proceso. He participado en proyectos académicos donde produzco desde assets hasta animaciones finales.",
         ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al CEI de Madrid i graduat en Comunicació Audiovisual per la Universitat de Santiago de Compostela (USC) amb menció en Ideació i Creació de Continguts Audiovisuals.\n\nArtista 2D i 3D amb i experència en modelatge, escultura i animació. Treballo amb Autodesk Maya, ZBrush i Blender, i aplico fluxos PBR a Substance Painter per al texturitzat. He participat en projectes acadèmics i comercials on produeixo des d'assets fins a animacions finals.",
         en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid and graduated in Audiovisual Communication from the University of Santiago de Compostela (USC) with a specialization in Audiovisual Content Ideation and Creation.\n\n2D & 3D Artist experienced in modeling, sculpting and animation. I use Autodesk Maya, ZBrush and Blender, and apply PBR workflows in Substance Painter. I've contributed to academic and professional projects delivering assets and finished animations.",
         gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no CEI de Madrid e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais.\n\nArtista 2D e 3D con experiencia en modelado, esculpido e animación. Traballo con Autodesk Maya, ZBrush e Blender, e aplico fluxos PBR en Substance Painter para texturizado. Participei en proxectos académicos e comerciais produzindo desde assets ata animacións completas."
@@ -54,7 +54,7 @@ export const aboutByRole = {
         gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no CEI de Madrid e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais.\n\nEditor de vídeo especializado en montaxe, corrección de cor e motion graphics. Domino Adobe Premiere Pro e After Effects, e traballo con DaVinci Resolve para etalonaxe profesional. Teño experiencia en pipelines de posprodución e adaptación de material para diferentes plataformas."
     },
     game_dev: {
-        es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el CEI de Madrid y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales.\n\nProgramador de videojuegos centrado en gameplay y sistemas. Desarrollo en C# para Unity y también trabajo con Blueprints in Unreal Engine. He creado prototipos de mecánicas, sistemas de guardado y cinemáticas, aplicando buenas prácticas de arquitectura y optimización.",
+        es: "Estudiante de Máster en Diseño, Modelado y Programación de Videojuegos en el CEI de Madrid y graduado en Comunicación Audiovisual por la Universidad de Santiago de Compostela (USC) con mención en Ideación y Creación de Contenidos Audiovisuales.\n\nActualmente trabajo como QA Tester en Universally Speaking, en Madrid, una experiencia que me aporta una visión más completa de los procesos de validación, la detección de errores y los estándares de calidad dentro del sector del videojuego.\n\nProgramador de videojuegos centrado en gameplay y sistemas. Desarrollo en C# para Unity y también trabajo con Blueprints en Unreal Engine. He creado prototipos de mecánicas, sistemas de guardado y cinemáticas, aplicando buenas prácticas de arquitectura y optimización.",
         ca: "Estudiant de Màster en Disseny, Modelatge i Programació de Videojocs al CEI de Madrid i graduat en Comunicació Audiovisual per la Universitat de Santiago de Compostela (USC) amb menció en Ideació i Creació de Continguts Audiovisuals.\n\nProgramador de videojocs centrat en gameplay i sistemes. Desenvolupo en C# per a Unity i també treballo amb Blueprints a Unreal Engine. He creat prototips de mecàniques, sistemes de guardatge i cinemàtiques, aplicant bones pràctiques d'arquitectura i optimització.",
         en: "Master's Student in Game Design, Modeling and Programming at CEI Madrid and graduated in Audiovisual Communication from the University of Santiago de Compostela (USC) with a specialization in Audiovisual Content Ideation and Creation.\n\nGame developer focused on gameplay and systems. I develop in C# for Unity and also work with Blueprints in Unreal Engine. I've built prototypes, save systems and cinematics following solid architecture and optimization practices.",
         gl: "Estudante de Máster en Deseño, Modelado e Programación de Videoxogos no CEI de Madrid e graduado en Comunicación Audiovisual pola Universidade de Santiago de Compostela (USC) con mención en Ideación e Creación de Contidos Audiovisuais.\n\nProgramador de videoxogos centrado en gameplay e sistemas. Desenvolvo en C# para Unity e tamén traballo con Blueprints en Unreal Engine. Creei prototipos de mecánicas, sistemas de gardado e cinemáticas aplicando boas prácticas de arquitectura e optimización."
@@ -78,6 +78,7 @@ export const allSkills = {
     capcut: { name: 'CapCut', description: { es: 'Edición de vídeo ágil.', ca: 'Edició de vídeo àgil.', en: 'Agile video editing.', gl: 'Edición de vídeo áxil.' } },
     canva: { name: 'Canva', description: { es: 'Diseño gráfico simplificado.', ca: 'Disseny gràfic simplificat.', en: 'Simplified graphic design.', gl: 'Deseño gráfico simplificado.' } },
     affinity: { name: 'Affinity Designer', description: { es: 'Diseño vectorial.', ca: 'Disseny vectorial.', en: 'Vector design.', gl: 'Deseño vectorial.' } },
+    aseprite: { name: 'Aseprite', description: { es: 'Pixel art y animación 2D.', ca: 'Pixel art i animació 2D.', en: 'Pixel art and 2D animation.', gl: 'Pixel art e animación 2D.' } },
     audacity: { name: 'Audacity', description: { es: 'Edición de audio básica.', ca: 'Edició d\'àudio bàsica.', en: 'Basic audio editing.', gl: 'Edición de audio básica.' } },
     brainstorm: { name: 'Brainstorm Edison', description: { es: 'Estudios virtuales y realidad aumentada.', ca: 'Estudis virtuals i realitat augmentada.', en: 'Virtual studios and AR.', gl: 'Estudos virtuais e realidade aumentada.' } },
     mkvtoolnix: { name: 'MKVToolNix', description: { es: 'Herramientas para formato MKV.', ca: 'Eines per a format MKV.', en: 'MKV format tools.', gl: 'Ferramentas para formato MKV.' } },
@@ -101,7 +102,7 @@ export const skillCategories = [
     },
     {
         id: 'modeling',
-        title: { es: 'Modelado 2D y 3D', ca: 'Modelatge 2D i 3D', en: '2D & 3D Modeling', gl: 'Modelado 2D e 3D' },
+        title: { es: 'Modelado 3D', ca: 'Modelatge 3D', en: '3D Modeling', gl: 'Modelado 3D' },
         items: ['blender', 'maya', 'zbrush', 'substance']
     },
     {
@@ -117,7 +118,7 @@ export const skillCategories = [
     {
         id: 'design_2d',
         title: { es: 'Diseño 2D', ca: 'Disseny 2D', en: '2D Design', gl: 'Deseño 2D' },
-        items: ['photoshop', 'canva', 'affinity']
+        items: ['photoshop', 'aseprite', 'canva', 'affinity']
     },
     {
         id: 'vr_ar',
@@ -169,19 +170,19 @@ export const aptitudes = {
         { es: 'Muy buenas <b>competencias tecnológicas</b> y digitales.', ca: 'Molt bones <b>competències tecnològiques</b> i digitals.', en: 'Very good <b>technological</b> and digital skills.', gl: 'Moi boas <b>competencias tecnològicas</b> e dixitais.' }
     ],
     game_dev: [
-        { es: 'Capacidad para la <b>resolución lógica de problemas</b> complejos.', ca: 'Capacitat per a la <b>resolució lògica de problemes</b> complexos.', en: 'Ability to solve complex logical problems.', gl: 'Capacidade para a resolución lóxica de problemas complexos.' },
-        { es: 'Pasión por las <b>mecánicas de juego</b> y el diseño de sistemas.', ca: 'Passió per les <b>mecàniques de joc</b> i el disseny de sistemes.', en: 'Passion for game mechanics and systems design.', gl: 'Paixón polas mecánicas de xogo e o deseño de sistemas.' },
-        { es: 'Fuerte <b>pensamiento algorítmico</b> y estructurado.', ca: 'Fort <b>pensament algorítmic</b> i estructurat.', en: 'Strong algorithmic and structured thinking.', gl: 'Forte pensamento algorítmico e estruturado.' }
+        { es: 'Capacidad para <b>probar, depurar y ajustar</b> mecánicas con mentalidad de mejora continua.', ca: 'Capacitat per a <b>provar, depurar i ajustar</b> mecàniques amb mentalitat de millora contínua.', en: 'Ability to <b>test, debug and refine</b> mechanics with a continuous-improvement mindset.', gl: 'Capacidade para <b>probar, depurar e axustar</b> mecánicas cunha mentalidade de mellora continua.' },
+        { es: 'Pensamiento <b>lógico y estructurado</b> para diseñar sistemas claros y escalables.', ca: 'Pensament <b>lògic i estructurat</b> per dissenyar sistemes clars i escalables.', en: 'Logical and structured thinking to design clear and scalable systems.', gl: 'Pensamento <b>lóxico e estruturado</b> para deseñar sistemas claros e escalables.' },
+        { es: 'Facilidad para colaborar con equipos multidisciplinares y trasladar feedback técnico de forma útil.', ca: 'Facilitat per col·laborar amb equips multidisciplinaris i traslladar feedback tècnic de manera útil.', en: 'Ease collaborating with multidisciplinary teams and turning technical feedback into something actionable.', gl: 'Facilidade para colaborar con equipos multidisciplinares e trasladar feedback técnico de forma útil.' }
     ],
     video_editor: [
-        { es: 'Gran sentido del <b>ritmo narrativo</b> y musical.', ca: 'Gran sentit del <b>ritme narratiu</b> i musical.', en: 'Great sense of narrative and musical rhythm.', gl: 'Gran sentido do ritmo narrativo e musical.' },
-        { es: 'Ojo crítico para la <b>composición visual</b> y el color.', ca: 'Ull crític per a la <b>composició visual</b> i el color.', en: 'Critical eye for visual composition and color.', gl: 'Ollo crítico para a composición visual e a cor.' },
-        { es: 'Eficiencia en flujos de trabajo de <b>post-producción</b>.', ca: 'Eficiència en fluxos de treball de <b>postproducció</b>.', en: 'Efficiency in post-production workflows.', gl: 'Eficiencia en fluxos de traballo de posproducció.' }
+        { es: 'Gran sentido del <b>ritmo narrativo</b> y musical para construir piezas con cadencia.', ca: 'Gran sentit del <b>ritme narratiu</b> i musical per construir peces amb cadència.', en: 'Strong sense of narrative and musical rhythm to build pieces with pace.', gl: 'Gran sentido do ritmo narrativo e musical para construír pezas con cadencia.' },
+        { es: 'Ojo crítico para la <b>composición visual</b>, la continuidad y el color.', ca: 'Ull crític per a la <b>composició visual</b>, la continuïtat i el color.', en: 'A critical eye for visual composition, continuity and color.', gl: 'Ollo crítico para a composición visual, a continuidade e a cor.' },
+        { es: 'Orden y agilidad para organizar material y cerrar flujos de <b>postproducción</b> con solvencia.', ca: 'Ordre i agilitat per organitzar material i tancar fluxos de <b>postproducció</b> amb solvència.', en: 'Order and agility to organize material and close post-production workflows effectively.', gl: 'Orde e axilidade para organizar material e pechar fluxos de <b>posprodución</b> con solvencia.' }
     ],
     artist_2d_3d: [
-        { es: 'Excelente <b>percepción espacial</b> y volumétrica.', ca: 'Excel·lent <b>percepció espacial</b> i volumètrica.', en: 'Excellent spatial and volumetric perception.', gl: 'Excelente percepción espacial e volumétrica.' },
-        { es: 'Creatividad para el <b>diseño de entornos</b> y personajes.', ca: 'Creativitat per al <b>disseny d\'entorns</b> i personatges.', en: 'Creativity for environment and character design.', gl: 'Creatividade para o deseño de contornas e personaxes.' },
-        { es: 'Dominio de los <b>12 principios de la animación</b>.', ca: 'Domini dels <b>12 principis de l\'animació</b>.', en: 'Mastery of the 12 principles of animation.', gl: 'Dominio dos 12 principios da animación.' }
+        { es: 'Dominio del <b>hard surface</b> para entornos y props con coherencia volumétrica.', ca: 'Domini del <b>hard surface</b> per a entorns i props amb coherència volumètrica.', en: 'Strong <b>hard surface</b> workflow for environments and props with volumetric coherence.', gl: 'Dominio do <b>hard surface</b> para contornas e props cunha coherencia volumètrica.' },
+        { es: 'Criterio técnico para <b>modelado, UVs y texturizado PBR</b>, garantizando calidad en todo el pipeline de assets.', ca: 'Criteri tècnic per a <b>modelatge, UVs i texturització PBR</b>, garantint qualitat en tot el pipeline d\'assets.', en: 'Technical judgment for <b>modeling, UVs and PBR texturing</b>, ensuring quality across the entire asset pipeline.', gl: 'Criterio técnico para <b>modelado, UVs e texturizado PBR</b>, garantindo calidade en todo o pipeline de assets.' },
+        { es: 'Versatilidad para apoyar distintas fases del proceso, desde ajustes 3D hasta piezas de apoyo y retoque visual.', ca: 'Versatilitat per donar suport a diferents fases del procés, des d\'ajustos 3D fins a peces de suport i retoc visual.', en: 'Versatility to support different stages of the process, from 3D adjustments to support pieces and visual retouching.', gl: 'Versatilidade para apoiar distintas fases do proceso, desde axustes 3D ata pezas de apoio e retoque visual.' }
     ]
 };
 
@@ -198,7 +199,7 @@ export const education = [
             en: 'Professional learning across 3 modules, with specialized knowledge areas and programs in video games: programming (C# for Unity and Unreal); 3D animation and modeling techniques (Autodesk Maya, ZBrush, Substance Painter); and art and design. Development of a triple profile within the sector that facilitates admission to different roles based on industry needs.',
             gl: 'Aprendizaxe profesional en 3 módulos, con áreas de coñecemento e programas especializados en videoxogos: programación (C# para Unity e Unreal); técnicas de animación e modelado 3D (Autodesk Maya, ZBrush, Substance Painter); e arte e deseño. Desenvolvemento dun perfil triple dentro do sector que facilita a admisión de diferentes roles segundo as necesidades da industria.'
         },
-        roles: ['game_dev', 'artist_2d_3d', 'design']
+        roles: ['game_dev', 'video_editor', 'artist_2d_3d', 'design']
     },
     {
         id: 'edu-2',
@@ -226,11 +227,25 @@ export const education = [
             en: 'Specific baccalaureate program whose main features include small groups, a research project over two years, and deepening activities. Special training in visual programming applications (Scratch) and robotics (Arduino), as well as basic instruction in web programming (HTML, CSS).',
             gl: 'Programa específico de bacharelato cuxas características principais inclúen grupos reducidos, un proxecto de investigación ao longo dos dous cursos e actividades de profundización. Formación especial en aplicacións de programación visual (Scratch) e robótica (Arduino), ademais de instrucións básicas en programación web (HTML, CSS).'
         },
-        roles: ['game_dev']
+        roles: ['game_dev', 'video_editor', 'artist_2d_3d']
     }
 ];
 
 export const experience = [
+    {
+        id: 'exp-4',
+        year: '2026',
+        title: { es: 'QA Tester', ca: 'QA Tester', en: 'QA Tester', gl: 'QA Tester' },
+        company: 'Universally Speaking',
+        location: 'Madrid',
+        description: {
+            es: 'Validación de builds, detección y seguimiento de incidencias, y control de calidad en proyectos de videojuego. Aporta una visión transversal del desarrollo y mejora la comprensión de los estándares que exigen producción, arte y programación.',
+            ca: "Validació de builds, detecció i seguiment d'incidències, i control de qualitat en projectes de videojoc. Aporta una visió transversal del desenvolupament i millora la comprensió dels estàndards que exigeixen producció, art i programació.",
+            en: 'Build validation, issue detection and tracking, and quality control in video game projects. It provides a transversal view of development and improves understanding of the standards required by production, art and programming.',
+            gl: 'Validación de builds, detección e seguimento de incidencias, e control de calidade en proxectos de videoxogo. Aporta unha visión transversal do desenvolvemento e mellora a comprensión dos estándares que esixen produción, arte e programación.'
+        },
+        roles: ['game_dev', 'artist_2d_3d', 'video_editor']
+    },
     {
         id: 'exp-1',
         year: '2025',

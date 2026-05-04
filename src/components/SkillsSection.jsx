@@ -5,6 +5,7 @@ import audacityImg from '../assets/optimized/audacity.png?url';
 import blenderImg from '../assets/optimized/blender.png?url';
 import brainstormImg from '../assets/optimized/brainstorm.png?url';
 import canvaImg from '../assets/optimized/canva.png?url';
+import asepriteImg from '../assets/optimized/aseprite.png?url';
 import capcutImg from '../assets/optimized/capcut.jpg?url';
 import davinciImg from '../assets/optimized/davinci.png?url';
 import ffmpegImg from '../assets/optimized/ffmpeg.png?url';
@@ -34,6 +35,7 @@ const imageMap = {
     'blender.png': blenderImg,
     'brainstorm.png': brainstormImg,
     'canva.png': canvaImg,
+    'aseprite.png': asepriteImg,
     'capcut.jpg': capcutImg,
     'davinci.png': davinciImg,
     'ffmpeg.png': ffmpegImg,
