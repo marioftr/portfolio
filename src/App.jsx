@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Routes, Route, useParams, useNavigate, Navigate, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ExperienceTimeline from './components/Timeline';
@@ -782,18 +783,21 @@ const LanguageRouteWrapper = ({ component }) => {
 
 function App() {
   return (
-    <Routes>
-      {/* Root redirect */}
-      <Route path="/" element={<Navigate to="/es" replace />} />
-      
-      {/* Routes with language */}
-      <Route path="/:lang" element={<LanguageRouteWrapper component={<LandingPage />} />} />
-      <Route path="/:lang/:role" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
-      <Route path="/:lang/:role/:tab" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
-      
-      {/* Catch-all or missing lang (e.g., /perfil-general) */}
-      <Route path="/:role" element={<RoleRedirect />} />
-    </Routes>
+    <>
+      <Routes>
+        {/* Root redirect */}
+        <Route path="/" element={<Navigate to="/es" replace />} />
+        
+        {/* Routes with language */}
+        <Route path="/:lang" element={<LanguageRouteWrapper component={<LandingPage />} />} />
+        <Route path="/:lang/:role" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
+        <Route path="/:lang/:role/:tab" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
+        
+        {/* Catch-all or missing lang (e.g., /perfil-general) */}
+        <Route path="/:role" element={<RoleRedirect />} />
+      </Routes>
+      <Analytics />
+    </>
   );
 }
 
