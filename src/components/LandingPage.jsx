@@ -161,7 +161,7 @@ export default function LandingPage() {
                     transition: 'all 0.3s ease'
                 }}
             >
-                <div className="animate-fade-in flex flex-col items-center md:items-start" style={{ 
+                <div className={`animate-fade-in flex flex-col ${useVerticalStack ? 'items-center' : 'items-center md:items-start'}`} style={{ 
                     maxWidth: isMobile ? '450px' : '900px', 
                     width: '100%', 
                     justifyContent: 'center',

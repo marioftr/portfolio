@@ -88,7 +88,7 @@ const PortfolioOverview = ({ onProjectSelect, onTabClick }) => {
   }, []);
 
   const previewCount = isMobile ? 2 : 3;
-  const demoReelUrl = 'https://www.youtube.com/embed/bUop-Zhu0Kw';
+  const demoReelUrl = 'https://www.youtube.com/embed/YGdhWOoejZ8';
 
   return (
     <>

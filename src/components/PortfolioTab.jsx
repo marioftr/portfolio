@@ -442,7 +442,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
         design: { es: 'Diseño Gráfico', en: 'Graphic Design', ca: 'Disseny Gràfic', gl: 'Deseño Gráfico' }
     };
 
-    const demoReelUrl = 'https://www.youtube.com/embed/bUop-Zhu0Kw';
+    const demoReelUrl = 'https://www.youtube.com/embed/YGdhWOoejZ8';
 
     const renderGrid = (items, startInFlatIndex) => (
         <div style={{
