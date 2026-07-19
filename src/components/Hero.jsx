@@ -6,9 +6,9 @@ export default function Hero({ roleId }) {
     const { language, t } = useTranslation();
 
     const roleTitles = {
-        all: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' },
-        game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
-        artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
+        all: { es: 'Perfil generalista', ca: 'Perfil generalista', en: 'Generalist Profile', gl: 'Perfil xeralista' },
+        game_dev: { es: 'Diseñador de Videojuegos', ca: 'Dissenyador de Videojocs', en: 'Game Designer', gl: 'Deseñador de Videoxogos' },
+        artist_2d_3d: { es: 'Artista 3D', ca: 'Artista 3D', en: '3D Artist', gl: 'Artista 3D' },
         video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' },
         design: { es: 'Diseño', ca: 'Disseny', en: 'Design', gl: 'Deseño' }
     };
@@ -74,7 +74,7 @@ export default function Hero({ roleId }) {
 
                     <div className="justify-center md:justify-start" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', width: '100%' }}>
                         <a 
-                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_may26.pdf' : '/downloads/CV_Mario_Villanueva_es_may26.pdf'} 
+                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_jul26.pdf' : '/downloads/CV_Mario_Villanueva_es_jul26.pdf'} 
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary flex items-center gap-xs"

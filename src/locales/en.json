@@ -1,8 +1,8 @@
 {
-    "role_all": "All",
+    "role_all": "Generalist Profile",
     "role_video_editor": "Video Editor",
-    "role_game_dev": "Game Developer",
-    "role_artist_2d_3d": "2D & 3D Artist",
+    "role_game_dev": "Game Designer",
+    "role_artist_2d_3d": "3D Artist",
     "role_design": "Graphic Design",
     "nav_home": "Home",
     "nav_experience": "Experience",

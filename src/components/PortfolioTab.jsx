@@ -9,9 +9,9 @@ import portfolioContent from '../data/portfolio_content.json';
 export const profileImages = {
     all: {
         game_dev: [
-            { 
-                src: '/images/resaca4.png', 
-                title_key: 'resaca_main', 
+            {
+                src: '/images/resaca4.png',
+                title_key: 'resaca_main',
                 projectId: 'resaca',
                 process: [
                     { src: '/images/resaca1.jpg', label_index: 0 },
@@ -47,10 +47,10 @@ export const profileImages = {
                     { src: '/images/IMG_Stable_5.png', type: 'video', videoUrl: 'https://www.youtube.com/embed/v2D9x7ZD-n4', label: 'Resultado Final (Showcase)' }
                 ]
             },
-            { 
-                src: '/images/WoodCart_3DSubstance_01.jpg', 
-                type: 'image', 
-                title_key: 'wood_cart_asset', 
+            {
+                src: '/images/WoodCart_3DSubstance_01.jpg',
+                type: 'image',
+                title_key: 'wood_cart_asset',
                 projectId: 'establo',
                 externalLinks: [
                     { platform: 'artstation', url: 'https://marioftr.artstation.com/projects/3E5bn2' }
@@ -71,10 +71,10 @@ export const profileImages = {
                     { src: '/images/WoodCart_3DSubstance_01.jpg', label_index: 5 }
                 ]
             },
-            { 
-                src: '/images/Barril_3DSubstance_01.jpg', 
-                type: 'image', 
-                title_key: 'barrel_asset', 
+            {
+                src: '/images/Barril_3DSubstance_01.jpg',
+                type: 'image',
+                title_key: 'barrel_asset',
                 projectId: 'establo',
                 process: [
                     { src: '/images/Barril_Maya.png', label_index: 0 },
@@ -84,10 +84,10 @@ export const profileImages = {
                     { src: '/images/Barril_3DSubstance_01.jpg', label_index: 4 }
                 ]
             },
-            { 
-                src: '/images/BridaCaballo_3DSubstance_01.jpg', 
-                type: 'image', 
-                title_key: 'bridle_asset', 
+            {
+                src: '/images/BridaCaballo_3DSubstance_01.jpg',
+                type: 'image',
+                title_key: 'bridle_asset',
                 projectId: 'establo',
                 externalLinks: [
                     { platform: 'artstation', url: 'https://marioftr.artstation.com/projects/8BKmam' }
@@ -99,10 +99,10 @@ export const profileImages = {
                     { src: '/images/BridaCaballo_3DSubstance_02.jpg', label_index: 3 },
                     { src: '/images/BridaCaballo_3DSubstance_01.jpg', label_index: 4 }
                 ]
-            },            { 
-                src: '/images/resaca3.png', 
-                type: 'image', 
-                title_key: 'spatial_design', 
+            }, {
+                src: '/images/resaca3.png',
+                type: 'image',
+                title_key: 'spatial_design',
                 projectId: 'resaca',
                 process: [
                     { src: '/images/resaca4.png', label_index: 0 },
@@ -111,30 +111,30 @@ export const profileImages = {
                     { src: '/images/resaca3.png', label_index: 3 }
                 ]
             },
-            { 
-                src: '/images/cd_nero_imagen1.avif', 
-                type: 'video', 
-                title_key: 'nero_character', 
+            {
+                src: '/images/cd_nero_imagen1.avif',
+                type: 'video',
+                title_key: 'nero_character',
                 projectId: 'colorin',
                 process: [
                     { src: '/images/cd_nero_imagen11.avif', label_index: 0 },
                     { src: '/images/cd_nero_imagen10.avif', label_index: 1 },
-                    { src: '/images/cd_nero_imagen3.avif',  label_index: 2 },
-                    { src: '/images/cd_nero_imagen4.avif',  label_index: 3 },
-                    { src: '/images/cd_nero_imagen5.avif',  label_index: 4 },
-                    { src: '/images/cd_nero_imagen6.avif',  label_index: 5 },
-                    { src: '/images/cd_nero_imagen9.avif',  label_index: 6 },
-                    { src: '/images/cd_nero_imagen7.avif',  label_index: 7 },
-                    { src: '/images/cd_nero_imagen8.avif',  label_index: 8 },
-                    { src: '/images/cd_nero_imagen2.avif',  label_index: 9 },
-                    { src: '/images/cd_nero_imagen1.avif',  label_index: 10 },
-                    { src: '/images/cd_nero_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936330', label_index: 11 }
+                    { src: '/images/cd_nero_imagen3.avif', label_index: 2 },
+                    { src: '/images/cd_nero_imagen4.avif', label_index: 3 },
+                    { src: '/images/cd_nero_imagen5.avif', label_index: 4 },
+                    { src: '/images/cd_nero_imagen6.avif', label_index: 5 },
+                    { src: '/images/cd_nero_imagen9.avif', label_index: 6 },
+                    { src: '/images/cd_nero_imagen7.avif', label_index: 7 },
+                    { src: '/images/cd_nero_imagen8.avif', label_index: 8 },
+                    { src: '/images/cd_nero_imagen2.avif', label_index: 9 },
+                    { src: '/images/cd_nero_imagen1.avif', label_index: 10 },
+                    { src: '/images/cd_nero_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936330', label_index: 11 }
                 ]
             },
-            { 
-                src: '/images/cd_coral_imagen1.avif', 
-                type: 'video', 
-                title_key: 'coral_character', 
+            {
+                src: '/images/cd_coral_imagen1.avif',
+                type: 'video',
+                title_key: 'coral_character',
                 projectId: 'colorin',
                 process: [
                     { src: '/images/cd_coral_imagen7.avif', label_index: 0 },
@@ -148,30 +148,30 @@ export const profileImages = {
                     { src: '/images/cd_coral_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936347', label_index: 8 }
                 ]
             },
-            { 
-                src: '/images/cd_craion_imagen1.avif', 
-                type: 'video', 
-                title_key: 'craion_character', 
+            {
+                src: '/images/cd_craion_imagen1.avif',
+                type: 'video',
+                title_key: 'craion_character',
                 projectId: 'colorin',
                 process: [
                     { src: '/images/cd_craion_imagen10.avif', label_index: 0 },
                     { src: '/images/cd_craion_imagen10.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104957944', label_index: 1 },
-                    { src: '/images/cd_craion_imagen5.avif',  label_index: 2 },
-                    { src: '/images/cd_craion_imagen4.avif',  label_index: 3 },
-                    { src: '/images/cd_craion_imagen6.avif',  label_index: 4 },
-                    { src: '/images/cd_craion_imagen7.avif',  label_index: 5 },
-                    { src: '/images/cd_craion_imagen8.avif',  label_index: 6 },
-                    { src: '/images/cd_craion_imagen9.avif',  label_index: 7 },
-                    { src: '/images/cd_craion_imagen3.avif',  label_index: 8 },
-                    { src: '/images/cd_craion_imagen2.avif',  label_index: 9 },
-                    { src: '/images/cd_craion_imagen1.avif',  label_index: 10 },
-                    { src: '/images/cd_craion_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936375', label_index: 11 }
+                    { src: '/images/cd_craion_imagen5.avif', label_index: 2 },
+                    { src: '/images/cd_craion_imagen4.avif', label_index: 3 },
+                    { src: '/images/cd_craion_imagen6.avif', label_index: 4 },
+                    { src: '/images/cd_craion_imagen7.avif', label_index: 5 },
+                    { src: '/images/cd_craion_imagen8.avif', label_index: 6 },
+                    { src: '/images/cd_craion_imagen9.avif', label_index: 7 },
+                    { src: '/images/cd_craion_imagen3.avif', label_index: 8 },
+                    { src: '/images/cd_craion_imagen2.avif', label_index: 9 },
+                    { src: '/images/cd_craion_imagen1.avif', label_index: 10 },
+                    { src: '/images/cd_craion_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936375', label_index: 11 }
                 ]
             },
-            { 
-                src: '/images/kafeto3.avif', 
-                type: 'image', 
-                title_key: 'kafeto_asset', 
+            {
+                src: '/images/kafeto3.avif',
+                type: 'image',
+                title_key: 'kafeto_asset',
                 projectId: 'kafeto',
                 process: [
                     { src: '/images/kafeto5.avif', label_index: 0 },
@@ -183,30 +183,30 @@ export const profileImages = {
             }
         ],
         video_editor: [
-            { 
-                src: '/images/cd_nero_imagen1.avif', 
-                type: 'video', 
-                title_key: 'nero_character', 
+            {
+                src: '/images/cd_nero_imagen1.avif',
+                type: 'video',
+                title_key: 'nero_character',
                 projectId: 'colorin',
                 process: [
                     { src: '/images/cd_nero_imagen11.avif', label_index: 0 },
                     { src: '/images/cd_nero_imagen10.avif', label_index: 1 },
-                    { src: '/images/cd_nero_imagen3.avif',  label_index: 2 },
-                    { src: '/images/cd_nero_imagen4.avif',  label_index: 3 },
-                    { src: '/images/cd_nero_imagen5.avif',  label_index: 4 },
-                    { src: '/images/cd_nero_imagen6.avif',  label_index: 5 },
-                    { src: '/images/cd_nero_imagen9.avif',  label_index: 6 },
-                    { src: '/images/cd_nero_imagen7.avif',  label_index: 7 },
-                    { src: '/images/cd_nero_imagen8.avif',  label_index: 8 },
-                    { src: '/images/cd_nero_imagen2.avif',  label_index: 9 },
-                    { src: '/images/cd_nero_imagen1.avif',  label_index: 10 },
-                    { src: '/images/cd_nero_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936330', label_index: 11 }
+                    { src: '/images/cd_nero_imagen3.avif', label_index: 2 },
+                    { src: '/images/cd_nero_imagen4.avif', label_index: 3 },
+                    { src: '/images/cd_nero_imagen5.avif', label_index: 4 },
+                    { src: '/images/cd_nero_imagen6.avif', label_index: 5 },
+                    { src: '/images/cd_nero_imagen9.avif', label_index: 6 },
+                    { src: '/images/cd_nero_imagen7.avif', label_index: 7 },
+                    { src: '/images/cd_nero_imagen8.avif', label_index: 8 },
+                    { src: '/images/cd_nero_imagen2.avif', label_index: 9 },
+                    { src: '/images/cd_nero_imagen1.avif', label_index: 10 },
+                    { src: '/images/cd_nero_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936330', label_index: 11 }
                 ]
             },
-            { 
-                src: '/images/cd_coral_imagen1.avif', 
-                type: 'video', 
-                title_key: 'coral_character', 
+            {
+                src: '/images/cd_coral_imagen1.avif',
+                type: 'video',
+                title_key: 'coral_character',
                 projectId: 'colorin',
                 process: [
                     { src: '/images/cd_coral_imagen7.avif', label_index: 0 },
@@ -220,24 +220,24 @@ export const profileImages = {
                     { src: '/images/cd_coral_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936347', label_index: 8 }
                 ]
             },
-            { 
-                src: '/images/cd_craion_imagen1.avif', 
-                type: 'video', 
-                title_key: 'craion_character', 
+            {
+                src: '/images/cd_craion_imagen1.avif',
+                type: 'video',
+                title_key: 'craion_character',
                 projectId: 'colorin',
                 process: [
                     { src: '/images/cd_craion_imagen10.avif', label_index: 0 },
                     { src: '/images/cd_craion_imagen10.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104957944', label_index: 1 },
-                    { src: '/images/cd_craion_imagen5.avif',  label_index: 2 },
-                    { src: '/images/cd_craion_imagen4.avif',  label_index: 3 },
-                    { src: '/images/cd_craion_imagen6.avif',  label_index: 4 },
-                    { src: '/images/cd_craion_imagen7.avif',  label_index: 5 },
-                    { src: '/images/cd_craion_imagen8.avif',  label_index: 6 },
-                    { src: '/images/cd_craion_imagen9.avif',  label_index: 7 },
-                    { src: '/images/cd_craion_imagen3.avif',  label_index: 8 },
-                    { src: '/images/cd_craion_imagen2.avif',  label_index: 9 },
-                    { src: '/images/cd_craion_imagen1.avif',  label_index: 10 },
-                    { src: '/images/cd_craion_imagen1.avif',  type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936375', label_index: 11 }
+                    { src: '/images/cd_craion_imagen5.avif', label_index: 2 },
+                    { src: '/images/cd_craion_imagen4.avif', label_index: 3 },
+                    { src: '/images/cd_craion_imagen6.avif', label_index: 4 },
+                    { src: '/images/cd_craion_imagen7.avif', label_index: 5 },
+                    { src: '/images/cd_craion_imagen8.avif', label_index: 6 },
+                    { src: '/images/cd_craion_imagen9.avif', label_index: 7 },
+                    { src: '/images/cd_craion_imagen3.avif', label_index: 8 },
+                    { src: '/images/cd_craion_imagen2.avif', label_index: 9 },
+                    { src: '/images/cd_craion_imagen1.avif', label_index: 10 },
+                    { src: '/images/cd_craion_imagen1.avif', type: 'video', videoUrl: 'https://player.vimeo.com/video/1104936375', label_index: 11 }
                 ]
             }
         ]
@@ -312,7 +312,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
         const diff = targetLeft - start;
         if (Math.abs(diff) < 1) { isProgrammaticScrollRef.current = false; return; }
         const startTime = performance.now();
-        const easeInOut = t => t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+        const easeInOut = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         const step = (now) => {
             const progress = Math.min((now - startTime) / duration, 1);
             container.scrollLeft = start + diff * easeInOut(progress);
@@ -325,7 +325,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
         animFrameRef.current = requestAnimationFrame(step);
     };
 
-    // Si es perfil general (all), usamos la estructura de secciones
+    // Si es perfil generalista (all), usamos la estructura de secciones
     const isGeneralProfile = roleId === 'all';
     const generalProfileOrder = ['artist_2d_3d', 'game_dev', 'video_editor'];
 
@@ -407,7 +407,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
         const handleKeyDown = (e) => {
             if (selectedItemIndex === null) return;
             if (e.key === 'ArrowRight') { e.preventDefault(); nextImage(); }
-            if (e.key === 'ArrowLeft')  { e.preventDefault(); prevImage(); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); prevImage(); }
             if (e.key === 'Escape') setSelectedItemIndex(null);
         };
         window.addEventListener('keydown', handleKeyDown);
@@ -419,7 +419,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
         const baseProject = contentProjects.find(p => p.id === projectId);
         // Encontrar el proyecto maestro de proyectos.js para tener los metadatos extendidos
         const masterProject = projectList.find(p => p.id === projectId);
-        
+
         if (baseProject) {
             // Fusionar tal cual se hace en App.jsx para que el modal no falle
             const fullProject = {
@@ -437,10 +437,12 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
 
     const sectionTitles = {
         video_editor: { es: 'Edición de Vídeo', en: 'Video Editing', ca: 'Edició de Vídeo', gl: 'Edición de Vídeo' },
-        game_dev: { es: 'Desarrollo de Videojuegos', en: 'Game Development', ca: 'Desenvolupament de Videojocs', gl: 'Desenvolvemento de Videoxogos' },
-        artist_2d_3d: { es: 'Arte 2D & 3D', en: '2D & 3D Art', ca: 'Art 2D i 3D', gl: 'Arte 2D e 3D' },
+        game_dev: { es: 'Diseñador de Videojuegos', en: 'Game Designer', ca: 'Dissenyador de Videojocs', gl: 'Deseñador de Videoxogos' },
+        artist_2d_3d: { es: 'Artista 3D', en: '3D Artist', ca: 'Artista 3D', gl: 'Artista 3D' },
         design: { es: 'Diseño Gráfico', en: 'Graphic Design', ca: 'Disseny Gràfic', gl: 'Deseño Gráfico' }
     };
+
+    const demoReelUrl = 'https://www.youtube.com/embed/bUop-Zhu0Kw';
 
     const renderGrid = (items, startInFlatIndex) => (
         <div style={{
@@ -448,11 +450,11 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
             gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
             gap: 'var(--spacing-sm)',
             marginTop: 'var(--spacing-md)',
-            marginBottom: '1rem' 
+            marginBottom: '1rem'
         }}>
             {items.map((item, index) => (
-                <div 
-                    key={index} 
+                <div
+                    key={index}
                     style={{
                         borderRadius: 'var(--radius-md)',
                         overflow: 'hidden',
@@ -473,14 +475,17 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                     }}
                     onClick={() => setSelectedItemIndex(startInFlatIndex + index)}
                 >
-                    <img 
-                        src={item.src} 
-                        alt={item.title} 
+                    <img
+                        src={item.src}
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
                         style={{
                             width: '100%',
                             height: '100%',
+                                                            
                             objectFit: 'cover'
-                        }} 
+                        }}
                     />
                     {item.type === 'video' && (
                         <div style={{
@@ -506,8 +511,8 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
     return (
         <>
             <section className="animate-fade-in container" style={{ paddingBottom: '0' }}>
-<div className="section-title" style={{ marginTop: '3rem', marginBottom: 'var(--spacing-lg)' }}>
-                <h2 style={{ fontSize: '1.75rem', fontWeight: 900, textAlign: 'center' }}>
+                <div className="section-title" style={{ marginTop: '3rem', marginBottom: 'var(--spacing-lg)' }}>
+                    <h2 style={{ fontSize: '1.75rem', fontWeight: 900, textAlign: 'center' }}>
                         {'Portfolio'}
                     </h2>
                     <div className="title-underline" style={{ margin: '0.5rem auto 0' }} />
@@ -521,9 +526,9 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                             .map(([sectionKey, sectionItems], index, array) => {
                                 const grid = (
                                     <div key={sectionKey} style={{ marginBottom: index === array.length - 1 ? '0' : '2.5rem' }}>
-                                        <h3 style={{ 
-                                            fontSize: '1.25rem', 
-                                            fontWeight: 800, 
+                                        <h3 style={{
+                                            fontSize: '1.25rem',
+                                            fontWeight: 800,
                                             color: 'var(--color-primary)',
                                             borderLeft: '4px solid var(--color-primary)',
                                             paddingLeft: '1rem',
@@ -541,19 +546,43 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                             });
                     })()
                 ) : (
-                    renderGrid(imagesData, 0)
+                    <>
+                        {roleId === 'artist_2d_3d' && (
+                            <div style={{ marginBottom: '1.25rem' }}>
+                                <div style={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    aspectRatio: '16 / 9',
+                                    borderRadius: 'var(--radius-md)',
+                                    overflow: 'hidden',
+                                    boxShadow: 'var(--shadow-md)',
+                                    backgroundColor: '#000'
+                                }}>
+                                    <iframe
+                                        src={demoReelUrl}
+                                        title="Demo Reel 3D"
+                                        style={{ width: '100%', height: '100%', border: 0 }}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        allowFullScreen
+                                    />
+                                </div>
+                            </div>
+                        )}
+                        {renderGrid(imagesData, 0)}
+                    </>
                 )}
-                
+
             </section>
 
             {/* Lightbox / Overlay - Usamos createPortal para que escape de cualquier contexto de apilamiento */}
             {selectedItemIndex !== null && createPortal(
-                <div 
+                <div
                     className="portfolio-lightbox-overlay"
                     style={{
                         position: 'fixed',
                         inset: 0,
-                        zIndex: 999999, 
+                        zIndex: 999999,
                         backgroundColor: 'rgba(0, 0, 0, 0.98)',
                         display: 'flex',
                         alignItems: 'center',
@@ -562,7 +591,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                     onClick={() => setSelectedItemIndex(null)}
                 >
                     {/* Close Button */}
-                    <button 
+                    <button
                         onClick={() => setSelectedItemIndex(null)}
                         style={{
                             position: 'absolute',
@@ -586,7 +615,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                         </svg>
                     </button>
 
-                    {/* Botón Cambiar de perfil — solo visible cuando se abre desde el perfil general */}
+                    {/* Botón Cambiar de perfil — solo visible cuando se abre desde el perfil generalista */}
                     {switchProfileSlug && (
                         <button
                             onClick={(e) => { e.stopPropagation(); setSelectedItemIndex(null); navigate(`/${language}/${switchProfileSlug}/portfolio`); }}
@@ -616,7 +645,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)'; }}
                             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; }}
                         >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3 4 7l4 4" /><path d="M4 7h16" /><path d="M16 21l4-4-4-4" /><path d="M20 17H4" /></svg>
                             {switchProfileLabel
                                 ? (language === 'en' ? `Switch to ${switchProfileLabel}` : language === 'ca' ? `Canviar de perfil a ${switchProfileLabel}` : `Cambiar de perfil a ${switchProfileLabel}`)
                                 : (language === 'en' ? 'Switch profile' : language === 'ca' ? 'Canviar de perfil' : 'Cambiar de perfil')
@@ -658,13 +687,13 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                         </>
                     )}
 
-                    <div 
+                    <div
                         ref={lightboxContainerRef}
                         onScroll={handleLightboxScroll}
-                        style={{ 
+                        style={{
                             width: '100%',
-                            height: '100%', 
-                            display: 'flex', 
+                            height: '100%',
+                            display: 'flex',
                             overflowX: 'scroll',
                             overflowY: 'hidden',
                             WebkitOverflowScrolling: 'touch',
@@ -694,7 +723,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                 ? processImages[effectiveActiveIdx] || processImages[processImages.length - 1]
                                 : item;
 
-                            const displaySrc   = currentMedia.src;
+                            const displaySrc = currentMedia.src;
                             const isCurrentVideo = currentMedia.type === 'video' || !!currentMedia.videoUrl;
                             const currentVideoUrl = currentMedia.videoUrl || '';
 
@@ -839,6 +868,8 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                         <img
                                                             src={displaySrc}
                                                             alt={displayTitle}
+                                                            loading="lazy"
+                                                            decoding="async"
                                                             style={{
                                                                 maxWidth: '100%',
                                                                 maxHeight: '100%',
@@ -900,8 +931,8 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.borderColor = 'white'; e.currentTarget.style.color = 'white'; }}
                                                                 onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; e.currentTarget.style.color = 'rgba(255,255,255,0.85)'; }}
                                                             >
-                                                                {link.platform === 'artstation' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.129-1.268H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/></svg>}
-                                                                {link.platform === 'github' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>}
+                                                                {link.platform === 'artstation' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.129-1.268H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z" /></svg>}
+                                                                {link.platform === 'github' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>}
                                                                 {label} {names[link.platform] || link.platform}
                                                             </a>
                                                         );
@@ -1051,6 +1082,8 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                                 <img
                                                                     src={pImg.src}
                                                                     alt=""
+                                                                    loading="lazy"
+                                                                    decoding="async"
                                                                     style={{
                                                                         width: '100%',
                                                                         height: '100%',
@@ -1149,8 +1182,8 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                                                         onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.borderColor = 'white'; e.currentTarget.style.color = 'white'; }}
                                                         onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; e.currentTarget.style.color = 'rgba(255,255,255,0.85)'; }}
                                                     >
-                                                        {link.platform === 'artstation' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.129-1.268H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/></svg>}
-                                                        {link.platform === 'github' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>}
+                                                        {link.platform === 'artstation' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.129-1.268H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z" /></svg>}
+                                                        {link.platform === 'github' && <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>}
                                                         {label} {names[link.platform] || link.platform}
                                                     </a>
                                                 );
@@ -1161,7 +1194,7 @@ export default function Portfolio({ roleId, onProjectSelect, onTabClick, externa
                             );
                         })}
                     </div>
-                </div>, 
+                </div>,
                 document.body
             )}
         </>

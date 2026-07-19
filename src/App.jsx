@@ -22,8 +22,17 @@ import { experience, education, projects, languages, aptitudes, aboutMe, aboutBy
 import { projectList } from './data/proyectos';
 
 const roleKeyMap = {
-  'perfil-general': 'all',
+  'general': 'all',
+  'editor': 'video_editor',
+  'videojuegos': 'game_dev',
+  'artista-3d': 'artist_2d_3d',
   'editor-video': 'video_editor',
+  'game': 'game_dev',
+  '3d': 'artist_2d_3d',
+  'perfil-generalista': 'all',
+  'disenador-videojuegos': 'game_dev',
+  'modelador-animador-3d': 'artist_2d_3d',
+  'perfil-general': 'all',
   'programador-videojuegos': 'game_dev',
   'artista-2d-3d': 'artist_2d_3d'
 };
@@ -45,22 +54,22 @@ const SectionHeader = ({ title }) => (
 );
 
 const roleTitlesMap = {
-  all: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' },
-  artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
-  game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
+  all: { es: 'Perfil generalista', ca: 'Perfil generalista', en: 'Generalist Profile', gl: 'Perfil xeralista' },
+  artist_2d_3d: { es: 'Artista 3D', ca: 'Artista 3D', en: '3D Artist', gl: 'Artista 3D' },
+  game_dev: { es: 'Diseñador de Videojuegos', ca: 'Dissenyador de Videojocs', en: 'Game Designer', gl: 'Deseñador de Videoxogos' },
   video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' }
 };
 
-// ─── PortfolioOverview (perfil general → tab Portfolio) ──────────────────────
+// ─── PortfolioOverview (perfil generalista → tab Portfolio) ──────────────────
 const PROFILE_ORDERED = [
-  { id: 'artist_2d_3d', slug: 'artista-2d-3d' },
-  { id: 'game_dev',     slug: 'programador-videojuegos' },
-  { id: 'video_editor', slug: 'editor-video' }
+  { id: 'artist_2d_3d', slug: 'artista-3d' },
+  { id: 'game_dev',     slug: 'videojuegos' },
+  { id: 'video_editor', slug: 'editor' }
 ];
 
 const SECTION_TITLES_OV = {
-  game_dev:     { es: 'Programador de Videojuegos', en: 'Game Programmer',  ca: 'Programador de Videojocs', gl: 'Programador de Videoxogos' },
-  artist_2d_3d: { es: 'Artista 2D y 3D',            en: '2D & 3D Artist',   ca: 'Artista 2D i 3D',          gl: 'Artista 2D e 3D' },
+  game_dev:     { es: 'Diseñador de Videojuegos', en: 'Game Designer',  ca: 'Dissenyador de Videojocs', gl: 'Deseñador de Videoxogos' },
+  artist_2d_3d: { es: 'Artista 3D', en: '3D Artist', ca: 'Artista 3D', gl: 'Artista 3D' },
   video_editor: { es: 'Editor de Vídeo',             en: 'Video Editor',     ca: 'Editor de Vídeo',          gl: 'Editor de Vídeo' }
 };
 
@@ -79,6 +88,7 @@ const PortfolioOverview = ({ onProjectSelect, onTabClick }) => {
   }, []);
 
   const previewCount = isMobile ? 2 : 3;
+  const demoReelUrl = 'https://www.youtube.com/embed/bUop-Zhu0Kw';
 
   return (
     <>
@@ -159,6 +169,29 @@ const PortfolioOverview = ({ onProjectSelect, onTabClick }) => {
                 </div>
               ) : (
                 <>
+                  {id === 'artist_2d_3d' && (
+                    <div style={{ marginBottom: '1rem' }}>
+                      <div style={{
+                        position: 'relative',
+                        width: '100%',
+                        aspectRatio: '16 / 9',
+                        borderRadius: 'var(--radius-md)',
+                        overflow: 'hidden',
+                        boxShadow: 'var(--shadow-md)',
+                        backgroundColor: '#000'
+                      }}>
+                        <iframe
+                          src={demoReelUrl}
+                          title="Demo Reel 3D"
+                          style={{ width: '100%', height: '100%', border: 0 }}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        />
+                      </div>
+                    </div>
+                  )}
+
                   {/* Thumbnail grid */}
                   <div style={{
                     display: 'grid',
@@ -228,7 +261,7 @@ const PortfolioOverview = ({ onProjectSelect, onTabClick }) => {
         })}
       </section>
 
-      {/* Lightbox del perfil general: reutiliza el lightbox completo de PortfolioTab */}
+      {/* Lightbox del perfil generalista: reutiliza el lightbox completo de PortfolioTab */}
       {ovLightbox && (
         <div style={{ display: 'none' }}>
           <PortfolioTab
@@ -412,7 +445,7 @@ const PortfolioView = () => {
           {activeTab === 'portfolio' && (
             <div>
               {activeRoleId === 'all' ? (
-                // Perfil general: overview con una fila por perfil
+                // Perfil generalista: overview con una fila por perfil
                 <PortfolioOverview onProjectSelect={setSelectedProject} onTabClick={handleTabClick} />
               ) : PORTFOLIO_READY[activeRoleId] ? (
                 // Perfil específico listo
@@ -764,7 +797,8 @@ const RoleRedirect = () => {
   const { role } = useParams();
   const { language } = useTranslation();
   // If role is a valid language, it will be handled by the lang routes.
-  // This is for cases like /perfil-general
+  // This is for cases like /perfil-generalista
+  // This is for cases like /general
   return <Navigate to={`/${language}/${role}`} replace />;
 };
 
@@ -792,6 +826,8 @@ function App() {
       <Route path="/:lang/:role/:tab" element={<LanguageRouteWrapper component={<PortfolioView />} />} />
       
       {/* Catch-all or missing lang (e.g., /perfil-general) */}
+      {/* Catch-all or missing lang (e.g., /perfil-generalista) */}
+      {/* Catch-all or missing lang (e.g., /general) */}
       <Route path="/:role" element={<RoleRedirect />} />
     </Routes>
   );

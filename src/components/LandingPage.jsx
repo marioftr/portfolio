@@ -113,10 +113,10 @@ export default function LandingPage() {
     };
 
     const roleMapping = {
-        all: { path: 'perfil-general', icon: 'star', label: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' } },
-        artist_2d_3d: { path: 'artista-2d-3d', icon: 'box', label: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' } },
-        game_dev: { path: 'programador-videojuegos', icon: 'code', label: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' } },
-        video_editor: { path: 'editor-video', icon: 'layout', label: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' } },
+        all: { path: 'general', icon: 'star', label: { es: 'Perfil generalista', ca: 'Perfil generalista', en: 'Generalist Profile', gl: 'Perfil xeralista' } },
+        artist_2d_3d: { path: 'artista-3d', icon: 'box', label: { es: 'Artista 3D', ca: 'Artista 3D', en: '3D Artist', gl: 'Artista 3D' } },
+        game_dev: { path: 'videojuegos', icon: 'code', label: { es: 'Diseñador de Videojuegos', ca: 'Dissenyador de Videojocs', en: 'Game Designer', gl: 'Deseñador de Videoxogos' } },
+        video_editor: { path: 'editor', icon: 'layout', label: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' } },
     };
 
     const getIcon = (name) => {
@@ -226,12 +226,12 @@ export default function LandingPage() {
                                 transition: 'all 0.3s ease'
                             }}>
                                 {language === 'es'
-                                    ? 'Perfil multidisciplinar. Estoy continuamente desarrollando mis habilidades en temas relacionados con la programación, el diseño, la edición de vídeo y el modelado 3D. Selecciona una especialidad para ver mi trayectoria y proyectos en detalle.'
+                                    ? 'Perfil generalista con foco en diseño de videojuegos, modelado y animación 3D, y edición de vídeo. Estoy continuamente desarrollando mis habilidades en áreas relacionadas con la creación interactiva y audiovisual. Selecciona una especialidad para ver mi trayectoria y proyectos en detalle.'
                                     : language === 'ca'
-                                        ? 'Perfil multidisciplinari. Estic contínuament desenvolupant les meves habilitats en temes relacionats amb la programació, el disseny, l\'edició de vídeo i el modelatge 3D. Selecciona una especialitat per veure la meva trajectòria i projectes en detall.'
+                                        ? 'Perfil generalista amb focus en disseny de videojocs, modelatge i animació 3D, i edició de vídeo. Estic contínuament desenvolupant les meves habilitats en àrees relacionades amb la creació interactiva i audiovisual. Selecciona una especialitat per veure la meva trajectòria i projectes en detall.'
                                         : language === 'gl'
-                                            ? 'Perfil multidisciplinar. Estou continuamente desenvolvendo as miñas habilidades en temas relacionados coa programación, o deseño, a edición de vídeo e o modelado 3D. Selecciona unha especialidade para ver a miña traxectoria e proxectos en detalle.'
-                                            : 'Multidisciplinary profile. I am continuously developing my skills in topics related to programming, design, video editing, and 3D modeling. Select a specialty to see my career path and projects in detail.'}
+                                            ? 'Perfil xeralista con foco en deseño de videoxogos, modelado e animación 3D, e edición de vídeo. Estou continuamente desenvolvendo as miñas habilidades en áreas relacionadas coa creación interactiva e audiovisual. Selecciona unha especialidade para ver a miña traxectoria e proxectos en detalle.'
+                                            : 'Generalist profile with a focus on game design, 3D modeling and animation, and video editing. I am continuously developing my skills in areas related to interactive and audiovisual creation. Select a specialty to see my career path and projects in detail.'}
                             </p>
                         </div>
                     </div>
@@ -298,7 +298,7 @@ export default function LandingPage() {
 
                         {/* View CV Button */}
                         <a
-                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_may26.pdf' : '/downloads/CV_Mario_Villanueva_es_may26.pdf'}
+                            href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_jul26.pdf' : '/downloads/CV_Mario_Villanueva_es_jul26.pdf'}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center social-icon-landing cv-view-landing"

@@ -842,6 +842,8 @@ export default function ProjectsGallery({ projects, onProjectSelect }) {
                             <img
                                 src={project.image}
                                 alt={project.title[language] || project.title}
+                                loading="lazy"
+                                decoding="async"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                             <div style={{

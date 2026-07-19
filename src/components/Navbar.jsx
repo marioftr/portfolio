@@ -10,18 +10,24 @@ import {
 } from '../config';
 
 const roleKeyMap = {
-    'perfil-general': 'all',
-    'programador-videojuegos': 'game_dev',
-    'artista-2d-3d': 'artist_2d_3d',
+    'general': 'all',
+    'videojuegos': 'game_dev',
+    'artista-3d': 'artist_2d_3d',
+    'editor': 'video_editor',
+    'game': 'game_dev',
+    '3d': 'artist_2d_3d',
+    'perfil-generalista': 'all',
+    'disenador-videojuegos': 'game_dev',
+    'modelador-animador-3d': 'artist_2d_3d',
     'editor-video': 'video_editor'
 };
 
 // Lista ordenada para el dropdown (un item por perfil, sin duplicados)
 const navItems = [
-    { path: 'perfil-general',          id: 'all' },
-    { path: 'artista-2d-3d',              id: 'artist_2d_3d' },
-    { path: 'programador-videojuegos', id: 'game_dev' },
-    { path: 'editor-video',            id: 'video_editor' }
+    { path: 'general',                 id: 'all' },
+    { path: 'artista-3d',              id: 'artist_2d_3d' },
+    { path: 'videojuegos',             id: 'game_dev' },
+    { path: 'editor',                  id: 'video_editor' }
 ];
 
 const PORTFOLIO_FLAGS = {
@@ -33,9 +39,9 @@ const PORTFOLIO_FLAGS = {
 const anyReady = Object.values(PORTFOLIO_FLAGS).some(Boolean);
 
 const roleTitles = {
-    all: { es: 'Perfil General', ca: 'Perfil General', en: 'General Profile', gl: 'Perfil General' },
-    artist_2d_3d: { es: 'Artista 2D y 3D', ca: 'Artista 2D i 3D', en: '2D & 3D Artist', gl: 'Artista 2D e 3D' },
-    game_dev: { es: 'Programador de Videojuegos', ca: 'Programador de Videojocs', en: 'Game Programmer', gl: 'Programador de Videoxogos' },
+    all: { es: 'Perfil generalista', ca: 'Perfil generalista', en: 'Generalist Profile', gl: 'Perfil xeralista' },
+    artist_2d_3d: { es: 'Artista 3D', ca: 'Artista 3D', en: '3D Artist', gl: 'Artista 3D' },
+    game_dev: { es: 'Diseñador de Videojuegos', ca: 'Dissenyador de Videojocs', en: 'Game Designer', gl: 'Deseñador de Videoxogos' },
     video_editor: { es: 'Editor de Vídeo', ca: 'Editor de Vídeo', en: 'Video Editor', gl: 'Editor de Vídeo' }
 };
 

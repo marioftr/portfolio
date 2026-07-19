@@ -1,8 +1,8 @@
 {
-    "role_all": "Todos",
+    "role_all": "Perfil generalista",
     "role_video_editor": "Editor de Vídeo",
-    "role_game_dev": "Desarrollador de Videojuegos",
-    "role_artist_2d_3d": "Artista 2D y 3D",
+    "role_game_dev": "Diseñador de Videojuegos",
+    "role_artist_2d_3d": "Artista 3D",
     "role_design": "Diseño Gráfico",
     "nav_home": "Inicio",
     "nav_experience": "Experiencia",

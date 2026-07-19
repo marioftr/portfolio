@@ -123,7 +123,7 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                         width: '100%'
                     }}
                 >
-                    {projects.map((project) => (
+                    {projects.map((project, index) => (
                         <div 
                             key={project.id} 
                             className="card flex flex-col transition-all project-featured-card" 
@@ -157,6 +157,8 @@ export default function FeaturedProjects({ projects, onProjectSelect, onViewAll 
                                     <img
                                         src={project.image}
                                         alt={project.title[language] || project.title}
+                                        loading="lazy"
+                                        decoding="async"
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
                                 ) : (

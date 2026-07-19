@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "images:optimize": "node ./scripts/optimize-images.js",
+    "images:optimize-public": "node ./scripts/optimize-public-images.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
