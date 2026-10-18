@@ -17,6 +17,11 @@ export const socialLinks = [
         icon: 'linkedin'
     },
     {
+        name: 'YouTube',
+        url: 'https://www.youtube.com/@mariovt9',
+        icon: 'youtube'
+    },
+    {
         name: 'GitHub',
         url: 'https://github.com/marioftr',
         icon: 'github'
@@ -26,11 +31,6 @@ export const socialLinks = [
         url: 'https://marioftr.artstation.com/',
         icon: 'artstation'
     },
-    {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/mario_ftr',
-        icon: 'instagram'
-    }
 ];
 
 export const aboutMe = {
@@ -239,10 +239,10 @@ export const experience = [
         company: 'Universally Speaking',
         location: 'Madrid',
         description: {
-            es: 'Validación de builds, detección y seguimiento de incidencias, y control de calidad en proyectos de videojuego. Aporta una visión transversal del desarrollo y mejora la comprensión de los estándares que exigen producción, arte y programación.',
-            ca: "Validació de builds, detecció i seguiment d'incidències, i control de qualitat en projectes de videojoc. Aporta una visió transversal del desenvolupament i millora la comprensió dels estàndards que exigeixen producció, art i programació.",
-            en: 'Build validation, issue detection and tracking, and quality control in video game projects. It provides a transversal view of development and improves understanding of the standards required by production, art and programming.',
-            gl: 'Validación de builds, detección e seguimento de incidencias, e control de calidade en proxectos de videoxogo. Aporta unha visión transversal do desenvolvemento e mellora a comprensión dos estándares que esixen produción, arte e programación.'
+            es: 'Control de calidad y playtesting en un título AAA de lanzamiento mundial para clientes de alto perfil, grandes compañías con una trayectoria consolidada en la industria, cubriendo smoke testing, regresión, soak testing, golden path, pruebas destructivas y de usuario final, con los casos de prueba gestionados internamente y las incidencias registradas en Jira. Comprobaciones específicas sobre sistemas de base de datos y valores económicos mediante hojas de cálculo, tablas y fórmulas en Excel para validar las cifras del juego. Participación en Large User Tests (LUT) a nivel de estudio, además de captura, edición y compresión de vídeo de pruebas (OBS, PS5, HandBrake) bajo estrictos estándares de NDA.',
+            ca: "Control de qualitat i playtesting en un títol AAA de llançament mundial per a clients d'alt perfil, grans companyies amb una trajectòria consolidada a la indústria, cobrint smoke testing, regressió, soak testing, golden path, proves destructives i d'usuari final, amb els casos de prova gestionats internament i les incidències registrades a Jira. Comprovacions específiques sobre sistemes de base de dades i valors econòmics mitjançant fulls de càlcul, taules i fórmules a Excel per validar les xifres del joc. Participació en Large User Tests (LUT) a nivell d'estudi, a més de captura, edició i compressió de vídeo de proves (OBS, PS5, HandBrake) sota estrictes estàndards de NDA.",
+            en: 'QA and playtesting on a globally launching AAA title for high-profile clients, large companies with a well-established track record in the industry, covering smoke testing, regression, soak testing, golden path, destructive and end-user testing, with test cases tracked internally and issues logged in Jira. Targeted checks on database and economic-value systems using spreadsheets, tables and formulas in Excel to validate in-game figures. Participation in studio-wide Large User Tests (LUTs), plus capture, editing and compression of test footage (OBS, PS5, HandBrake) under strict NDA standards.',
+            gl: 'Control de calidade e playtesting nun título AAA de lanzamento mundial para clientes de alto perfil, grandes compañías cunha traxectoria consolidada na industria, cubrindo smoke testing, regresión, soak testing, golden path, probas destrutivas e de usuario final, cos casos de proba xestionados internamente e as incidencias rexistradas en Jira. Comprobacións específicas sobre sistemas de base de datos e valores económicos mediante follas de cálculo, táboas e fórmulas en Excel para validar as cifras do xogo. Participación en Large User Tests (LUT) a nivel de estudo, ademais de captura, edición e compresión de vídeo de probas (OBS, PS5, HandBrake) baixo estritos estándares de NDA.'
         },
         roles: ['game_dev', 'artist_2d_3d', 'video_editor']
     },

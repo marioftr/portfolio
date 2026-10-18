@@ -6,6 +6,12 @@
       "ca": "RESACA - Gameplay i Tràiler",
       "gl": "RESACA - Gameplay e Tráiler"
     },
+    "description": {
+      "es": "Vídeo de gameplay que resume los sistemas de combate, inventario, diálogo y exploración del proyecto.",
+      "en": "Gameplay video summarizing the project's combat, inventory, dialogue and exploration systems.",
+      "ca": "Vídeo de gameplay que resumeix els sistemes de combat, inventari, diàleg i exploració del projecte.",
+      "gl": "Vídeo de gameplay que resume os sistemas de combate, inventario, diálogo e exploración do proxecto."
+    },
     "process_labels": [
       { "es": "Combate e IU", "en": "Combat & UI", "ca": "Combat i IU", "gl": "Combate e IU" },
       { "es": "Sistema de Inventario", "en": "Inventory System", "ca": "Sistema d'Inventari", "gl": "Sistema de Inventario" },
@@ -22,6 +28,12 @@
       "ca": "The Stable",
       "gl": "The Stable"
     },
+    "description": {
+      "es": "Vista general del entorno completo, con todos los props integrados en la escena final.",
+      "en": "Overall view of the finished environment, with every prop integrated into the final scene.",
+      "ca": "Vista general de l'entorn complet, amb tots els props integrats a l'escena final.",
+      "gl": "Vista xeral da contorna completa, con todos os props integrados na escena final."
+    },
     "process_labels": [
       { "es": "Collage de props del proyecto", "en": "Project Props Collage", "ca": "Collage de props del projecte", "gl": "Colaxe de props do proxecto" },
       { "es": "Mapa conceptual del nivel", "en": "Conceptual Level Map", "ca": "Mapa conceptual del nivell", "gl": "Mapa conceptual do nivel" },
@@ -32,6 +44,50 @@
       { "es": "Render alternativo del entorno", "en": "Alternate Environment Render", "ca": "Render alternatiu de l'entorn", "gl": "Render alternativo da contorna" }
     ]
   },
+  "boot_asset": {
+    "title": {
+      "es": "Bota Western - Prop 3D",
+      "en": "Western Boot - 3D Prop",
+      "ca": "Bota Western - Prop 3D",
+      "gl": "Bota Western - Prop 3D"
+    },
+    "description": {
+      "es": "Bota de vaquero modelada y texturizada en detalle para el escenario del establo.",
+      "en": "Western boot modeled and textured in detail for the stable's set dressing.",
+      "ca": "Bota de vaquer modelada i texturitzada amb detall per a l'escenari de l'establia.",
+      "gl": "Bota de vaqueiro modelada e texturizada en detalle para o escenario do establo."
+    },
+    "process_labels": [
+      { "es": "UVs en Maya", "en": "Maya UVs", "ca": "UVs en Maya", "gl": "UVs en Maya" },
+      { "es": "Texturas en Substance 3D", "en": "Textures in Substance 3D", "ca": "Textures en Substance 3D", "gl": "Texturas en Substance 3D" },
+      { "es": "Render en Substance 3D", "en": "Substance 3D Render", "ca": "Render en Substance 3D", "gl": "Render en Substance 3D" },
+      { "es": "Render en Substance 3D", "en": "Substance 3D Render", "ca": "Render en Substance 3D", "gl": "Render en Substance 3D" },
+      { "es": "Render en Substance 3D", "en": "Substance 3D Render", "ca": "Render en Substance 3D", "gl": "Render en Substance 3D" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
+    ]
+  },
+  "wheelbarrow_asset": {
+    "title": {
+      "es": "Carretilla - Prop 3D",
+      "en": "Wheelbarrow - 3D Prop",
+      "ca": "Carretilla - Prop 3D",
+      "gl": "Carretilla - Prop 3D"
+    },
+    "description": {
+      "es": "Carretilla de trabajo modelada y texturizada como prop funcional del establo.",
+      "en": "Work wheelbarrow modeled and textured as a functional prop for the stable.",
+      "ca": "Carretó de treball modelat i texturitzat com a prop funcional de l'establia.",
+      "gl": "Carretilla de traballo modelada e texturizada como prop funcional do establo."
+    },
+    "process_labels": [
+      { "es": "UVs en Maya", "en": "Maya UVs", "ca": "UVs en Maya", "gl": "UVs en Maya" },
+      { "es": "Texturas en Substance 3D", "en": "Textures in Substance 3D", "ca": "Textures en Substance 3D", "gl": "Texturas en Substance 3D" },
+      { "es": "Render en Substance 3D", "en": "Substance 3D Render", "ca": "Render en Substance 3D", "gl": "Render en Substance 3D" },
+      { "es": "Render en Substance 3D", "en": "Substance 3D Render", "ca": "Render en Substance 3D", "gl": "Render en Substance 3D" },
+      { "es": "Render en Substance 3D", "en": "Substance 3D Render", "ca": "Render en Substance 3D", "gl": "Render en Substance 3D" },
+      { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
+    ]
+  },
   "bridle_asset": {
     "title": {
       "es": "Brida de Caballo - Texturizado Realista",
@@ -39,10 +95,18 @@
       "ca": "Brida de Cavall - Texturitzat Realista",
       "gl": "Brida de Cabalo - Texturizado Realista"
     },
+    "description": {
+      "es": "Brida de caballo con texturizado realista de cuero y metal para el establo.",
+      "en": "Horse bridle with realistic leather and metal texturing for the stable.",
+      "ca": "Brida de cavall amb texturitzat realista de cuir i metall per a l'establia.",
+      "gl": "Brida de cabalo con texturizado realista de coiro e metal para o establo."
+    },
     "process_labels": [
       { "es": "Modelado Low-Poly en Maya", "en": "Maya Low-Poly Modeling", "ca": "Modelat Low-Poly en Maya", "gl": "Modelado Low-Poly en Maya" },
+      { "es": "UVs de Maya", "en": "Maya UVs", "ca": "UVs de Maya", "gl": "UVs de Maya" },
       { "es": "Detalle High-Poly en ZBrush", "en": "ZBrush High-Poly Details", "ca": "Detall High-Poly en ZBrush", "gl": "Detalle High-Poly en ZBrush" },
-      { "es": "Texturizado en Substance (Vista 1)", "en": "Substance Texturing (View 1)", "ca": "Texturitzat en Substance (Vista 1)", "gl": "Texturizado en Substance (Vista 1)" },
+      { "es": "Texturizado en Substance (Vista 4)", "en": "Substance Texturing (View 4)", "ca": "Texturitzat en Substance (Vista 4)", "gl": "Texturizado en Substance (Vista 4)" },
+      { "es": "Texturizado en Substance (Vista 3)", "en": "Substance Texturing (View 3)", "ca": "Texturitzat en Substance (Vista 3)", "gl": "Texturizado en Substance (Vista 3)" },
       { "es": "Texturizado en Substance (Vista 2)", "en": "Substance Texturing (View 2)", "ca": "Texturitzat en Substance (Vista 2)", "gl": "Texturizado en Substance (Vista 2)" },
       { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
@@ -53,6 +117,12 @@
       "en": "Western Barrel - Wood & Metal",
       "ca": "Barril Western - Fusta i Metall",
       "gl": "Barril Western - Madeira e Metal"
+    },
+    "description": {
+      "es": "Barril de madera y metal esculpido y texturizado para ambientar el establo.",
+      "en": "Wood and metal barrel sculpted and textured to dress the stable's scene.",
+      "ca": "Barril de fusta i metall esculpit i texturitzat per ambientar l'establia.",
+      "gl": "Barril de madeira e metal esculpido e texturizado para ambientar o establo."
     },
     "process_labels": [
       { "es": "Malla Base en Maya", "en": "Maya Base Mesh", "ca": "Malla Base en Maya", "gl": "Malla Base en Maya" },
@@ -69,6 +139,12 @@
       "ca": "Cafetera Interactiva - Props 3D",
       "gl": "Cafeteira Interactiva - Props 3D"
     },
+    "description": {
+      "es": "Cafetera modelada y renderizada en Blender para el anuncio animado de Kafeto.",
+      "en": "Coffee machine modeled and rendered in Blender for Kafeto's animated ad.",
+      "ca": "Cafetera modelada i renderitzada a Blender per a l'anunci animat de Kafeto.",
+      "gl": "Cafeteira modelada e renderizada en Blender para o anuncio animado de Kafeto."
+    },
     "process_labels": [
       { "es": "Modelado cafetera (sin texturizar)", "en": "Coffee Machine Modeling (untextured)", "ca": "Modelat cafetera (sense texturitzar)", "gl": "Modelado cafeteira (sen texturizar)" },
       { "es": "Modelado cafetera (texturas base)", "en": "Coffee Machine Modeling (base textures)", "ca": "Modelat cafetera (textures base)", "gl": "Modelado cafeteira (texturas base)" },
@@ -84,6 +160,12 @@
       "ca": "Disseny Espacial 3D - Layout d'Entorn",
       "gl": "Deseño Espacial 3D - Layout de Contorna"
     },
+    "description": {
+      "es": "Distribución espacial en 3D de habitación, baño y salón para el proyecto RESACA.",
+      "en": "3D spatial layout of the bedroom, bathroom and living room for the RESACA project.",
+      "ca": "Distribució espacial en 3D d'habitació, bany i saló per al projecte RESACA.",
+      "gl": "Distribución espacial en 3D de habitación, baño e salón para o proxecto RESACA."
+    },
     "process_labels": [
       { "es": "Layout habitación", "en": "Bedroom Layout", "ca": "Layout habitació", "gl": "Layout habitación" },
       { "es": "Layout baño", "en": "Bathroom Layout", "ca": "Layout bany", "gl": "Layout baño" },
@@ -98,11 +180,18 @@
       "ca": "Carro de Fusta - Prop 3D",
       "gl": "Carro de Madeira - Prop 3D"
     },
+    "description": {
+      "es": "Carro de madera modelado en Maya y esculpido en ZBrush para el establo.",
+      "en": "Wood cart modeled in Maya and sculpted in ZBrush for the stable.",
+      "ca": "Carro de fusta modelat a Maya i esculpit a ZBrush per a l'establia.",
+      "gl": "Carro de madeira modelado en Maya e esculpido en ZBrush para o establo."
+    },
     "process_labels": [
-      { "es": "Panel de Referencias (PureRef)", "en": "Reference Board (PureRef)", "ca": "Tauler de Refer\u00e8ncies (PureRef)", "gl": "Panel de Referencias (PureRef)" },
+      { "es": "Panel de Referencias (PureRef)", "en": "Reference Board (PureRef)", "ca": "Tauler de Referències (PureRef)", "gl": "Panel de Referencias (PureRef)" },
+      { "es": "UVs en Maya", "en": "Maya UVs", "ca": "UVs en Maya", "gl": "UVs en Maya" },
       { "es": "Malla High-Poly en ZBrush (Vista 1)", "en": "ZBrush High-Poly Mesh (View 1)", "ca": "Malla High-Poly en ZBrush (Vista 1)", "gl": "Malla High-Poly en ZBrush (Vista 1)" },
-      { "es": "Malla Decimada (Vista 1)", "en": "Decimated Mesh (View 1)", "ca": "Malla Decimada (Vista 1)", "gl": "Malla Decimada (Vista 1)" },
       { "es": "Malla High-Poly en ZBrush (Vista 2)", "en": "ZBrush High-Poly Mesh (View 2)", "ca": "Malla High-Poly en ZBrush (Vista 2)", "gl": "Malla High-Poly en ZBrush (Vista 2)" },
+      { "es": "Malla Decimada (Vista 1)", "en": "Decimated Mesh (View 1)", "ca": "Malla Decimada (Vista 1)", "gl": "Malla Decimada (Vista 1)" },
       { "es": "Malla Decimada (Vista 2)", "en": "Decimated Mesh (View 2)", "ca": "Malla Decimada (Vista 2)", "gl": "Malla Decimada (Vista 2)" },
       { "es": "Resultado Final", "en": "Final Result", "ca": "Resultat Final", "gl": "Resultado Final" }
     ]
@@ -113,6 +202,12 @@
       "en": "Nero - Colorín Decolorado Character",
       "ca": "Nero - Personatge Colorín Decolorat",
       "gl": "Nero - Personaxe Colorín Decolorado"
+    },
+    "description": {
+      "es": "Personaje animado de Nero, del cortometraje de animación híbrida Colorín Decolorado.",
+      "en": "Animated character Nero, from the hybrid animation short film Colorín Decolorado.",
+      "ca": "Personatge animat de Nero, del curtmetratge d'animació híbrida Colorín Decolorado.",
+      "gl": "Personaxe animado de Nero, do curtametraxe de animación híbrida Colorín Decolorado."
     },
     "process_labels": [
       { "es": "Referencias de poses", "en": "Pose References", "ca": "Referències de poses", "gl": "Referencias de poses" },
@@ -136,6 +231,12 @@
       "ca": "Coral - Personatge Colorín Decolorat",
       "gl": "Coral - Personaxe Colorín Decolorado"
     },
+    "description": {
+      "es": "Personaje animado de Coral, del cortometraje de animación híbrida Colorín Decolorado.",
+      "en": "Animated character Coral, from the hybrid animation short film Colorín Decolorado.",
+      "ca": "Personatge animat de Coral, del curtmetratge d'animació híbrida Colorín Decolorado.",
+      "gl": "Personaxe animado de Coral, do curtametraxe de animación híbrida Colorín Decolorado."
+    },
     "process_labels": [
       { "es": "Storyboard", "en": "Storyboard", "ca": "Storyboard", "gl": "Storyboard" },
       { "es": "Capturas del animatic", "en": "Animatic Captures", "ca": "Captures de l'animàtic", "gl": "Capturas do animatic" },
@@ -154,6 +255,12 @@
       "en": "Craión - Colorín Decolorado Character",
       "ca": "Craión - Personatge Colorín Decolorat",
       "gl": "Craión - Personaxe Colorín Decolorado"
+    },
+    "description": {
+      "es": "Personaje animado de Craión, combinando 2D y live action en Colorín Decolorado.",
+      "en": "Animated character Craión, blending 2D and live action in Colorín Decolorado.",
+      "ca": "Personatge animat de Craión, combinant 2D i live action a Colorín Decolorado.",
+      "gl": "Personaxe animado de Craión, combinando 2D e live action en Colorín Decolorado."
     },
     "process_labels": [
       { "es": "Storyboard", "en": "Storyboard", "ca": "Storyboard", "gl": "Storyboard" },

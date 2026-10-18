@@ -1,173 +1,59 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
+import Icon from './Icon';
 
-export default function LanguageDropdown({ placement = 'bottom', showLabelMobile = true, align = 'center' }) {
-    const { language, setLanguage } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
+const LANGUAGES = [
+  { code: 'es', label: 'Castellano' },
+  { code: 'en', label: 'English' },
+  { code: 'gl', label: 'Galego' },
+  { code: 'ca', label: 'Català' },
+];
 
-    const languages = [
-        { code: 'es', label: 'Castellano (ES)', flag: '🇪🇸' },
-        { code: 'en', label: 'English (EN)', flag: '🇬🇧' },
-        { code: 'gl', label: 'Galego (GL)', flag: '/flags/galicia_flag.png' },
-        { code: 'ca', label: 'Català (CA)', flag: '/flags/catalonia_flag.png' }
-    ];
+function Code({ code }) {
+  return <span className="font-bold text-xs uppercase tracking-wider w-5">{code}</span>;
+}
 
-    const currentLang = languages.find(l => l.code === language) || languages[0];
+export default function LanguageDropdown({ align = 'center', className = '' }) {
+  const { language, setLanguage } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
+  const current = LANGUAGES.find((l) => l.code === language) || LANGUAGES[0];
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsOpen(false);
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+  useEffect(() => {
+    const onClick = (e) => { if (ref.current && !ref.current.contains(e.target)) setIsOpen(false); };
+    document.addEventListener('mousedown', onClick);
+    return () => document.removeEventListener('mousedown', onClick);
+  }, []);
 
-    const dropdownStyles = {
-        position: 'relative',
-        display: 'inline-block',
-        zIndex: 1000,
-        fontFamily: 'inherit'
-    };
+  const alignClass = align === 'right' ? 'right-0' : align === 'left' ? 'left-0' : 'left-1/2 -translate-x-1/2';
 
-    const triggerStyles = {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5rem',
-        padding: '4px 12px',
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(8px)',
-        border: '1.5px solid var(--color-border)',
-        borderRadius: '10px',
-        color: 'var(--color-primary)',
-        fontWeight: 800,
-        fontSize: '0.8rem',
-        cursor: 'pointer',
-        transition: 'all 0.2s ease',
-        textTransform: 'uppercase',
-        letterSpacing: '0.5px',
-        height: '32px'
-    };
+  return (
+    <div ref={ref} className={`relative inline-block ${className}`}>
+      <button
+        onClick={() => setIsOpen((v) => !v)}
+        className="flex items-center gap-2 h-9 px-3 border border-border text-primary font-bold text-xs uppercase tracking-wide cursor-pointer hover:border-primary/50 transition-colors"
+      >
+        <Code code={current.code} />
+        <span className="hidden sm:inline">{language === 'en' ? 'Language' : 'Idioma'}</span>
+        <Icon name="chevronDown" size={12} strokeWidth={3} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
 
-    const getMenuTransform = (isOpen, placement, align) => {
-        let translateX = '-50%';
-        if (align === 'left') translateX = '0%';
-        if (align === 'right') translateX = '0%';
-
-        let translateY = '0';
-        if (!isOpen) {
-            translateY = placement === 'bottom' ? '-10px' : '10px';
-        }
-
-        return `translateX(${translateX}) translateY(${translateY})`;
-    };
-
-    const menuStyles = {
-        position: 'absolute',
-        bottom: placement === 'bottom' ? 'auto' : 'calc(100% + 0.5rem)',
-        top: placement === 'top' ? 'auto' : 'calc(100% + 0.5rem)',
-        left: align === 'center' ? '50%' : (align === 'left' ? '0' : 'auto'),
-        right: align === 'right' ? '0' : 'auto',
-        backgroundColor: 'white',
-        border: '1px solid var(--color-border)',
-        borderRadius: '12px',
-        boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
-        overflow: 'hidden',
-        minWidth: '160px',
-        maxHeight: isOpen ? '300px' : '0',
-        opacity: isOpen ? 1 : 0,
-        transform: getMenuTransform(isOpen, placement, align),
-        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        pointerEvents: isOpen ? 'auto' : 'none',
-        display: 'flex',
-        flexDirection: 'column'
-    };
-
-    const itemStyles = (isActive) => ({
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.75rem',
-        padding: '0.8rem 1rem',
-        width: '100%',
-        textAlign: 'left',
-        border: 'none',
-        backgroundColor: isActive ? 'var(--color-secondary)' : 'transparent',
-        color: isActive ? 'var(--color-primary)' : 'var(--color-text)',
-        fontWeight: isActive ? 800 : 500,
-        fontSize: '0.85rem',
-        cursor: 'pointer',
-        transition: 'all 0.2s ease',
-        whiteSpace: 'nowrap'
-    });
-
-    return (
-        <div style={dropdownStyles} ref={dropdownRef}>
+      {isOpen && (
+        <div className={`absolute bottom-[calc(100%+0.5rem)] ${alignClass} min-w-40 bg-card border border-border shadow-lg overflow-hidden flex flex-col z-50 animate-fade-in`}>
+          {LANGUAGES.map((lang) => (
             <button
-                onClick={() => setIsOpen(!isOpen)}
-                style={triggerStyles}
-                className={`dropdown-trigger ${!showLabelMobile ? 'mobile-compact' : ''}`}
+              key={lang.code}
+              onClick={() => { setLanguage(lang.code); setIsOpen(false); }}
+              className={`flex items-center gap-3 px-4 py-3 text-sm whitespace-nowrap text-left transition-colors ${
+                language === lang.code ? 'bg-surface text-primary font-bold' : 'text-ink font-medium hover:bg-surface'
+              }`}
             >
-                <span style={{ fontSize: '1.2rem', display: 'inline-flex', alignItems: 'center' }}>
-                    {typeof currentLang.flag === 'string' ?
-                        (currentLang.flag.startsWith('/') || currentLang.flag.startsWith('http')
-                            ? <img src={currentLang.flag} alt="flag" style={{ width: '20px', height: '14px', objectFit: 'cover' }} />
-                            : currentLang.flag)
-                        : null}
-                </span>
-                <span 
-                    className={!showLabelMobile ? 'mobile-hidden' : ''}
-                    style={{ 
-                        display: 'inline-block', 
-                        fontWeight: 800,
-                        fontSize: '0.75rem',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.5px'
-                    }}
-                >
-                    {language === 'es' || language === 'ca' || language === 'gl' ? 'Idioma' : 'Language'}
-                </span>
-                <svg
-                    className={!showLabelMobile ? 'mobile-hidden' : ''}
-                    width="12" height="12" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
-                    style={{
-                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
-                        transition: 'transform 0.3s ease'
-                    }}
-                >
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
+              <Code code={lang.code} />
+              <span>{lang.label}</span>
             </button>
-
-            <div style={menuStyles}>
-                {languages.map((lang) => (
-                    <button
-                        key={lang.code}
-                        onClick={() => {
-                            setLanguage(lang.code);
-                            setIsOpen(false);
-                        }}
-                        style={itemStyles(language === lang.code)}
-                        onMouseEnter={(e) => {
-                            if (language !== lang.code) e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.03)';
-                        }}
-                        onMouseLeave={(e) => {
-                            if (language !== lang.code) e.currentTarget.style.backgroundColor = 'transparent';
-                        }}
-                    >
-                        <span style={{ fontSize: '1.2rem', display: 'inline-flex', alignItems: 'center' }}>
-                            {typeof lang.flag === 'string' ?
-                                (lang.flag.startsWith('/') || lang.flag.startsWith('http')
-                                    ? <img src={lang.flag} alt={lang.code} style={{ width: '20px', height: '14px', objectFit: 'cover' }} />
-                                    : lang.flag)
-                                : null}
-                        </span>
-                        <span>{lang.label}</span>
-                    </button>
-                ))}
-            </div>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
 }
