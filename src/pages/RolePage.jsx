@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 export default function RolePage() {
   const { role, tab } = useParams();
   const navigate = useNavigate();
-  const { t, language } = useTranslation();
+  const { language } = useTranslation();
 
   const activeRoleId = SLUG_TO_ROLE[role] || 'all';
 

@@ -4,7 +4,7 @@ export const OWNER = {
   email: 'contacto@mvillanuevatorres.com',
   city: 'Madrid',
   web: 'mvillanuevatorres.com',
-  nif: '',
+  nif: '35602933Z',
 };
 
 export const LEGAL_SLUGS = { privacy: 'privacidad', legal: 'aviso-legal' };

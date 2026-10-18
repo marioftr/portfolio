@@ -3,6 +3,7 @@ import Landing from './pages/Landing';
 import RolePage from './pages/RolePage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import LegalPage from './pages/LegalPage';
+import ContactPage from './pages/ContactPage';
 import { LEGAL_SLUGS } from './data/legal';
 
 const VALID_LANGS = ['es', 'en', 'gl', 'ca'];
@@ -26,6 +27,7 @@ export default function App() {
       <Route path="/:lang" element={<LangGate><Landing /></LangGate>} />
       <Route path={`/:lang/${LEGAL_SLUGS.privacy}`} element={<LangGate><LegalPage kind="privacy" /></LangGate>} />
       <Route path={`/:lang/${LEGAL_SLUGS.legal}`} element={<LangGate><LegalPage kind="legal" /></LangGate>} />
+      <Route path="/:lang/contacto" element={<LangGate><ContactPage /></LangGate>} />
       <Route path="/:lang/portfolio/*" element={<LangGate><LegacyRedirect /></LangGate>} />
       <Route path="/:lang/:role" element={<LangGate><RolePage /></LangGate>} />
       <Route path="/:lang/:role/proyectos/:projectId" element={<LangGate><ProjectDetailPage /></LangGate>} />

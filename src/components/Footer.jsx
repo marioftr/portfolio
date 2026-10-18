@@ -3,7 +3,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import { LEGAL_SLUGS, LEGAL_LABELS } from '../data/legal';
 
 export default function Footer({ className = '' }) {
-  const { language } = useTranslation();
+  const { language, t } = useTranslation();
 
   return (
     <footer className={`flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-ink-light text-xs ${className}`}>
@@ -14,6 +14,9 @@ export default function Footer({ className = '' }) {
             {LEGAL_LABELS[kind][language] || LEGAL_LABELS[kind].es}
           </Link>
         ))}
+        <Link to={`/${language}/contacto`} className="hover:text-primary transition-colors underline-offset-4 hover:underline">
+          {t('nav_contact')}
+        </Link>
       </nav>
     </footer>
   );
