@@ -42,6 +42,7 @@ export const profileImages = {
       projectId: 'establo',
       externalLinks: [{ platform: 'artstation', url: 'https://marioftr.artstation.com/projects/3E5bn2' }],
       process: [
+        { src: '/images/WoodCart_3DSubstance_01.jpg', type: 'model', modelUrl: '/models/WoodCart_LP.glb' },
         { src: '/images/WoodCart_PureRef.png', label_index: 0 },
         { src: '/images/maya_woodcart_uvs.png', label_index: 1 },
         { src: '/images/WoodCart_ZBrush_01.png', label_index: 2 },
@@ -64,6 +65,7 @@ export const profileImages = {
       title_key: 'wheelbarrow_asset',
       projectId: 'establo',
       process: [
+        { src: '/images/Wheelbarrow_3DSubstance_01.jpg', type: 'model', modelUrl: '/models/Wheelbarrow_LP.glb' },
         { src: '/images/maya_wheelbarrow_uvs.png', label_index: 0 },
         { src: '/images/substance_wheelbarrow.png', label_index: 1 },
         { src: '/images/Wheelbarrow_3DSubstance_04.jpg', label_index: 2 },
@@ -78,6 +80,7 @@ export const profileImages = {
       title_key: 'boot_asset',
       projectId: 'establo',
       process: [
+        { src: '/images/Boot_3DSubstance_01.jpg', type: 'model', modelUrl: '/models/Boot_LP.glb' },
         { src: '/images/maya_boots_uvs.png', label_index: 0 },
         { src: '/images/substance_boots.png', label_index: 1 },
         { src: '/images/Boot_3DSubstance_04.jpg', label_index: 2 },
@@ -92,6 +95,7 @@ export const profileImages = {
       title_key: 'barrel_asset',
       projectId: 'establo',
       process: [
+        { src: '/images/Barrel_3DSubstance_01.jpg', type: 'model', modelUrl: '/models/Barrel_LP.glb' },
         { src: '/images/Barril_Maya.png', label_index: 0 },
         { src: '/images/Barril_ZBrush.png', label_index: 1 },
         { src: '/images/Barrel_3DSubstance_03.jpg', label_index: 2 },
@@ -106,6 +110,7 @@ export const profileImages = {
       projectId: 'establo',
       externalLinks: [{ platform: 'artstation', url: 'https://marioftr.artstation.com/projects/8BKmam' }],
       process: [
+        { src: '/images/HorseBridle_3DSubstance_01.jpg', type: 'model', modelUrl: '/models/HorseBridle_LP.glb' },
         { src: '/images/BridaCaballo_Maya.png', label_index: 0 },
         { src: '/images/maya_horse-bridle_uvs.png', label_index: 1 },
         { src: '/images/BridaCaballo_ZBrush.png', label_index: 2 },

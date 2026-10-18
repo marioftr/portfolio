@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import { useMediaQuery } from '../hooks/useMediaQuery';
@@ -8,6 +8,11 @@ import { buildFilteredProjects } from '../lib/projects';
 import { allSkills } from '../data/content';
 import Icon from './Icon';
 import { PLATFORM_NAMES, platformIcon } from '../lib/platforms';
+
+// three.js se carga solo al abrir un modelo 3D, no con el resto de la web.
+const ModelViewer = lazy(() => import('./ModelViewer'));
+
+const MODEL_LABEL = { es: 'Modelo 3D interactivo', en: 'Interactive 3D model', ca: 'Model 3D interactiu', gl: 'Modelo 3D interactivo' };
 
 const FULL_PROJECT_LABEL = { es: 'Proyecto completo', en: 'Full project', ca: 'Projecte complet', gl: 'Proxecto completo' };
 const TYPE_LABELS = {
@@ -66,6 +71,12 @@ function Thumbnail({ item, onClick }) {
         <span className="absolute top-2 left-2 bg-ink text-bg font-extrabold px-2 py-0.5 flex items-center gap-1 text-[0.6rem]">
           <Icon name="play" size={8} className="fill-current" />
           VIDEO
+        </span>
+      )}
+      {item.type === 'model' && (
+        <span className="absolute top-2 left-2 bg-ink text-bg font-extrabold px-2 py-0.5 flex items-center gap-1 text-[0.6rem]">
+          <Icon name="box" size={9} strokeWidth={2.5} />
+          3D
         </span>
       )}
     </div>
@@ -340,7 +351,7 @@ function ProjectSection({ section, startIdx, language, onSelect, onViewFull, vie
           // original de cada foto para que el lightbox abra la correcta).
           const filmstripEntries = (piece.process || [])
             .map((item, idx) => ({ item, idx }))
-            .filter(({ item }) => item.src !== piece.src);
+            .filter(({ item }) => item.type === 'model' || item.src !== piece.src);
           return (
             <div key={i}>
               <PieceCaption info={info} size={isLarge ? 'lg' : 'sm'} showDescription={showDescription} />
@@ -705,12 +716,14 @@ function LightboxSlide({ item, idx, isActive, isMobile, activeProcessIndex, setA
       const loc = portfolioContent[item.title_key].process_labels[pImg.label_index];
       return { ...pImg, label: loc ? (loc[language] || loc.es) : pImg.label };
     }
+    if (pImg.type === 'model') return { ...pImg, label: MODEL_LABEL[language] || MODEL_LABEL.es };
     return pImg;
   });
   const hasProcess = processImages.length > 0;
   const effectiveIdx = isActive && activeProcessIndex !== null ? activeProcessIndex : (hasProcess ? processImages.length - 1 : -1);
   const current = hasProcess ? (processImages[effectiveIdx] || processImages[processImages.length - 1]) : item;
   const isVideo = current.type === 'video' || !!current.videoUrl;
+  const isModel = current.type === 'model';
   const displayTitle = item.title_key && portfolioContent[item.title_key]
     ? (portfolioContent[item.title_key].title[language] || portfolioContent[item.title_key].title.es)
     : item.title;
@@ -752,7 +765,11 @@ function LightboxSlide({ item, idx, isActive, isMobile, activeProcessIndex, setA
       </div>
 
       <div className="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
-        {isVideo ? (
+        {isModel && isActive ? (
+          <Suspense fallback={null}>
+            <ModelViewer key={current.modelUrl} url={current.modelUrl} language={language} />
+          </Suspense>
+        ) : isVideo ? (
           <div className="w-full max-w-[min(100%,calc(100vh*16/9*0.55))] aspect-video overflow-hidden relative bg-black" onClick={(e) => e.stopPropagation()}>
             {!isPlaying ? (
               <div className="group w-full h-full cursor-pointer relative" onClick={() => setVideoPlayingIdx(idx)}>
@@ -793,6 +810,11 @@ function LightboxSlide({ item, idx, isActive, isMobile, activeProcessIndex, setA
                   {(pImg.type === 'video' || pImg.videoUrl) && (
                     <span className="absolute inset-0 flex items-center justify-center bg-black/25">
                       <Icon name="play" size={12} className="text-white fill-current" />
+                    </span>
+                  )}
+                  {pImg.type === 'model' && (
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/40">
+                      <Icon name="box" size={16} strokeWidth={2} className="text-white" />
                     </span>
                   )}
                 </div>
