@@ -1,19 +1,16 @@
-# Mario Villanueva Torres - Portfolio
+# React + Vite
 
-## Resumen del Portfolio
-Este es mi portfolio profesional con un **perfil multidisciplinar**. Aquí muestro mi trayectoria y proyectos que combinan la **comunicación audiovisual** con habilidades técnicas en **edición de vídeo**, **desarrollo de videojuegos**, **arte 2D/3D** y **diseño gráfico**.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-Utilizo un conjunto de herramientas avanzado que incluye **Unreal Engine**, **Unity**, **Blender** y la suite de **Adobe** para crear experiencias interactivas y contenido visual de alta calidad, desde cortometrajes de animación hasta videojuegos narrativos y modelado de entornos 3D.
+Currently, two official plugins are available:
 
-### 🌐 Acceso a la web:
-[🇪🇸 Ver Portfolio](https://mvt-portfolio.vercel.app/es)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## Portfolio Summary
-This is my professional portfolio showcasing a **multidisciplinary profile**. Here I present my career and projects that combine **audiovisual communication** with technical skills in **video editing**, **game development**, **2D/3D art**, and **graphic design**.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-I use an advanced toolset including **Unreal Engine**, **Unity**, **Blender**, and the **Adobe suite** to create interactive experiences and high-quality visual content, ranging from animation shorts to narrative video games and 3D environment modeling.
+## Expanding the Oxlint configuration
 
-### 🌐 Access to the web:
-[🇬🇧 View Portfolio](https://mvt-portfolio.vercel.app/en)
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.

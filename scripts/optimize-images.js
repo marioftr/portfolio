@@ -1,80 +1,82 @@
-/*
- Image optimization script using sharp.
- - Reads files from `src/assets/uploads`
- - Outputs optimized images to `src/assets/optimized`
- - Keeps filenames, supports jpg/jpeg/png/webp
- - Only keeps optimized version if it's smaller; otherwise uses original
-*/
-
+/**
+ * Resizes and recompresses images in-place under public/images and
+ * src/assets/optimized. Icon-like assets (tool logos, flags) are capped at a
+ * small max dimension since they're only ever displayed a few dozen pixels
+ * wide; everything else is capped at a size generous enough for a full-bleed
+ * hero or lightbox view. Only overwrites a file if the result is smaller.
+ */
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
-const uploadsDir = path.resolve(process.cwd(), 'src/assets/uploads');
-const outDir = path.resolve(process.cwd(), 'src/assets/optimized');
+const ICON_MAX = 160;
+const PHOTO_MAX = 2200;
+const ICON_NAMES = new Set([
+  'affinity', 'after effects', 'antigravity', 'aseprite', 'audacity', 'blender',
+  'brainstorm', 'canva', 'capcut', 'copilot', 'davinci', 'ffmpeg', 'handbrake',
+  'maya', 'megui', 'microsoft_excel', 'microsoft_powerpoint', 'microsoft_word',
+  'mkvtoolnix', 'photoshop', 'premiere', 'rider', 'substance', 'unity',
+  'unreal', 'veedub64', 'vscode', 'zbrush', 'catalonia_flag', 'galicia_flag',
+]);
 
-if (!fs.existsSync(uploadsDir)) {
-  console.error('Uploads directory not found:', uploadsDir);
-  process.exit(1);
-}
-if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+const targets = [
+  path.resolve(process.cwd(), 'public/images'),
+  path.resolve(process.cwd(), 'public/flags'),
+  path.resolve(process.cwd(), 'src/assets/optimized'),
+];
 
-const files = fs.readdirSync(uploadsDir).filter(f => !f.startsWith('.'));
-if (files.length === 0) {
-  console.log('No files found in', uploadsDir);
-  process.exit(0);
-}
+const isImage = (f) => ['.jpg', '.jpeg', '.png', '.webp', '.avif'].includes(path.extname(f).toLowerCase());
 
-const processFile = async (file) => {
+async function processFile(dir, file) {
   const ext = path.extname(file).toLowerCase();
-  const inPath = path.join(uploadsDir, file);
-  const outPath = path.join(outDir, file);
-  const inSize = fs.statSync(inPath).size;
+  const name = path.basename(file, ext).toLowerCase();
+  const filePath = path.join(dir, file);
+  const inSize = fs.statSync(filePath).size;
+  const maxDim = ICON_NAMES.has(name) ? ICON_MAX : PHOTO_MAX;
+  const tempPath = filePath + '.tmp';
 
   try {
-    let tempPath = outPath + '.tmp';
-    const image = sharp(inPath).rotate(); // auto-orient
+    let image = sharp(filePath).rotate();
+    const meta = await image.metadata();
+    if ((meta.width && meta.width > maxDim) || (meta.height && meta.height > maxDim)) {
+      image = image.resize({ width: maxDim, height: maxDim, fit: 'inside', withoutEnlargement: true });
+    }
 
+    const isIcon = ICON_NAMES.has(name);
     if (ext === '.jpg' || ext === '.jpeg') {
-      await image.jpeg({ quality: 85, mozjpeg: true }).toFile(tempPath);
+      await image.jpeg({ quality: 80, mozjpeg: true }).toFile(tempPath);
     } else if (ext === '.png') {
-      // PNG: try moderate compression; heavy compression can expand small images
-      await image.png({ compressionLevel: 6 }).toFile(tempPath);
+      await image.png({ compressionLevel: 9, palette: isIcon }).toFile(tempPath);
     } else if (ext === '.webp') {
-      await image.webp({ quality: 85 }).toFile(tempPath);
-    } else if (ext === '.gif') {
-      // copy GIFs as-is (sharp doesn't handle animated GIFs well)
-      fs.copyFileSync(inPath, outPath);
-      console.log('Copied (GIF):', file);
-      return;
+      await image.webp({ quality: 82 }).toFile(tempPath);
+    } else if (ext === '.avif') {
+      await image.avif({ quality: 62 }).toFile(tempPath);
     } else {
-      // unknown: copy
-      fs.copyFileSync(inPath, outPath);
-      console.log('Copied:', file);
       return;
     }
 
-    // Compare sizes and use the smaller one
     const outSize = fs.statSync(tempPath).size;
     if (outSize < inSize) {
-      fs.renameSync(tempPath, outPath);
+      fs.renameSync(tempPath, filePath);
       const saved = ((1 - outSize / inSize) * 100).toFixed(1);
-      console.log(`Optimized: ${file} (saved ${saved}%)`);
+      console.log(`✓ ${path.relative(process.cwd(), filePath)}  ${(inSize / 1024).toFixed(0)}KB -> ${(outSize / 1024).toFixed(0)}KB (-${saved}%)`);
     } else {
-      // optimized version is larger; use original
       fs.unlinkSync(tempPath);
-      fs.copyFileSync(inPath, outPath);
-      const increased = ((outSize / inSize - 1) * 100).toFixed(1);
-      console.log(`Used original: ${file} (optimized was ${increased}% larger)`);
     }
   } catch (err) {
-    console.error('Failed optimizing', file, err);
+    console.error('Failed:', filePath, err.message);
+    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
   }
-};
+}
 
 (async () => {
-  for (const f of files) {
-    await processFile(f);
+  for (const dir of targets) {
+    if (!fs.existsSync(dir)) continue;
+    const files = fs.readdirSync(dir).filter(isImage);
+    console.log(`\n--- ${dir} (${files.length} images) ---`);
+    for (const f of files) {
+      await processFile(dir, f);
+    }
   }
-  console.log('All done — optimized images are in:', outDir);
+  console.log('\nDone.');
 })();

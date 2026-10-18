@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Georgia', serif;
+
+  --color-primary: #3f7a5f;
+  --color-primary-dark: #2e5c47;
+  --color-primary-light: #e9f1ec;
+  --color-bg: #fbfaf7;
+  --color-surface: #f3f1ea;
+  --color-card: #ffffff;
+  --color-ink: #1c1c1a;
+  --color-ink-light: #6b6a63;
+  --color-border: #e2ded3;
+
+  --shadow-sm: 0 1px 2px 0 rgb(20 20 18 / 0.05);
+  --shadow-md: 0 8px 20px -6px rgb(20 20 18 / 0.12);
+  --shadow-lg: 0 24px 48px -16px rgb(20 20 18 / 0.18);
+
+  --animate-fade-in: fade-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-bounce-y: bounce-y 1.6s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+}
+
+/* Modo oscuro casi monocromo: el acento verde aparece puntualmente, sin
+   brillos ni tonos saturados tipo "producto de IA". */
+.dark {
+  --color-primary: #7fa693;
+  --color-primary-dark: #9dbdad;
+  --color-primary-light: #1a231e;
+  --color-bg: #121211;
+  --color-surface: #191918;
+  --color-card: #1c1c1a;
+  --color-ink: #ebe9e4;
+  --color-ink-light: #928f86;
+  --color-border: #2d2c29;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.35);
+  --shadow-md: 0 8px 20px -6px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 24px 48px -16px rgb(0 0 0 / 0.65);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+@keyframes skel-shimmer {
+  0% { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+}
+.skel-block {
+  background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-border) 50%, var(--color-surface) 75%);
+  background-size: 1600px 100%;
+  animation: skel-shimmer 1.8s infinite linear;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Tag: neutral by default, a rectangular label rather than a pill ── */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-ink-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ─── Rich project content: custom galleries & video carousels ───────── */
+.custom-gallery {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+}
+.custom-gallery div {
+  margin: 0 !important;
+  display: block !important;
+  overflow: hidden !important;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  flex: 0 1 calc(33.333% - 0.75rem) !important;
+  min-width: 140px;
+  border: 1px solid var(--color-border);
+}
+.custom-gallery.three-col div { flex: 0 1 calc(33.333% - 0.75rem) !important; min-width: 140px; }
+.custom-gallery.two-by-two {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+}
+.custom-gallery.two-by-two div { flex: initial !important; min-width: 0 !important; width: 100% !important; }
+.custom-gallery img {
+  width: 100% !important;
+  height: 200px !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+  object-fit: cover !important;
+}
+.custom-gallery div:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--color-primary); }
+.custom-gallery div:hover img { transform: scale(1.04) !important; }
+
+@media (max-width: 768px) {
+  .custom-gallery { gap: 0.6rem !important; }
+  .custom-gallery div { flex: none !important; width: 100% !important; }
+  .custom-gallery.two-by-two { grid-template-columns: 1fr !important; }
+}
