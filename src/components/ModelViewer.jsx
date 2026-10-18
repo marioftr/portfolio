@@ -7,6 +7,7 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 const MODES = [
   { id: 'textured', label: { es: 'Texturizado', en: 'Textured', ca: 'Texturitzat', gl: 'Texturizado' } },
   { id: 'wire', label: { es: 'Malla', en: 'Wireframe', ca: 'Malla', gl: 'Malla' } },
+  { id: 'overlay', label: { es: 'Textura + malla', en: 'Textured + wire', ca: 'Textura + malla', gl: 'Textura + malla' } },
   { id: 'clay', label: { es: 'Arcilla', en: 'Clay', ca: 'Argila', gl: 'Arxila' } },
   { id: 'albedo', label: { es: 'Color base', en: 'Base color', ca: 'Color base', gl: 'Cor base' } },
   { id: 'normal', label: { es: 'Normales', en: 'Normals', ca: 'Normals', gl: 'Normais' } },
@@ -91,33 +92,27 @@ export default function ModelViewer({ url, language }) {
     resize();
 
     const created = []; // materiales propios que hay que liberar al salir
-    let mesh = null;
-    let wire = null;
-    let original = null;
+    const meshes = []; // un Mesh por material del modelo (puertas, lámpara…)
+    const wires = [];
+    const originals = new Map();
+    const cache = new Map();
 
-    const applyMode = (id) => {
-      if (!mesh) return;
-      const orig = original;
-      if (wire) wire.visible = id === 'wire';
+    // Material de cada modo para una malla concreta, con caché por malla y modo.
+    const materialFor = (mesh, id) => {
+      const orig = originals.get(mesh);
+      const key = `${mesh.uuid}:${id}`;
+      if (cache.has(key)) return cache.get(key);
+      let m = orig;
       switch (id) {
-        case 'wire': {
-          const m = new THREE.MeshBasicMaterial({ color: 0x1a1a18, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
-          created.push(m);
-          mesh.material = m;
+        case 'wire':
+          m = new THREE.MeshBasicMaterial({ color: 0x1a1a18, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
           break;
-        }
-        case 'clay': {
-          const m = new THREE.MeshStandardMaterial({ color: 0xb8b5ac, roughness: 0.85, metalness: 0 });
-          created.push(m);
-          mesh.material = m;
+        case 'clay':
+          m = new THREE.MeshStandardMaterial({ color: 0xb8b5ac, roughness: 0.85, metalness: 0 });
           break;
-        }
-        case 'albedo': {
-          const m = new THREE.MeshBasicMaterial({ map: orig.map, toneMapped: false });
-          created.push(m);
-          mesh.material = m;
+        case 'albedo':
+          if (orig.map) m = new THREE.MeshBasicMaterial({ map: orig.map, toneMapped: false });
           break;
-        }
         case 'normal':
         case 'roughness':
         case 'metalness':
@@ -128,15 +123,32 @@ export default function ModelViewer({ url, language }) {
             metalness: [orig.metalnessMap, [0, 0, 1], false],
             ao: [orig.aoMap || orig.roughnessMap, [1, 0, 0], false],
           }[id];
-          if (!spec[0]) { mesh.material = orig; break; }
-          const m = channelMaterial(spec[0], spec[1], spec[2]);
-          created.push(m);
-          mesh.material = m;
+          if (spec[0]) m = channelMaterial(spec[0], spec[1], spec[2]);
           break;
         }
         default:
-          mesh.material = orig;
+          m = orig;
       }
+      if (m !== orig) created.push(m);
+      cache.set(key, m);
+      return m;
+    };
+
+    const applyMode = (id) => {
+      const overlay = id === 'overlay';
+      meshes.forEach((mesh) => {
+        // En "textura + malla" el relleno se retrasa un poco para que las líneas no parpadeen.
+        const orig = originals.get(mesh);
+        const offset = overlay;
+        if (orig.polygonOffset !== offset) { orig.polygonOffset = offset; orig.needsUpdate = true; }
+        orig.polygonOffsetFactor = 1;
+        orig.polygonOffsetUnits = 1;
+        mesh.material = materialFor(mesh, overlay ? 'textured' : id);
+      });
+      wires.forEach((w) => {
+        w.visible = id === 'wire' || overlay;
+        w.material.opacity = overlay ? 0.6 : 1;
+      });
     };
     apiRef.current = { applyMode };
 
@@ -145,14 +157,14 @@ export default function ModelViewer({ url, language }) {
       (gltf) => {
         if (disposed) return;
         gltf.scene.traverse((o) => {
-          if (o.isMesh && !mesh) { mesh = o; original = o.material; }
-          if (o.isLine || o.isLineSegments) wire = o;
+          if (o.isLine || o.isLineSegments) wires.push(o);
+          else if (o.isMesh) { meshes.push(o); originals.set(o, o.material); }
         });
-        if (wire) {
-          wire.material = new THREE.LineBasicMaterial({ color: 0x7fc6a4 });
-          created.push(wire.material);
-          wire.visible = false;
-        }
+        wires.forEach((w) => {
+          w.material = new THREE.LineBasicMaterial({ color: 0x7fc6a4, transparent: true });
+          created.push(w.material);
+          w.visible = false;
+        });
         scene.add(gltf.scene);
 
         const box = new THREE.Box3().setFromObject(gltf.scene);
@@ -169,10 +181,11 @@ export default function ModelViewer({ url, language }) {
         controls.maxDistance = radius * 6;
         controls.update();
 
-        if (mesh?.geometry) {
-          const count = mesh.geometry.index ? mesh.geometry.index.count : mesh.geometry.attributes.position.count;
-          setTris(Math.round(count / 3));
-        }
+        const total = meshes.reduce((sum, m) => {
+          const g = m.geometry;
+          return sum + (g.index ? g.index.count : g.attributes.position.count) / 3;
+        }, 0);
+        if (total) setTris(Math.round(total));
         setStatus('ready');
         applyMode(apiRef.current.pending || 'textured');
       },
@@ -200,6 +213,10 @@ export default function ModelViewer({ url, language }) {
           Object.values(m).forEach((v) => { if (v && v.isTexture) v.dispose(); });
           m.dispose();
         });
+      });
+      originals.forEach((m) => {
+        Object.values(m).forEach((v) => { if (v && v.isTexture) v.dispose(); });
+        m.dispose();
       });
       created.forEach((m) => m.dispose());
       envTexture.dispose();
