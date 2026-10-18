@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import modelStats from '../data/modelStats.json';
 
 const MODES = [
   { id: 'textured', label: { es: 'Texturizado', en: 'Textured', ca: 'Texturitzat', gl: 'Texturizado' } },
@@ -54,6 +55,12 @@ export default function ModelViewer({ url, language }) {
   const [status, setStatus] = useState(supported ? 'loading' : 'error');
   const [tris, setTris] = useState(null);
   const t = (key) => TEXT[key][language] || TEXT[key].es;
+  // Quads originales de Maya (no salen del GLB, que va triangulado) + triángulos reales.
+  const quads = modelStats[url.split('/').pop().replace('.glb', '')]?.quads;
+  const counts = [
+    quads ? `${quads.toLocaleString(language)} quads` : null,
+    tris ? `${tris.toLocaleString(language)} ${t('tris')}` : null,
+  ].filter(Boolean).join(' · ');
 
   useEffect(() => {
     if (!supported) return undefined;
@@ -247,7 +254,7 @@ export default function ModelViewer({ url, language }) {
         )}
         {status === 'ready' && (
           <p className="absolute top-0 left-0 right-0 text-center text-white/45 text-[0.65rem] sm:text-xs pointer-events-none">
-            {t('hint')}{tris ? ` ${tris.toLocaleString(language)} ${t('tris')}.` : ''}
+            {t('hint')}{counts ? ` ${counts}.` : ''}
           </p>
         )}
       </div>

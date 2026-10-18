@@ -1,0 +1,247 @@
+{
+ "Barrel_LP": {
+  "ngons": 0,
+  "polys": 840,
+  "quads": 760,
+  "triangles": 1600,
+  "tris": 80
+ },
+ "BootRigh_LP": {
+  "ngons": 0,
+  "polys": 674,
+  "quads": 642,
+  "triangles": 1316,
+  "tris": 32
+ },
+ "Boot_LP": {
+  "ngons": 0,
+  "polys": 674,
+  "quads": 642,
+  "triangles": 1316,
+  "tris": 32
+ },
+ "Bucket_LP": {
+  "ngons": 2,
+  "polys": 1064,
+  "quads": 1026,
+  "triangles": 2100,
+  "tris": 36
+ },
+ "HayPile1_LP": {
+  "ngons": 0,
+  "polys": 30,
+  "quads": 10,
+  "triangles": 40,
+  "tris": 20
+ },
+ "HayPile2_LP": {
+  "ngons": 0,
+  "polys": 4,
+  "quads": 4,
+  "triangles": 8,
+  "tris": 0
+ },
+ "HayPile3_LP": {
+  "ngons": 0,
+  "polys": 3,
+  "quads": 3,
+  "triangles": 6,
+  "tris": 0
+ },
+ "HayTied_LP": {
+  "ngons": 0,
+  "polys": 114,
+  "quads": 106,
+  "triangles": 220,
+  "tris": 8
+ },
+ "HorseBridle_LP": {
+  "ngons": 6,
+  "polys": 5353,
+  "quads": 5163,
+  "triangles": 10542,
+  "tris": 184
+ },
+ "HorseshoeRack_LP": {
+  "ngons": 8,
+  "polys": 1522,
+  "quads": 1394,
+  "triangles": 2932,
+  "tris": 120
+ },
+ "Ladder_LP": {
+  "ngons": 0,
+  "polys": 192,
+  "quads": 176,
+  "triangles": 368,
+  "tris": 16
+ },
+ "Lamp_LP": {
+  "ngons": 0,
+  "polys": 1072,
+  "quads": 996,
+  "triangles": 2068,
+  "tris": 76
+ },
+ "Pitchfork_LP": {
+  "ngons": 0,
+  "polys": 735,
+  "quads": 651,
+  "triangles": 1386,
+  "tris": 84
+ },
+ "Rake_LP": {
+  "ngons": 0,
+  "polys": 994,
+  "quads": 928,
+  "triangles": 1922,
+  "tris": 66
+ },
+ "Shovel_LP": {
+  "ngons": 0,
+  "polys": 404,
+  "quads": 334,
+  "triangles": 738,
+  "tris": 70
+ },
+ "StableBox_DoorFrame_LP": {
+  "ngons": 8,
+  "polys": 598,
+  "quads": 438,
+  "triangles": 1060,
+  "tris": 152
+ },
+ "StableBox_Door_LP": {
+  "ngons": 0,
+  "polys": 670,
+  "quads": 490,
+  "triangles": 1160,
+  "tris": 180
+ },
+ "StableBox_Wall1_LP": {
+  "ngons": 0,
+  "polys": 400,
+  "quads": 304,
+  "triangles": 704,
+  "tris": 96
+ },
+ "StableBox_Wall2_LP": {
+  "ngons": 0,
+  "polys": 460,
+  "quads": 340,
+  "triangles": 800,
+  "tris": 120
+ },
+ "StableBox_Wall3_LP": {
+  "ngons": 0,
+  "polys": 400,
+  "quads": 304,
+  "triangles": 704,
+  "tris": 96
+ },
+ "StableWall_Flat_LP": {
+  "ngons": 0,
+  "polys": 130,
+  "quads": 90,
+  "triangles": 220,
+  "tris": 40
+ },
+ "StableWall_FrontWindow_LP": {
+  "ngons": 0,
+  "polys": 210,
+  "quads": 174,
+  "triangles": 384,
+  "tris": 36
+ },
+ "StableWall_SideWindow1_LP": {
+  "ngons": 0,
+  "polys": 360,
+  "quads": 280,
+  "triangles": 640,
+  "tris": 80
+ },
+ "StableWall_SideWindow2_LP": {
+  "ngons": 0,
+  "polys": 360,
+  "quads": 280,
+  "triangles": 640,
+  "tris": 80
+ },
+ "StableWall_Small_LP": {
+  "ngons": 0,
+  "polys": 130,
+  "quads": 90,
+  "triangles": 220,
+  "tris": 40
+ },
+ "Stable_CeilingFlat_LP": {
+  "ngons": 0,
+  "polys": 130,
+  "quads": 90,
+  "triangles": 220,
+  "tris": 40
+ },
+ "Stable_CeilingTilted_LP": {
+  "ngons": 0,
+  "polys": 130,
+  "quads": 90,
+  "triangles": 220,
+  "tris": 40
+ },
+ "Stable_Column1_LP": {
+  "ngons": 0,
+  "polys": 46,
+  "quads": 46,
+  "triangles": 92,
+  "tris": 0
+ },
+ "Stable_Column2_LP": {
+  "ngons": 0,
+  "polys": 46,
+  "quads": 46,
+  "triangles": 92,
+  "tris": 0
+ },
+ "Stable_DoorBig_LP": {
+  "ngons": 0,
+  "polys": 918,
+  "quads": 718,
+  "triangles": 1636,
+  "tris": 200
+ },
+ "Stable_DoorSmall_LP": {
+  "ngons": 0,
+  "polys": 782,
+  "quads": 614,
+  "triangles": 1396,
+  "tris": 168
+ },
+ "Stable_SecondFloor_LP": {
+  "ngons": 0,
+  "polys": 312,
+  "quads": 216,
+  "triangles": 528,
+  "tris": 96
+ },
+ "Trough_LP": {
+  "ngons": 0,
+  "polys": 1310,
+  "quads": 950,
+  "triangles": 2260,
+  "tris": 360
+ },
+ "Wheelbarrow_LP": {
+  "ngons": 0,
+  "polys": 2290,
+  "quads": 2046,
+  "triangles": 4336,
+  "tris": 244
+ },
+ "WoodCart_LP": {
+  "ngons": 39,
+  "polys": 3409,
+  "quads": 2838,
+  "triangles": 6362,
+  "tris": 532
+ }
+}
