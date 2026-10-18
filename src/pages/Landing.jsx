@@ -6,6 +6,7 @@ import LanguageDropdown from '../components/LanguageDropdown';
 import ThemeToggle from '../components/ThemeToggle';
 import ProfilePhoto from '../components/ProfilePhoto';
 import Icon from '../components/Icon';
+import Footer from '../components/Footer';
 
 const BIO = {
   es: 'Perfil multidisciplinar centrado en diseño de videojuegos, modelado y animación 3D, y edición de vídeo.',
@@ -101,8 +102,9 @@ export default function Landing() {
             href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_jul26.pdf' : '/downloads/CV_Mario_Villanueva_es_jul26.pdf'}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 text-sm font-semibold text-ink border-b border-ink/40 hover:border-primary hover:text-primary transition-colors"
+            className="ml-2 inline-flex items-center gap-1.5 text-sm font-semibold text-ink border-b border-ink/40 hover:border-primary hover:text-primary transition-colors"
           >
+            <Icon name="view" size={14} />
             {t('hero_download_cv')}
           </a>
         </div>
@@ -110,6 +112,10 @@ export default function Landing() {
           <LanguageDropdown align="right" />
           <ThemeToggle />
         </div>
+      </div>
+
+      <div className="w-full max-w-5xl mx-auto px-6 sm:px-10 lg:px-4 pb-6">
+        <Footer />
       </div>
     </div>
   );

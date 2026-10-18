@@ -3,25 +3,28 @@ import { useTranslation } from '../hooks/useTranslation';
 function Entry({ item, language }) {
   const desc = item.description[language] || item.description.es;
   const groups = Array.isArray(desc) ? desc : [{ subtitle: null, location: item.location, text: desc }];
+  const place = item.institution || item.company;
 
   return (
-    <div className="grid grid-cols-[4.25rem_1fr] sm:grid-cols-[5rem_1fr] gap-x-4 sm:gap-x-8 py-7 border-t border-border first:border-t-0">
-      <span className="font-display text-base sm:text-xl text-ink-light pt-0.5 leading-snug">{item.year}</span>
+    <div className="grid grid-cols-[4.25rem_1fr] sm:grid-cols-[5rem_1fr] items-baseline gap-x-4 sm:gap-x-8 py-7 border-t border-border first:border-t-0">
+      <span className="font-display text-base sm:text-xl text-ink-light leading-snug">{item.year}</span>
 
-      <div>
-        <h3 className="font-display text-xl sm:text-2xl font-medium leading-snug">{item.title[language] || item.title.es}</h3>
-        {(item.institution || item.company) && (
-          <p className="text-primary font-semibold text-sm mt-1">
-            {item.institution || item.company}
-            {item.location && <span className="text-ink-light font-normal"> — {item.location}</span>}
-          </p>
-        )}
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-1">
+          <h3 className="font-display text-xl sm:text-2xl font-medium leading-snug">{item.title[language] || item.title.es}</h3>
+          {place && (
+            <p className="text-primary font-semibold text-sm leading-snug">
+              {place}
+              {item.location && <span className="text-ink-light font-normal"> — {item.location}</span>}
+            </p>
+          )}
+        </div>
 
-        <div className="mt-3 flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {groups.map((group, idx) => (
-            <div key={idx}>
+            <div key={idx} className="flex flex-col gap-1">
               {group.subtitle && (
-                <h4 className="text-primary font-semibold text-sm mb-0.5">
+                <h4 className="text-primary font-semibold text-sm leading-snug">
                   {group.subtitle}
                   {group.location && <span className="text-ink-light font-normal"> — {group.location}</span>}
                 </h4>

@@ -125,13 +125,13 @@ export default function ContactSection() {
       <ContactForm />
 
       <div className="flex flex-col gap-1 mb-12 pb-10 border-b border-border">
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-display text-2xl sm:text-4xl w-fit hover:text-primary transition-colors">
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-display text-[clamp(1.1rem,5.4vw,1.6rem)] sm:text-4xl max-w-full [overflow-wrap:anywhere] hover:text-primary transition-colors">
           {CONTACT_EMAIL}
         </a>
-        <a href="tel:+34663126640" className="font-display text-2xl sm:text-4xl w-fit hover:text-primary transition-colors">
+        <a href="tel:+34663126640" className="font-display text-[clamp(1.1rem,5.4vw,1.6rem)] sm:text-4xl max-w-full [overflow-wrap:anywhere] hover:text-primary transition-colors">
           +34 663 126 640
         </a>
-        <p className="text-ink-light text-sm mt-2">📍 Madrid</p>
+        <p className="inline-flex items-center gap-1.5 text-ink-light text-sm mt-2"><Icon name="pin" size={14} strokeWidth={2} />Madrid</p>
       </div>
 
       <p className="text-ink-light font-bold uppercase tracking-[0.15em] text-xs mb-4">{t('contact_socials')}</p>

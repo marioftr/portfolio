@@ -13,7 +13,7 @@ function Code({ code }) {
   return <span className="font-bold text-xs uppercase tracking-wider w-5">{code}</span>;
 }
 
-export default function LanguageDropdown({ align = 'center', className = '' }) {
+export default function LanguageDropdown({ align = 'center', className = '', buttonClassName = '', dropDown = false }) {
   const { language, setLanguage } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
@@ -31,7 +31,7 @@ export default function LanguageDropdown({ align = 'center', className = '' }) {
     <div ref={ref} className={`relative inline-block ${className}`}>
       <button
         onClick={() => setIsOpen((v) => !v)}
-        className="flex items-center gap-2 h-9 px-3 border border-border text-primary font-bold text-xs uppercase tracking-wide cursor-pointer hover:border-primary/50 transition-colors"
+        className={`flex items-center gap-2 h-9 px-3 border border-border text-primary font-bold text-xs uppercase tracking-wide cursor-pointer hover:border-primary/50 transition-colors ${buttonClassName}`}
       >
         <Code code={current.code} />
         <span className="hidden sm:inline">{language === 'en' ? 'Language' : 'Idioma'}</span>
@@ -39,7 +39,7 @@ export default function LanguageDropdown({ align = 'center', className = '' }) {
       </button>
 
       {isOpen && (
-        <div className={`absolute bottom-[calc(100%+0.5rem)] ${alignClass} min-w-40 bg-card border border-border shadow-lg overflow-hidden flex flex-col z-50 animate-fade-in`}>
+        <div className={`absolute ${dropDown ? 'top-[calc(100%+0.5rem)]' : 'bottom-[calc(100%+0.5rem)]'} ${alignClass} min-w-40 bg-card border border-border shadow-lg overflow-hidden flex flex-col z-50 animate-fade-in`}>
           {LANGUAGES.map((lang) => (
             <button
               key={lang.code}

@@ -29,6 +29,7 @@ import riderImg from '../assets/optimized/rider.png?url';
 import copilotImg from '../assets/optimized/copilot.png?url';
 import antigravityImg from '../assets/optimized/antigravity.png?url';
 import vscodeImg from '../assets/optimized/vscode.png?url';
+import claudeImg from '../assets/optimized/claude-ai-icon.png?url';
 
 const IMAGE_MAP = {
   audacity: audacityImg, blender: blenderImg, brainstorm: brainstormImg, canva: canvaImg, aseprite: asepriteImg,
@@ -36,7 +37,7 @@ const IMAGE_MAP = {
   after_effects: afterEffectsImg, maya: mayaImg, photoshop: photoshopImg, premiere: premiereImg, substance: substanceImg,
   zbrush: zbrushImg, unreal: unrealImg, word: microsoftWordImg, excel: microsoftExcelImg, powerpoint: microsoftPowerpointImg,
   affinity: affinityImg, handbrake: handbrakeImg, megui: meguiImg, veedub64: veedub64Img, rider: riderImg,
-  copilot: copilotImg, antigravity: antigravityImg, vscode: vscodeImg,
+  copilot: copilotImg, antigravity: antigravityImg, vscode: vscodeImg, claude: claudeImg,
 };
 
 export default function SkillsGrid({ activeRole = 'all' }) {

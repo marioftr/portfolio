@@ -7,8 +7,8 @@ import portfolioContent from '../data/portfolio_content.json';
 import { buildFilteredProjects } from '../lib/projects';
 import { allSkills } from '../data/content';
 import Icon from './Icon';
+import { PLATFORM_NAMES, platformIcon } from '../lib/platforms';
 
-const PLATFORM_NAMES = { artstation: 'ArtStation', github: 'GitHub', itch: 'itch.io', behance: 'Behance', vimeo: 'Vimeo', youtube: 'YouTube' };
 const FULL_PROJECT_LABEL = { es: 'Proyecto completo', en: 'Full project', ca: 'Projecte complet', gl: 'Proxecto completo' };
 const TYPE_LABELS = {
   all: { es: 'Todos', en: 'All', gl: 'Todos', ca: 'Tots' },
@@ -462,6 +462,7 @@ export default function PortfolioGallery({ roleId, onProjectSelect }) {
   const [activeProcessIndex, setActiveProcessIndex] = useState(null);
   const [pendingProcessIndex, setPendingProcessIndex] = useState(null);
   const containerRef = useRef(null);
+  const selectionFromScroll = useRef(false);
   const isProgrammatic = useRef(false);
   const scrollTimer = useRef(null);
 
@@ -514,6 +515,9 @@ export default function PortfolioGallery({ roleId, onProjectSelect }) {
     setActiveProcessIndex(pendingProcessIndex);
     setPendingProcessIndex(null);
     setVideoPlayingIdx(null);
+    // Si el cambio viene de deslizar, el contenedor ya está en su sitio: volver
+    // a posicionarlo cortaría el gesto y obligaría a pasar de uno en uno.
+    if (selectionFromScroll.current) { selectionFromScroll.current = false; return undefined; }
     const timer = setTimeout(() => {
       const el = containerRef.current;
       if (!el || !el.offsetWidth) return;
@@ -570,6 +574,7 @@ export default function PortfolioGallery({ roleId, onProjectSelect }) {
       if (!el?.offsetWidth) return;
       const idx = Math.round(el.scrollLeft / el.offsetWidth);
       if (idx !== selectedIndex && idx >= 0 && idx < flatItems.length) {
+        selectionFromScroll.current = true;
         setSelectedIndex(idx);
         setActiveProcessIndex(null);
         setVideoPlayingIdx(null);
@@ -669,7 +674,7 @@ export default function PortfolioGallery({ roleId, onProjectSelect }) {
           <div
             ref={containerRef}
             onScroll={handleScroll}
-            className="w-full h-full flex overflow-x-scroll overflow-y-hidden no-scrollbar"
+            className="w-full h-full flex overflow-x-scroll overflow-y-hidden no-scrollbar snap-x snap-mandatory"
           >
             {flatItems.map((item, idx) => (
               <LightboxSlide
@@ -738,7 +743,7 @@ function LightboxSlide({ item, idx, isActive, isMobile, activeProcessIndex, setA
   }, [hasProcess]);
 
   return (
-    <div className={`min-w-full w-full h-full flex flex-col overflow-hidden box-border gap-3 ${isMobile ? 'px-4 pt-14 pb-4' : 'px-10 sm:px-20 pt-16 pb-6'}`}>
+    <div className={`min-w-full w-full h-full flex flex-col overflow-hidden box-border gap-3 snap-start snap-always ${isMobile ? 'px-4 pt-14 pb-4' : 'px-10 sm:px-20 pt-16 pb-6'}`}>
       <div className="text-center shrink-0">
         <div className="text-primary text-[0.7rem] font-black uppercase tracking-[2px]">
           {SECTION_TITLES[item.categoryLabel]?.[language] || SECTION_TITLES[item.categoryLabel]?.es}
@@ -813,7 +818,7 @@ function LightboxSlide({ item, idx, isActive, isMobile, activeProcessIndex, setA
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors"
           >
-            {(link.platform === 'artstation' || link.platform === 'github') && <Icon name={link.platform === 'artstation' ? 'artstation' : 'githubFilled'} size={15} />}
+            <Icon name={platformIcon(link.platform)} size={15} />
             {(language === 'en' ? 'View on' : 'Ver en')} {PLATFORM_NAMES[link.platform] || link.platform}
             <Icon name="chevronRight" size={13} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform" />
           </a>

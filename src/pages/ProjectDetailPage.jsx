@@ -7,8 +7,9 @@ import { allSkills } from '../data/content';
 import Sidebar from '../components/Sidebar';
 import RichText from '../components/ProjectRichText';
 import Icon from '../components/Icon';
+import { PLATFORM_NAMES, platformIcon } from '../lib/platforms';
+import Footer from '../components/Footer';
 
-const PLATFORM_NAMES = { artstation: 'ArtStation', github: 'GitHub', itch: 'itch.io', behance: 'Behance', vimeo: 'Vimeo', youtube: 'YouTube' };
 const WIP_LABEL = { es: 'Trabajo en proceso', en: 'Work in Progress', ca: 'En procés', gl: 'En proceso' };
 
 export default function ProjectDetailPage() {
@@ -129,7 +130,7 @@ export default function ProjectDetailPage() {
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-primary transition-colors"
         >
-          <Icon name={link.platform === 'artstation' ? 'artstation' : link.platform === 'github' ? 'githubFilled' : 'view'} size={15} />
+          <Icon name={platformIcon(link.platform)} size={15} />
           {(language === 'en' ? 'View on' : 'Ver en')} {PLATFORM_NAMES[link.platform] || link.platform}
           <Icon name="chevronRight" size={13} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform" />
         </a>
@@ -216,6 +217,9 @@ export default function ProjectDetailPage() {
                 {project.tags && renderTags()}
               </aside>
             </div>
+          </div>
+          <div className="px-5 sm:px-10 lg:px-16 pb-10">
+            <Footer className="mt-12 pt-6 border-t border-border" />
           </div>
         </div>
       </main>

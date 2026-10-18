@@ -8,6 +8,7 @@ import AboutSection from '../components/AboutSection';
 import PortfolioGallery from '../components/PortfolioGallery';
 import ContactSection from '../components/ContactSection';
 import BackToTop from '../components/BackToTop';
+import Footer from '../components/Footer';
 
 export default function RolePage() {
   const { role, tab } = useParams();
@@ -52,9 +53,7 @@ export default function RolePage() {
             </section>
           )}
 
-          <footer className="mt-24 pt-6 border-t border-border text-ink-light text-xs">
-            &copy; 2026 Mario Villanueva Torres
-          </footer>
+          <Footer className="mt-24 pt-6 border-t border-border" />
         </div>
       </main>
 

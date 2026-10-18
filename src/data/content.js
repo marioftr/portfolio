@@ -87,6 +87,7 @@ export const allSkills = {
     veedub64: { name: 'VeeDub64', description: { es: 'Procesamiento de vídeo legacy.', ca: 'Processament de vídeo legacy.', en: 'Legacy video processing.', gl: 'Procesamento de vídeo legacy.' } },
     megui: { name: 'MeGUI', description: { es: 'GUI para codificación de vídeo.', ca: 'GUI per a codificació de vídeo.', en: 'GUI for video encoding.', gl: 'GUI para codificación de vídeo.' } },
     rider: { name: 'JetBrains Rider', description: { es: 'IDE profesional para C# y Unity.', ca: 'IDE professional per a C# i Unity.', en: 'Professional IDE for C# and Unity.', gl: 'IDE profesional para C# e Unity.' } },
+    claude: { name: 'Claude', description: { es: 'Asistente de IA para programar, redactar y analizar.', ca: "Assistent d'IA per programar, redactar i analitzar.", en: 'AI assistant for coding, writing and analysis.', gl: 'Asistente de IA para programar, redactar e analizar.' } },
     copilot: { name: 'GitHub Copilot', description: { es: 'Asistente de programación basado en IA.', ca: 'Assistent de programació basat en IA.', en: 'AI-based programming assistant.', gl: 'Asistente de programación baseado en IA.' } },
     antigravity: { name: 'Antigravity', description: { es: 'Herramienta de automatización y optimización.', ca: 'Eina d\'automatització i optimització.', en: 'Automation and optimization tool.', gl: 'Ferramenta de automatización e optimización.' } },
     vscode: { name: 'Visual Studio Code', description: { es: 'Editor de código versátil y extensible.', ca: 'Editor de codi versàtil i extensible.', en: 'Versatile and extensible code editor.', gl: 'Editor de código versátil e extensible.' } },
@@ -128,7 +129,7 @@ export const skillCategories = [
     {
         id: 'programming_ia',
         title: { es: 'Programación / IA', ca: 'Programació / IA', en: 'Programming / AI', gl: 'Programación / IA' },
-        items: ['rider', 'copilot', 'antigravity', 'vscode']
+        items: ['claude', 'rider', 'copilot', 'antigravity', 'vscode']
     },
     {
         id: 'misc',
