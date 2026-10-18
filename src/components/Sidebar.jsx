@@ -59,20 +59,20 @@ function RoleSwitcher({ activeRoleId, language, navigate, onNavigate }) {
 function NavContent({ activeRoleId, activeTab, visibleTabs, language, t, navigate, role, onNavigate }) {
   return (
     <div className="flex flex-col h-full">
-      <Link to={`/${language}`} onClick={onNavigate} className="block mb-6 lg:mb-8">
-        <span className="font-display text-2xl font-medium leading-none block">Mario</span>
-        <span className="font-display text-2xl font-medium leading-none block">Villanueva Torres</span>
+      <Link to={`/${language}`} onClick={onNavigate} className="block mb-4 lg:mb-8 max-lg:whitespace-nowrap">
+        <span className="font-display text-2xl max-lg:text-xl font-medium leading-none block max-lg:inline">Mario</span>{' '}
+        <span className="font-display text-2xl max-lg:text-xl font-medium leading-none block max-lg:inline">Villanueva Torres</span>
       </Link>
 
       <RoleSwitcher activeRoleId={activeRoleId} language={language} navigate={navigate} onNavigate={onNavigate} />
 
-      <nav className="flex flex-col mt-5 lg:mt-8">
+      <nav className="flex flex-col mt-4 lg:mt-8">
         {visibleTabs.map((tabId) => (
           <Link
             key={tabId}
             to={`/${language}/${role}/${tabId}`}
             onClick={onNavigate}
-            className={`group flex items-center gap-3 max-lg:py-3 lg:py-2.5 text-sm font-semibold transition-colors ${
+            className={`group flex items-center gap-3 max-lg:py-2 lg:py-2.5 text-sm font-semibold transition-colors ${
               activeTab === tabId ? 'text-primary' : 'text-ink-light hover:text-ink'
             }`}
           >
@@ -82,19 +82,19 @@ function NavContent({ activeRoleId, activeTab, visibleTabs, language, t, navigat
         ))}
       </nav>
 
-      <div className="flex-1 min-h-4 lg:min-h-8" />
+      <div className="flex-1 min-h-2 lg:min-h-8" />
 
       <a
         href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_jul26.pdf' : '/downloads/CV_Mario_Villanueva_es_jul26.pdf'}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-primary transition-colors mb-3 lg:mb-5 w-fit max-lg:min-h-11"
+        className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-primary transition-colors mb-2 lg:mb-5 w-fit max-lg:min-h-10"
       >
         <Icon name="view" size={15} />
         {t('hero_download_cv')}
       </a>
 
-      <div className="flex items-center gap-1 lg:gap-3 mb-3 lg:mb-5 max-lg:-ml-2.5">
+      <div className="flex items-center gap-1 lg:gap-3 mb-2 lg:mb-5 max-lg:-ml-2.5">
         {socialLinks.map((link) => (
           <a
             key={link.name}
@@ -139,14 +139,14 @@ export default function Sidebar({ activeRoleId, role, activeTab }) {
       </aside>
 
       {/* Mobile top bar */}
-      <div className="lg:hidden sticky top-0 z-50 flex items-center justify-between px-4 h-14 bg-bg/90 backdrop-blur border-b border-border">
+      <div className="lg:hidden sticky top-0 z-50 flex items-center gap-1 pl-2 pr-4 h-14 bg-bg/90 backdrop-blur border-b border-border">
+        <button onClick={() => setMobileOpen(true)} aria-label="Abrir menú" className="w-11 h-11 flex items-center justify-center text-ink shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+        </button>
         <Link to={`/${language}`} className="font-display text-lg font-medium whitespace-nowrap">
           <span className="hidden min-[320px]:inline">Mario Villanueva Torres</span>
           <span className="min-[320px]:hidden">M. V. T.</span>
         </Link>
-        <button onClick={() => setMobileOpen(true)} aria-label="Abrir menú" className="w-9 h-9 flex items-center justify-center text-ink">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
-        </button>
       </div>
 
       {/* Mobile drawer */}
@@ -155,20 +155,24 @@ export default function Sidebar({ activeRoleId, role, activeTab }) {
           className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${mobileOpen ? 'opacity-100' : 'opacity-0'}`}
           onClick={() => setMobileOpen(false)}
         />
-        <div className={`absolute inset-y-0 left-0 w-72 max-w-[85vw] bg-bg border-r border-border px-6 pt-6 pb-5 overflow-y-auto transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          <button onClick={() => setMobileOpen(false)} aria-label="Cerrar menú" className="absolute top-3 right-3 w-11 h-11 flex items-center justify-center text-ink-light hover:text-ink">
-            <Icon name="close" size={22} strokeWidth={2} />
-          </button>
-          <NavContent
-            activeRoleId={activeRoleId}
-            activeTab={activeTab}
-            visibleTabs={visibleTabs}
-            language={language}
-            t={t}
-            navigate={navigate}
-            role={role}
-            onNavigate={() => setMobileOpen(false)}
-          />
+        <div className={`absolute inset-y-0 left-0 w-72 max-w-[85vw] bg-bg border-r border-border px-6 pt-3 pb-2 flex flex-col overflow-y-auto transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          <div className="flex justify-end -mt-3 -mr-3 shrink-0">
+            <button onClick={() => setMobileOpen(false)} aria-label="Cerrar menú" className="w-11 h-11 flex items-center justify-center text-ink-light hover:text-ink">
+              <Icon name="close" size={22} strokeWidth={2} />
+            </button>
+          </div>
+          <div className="flex-1 min-h-0">
+            <NavContent
+              activeRoleId={activeRoleId}
+              activeTab={activeTab}
+              visibleTabs={visibleTabs}
+              language={language}
+              t={t}
+              navigate={navigate}
+              role={role}
+              onNavigate={() => setMobileOpen(false)}
+            />
+          </div>
         </div>
       </div>
     </>

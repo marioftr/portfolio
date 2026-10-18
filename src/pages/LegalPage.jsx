@@ -7,6 +7,26 @@ import ThemeToggle from '../components/ThemeToggle';
 import Footer from '../components/Footer';
 import Icon from '../components/Icon';
 
+const LINK_PATTERN = /([\w.+-]+@[\w-]+(?:\.[\w-]+)+|www\.aepd\.es)/g;
+
+// Convierte correos y la web de la AEPD en enlaces con el acento de la web.
+function linkify(text) {
+  return text.split(LINK_PATTERN).map((part, i) => {
+    if (i % 2 === 0) return part;
+    const isMail = part.includes('@');
+    return (
+      <a
+        key={i}
+        href={isMail ? `mailto:${part}` : `https://${part}`}
+        {...(isMail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+        className="text-primary font-semibold hover:underline underline-offset-4"
+      >
+        {part}
+      </a>
+    );
+  });
+}
+
 const BACK_LABEL = { es: 'Volver al inicio', en: 'Back to home', ca: 'Tornar a l\'inici', gl: 'Volver ao inicio' };
 
 export default function LegalPage({ kind }) {
@@ -33,7 +53,7 @@ export default function LegalPage({ kind }) {
       <main className="flex-1 w-full max-w-3xl mx-auto px-6 sm:px-10 pt-14 pb-16">
         <h1 className="font-display text-3xl sm:text-5xl font-medium leading-tight mb-3">{doc.title}</h1>
         <p className="text-ink-light text-xs mb-8">{doc.updated}</p>
-        <p className="text-ink-light leading-relaxed mb-10 max-w-2xl">{doc.intro}</p>
+        <p className="text-ink-light leading-relaxed mb-10 max-w-2xl">{linkify(doc.intro)}</p>
 
         <div className="flex flex-col gap-9 max-w-2xl">
           {doc.sections.map((section) => (
@@ -43,9 +63,9 @@ export default function LegalPage({ kind }) {
                 {section.body.map((block, i) => (
                   block.list ? (
                     <ul key={i} className="flex flex-col gap-1.5 pl-5 list-disc marker:text-primary">
-                      {block.list.map((line) => <li key={line}>{line}</li>)}
+                      {block.list.map((line) => <li key={line}>{linkify(line)}</li>)}
                     </ul>
-                  ) : <p key={i}>{block}</p>
+                  ) : <p key={i}>{linkify(block)}</p>
                 ))}
               </div>
             </section>

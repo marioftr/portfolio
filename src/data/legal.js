@@ -22,117 +22,117 @@ const { name, email, city, web } = OWNER;
 const privacy = {
   es: {
     title: 'Política de privacidad',
-    intro: 'Esta política explica cómo se tratan los datos personales que se facilitan a través de este sitio web, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).',
+    intro: 'La presente política describe el tratamiento de los datos personales facilitados a través de este sitio web, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).',
     sections: [
-      { title: '1. Responsable del tratamiento', body: [`${name}, con sede profesional en ${city}. Contacto: ${email}.`] },
-      { title: '2. Datos que se recogen y finalidad', body: [
-        'Solo se tratan los datos que envías voluntariamente mediante el formulario de contacto o por correo electrónico: nombre, dirección de correo, asunto (opcional) y mensaje.',
-        'Se utilizan exclusivamente para atender tu consulta o propuesta profesional y mantener la comunicación posterior. Se conservan mientras dure esa comunicación y, después, durante los plazos exigidos por la ley.',
+      { title: '1. Responsable del tratamiento', body: [`El responsable del tratamiento es ${name}, con sede profesional en ${city}. Correo electrónico de contacto: ${email}.`] },
+      { title: '2. Datos tratados y finalidad', body: [
+        'Únicamente son objeto de tratamiento los datos remitidos de forma voluntaria a través del formulario de contacto o por correo electrónico: nombre, dirección de correo electrónico, asunto (opcional) y mensaje.',
+        'Dichos datos se emplean con la exclusiva finalidad de atender la consulta o propuesta profesional recibida y de mantener la comunicación derivada de la misma. Serán conservados mientras dure dicha comunicación y, con posterioridad, durante los plazos legalmente exigibles.',
       ] },
-      { title: '3. Base jurídica', body: ['Tu consentimiento, que otorgas al enviar el formulario o escribir un correo (art. 6.1.a RGPD). Puedes retirarlo en cualquier momento.'] },
+      { title: '3. Base jurídica', body: ['El tratamiento se fundamenta en el consentimiento del interesado, otorgado al enviar el formulario o remitir un correo electrónico (art. 6.1.a RGPD). Dicho consentimiento podrá ser retirado en cualquier momento.'] },
       { title: '4. Destinatarios y proveedores', body: [
-        'Tus datos no se ceden a terceros salvo obligación legal. Para prestar el servicio intervienen proveedores técnicos que actúan como encargados del tratamiento:',
+        'Los datos no serán cedidos a terceros, salvo obligación legal. La prestación del servicio requiere la intervención de proveedores tecnológicos que actúan como encargados del tratamiento:',
         { list: [
-          'Web3Forms: recibe los mensajes del formulario y los reenvía a mi correo.',
-          'Proveedores de correo electrónico y reenvío (Gmail, ImprovMX): entrega y almacenamiento de los mensajes.',
-          'Vercel Inc.: alojamiento del sitio y estadísticas de visitas agregadas (Vercel Web Analytics y Speed Insights), sin cookies ni identificación personal del visitante.',
+          'Web3Forms: recepción de los mensajes del formulario y reenvío al correo electrónico del titular.',
+          'Gmail e ImprovMX: servicios de correo electrónico y reenvío, para la entrega y el almacenamiento de los mensajes.',
+          'Vercel Inc.: alojamiento del sitio web y estadísticas agregadas de visitas (Vercel Web Analytics y Speed Insights), sin utilización de cookies ni identificación personal del visitante.',
         ] },
         'Algunos de estos proveedores pueden tratar datos fuera del Espacio Económico Europeo, siempre con las garantías previstas en el RGPD (decisiones de adecuación o cláusulas contractuales tipo).',
       ] },
       { title: '5. Cookies y almacenamiento local', body: [
-        'Este sitio no utiliza cookies de seguimiento ni publicitarias. Guarda en tu navegador, de forma técnica y sin enviarlo a ningún servidor, tu preferencia de idioma y de tema claro/oscuro, y la vista elegida en el portfolio durante la sesión.',
-        'Los vídeos incrustados (YouTube, Vimeo) y las tipografías cargadas desde Google Fonts se sirven desde esos terceros, que pueden recibir tu dirección IP y, en el caso de los reproductores, instalar sus propias cookies al reproducir. Se rigen por sus propias políticas de privacidad.',
+        'Este sitio web no utiliza cookies de seguimiento ni publicitarias. En el navegador se almacenan, con carácter estrictamente técnico y sin transmisión a ningún servidor, la preferencia de idioma, el tema claro u oscuro y la vista seleccionada en el portfolio durante la sesión.',
+        'Los vídeos incrustados (YouTube, Vimeo) y las tipografías de Google Fonts son servidos por dichos terceros, que pueden recibir la dirección IP del usuario y, en el caso de los reproductores, instalar cookies propias durante la reproducción. Su tratamiento se rige por las políticas de privacidad de cada proveedor.',
       ] },
-      { title: '6. Tus derechos', body: [
-        `Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a ${email} e indicando el derecho que ejerces. Para verificar tu identidad podré pedirte una copia de un documento identificativo.`,
-        'Si consideras que el tratamiento no es conforme a la normativa, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).',
+      { title: '6. Derechos de los interesados', body: [
+        `El interesado puede ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad mediante comunicación escrita a ${email}, indicando el derecho ejercitado. Con el fin de verificar su identidad, podrá solicitarse copia de un documento identificativo.`,
+        'Si se considera que el tratamiento no se ajusta a la normativa, podrá presentarse una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).',
       ] },
     ],
   },
   en: {
     title: 'Privacy policy',
-    intro: 'This policy explains how personal data provided through this website is processed, in accordance with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018.',
+    intro: 'This policy describes the processing of personal data provided through this website, in accordance with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 on Personal Data Protection and the guarantee of digital rights (LOPDGDD).',
     sections: [
-      { title: '1. Data controller', body: [`${name}, professionally based in ${city}, Spain. Contact: ${email}.`] },
-      { title: '2. Data collected and purpose', body: [
-        'Only the data you voluntarily send through the contact form or by email is processed: name, email address, subject (optional) and message.',
-        'It is used solely to handle your enquiry or professional proposal and to keep the conversation going. It is kept for as long as that communication lasts and afterwards for the periods required by law.',
+      { title: '1. Data controller', body: [`The data controller is ${name}, professionally based in ${city}, Spain. Contact email: ${email}.`] },
+      { title: '2. Data processed and purpose', body: [
+        'Only the data voluntarily submitted through the contact form or by email is processed: name, email address, subject (optional) and message.',
+        'Such data is used solely to handle the enquiry or professional proposal received and to maintain the resulting communication. It is retained for as long as that communication lasts and, thereafter, for the periods required by law.',
       ] },
-      { title: '3. Legal basis', body: ['Your consent, given when you submit the form or write an email (Art. 6.1.a GDPR). You can withdraw it at any time.'] },
+      { title: '3. Legal basis', body: ['Processing is based on the consent of the data subject, given by submitting the form or sending an email (Art. 6.1.a GDPR). Such consent may be withdrawn at any time.'] },
       { title: '4. Recipients and providers', body: [
-        'Your data is not shared with third parties except where legally required. Technical providers acting as data processors are involved in delivering the service:',
+        'Data is not disclosed to third parties, except where legally required. Delivering the service involves technology providers acting as data processors:',
         { list: [
-          'Web3Forms: receives the form messages and forwards them to my email.',
-          'Email and forwarding providers (Gmail, ImprovMX): delivery and storage of messages.',
-          'Vercel Inc.: site hosting and aggregated visit statistics (Vercel Web Analytics and Speed Insights), with no cookies and no personal identification of the visitor.',
+          'Web3Forms: receipt of form messages and forwarding to the owner\'s email address.',
+          'Gmail and ImprovMX: email and forwarding services, for the delivery and storage of messages.',
+          'Vercel Inc.: website hosting and aggregated visit statistics (Vercel Web Analytics and Speed Insights), without the use of cookies or personal identification of the visitor.',
         ] },
         'Some of these providers may process data outside the European Economic Area, always with the safeguards provided by the GDPR (adequacy decisions or standard contractual clauses).',
       ] },
       { title: '5. Cookies and local storage', body: [
-        'This site does not use tracking or advertising cookies. It stores in your browser, for technical purposes and without sending it to any server, your language and light/dark theme preference, and the portfolio view chosen during the session.',
-        'Embedded videos (YouTube, Vimeo) and fonts loaded from Google Fonts are served by those third parties, which may receive your IP address and, in the case of the players, set their own cookies when playing. They are governed by their own privacy policies.',
+        'This website does not use tracking or advertising cookies. The language preference, the light or dark theme and the portfolio view selected during the session are stored in the browser for strictly technical purposes, without transmission to any server.',
+        'Embedded videos (YouTube, Vimeo) and Google Fonts typefaces are served by those third parties, which may receive the user\'s IP address and, in the case of the players, set their own cookies during playback. Their processing is governed by each provider\'s privacy policy.',
       ] },
-      { title: '6. Your rights', body: [
-        `You can exercise your rights of access, rectification, erasure, objection, restriction and portability by writing to ${email} stating the right you wish to exercise. To verify your identity I may ask for a copy of an identity document.`,
-        'If you believe the processing does not comply with the regulations, you can lodge a complaint with the Spanish Data Protection Agency (www.aepd.es).',
+      { title: '6. Rights of data subjects', body: [
+        `Data subjects may exercise their rights of access, rectification, erasure, objection, restriction of processing and portability by written notice to ${email}, stating the right exercised. To verify identity, a copy of an identity document may be requested.`,
+        'Where the processing is considered not to comply with the regulations, a complaint may be lodged with the Spanish Data Protection Agency (www.aepd.es).',
       ] },
     ],
   },
   ca: {
     title: 'Política de privadesa',
-    intro: 'Aquesta política explica com es tracten les dades personals facilitades a través d\'aquest lloc web, d\'acord amb el Reglament (UE) 2016/679 (RGPD) i la Llei Orgànica 3/2018 (LOPDGDD).',
+    intro: 'La present política descriu el tractament de les dades personals facilitades a través d\'aquest lloc web, de conformitat amb el Reglament (UE) 2016/679 (RGPD) i la Llei Orgànica 3/2018, de Protecció de Dades Personals i garantia dels drets digitals (LOPDGDD).',
     sections: [
-      { title: '1. Responsable del tractament', body: [`${name}, amb seu professional a ${city}. Contacte: ${email}.`] },
-      { title: '2. Dades que es recullen i finalitat', body: [
-        'Només es tracten les dades que envies voluntàriament mitjançant el formulari de contacte o per correu electrònic: nom, adreça de correu, assumpte (opcional) i missatge.',
-        'S\'utilitzen exclusivament per atendre la teva consulta o proposta professional i mantenir la comunicació posterior. Es conserven mentre duri aquesta comunicació i, després, durant els terminis exigits per la llei.',
+      { title: '1. Responsable del tractament', body: [`El responsable del tractament és ${name}, amb seu professional a ${city}. Correu electrònic de contacte: ${email}.`] },
+      { title: '2. Dades tractades i finalitat', body: [
+        'Només són objecte de tractament les dades remeses de manera voluntària a través del formulari de contacte o per correu electrònic: nom, adreça de correu electrònic, assumpte (opcional) i missatge.',
+        'Aquestes dades s\'empren amb l\'exclusiva finalitat d\'atendre la consulta o proposta professional rebuda i de mantenir la comunicació derivada. Seran conservades mentre duri aquesta comunicació i, amb posterioritat, durant els terminis legalment exigibles.',
       ] },
-      { title: '3. Base jurídica', body: ['El teu consentiment, que atorgues en enviar el formulari o escriure un correu (art. 6.1.a RGPD). Pots retirar-lo en qualsevol moment.'] },
+      { title: '3. Base jurídica', body: ['El tractament es fonamenta en el consentiment de l\'interessat, atorgat en enviar el formulari o remetre un correu electrònic (art. 6.1.a RGPD). Aquest consentiment podrà ser retirat en qualsevol moment.'] },
       { title: '4. Destinataris i proveïdors', body: [
-        'Les teves dades no es cedeixen a tercers tret d\'obligació legal. Per prestar el servei intervenen proveïdors tècnics que actuen com a encarregats del tractament:',
+        'Les dades no seran cedides a tercers, tret d\'obligació legal. La prestació del servei requereix la intervenció de proveïdors tecnològics que actuen com a encarregats del tractament:',
         { list: [
-          'Web3Forms: rep els missatges del formulari i els reenvia al meu correu.',
-          'Proveïdors de correu electrònic i reenviament (Gmail, ImprovMX): lliurament i emmagatzematge dels missatges.',
-          'Vercel Inc.: allotjament del lloc i estadístiques de visites agregades (Vercel Web Analytics i Speed Insights), sense galetes ni identificació personal del visitant.',
+          'Web3Forms: recepció dels missatges del formulari i reenviament al correu electrònic del titular.',
+          'Gmail i ImprovMX: serveis de correu electrònic i reenviament, per al lliurament i l\'emmagatzematge dels missatges.',
+          'Vercel Inc.: allotjament del lloc web i estadístiques agregades de visites (Vercel Web Analytics i Speed Insights), sense utilització de galetes ni identificació personal del visitant.',
         ] },
         'Alguns d\'aquests proveïdors poden tractar dades fora de l\'Espai Econòmic Europeu, sempre amb les garanties previstes en el RGPD (decisions d\'adequació o clàusules contractuals tipus).',
       ] },
       { title: '5. Galetes i emmagatzematge local', body: [
-        'Aquest lloc no utilitza galetes de seguiment ni publicitàries. Desa al teu navegador, de forma tècnica i sense enviar-ho a cap servidor, la teva preferència d\'idioma i de tema clar/fosc, i la vista triada al portfolio durant la sessió.',
-        'Els vídeos incrustats (YouTube, Vimeo) i les tipografies carregades des de Google Fonts es serveixen des d\'aquests tercers, que poden rebre la teva adreça IP i, en el cas dels reproductors, instal·lar les seves pròpies galetes en reproduir. Es regeixen per les seves pròpies polítiques de privadesa.',
+        'Aquest lloc web no utilitza galetes de seguiment ni publicitàries. Al navegador s\'emmagatzemen, amb caràcter estrictament tècnic i sense transmissió a cap servidor, la preferència d\'idioma, el tema clar o fosc i la vista seleccionada al portfolio durant la sessió.',
+        'Els vídeos incrustats (YouTube, Vimeo) i les tipografies de Google Fonts són servits per aquests tercers, que poden rebre l\'adreça IP de l\'usuari i, en el cas dels reproductors, instal·lar galetes pròpies durant la reproducció. El seu tractament es regeix per les polítiques de privadesa de cada proveïdor.',
       ] },
-      { title: '6. Els teus drets', body: [
-        `Pots exercir els teus drets d'accés, rectificació, supressió, oposició, limitació del tractament i portabilitat escrivint a ${email} i indicant el dret que exerceixes. Per verificar la teva identitat podré demanar-te una còpia d'un document identificatiu.`,
-        'Si consideres que el tractament no s\'ajusta a la normativa, pots presentar una reclamació davant l\'Agència Espanyola de Protecció de Dades (www.aepd.es).',
+      { title: '6. Drets dels interessats', body: [
+        `L'interessat pot exercir els drets d'accés, rectificació, supressió, oposició, limitació del tractament i portabilitat mitjançant comunicació escrita a ${email}, indicant el dret exercit. Per tal de verificar-ne la identitat, es podrà sol·licitar còpia d'un document identificatiu.`,
+        'Si es considera que el tractament no s\'ajusta a la normativa, es podrà presentar una reclamació davant l\'Agència Espanyola de Protecció de Dades (www.aepd.es).',
       ] },
     ],
   },
   gl: {
     title: 'Política de privacidade',
-    intro: 'Esta política explica como se tratan os datos persoais facilitados a través deste sitio web, conforme ao Regulamento (UE) 2016/679 (RXPD) e á Lei Orgánica 3/2018 (LOPDGDD).',
+    intro: 'A presente política describe o tratamento dos datos persoais facilitados a través deste sitio web, de conformidade co Regulamento (UE) 2016/679 (RXPD) e a Lei Orgánica 3/2018, de Protección de Datos Persoais e garantía dos dereitos dixitais (LOPDGDD).',
     sections: [
-      { title: '1. Responsable do tratamento', body: [`${name}, con sede profesional en ${city}. Contacto: ${email}.`] },
-      { title: '2. Datos que se recollen e finalidade', body: [
-        'Só se tratan os datos que envías voluntariamente mediante o formulario de contacto ou por correo electrónico: nome, enderezo de correo, asunto (opcional) e mensaxe.',
-        'Utilízanse exclusivamente para atender a túa consulta ou proposta profesional e manter a comunicación posterior. Consérvanse mentres dure esa comunicación e, despois, durante os prazos esixidos pola lei.',
+      { title: '1. Responsable do tratamento', body: [`O responsable do tratamento é ${name}, con sede profesional en ${city}. Correo electrónico de contacto: ${email}.`] },
+      { title: '2. Datos tratados e finalidade', body: [
+        'Unicamente son obxecto de tratamento os datos remitidos de forma voluntaria a través do formulario de contacto ou por correo electrónico: nome, enderezo de correo electrónico, asunto (opcional) e mensaxe.',
+        'Os devanditos datos empréganse coa exclusiva finalidade de atender a consulta ou proposta profesional recibida e de manter a comunicación derivada da mesma. Serán conservados mentres dure esa comunicación e, con posterioridade, durante os prazos legalmente esixibles.',
       ] },
-      { title: '3. Base xurídica', body: ['O teu consentimento, que outorgas ao enviar o formulario ou escribir un correo (art. 6.1.a RXPD). Podes retiralo en calquera momento.'] },
+      { title: '3. Base xurídica', body: ['O tratamento fundaméntase no consentimento do interesado, outorgado ao enviar o formulario ou remitir un correo electrónico (art. 6.1.a RXPD). O devandito consentimento poderá ser retirado en calquera momento.'] },
       { title: '4. Destinatarios e provedores', body: [
-        'Os teus datos non se ceden a terceiros salvo obrigación legal. Para prestar o servizo interveñen provedores técnicos que actúan como encargados do tratamento:',
+        'Os datos non serán cedidos a terceiros, salvo obrigación legal. A prestación do servizo require a intervención de provedores tecnolóxicos que actúan como encargados do tratamento:',
         { list: [
-          'Web3Forms: recibe as mensaxes do formulario e reenvíaas ao meu correo.',
-          'Provedores de correo electrónico e reenvío (Gmail, ImprovMX): entrega e almacenamento das mensaxes.',
-          'Vercel Inc.: aloxamento do sitio e estatísticas de visitas agregadas (Vercel Web Analytics e Speed Insights), sen cookies nin identificación persoal do visitante.',
+          'Web3Forms: recepción das mensaxes do formulario e reenvío ao correo electrónico do titular.',
+          'Gmail e ImprovMX: servizos de correo electrónico e reenvío, para a entrega e o almacenamento das mensaxes.',
+          'Vercel Inc.: aloxamento do sitio web e estatísticas agregadas de visitas (Vercel Web Analytics e Speed Insights), sen utilización de cookies nin identificación persoal do visitante.',
         ] },
         'Algúns destes provedores poden tratar datos fóra do Espazo Económico Europeo, sempre coas garantías previstas no RXPD (decisións de adecuación ou cláusulas contractuais tipo).',
       ] },
       { title: '5. Cookies e almacenamento local', body: [
-        'Este sitio non utiliza cookies de seguimento nin publicitarias. Garda no teu navegador, de forma técnica e sen envialo a ningún servidor, a túa preferencia de idioma e de tema claro/escuro, e a vista escollida no portfolio durante a sesión.',
-        'Os vídeos incrustados (YouTube, Vimeo) e as tipografías cargadas desde Google Fonts sírvense desde eses terceiros, que poden recibir o teu enderezo IP e, no caso dos reprodutores, instalar as súas propias cookies ao reproducir. Réxense polas súas propias políticas de privacidade.',
+        'Este sitio web non utiliza cookies de seguimento nin publicitarias. No navegador almacénanse, con carácter estritamente técnico e sen transmisión a ningún servidor, a preferencia de idioma, o tema claro ou escuro e a vista seleccionada no portfolio durante a sesión.',
+        'Os vídeos incrustados (YouTube, Vimeo) e as tipografías de Google Fonts son servidos por eses terceiros, que poden recibir o enderezo IP do usuario e, no caso dos reprodutores, instalar cookies propias durante a reprodución. O seu tratamento réxese polas políticas de privacidade de cada provedor.',
       ] },
-      { title: '6. Os teus dereitos', body: [
-        `Podes exercer os teus dereitos de acceso, rectificación, supresión, oposición, limitación do tratamento e portabilidade escribindo a ${email} e indicando o dereito que exerces. Para verificar a túa identidade poderei pedirche unha copia dun documento identificativo.`,
-        'Se consideras que o tratamento non se axusta á normativa, podes presentar unha reclamación ante a Axencia Española de Protección de Datos (www.aepd.es).',
+      { title: '6. Dereitos dos interesados', body: [
+        `O interesado pode exercer os dereitos de acceso, rectificación, supresión, oposición, limitación do tratamento e portabilidade mediante comunicación escrita a ${email}, indicando o dereito exercitado. Co fin de verificar a súa identidade, poderase solicitar copia dun documento identificativo.`,
+        'Se se considera que o tratamento non se axusta á normativa, poderase presentar unha reclamación ante a Axencia Española de Protección de Datos (www.aepd.es).',
       ] },
     ],
   },
