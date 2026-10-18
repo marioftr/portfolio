@@ -9,7 +9,10 @@ import RichText from '../components/ProjectRichText';
 import Icon from '../components/Icon';
 import { PLATFORM_NAMES, platformIcon } from '../lib/platforms';
 import Footer from '../components/Footer';
+import Models3DSection, { MODELS_SECTION_ID } from '../components/Models3DSection';
+import { modelsByProject } from '../data/models3d';
 
+const MODELS_LINK = { es: 'Modelos 3D', en: '3D models', ca: 'Models 3D', gl: 'Modelos 3D' };
 const WIP_LABEL = { es: 'Trabajo en proceso', en: 'Work in Progress', ca: 'En procés', gl: 'En proceso' };
 
 export default function ProjectDetailPage() {
@@ -113,8 +116,18 @@ export default function ProjectDetailPage() {
     </div>
   );
 
+  const models = modelsByProject[project.id];
+  const goToModels = () => document.getElementById(MODELS_SECTION_ID)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
   const renderLinks = () => (
     <div className="flex flex-col gap-2.5">
+      {models && (
+        <button type="button" onClick={goToModels} className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary text-left">
+          <Icon name="box" size={15} strokeWidth={2} />
+          {MODELS_LINK[language] || MODELS_LINK.es} ({models.length})
+          <Icon name="chevronDown" size={13} strokeWidth={2.5} className="group-hover:translate-y-0.5 transition-transform" />
+        </button>
+      )}
       {project.memoryUrl && (
         <a href={project.memoryUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
           <Icon name="view" size={15} />
@@ -138,7 +151,7 @@ export default function ProjectDetailPage() {
     </div>
   );
 
-  const hasLinks = project.memoryUrl || project.externalLinks?.length > 0;
+  const hasLinks = models || project.memoryUrl || project.externalLinks?.length > 0;
 
   return (
     <div className="min-h-dvh bg-bg">
@@ -202,6 +215,8 @@ export default function ProjectDetailPage() {
                     </div>
                   </div>
                 )}
+
+                {models && <Models3DSection models={models} />}
 
                 {/* Móvil: las etiquetas sí pueden quedar al final, tras todo el contenido */}
                 {project.tags && (

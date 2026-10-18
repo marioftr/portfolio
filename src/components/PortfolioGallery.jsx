@@ -73,7 +73,7 @@ function Thumbnail({ item, onClick }) {
           VIDEO
         </span>
       )}
-      {item.type === 'model' && (
+      {(item.type === 'model' || item.process?.some((p) => p.type === 'model')) && (
         <span className="absolute top-2 left-2 bg-ink text-bg font-extrabold px-2 py-0.5 flex items-center gap-1 text-[0.6rem]">
           <Icon name="box" size={9} strokeWidth={2.5} />
           3D
@@ -351,7 +351,7 @@ function ProjectSection({ section, startIdx, language, onSelect, onViewFull, vie
           // original de cada foto para que el lightbox abra la correcta).
           const filmstripEntries = (piece.process || [])
             .map((item, idx) => ({ item, idx }))
-            .filter(({ item }) => item.type === 'model' || item.src !== piece.src);
+            .filter(({ item }) => item.src !== piece.src);
           return (
             <div key={i}>
               <PieceCaption info={info} size={isLarge ? 'lg' : 'sm'} showDescription={showDescription} />

@@ -17,14 +17,14 @@ const MODES = [
 
 const TEXT = {
   hint: {
-    es: 'Arrastra para girar · rueda o pellizco para acercar',
-    en: 'Drag to rotate · scroll or pinch to zoom',
-    ca: 'Arrossega per girar · roda o pessic per apropar',
-    gl: 'Arrastra para xirar · roda ou pelizco para achegar',
+    es: 'Arrastra para girar. Usa la rueda o el pellizco para hacer zoom.',
+    en: 'Drag to rotate. Scroll or pinch to zoom.',
+    ca: 'Arrossega per girar. Fes servir la roda o el pessic per fer zoom.',
+    gl: 'Arrastra para xirar. Usa a roda ou o pelizco para facer zoom.',
   },
   loading: { es: 'Cargando modelo…', en: 'Loading model…', ca: 'Carregant model…', gl: 'Cargando modelo…' },
   error: { es: 'No se ha podido cargar el modelo 3D.', en: 'The 3D model could not be loaded.', ca: 'No s\'ha pogut carregar el model 3D.', gl: 'Non se puido cargar o modelo 3D.' },
-  tris: { es: 'tris', en: 'tris', ca: 'tris', gl: 'tris' },
+  tris: { es: 'triángulos', en: 'triangles', ca: 'triangles', gl: 'triángulos' },
 };
 
 // Muestra un canal de textura (o el mapa entero) sin iluminación.
@@ -230,7 +230,7 @@ export default function ModelViewer({ url, language }) {
         )}
         {status === 'ready' && (
           <p className="absolute top-0 left-0 right-0 text-center text-white/45 text-[0.65rem] sm:text-xs pointer-events-none">
-            {t('hint')}{tris ? ` · ${tris.toLocaleString(language)} ${t('tris')}` : ''}
+            {t('hint')}{tris ? ` ${tris.toLocaleString(language)} ${t('tris')}.` : ''}
           </p>
         )}
       </div>
