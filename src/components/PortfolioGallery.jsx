@@ -774,7 +774,7 @@ function LightboxSlide({ item, idx, isActive, isMobile, activeProcessIndex, setA
           {processImages[effectiveIdx]?.label && (
             <p className="text-center text-white/85 text-xs sm:text-sm font-medium mb-2 px-4 truncate">{processImages[effectiveIdx].label}</p>
           )}
-          <div ref={filmstripRef} className="relative flex gap-2 overflow-x-auto no-scrollbar justify-start px-4 sm:px-6">
+          <div ref={filmstripRef} className="relative flex gap-2 overflow-x-auto no-scrollbar justify-center-safe px-4 sm:px-6">
             {processImages.map((pImg, pIdx) => {
               const active = isActive ? pIdx === effectiveIdx : pIdx === processImages.length - 1;
               return (
