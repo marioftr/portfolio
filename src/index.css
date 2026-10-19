@@ -59,6 +59,8 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  /* El fondo también en <html>: es lo que se ve en el rebote del scroll y bajo la barra inferior de Safari. */
+  background-color: var(--color-bg);
 }
 html.dark {
   color-scheme: dark;
