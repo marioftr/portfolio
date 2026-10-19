@@ -114,11 +114,13 @@ export default function ContactSection() {
   return (
     <div>
       <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">{t('nav_contact')}</p>
-      <div className="flex items-start justify-between gap-5 sm:gap-10">
+      {/* Escritorio: título y frase a la izquierda, foto a la derecha ocupando ambas filas.
+          Móvil: foto junto al título y la frase debajo, a todo el ancho. */}
+      <div className="grid grid-cols-[1fr_auto] gap-x-5 sm:gap-x-10 mb-10">
         <h1 className="min-w-0 font-display text-2xl sm:text-4xl leading-[1.05] font-medium">{t('contact_talk')}</h1>
-        <AnimatedPhoto src="/images/foto_orla.jpg" size="lg" className="shrink-0" />
+        <AnimatedPhoto src="/images/foto_orla.jpg" size="lg" className="col-start-2 row-start-1 sm:row-span-2 self-start" />
+        <p className="col-span-2 sm:col-span-1 sm:row-start-2 text-ink-light leading-relaxed max-w-lg mt-5 sm:mt-6">{t('contact_intro')}</p>
       </div>
-      <p className="text-ink-light leading-relaxed max-w-lg mt-5 mb-10">{t('contact_intro')}</p>
 
       <ContactForm />
 
