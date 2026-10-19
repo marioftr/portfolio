@@ -89,8 +89,9 @@ export default function RotatingCube({ photo, to, label, className = '' }) {
       vYaw = clamp((dx * 0.6) / dt, -400, 400);
       // En táctil el gesto vertical queda para el scroll de la página (touch-action: pan-y).
       if (e.pointerType === 'mouse') {
-        userPitch = clamp(userPitch + dy * 0.4, -60, 60);
-        vPitch = clamp((dy * 0.4) / dt, -300, 300);
+        // Arrastrar hacia abajo acerca la cara superior al espectador (rotateX negativo).
+        userPitch = clamp(userPitch - dy * 0.4, -60, 60);
+        vPitch = clamp((-dy * 0.4) / dt, -300, 300);
       }
     };
     const onUp = () => {

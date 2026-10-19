@@ -7,9 +7,9 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import modelStats from '../data/modelStats.json';
 
 const MODES = [
-  { id: 'textured', icon: 'modeTextured', label: { es: 'Texturizado', en: 'Textured', ca: 'Texturitzat', gl: 'Texturizado' } },
+  { id: 'textured', icon: 'modeTextured', label: { es: 'Texturas', en: 'Textures', ca: 'Textures', gl: 'Texturas' } },
   { id: 'wire', icon: 'modeWire', label: { es: 'Malla', en: 'Wireframe', ca: 'Malla', gl: 'Malla' } },
-  { id: 'overlay', icon: 'modeOverlay', label: { es: 'Textura + malla', en: 'Textured + wire', ca: 'Textura + malla', gl: 'Textura + malla' } },
+  { id: 'overlay', icon: 'modeOverlay', label: { es: 'Texturas + malla', en: 'Textures + wire', ca: 'Textures + malla', gl: 'Texturas + malla' } },
   { id: 'clay', icon: 'modeClay', label: { es: 'Arcilla', en: 'Clay', ca: 'Argila', gl: 'Arxila' } },
   { id: 'albedo', icon: 'modeAlbedo', label: { es: 'Color base', en: 'Base color', ca: 'Color base', gl: 'Cor base' } },
   { id: 'normal', icon: 'modeNormal', label: { es: 'Normales', en: 'Normals', ca: 'Normals', gl: 'Normais' } },
@@ -241,8 +241,22 @@ export default function ModelViewer({ url, language }) {
   useEffect(() => {
     const row = modesRef.current;
     const btn = row?.querySelector(`[data-mode="${mode}"]`);
-    if (!row || !btn || row.scrollWidth <= row.clientWidth) return;
-    row.scrollTo({ left: btn.offsetLeft - (row.clientWidth - btn.offsetWidth) / 2, behavior: 'smooth' });
+    if (!row || !btn) return undefined;
+    // El botón activo se centra siguiendo su propia animación de anchura, fotograma a fotograma,
+    // para que el desplazamiento y el despliegue del nombre vayan a la vez.
+    let raf = 0;
+    const start = performance.now();
+    const step = (now) => {
+      const max = row.scrollWidth - row.clientWidth;
+      if (max > 0) {
+        const target = Math.min(max, Math.max(0, btn.offsetLeft - (row.clientWidth - btn.offsetWidth) / 2));
+        const diff = target - row.scrollLeft;
+        row.scrollLeft = Math.abs(diff) < 1 ? target : row.scrollLeft + diff * 0.22;
+      }
+      if (now - start < 560) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
   }, [mode, status]);
 
   useEffect(() => {
@@ -252,7 +266,7 @@ export default function ModelViewer({ url, language }) {
   }, [mode, status]);
 
   return (
-    <div className="w-full h-full max-w-5xl flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
+    <div className="w-full h-full max-w-6xl flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
       <div className="relative flex-1 min-h-0">
         <div ref={containerRef} className="absolute inset-0 cursor-grab active:cursor-grabbing" />
 
@@ -274,7 +288,7 @@ export default function ModelViewer({ url, language }) {
           ref={modesRef}
           role="toolbar"
           aria-label={t('modes')}
-          className="relative shrink-0 flex sm:flex-wrap sm:justify-center gap-1.5 overflow-x-auto sm:overflow-visible no-scrollbar -mx-1 px-1"
+          className="relative shrink-0 flex justify-center-safe gap-1.5 overflow-x-auto no-scrollbar -mx-1 px-1"
         >
           {MODES.map((m) => {
             const active = mode === m.id;
@@ -288,12 +302,20 @@ export default function ModelViewer({ url, language }) {
                 aria-label={text}
                 aria-pressed={active}
                 title={text}
-                className={`shrink-0 inline-flex items-center justify-center gap-2 h-10 min-w-10 px-2.5 sm:px-3 text-[0.7rem] sm:text-xs font-bold uppercase tracking-wide border transition-colors ${
+                className={`shrink-0 inline-flex items-center justify-center h-10 min-w-10 px-2.5 text-[0.7rem] sm:text-xs font-bold uppercase tracking-wide border transition-colors duration-300 ${
                   active ? 'bg-white text-black border-white' : 'bg-black/40 text-white/80 border-white/30 hover:border-white hover:text-white'
                 }`}
               >
                 <Icon name={m.icon} size={16} strokeWidth={2} className="shrink-0" />
-                <span className={active ? '' : 'hidden sm:inline'}>{text}</span>
+                {/* En móvil el nombre solo se despliega en el modo activo, con la anchura animada;
+                    en escritorio se ve siempre. */}
+                <span
+                  className={`overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-300 ease-out sm:max-w-none sm:opacity-100 ${
+                    active ? 'max-w-32 opacity-100' : 'max-w-0 opacity-0'
+                  }`}
+                >
+                  <span className="block pl-2">{text}</span>
+                </span>
               </button>
             );
           })}
