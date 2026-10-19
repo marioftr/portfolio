@@ -120,6 +120,55 @@ export default function Sidebar({ activeRoleId, role, activeTab }) {
   const { language, t } = useTranslation();
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dragX, setDragX] = useState(0); // px negativos mientras se arrastra el menú hacia dentro
+  const touch = useRef(null);
+
+  // Con el menú abierto la página de detrás no se desplaza: se congela en su sitio
+  // (más fiable en Safari que solo ocultar el desbordamiento) y se restaura al cerrar.
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
+    const y = window.scrollY;
+    const { style } = document.body;
+    const previous = { position: style.position, top: style.top, width: style.width, overflow: style.overflow };
+    style.position = 'fixed';
+    style.top = `-${y}px`;
+    style.width = '100%';
+    style.overflow = 'hidden';
+    const onKey = (e) => { if (e.key === 'Escape') setMobileOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      Object.assign(style, previous);
+      window.scrollTo({ top: y, behavior: 'instant' });
+    };
+  }, [mobileOpen]);
+
+  // Arrastrar hacia dentro (a la izquierda) cierra el menú; se decide por la dirección
+  // dominante del gesto para no estorbar al scroll vertical del propio menú.
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touch.current = { x: t.clientX, y: t.clientY, dx: 0, axis: null, time: Date.now() };
+  };
+  const onTouchMove = (e) => {
+    const s = touch.current;
+    if (!s) return;
+    const t = e.touches[0];
+    const dx = t.clientX - s.x;
+    const dy = t.clientY - s.y;
+    if (s.axis === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+      s.axis = Math.abs(dx) > Math.abs(dy) * 1.2 && dx < 0 ? 'x' : 'y';
+    }
+    if (s.axis === 'x') {
+      s.dx = dx;
+      setDragX(Math.min(0, dx));
+    }
+  };
+  const onTouchEnd = () => {
+    const s = touch.current;
+    touch.current = null;
+    if (s?.axis === 'x' && (s.dx < -80 || (s.dx < -40 && Date.now() - s.time < 300))) setMobileOpen(false);
+    setDragX(0);
+  };
 
   const visibleTabs = TABS;
 
@@ -150,12 +199,22 @@ export default function Sidebar({ activeRoleId, role, activeTab }) {
       </div>
 
       {/* Mobile drawer */}
-      <div className={`lg:hidden fixed inset-0 z-60 ${mobileOpen ? '' : 'pointer-events-none'}`}>
+      <div
+        className={`lg:hidden fixed inset-0 z-60 touch-pan-y ${mobileOpen ? '' : 'pointer-events-none'}`}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onTouchCancel={onTouchEnd}
+      >
         <div
-          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${mobileOpen ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-black/40 ${dragX ? '' : 'transition-opacity duration-300'} ${mobileOpen ? 'opacity-100' : 'opacity-0'}`}
+          style={dragX ? { opacity: Math.max(0, 1 + dragX / 288) } : undefined}
           onClick={() => setMobileOpen(false)}
         />
-        <div className={`absolute inset-y-0 left-0 w-72 max-w-[85vw] bg-bg border-r border-border px-6 pt-3 pb-2 flex flex-col overflow-y-auto transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div
+          className={`absolute inset-y-0 left-0 w-72 max-w-[85vw] bg-bg border-r border-border px-6 pt-3 pb-2 flex flex-col overflow-y-auto overscroll-contain ${dragX ? '' : 'transition-transform duration-300'} ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          style={dragX ? { transform: `translateX(${dragX}px)` } : undefined}
+        >
           <div className="flex justify-end -mt-3 -mr-3 shrink-0">
             <button onClick={() => setMobileOpen(false)} aria-label="Cerrar menú" className="w-11 h-11 flex items-center justify-center text-ink-light hover:text-ink">
               <Icon name="close" size={22} strokeWidth={2} />

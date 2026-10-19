@@ -2,19 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import Icon from './Icon';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import modelStats from '../data/modelStats.json';
 
 const MODES = [
-  { id: 'textured', label: { es: 'Texturizado', en: 'Textured', ca: 'Texturitzat', gl: 'Texturizado' } },
-  { id: 'wire', label: { es: 'Malla', en: 'Wireframe', ca: 'Malla', gl: 'Malla' } },
-  { id: 'overlay', label: { es: 'Textura + malla', en: 'Textured + wire', ca: 'Textura + malla', gl: 'Textura + malla' } },
-  { id: 'clay', label: { es: 'Arcilla', en: 'Clay', ca: 'Argila', gl: 'Arxila' } },
-  { id: 'albedo', label: { es: 'Color base', en: 'Base color', ca: 'Color base', gl: 'Cor base' } },
-  { id: 'normal', label: { es: 'Normales', en: 'Normals', ca: 'Normals', gl: 'Normais' } },
-  { id: 'roughness', label: { es: 'Rugosidad', en: 'Roughness', ca: 'Rugositat', gl: 'Rugosidade' } },
-  { id: 'metalness', label: { es: 'Metálico', en: 'Metallic', ca: 'Metàl·lic', gl: 'Metálico' } },
-  { id: 'ao', label: { es: 'Oclusión', en: 'Occlusion', ca: 'Oclusió', gl: 'Oclusión' } },
+  { id: 'textured', icon: 'modeTextured', label: { es: 'Texturizado', en: 'Textured', ca: 'Texturitzat', gl: 'Texturizado' } },
+  { id: 'wire', icon: 'modeWire', label: { es: 'Malla', en: 'Wireframe', ca: 'Malla', gl: 'Malla' } },
+  { id: 'overlay', icon: 'modeOverlay', label: { es: 'Textura + malla', en: 'Textured + wire', ca: 'Textura + malla', gl: 'Textura + malla' } },
+  { id: 'clay', icon: 'modeClay', label: { es: 'Arcilla', en: 'Clay', ca: 'Argila', gl: 'Arxila' } },
+  { id: 'albedo', icon: 'modeAlbedo', label: { es: 'Color base', en: 'Base color', ca: 'Color base', gl: 'Cor base' } },
+  { id: 'normal', icon: 'modeNormal', label: { es: 'Normales', en: 'Normals', ca: 'Normals', gl: 'Normais' } },
+  { id: 'roughness', icon: 'modeRoughness', label: { es: 'Rugosidad', en: 'Roughness', ca: 'Rugositat', gl: 'Rugosidade' } },
+  { id: 'metalness', icon: 'modeMetallic', label: { es: 'Metálico', en: 'Metallic', ca: 'Metàl·lic', gl: 'Metálico' } },
+  { id: 'ao', icon: 'modeOcclusion', label: { es: 'Oclusión', en: 'Occlusion', ca: 'Oclusió', gl: 'Oclusión' } },
 ];
 
 const TEXT = {
@@ -26,6 +27,7 @@ const TEXT = {
   },
   loading: { es: 'Cargando modelo…', en: 'Loading model…', ca: 'Carregant model…', gl: 'Cargando modelo…' },
   error: { es: 'No se ha podido cargar el modelo 3D.', en: 'The 3D model could not be loaded.', ca: 'No s\'ha pogut carregar el model 3D.', gl: 'Non se puido cargar o modelo 3D.' },
+  modes: { es: 'Modos de visualización', en: 'Display modes', ca: 'Modes de visualització', gl: 'Modos de visualización' },
   tris: { es: 'triángulos', en: 'triangles', ca: 'triangles', gl: 'triángulos' },
 };
 
@@ -50,6 +52,7 @@ function hasWebGL() {
 export default function ModelViewer({ url, language }) {
   const containerRef = useRef(null);
   const apiRef = useRef(null);
+  const modesRef = useRef(null);
   const [mode, setMode] = useState('textured');
   const [supported] = useState(hasWebGL);
   const [status, setStatus] = useState(supported ? 'loading' : 'error');
@@ -236,6 +239,13 @@ export default function ModelViewer({ url, language }) {
   }, [url, supported]);
 
   useEffect(() => {
+    const row = modesRef.current;
+    const btn = row?.querySelector(`[data-mode="${mode}"]`);
+    if (!row || !btn || row.scrollWidth <= row.clientWidth) return;
+    row.scrollTo({ left: btn.offsetLeft - (row.clientWidth - btn.offsetWidth) / 2, behavior: 'smooth' });
+  }, [mode, status]);
+
+  useEffect(() => {
     if (!apiRef.current) return;
     apiRef.current.pending = mode;
     if (status === 'ready') apiRef.current.applyMode(mode);
@@ -260,19 +270,33 @@ export default function ModelViewer({ url, language }) {
       </div>
 
       {status === 'ready' && (
-        <div className="shrink-0 flex flex-wrap justify-center gap-1.5">
-          {MODES.map((m) => (
-            <button
-              key={m.id}
-              type="button"
-              onClick={() => setMode(m.id)}
-              className={`px-2.5 py-1.5 text-[0.65rem] sm:text-xs font-bold uppercase tracking-wide border transition-colors ${
-                mode === m.id ? 'bg-white text-black border-white' : 'bg-black/40 text-white/80 border-white/30 hover:border-white hover:text-white'
-              }`}
-            >
-              {m.label[language] || m.label.es}
-            </button>
-          ))}
+        <div
+          ref={modesRef}
+          role="toolbar"
+          aria-label={t('modes')}
+          className="relative shrink-0 flex sm:flex-wrap sm:justify-center gap-1.5 overflow-x-auto sm:overflow-visible no-scrollbar -mx-1 px-1"
+        >
+          {MODES.map((m) => {
+            const active = mode === m.id;
+            const text = m.label[language] || m.label.es;
+            return (
+              <button
+                key={m.id}
+                type="button"
+                data-mode={m.id}
+                onClick={() => setMode(m.id)}
+                aria-label={text}
+                aria-pressed={active}
+                title={text}
+                className={`shrink-0 inline-flex items-center justify-center gap-2 h-10 min-w-10 px-2.5 sm:px-3 text-[0.7rem] sm:text-xs font-bold uppercase tracking-wide border transition-colors ${
+                  active ? 'bg-white text-black border-white' : 'bg-black/40 text-white/80 border-white/30 hover:border-white hover:text-white'
+                }`}
+              >
+                <Icon name={m.icon} size={16} strokeWidth={2} className="shrink-0" />
+                <span className={active ? '' : 'hidden sm:inline'}>{text}</span>
+              </button>
+            );
+          })}
         </div>
       )}
     </div>
