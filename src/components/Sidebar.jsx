@@ -32,7 +32,7 @@ function RoleSwitcher({ activeRoleId, language, navigate, onNavigate }) {
         className="w-full flex items-center gap-2.5 px-3 py-2.5 border border-border text-left hover:border-primary/50 transition-colors"
       >
         <Icon name={ROLE_ICONS[activeRoleId]} size={15} strokeWidth={2} className="text-primary shrink-0" />
-        <span className="flex-1 text-xs font-bold uppercase tracking-wide leading-tight">{roleTitle(activeRoleId, language)}</span>
+        <span className="flex-1 text-xs max-lg:text-sm font-bold uppercase tracking-wide leading-tight">{roleTitle(activeRoleId, language)}</span>
         <Icon name="chevronDown" size={12} strokeWidth={2.5} className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
@@ -72,7 +72,7 @@ function NavContent({ activeRoleId, activeTab, visibleTabs, language, t, navigat
             key={tabId}
             to={`/${language}/${role}/${tabId}`}
             onClick={onNavigate}
-            className={`group flex items-center gap-3 max-lg:py-2 lg:py-2.5 text-sm font-semibold transition-colors ${
+            className={`group flex items-center gap-3 max-lg:py-2.5 lg:py-2.5 max-lg:text-lg text-sm font-semibold transition-colors ${
               activeTab === tabId ? 'text-primary' : 'text-ink-light hover:text-ink'
             }`}
           >
@@ -88,7 +88,7 @@ function NavContent({ activeRoleId, activeTab, visibleTabs, language, t, navigat
         href={language === 'en' ? '/downloads/CV_Mario_Villanueva_en_jul26.pdf' : '/downloads/CV_Mario_Villanueva_es_jul26.pdf'}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-primary transition-colors mb-2 lg:mb-5 w-fit max-lg:min-h-10"
+        className="inline-flex items-center gap-1.5 text-sm max-lg:text-base font-semibold text-ink hover:text-primary transition-colors mb-2 lg:mb-5 w-fit max-lg:min-h-10"
       >
         <Icon name="view" size={15} />
         {t('hero_download_cv')}

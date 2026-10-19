@@ -4,6 +4,7 @@ export default function ProfilePhoto({ src, size = 'md', className = '', colorfu
     md: 'w-24 h-24 sm:w-28 sm:h-28',
     lg: 'w-28 h-28 sm:w-36 sm:h-36',
     xl: 'w-32 h-32 sm:w-48 sm:h-48',
+    contact: 'w-24 h-24 sm:w-36 sm:h-36',
   };
   return (
     <div className={`group ${sizes[size]} shrink-0 overflow-hidden border border-border ${className}`}>

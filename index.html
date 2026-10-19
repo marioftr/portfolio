@@ -15,7 +15,8 @@
     <title>Mario Villanueva Torres — Portfolio</title>
     <script>
       (function () {
-        var saved = localStorage.getItem('portfolio_theme');
+        var saved = null;
+        try { saved = localStorage.getItem('portfolio_theme_choice'); } catch (e) {}
         var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (dark) document.documentElement.classList.add('dark');
         // Safari móvil tiñe la barra de estado con este color: se ajusta antes del primer pintado.
