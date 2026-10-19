@@ -1,23 +1,19 @@
-import Icon from './Icon';
-
-// Cubo CSS 3D que gira despacio: una cara es la foto y las otras tres llevan
-// los iconos de las disciplinas (3D, videojuegos y vídeo). Sin dependencias.
-const ROLE_FACES = ['box', 'code', 'layout'];
-
+// Cubo CSS 3D de solo aristas que gira despacio; una cara lleva la foto.
+// Sin dependencias: seis caras con borde y fondo casi transparente.
 export default function RotatingCube({ photo, alt = '', className = '' }) {
   return (
     <div className={`cube-scene shrink-0 ${className}`} role="img" aria-label={alt}>
-      <div className="cube">
-        <div className="cube-face cube-front">
-          <img src={photo} alt="" className="w-full h-full object-cover" />
-        </div>
-        {ROLE_FACES.map((icon, i) => (
-          <div key={icon} className={`cube-face cube-icon-face cube-side-${i}`}>
-            <Icon name={icon} size={56} strokeWidth={1.25} />
+      <div className="cube-tilt">
+        <div className="cube">
+          <div className="cube-face cube-front">
+            <img src={photo} alt="" className="w-full h-full object-cover" />
           </div>
-        ))}
-        <div className="cube-face cube-top" />
-        <div className="cube-face cube-bottom" />
+          <div className="cube-face cube-right" />
+          <div className="cube-face cube-back" />
+          <div className="cube-face cube-left" />
+          <div className="cube-face cube-top" />
+          <div className="cube-face cube-bottom" />
+        </div>
       </div>
     </div>
   );

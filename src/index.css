@@ -154,9 +154,10 @@ button:not(:disabled) {
   .custom-gallery.two-by-two { grid-template-columns: 1fr !important; }
 }
 
-/* ─── Cubo giratorio de la portada ─────────────────────────────────────── */
+/* ─── Cubo giratorio de la portada: solo aristas y la foto en una cara ─── */
 .cube-scene {
   --s: 8.5rem;
+  --cube-line: color-mix(in srgb, var(--color-ink) 65%, transparent);
   width: var(--s);
   height: var(--s);
   perspective: 900px;
@@ -165,71 +166,54 @@ button:not(:disabled) {
 @media (min-width: 640px) {
   .cube-scene { --s: 12rem; margin: 1.75rem; }
 }
+.cube-scene:hover { --cube-line: var(--color-primary); }
+.cube-tilt {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-tilt 9s ease-in-out infinite alternate;
+}
 .cube {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  animation: cube-spin 26s linear infinite;
+  animation: cube-spin 24s linear infinite;
 }
 .cube-scene:hover .cube { animation-play-state: paused; }
 @keyframes cube-spin {
-  from { transform: rotateX(-14deg) rotateY(0deg); }
-  to { transform: rotateX(-14deg) rotateY(360deg); }
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+@keyframes cube-tilt {
+  from { transform: rotateX(-22deg); }
+  to { transform: rotateX(-8deg); }
 }
 .cube-face {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  backface-visibility: hidden;
-  background: color-mix(in srgb, var(--color-ink) 12%, var(--color-bg));
-  transition: background-color 0.5s ease;
+  border: 1.5px solid var(--cube-line);
+  background: color-mix(in srgb, var(--color-ink) 3%, transparent);
+  transition: border-color 0.4s ease;
 }
-.cube-face::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #000;
-  opacity: var(--shade, 0);
-  pointer-events: none;
-}
-.cube-front { transform: translateZ(calc(var(--s) / 2)); }
-.cube-side-0 { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); --shade: 0.12; }
-.cube-side-1 { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); --shade: 0.28; }
-.cube-side-2 { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); --shade: 0.12; }
-.cube-top { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); --shade: 0; }
-.cube-bottom { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); --shade: 0.4; }
-.cube-icon-face { display: flex; align-items: center; justify-content: center; }
-.cube-icon-face svg { width: 42%; height: 42%; color: var(--color-ink-light); transition: color 0.5s ease; }
+.cube-front { overflow: hidden; backface-visibility: hidden; background: var(--color-card); transform: translateZ(calc(var(--s) / 2)); }
 .cube-front img { filter: grayscale(1); transition: filter 0.5s ease; }
-
-/* Al pasar el ratón, todo el cubo recupera el color, no solo la foto. */
 .cube-scene:hover .cube-front img { filter: grayscale(0); }
-.cube-scene:hover .cube-face:not(.cube-front) { background: var(--color-primary-light); }
-.cube-scene:hover .cube-icon-face svg { color: var(--color-primary); }
+.cube-right { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
+.cube-back { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
+.cube-left { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); }
+.cube-top { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }
 
-/* ─── Foto de contacto: revelado, flotación e inclinación ──────────────── */
-.photo-tilt {
-  --tilt-x: 0deg;
-  --tilt-y: 0deg;
-  perspective: 700px;
-}
-.photo-float {
-  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-  transition: transform 0.25s ease-out;
-  animation: photo-float 7s ease-in-out infinite;
-}
-.photo-reveal { animation: photo-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
-@keyframes photo-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -6px; }
-}
-@keyframes photo-reveal {
-  from { clip-path: inset(100% 0 0 0); opacity: 0.4; }
-  to { clip-path: inset(0 0 0 0); opacity: 1; }
+/* ─── Foto de contacto: entrada suave ─────────────────────────────────── */
+.photo-intro { animation: photo-intro 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+@keyframes photo-intro {
+  from { opacity: 0; transform: translateY(12px); filter: grayscale(1); }
+  to { opacity: 1; transform: translateY(0); filter: grayscale(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cube { animation: none; transform: rotateX(-14deg) rotateY(-28deg); }
-  .photo-float, .photo-reveal { animation: none; }
+  .cube-tilt { animation: none; transform: rotateX(-16deg); }
+  .cube { animation: none; transform: rotateY(-28deg); }
+  .photo-intro { animation: none; }
 }

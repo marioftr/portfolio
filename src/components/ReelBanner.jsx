@@ -8,12 +8,6 @@ const REEL_DURATION = '2:35';
 const TEXT = {
   eyebrow: { es: 'Demo Reel', en: 'Demo Reel', ca: 'Demo Reel', gl: 'Demo Reel' },
   title: { es: 'El reel, antes que nada', en: 'The showreel, first', ca: 'El reel, abans de res', gl: 'O reel, antes que nada' },
-  intro: {
-    es: 'Una selección de mi trabajo en 3D en movimiento.',
-    en: 'A selection of my 3D work in motion.',
-    ca: 'Una selecció del meu treball en 3D en moviment.',
-    gl: 'Unha selección do meu traballo en 3D en movemento.',
-  },
   watch: { es: 'Ver reel completo', en: 'Watch the full reel', ca: 'Veure el reel complet', gl: 'Ver o reel completo' },
   close: { es: 'Cerrar', en: 'Close', ca: 'Tancar', gl: 'Pechar' },
 };
@@ -86,8 +80,7 @@ export default function ReelBanner({ language }) {
   return (
     <div className="mb-16">
       <p className="text-primary font-bold uppercase text-xs tracking-[0.15em] mb-2">{label(TEXT.eyebrow, language)}</p>
-      <h2 className="font-display text-3xl sm:text-4xl font-medium mb-3">{label(TEXT.title, language)}</h2>
-      <p className="text-ink-light max-w-xl mb-6">{label(TEXT.intro, language)}</p>
+      <h2 className="font-display text-3xl sm:text-4xl font-medium mb-6">{label(TEXT.title, language)}</h2>
 
       {/* A todo lo ancho de la zona de contenido, más allá de la columna de texto */}
       <div className="relative left-1/2 -translate-x-1/2 w-[100cqw]">

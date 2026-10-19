@@ -1,4 +1,4 @@
-export default function ProfilePhoto({ src, size = 'md', className = '' }) {
+export default function ProfilePhoto({ src, size = 'md', className = '', colorful = false }) {
   const sizes = {
     sm: 'w-10 h-10',
     md: 'w-24 h-24 sm:w-28 sm:h-28',
@@ -10,7 +10,7 @@ export default function ProfilePhoto({ src, size = 'md', className = '' }) {
       <img
         src={src}
         alt="Mario Villanueva Torres"
-        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
+        className={`w-full h-full object-cover ${colorful ? '' : 'grayscale group-hover:grayscale-0 transition-[filter] duration-500'}`}
       />
     </div>
   );
