@@ -57,7 +57,7 @@ export default function Landing() {
                 {BIO[language] || BIO.es}
               </p>
             </div>
-            <RotatingCube photo="/images/foto_perfil.jpg" alt="Mario Villanueva Torres" className="self-center sm:self-start" />
+            <RotatingCube photo="/images/foto_perfil.jpg" to={`/${language}/contacto`} label={t('nav_contact')} className="self-center sm:self-start" />
           </div>
         </div>
 

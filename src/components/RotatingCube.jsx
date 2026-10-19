@@ -1,8 +1,10 @@
 // Cubo CSS 3D de solo aristas que gira despacio; una cara lleva la foto.
 // Sin dependencias: seis caras con borde y fondo casi transparente.
-export default function RotatingCube({ photo, alt = '', className = '' }) {
+import { Link } from 'react-router-dom';
+
+export default function RotatingCube({ photo, to, label, className = '' }) {
   return (
-    <div className={`cube-scene shrink-0 ${className}`} role="img" aria-label={alt}>
+    <Link to={to} aria-label={label} title={label} className={`cube-scene block shrink-0 ${className}`}>
       <div className="cube-tilt">
         <div className="cube">
           <div className="cube-face cube-front">
@@ -15,6 +17,6 @@ export default function RotatingCube({ photo, alt = '', className = '' }) {
           <div className="cube-face cube-bottom" />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

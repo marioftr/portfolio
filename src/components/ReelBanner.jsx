@@ -87,7 +87,7 @@ export default function ReelBanner({ language }) {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="group relative block w-full aspect-[2/1] sm:aspect-[2.39/1] overflow-hidden bg-black text-left"
+          className="group relative block w-full aspect-[2/1] overflow-hidden bg-black text-left"
           aria-label={`${label(TEXT.watch, language)} (${REEL_DURATION})`}
         >
           <video
