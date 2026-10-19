@@ -208,7 +208,7 @@ function SortToggle({ sortDesc, setSortDesc, language }) {
       title={label}
       className="flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-ink hover:text-primary transition-colors"
     >
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className={`transition-transform ${sortDesc ? '' : '-scale-y-100'}`}>
         <line x1="4" y1="6" x2="14" y2="6" />
         <line x1="4" y1="12" x2="11" y2="12" />
         <line x1="4" y1="18" x2="8" y2="18" />

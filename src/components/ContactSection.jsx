@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { socialLinks } from '../data/content';
+import { roleTitle } from '../lib/roles';
 import Icon from './Icon';
 import AnimatedPhoto from './AnimatedPhoto';
 
@@ -26,7 +27,7 @@ const fieldClass = 'w-full bg-card border border-border px-3 py-2.5 text-sm text
 // diseño y se define en VITE_WEB3FORMS_KEY. Sin clave, se recurre a un mailto.
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
-function ContactForm() {
+function ContactForm({ roleId }) {
   const { t } = useTranslation();
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle');
@@ -34,7 +35,9 @@ function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const base = `${t('form_subject')} — ${form.name.trim()}`;
+    // El correo lo recibe Mario: el perfil va siempre en español.
+    const profile = roleId ? ` (${roleTitle(roleId, 'es')})` : '';
+    const base = `${t('form_subject')}${profile} — ${form.name.trim()}`;
     const custom = form.subject.trim();
     const subject = custom ? `${custom} — ${base}` : base;
 
@@ -108,7 +111,7 @@ function ContactForm() {
   );
 }
 
-export default function ContactSection() {
+export default function ContactSection({ roleId }) {
   const { t } = useTranslation();
 
   return (
@@ -123,7 +126,7 @@ export default function ContactSection() {
         <p className="col-start-1 row-start-2 sm:row-start-2 min-h-[8.5rem] sm:min-h-0 text-ink-light leading-relaxed max-w-lg mt-5 sm:mt-6">{t('contact_intro')}</p>
       </div>
 
-      <ContactForm />
+      <ContactForm roleId={roleId} />
 
       <div className="flex flex-col gap-1 mb-12 pb-10 border-b border-border">
         <a href={`mailto:${CONTACT_EMAIL}`} className="font-display text-[clamp(1.1rem,5.4vw,1.6rem)] sm:text-4xl max-w-full [overflow-wrap:anywhere] hover:text-primary transition-colors">

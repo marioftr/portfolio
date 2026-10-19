@@ -50,7 +50,12 @@ export default function RotatingCube({ photo, to, label, className = '' }) {
         vPitch *= decay;
       }
       const idle = now - lastInteraction > 1500;
-      if (!reduceMotion && !dragging && !hovering && idle) yaw += 15 * dt; // 360° cada 24 s
+      if (!reduceMotion && !dragging && !hovering && idle) {
+        yaw += 15 * dt; // 360° cada 24 s
+        // Al retomar el giro, la inclinación del usuario vuelve poco a poco a la horizontal.
+        userPitch *= 0.5 ** (dt / 1.2);
+        if (Math.abs(userPitch) < 0.05) userPitch = 0;
+      }
 
       const k = Math.min(1, dt * 8);
       tiltYaw += (targetTiltYaw - tiltYaw) * k;

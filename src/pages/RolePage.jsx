@@ -49,7 +49,7 @@ export default function RolePage() {
 
           {activeTab === 'contacto' && (
             <section>
-              <ContactSection />
+              <ContactSection roleId={activeRoleId} />
             </section>
           )}
 
