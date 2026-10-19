@@ -4,7 +4,7 @@ import { ROLE_ORDER, ROLE_SLUGS, roleTitle, defaultTabFor } from '../lib/roles';
 import { socialLinks } from '../data/content';
 import LanguageDropdown from '../components/LanguageDropdown';
 import ThemeToggle from '../components/ThemeToggle';
-import ProfilePhoto from '../components/ProfilePhoto';
+import RotatingCube from '../components/RotatingCube';
 import Icon from '../components/Icon';
 import Footer from '../components/Footer';
 
@@ -57,7 +57,7 @@ export default function Landing() {
                 {BIO[language] || BIO.es}
               </p>
             </div>
-            <ProfilePhoto src="/images/foto_perfil.jpg" size="xl" className="self-center sm:self-start" />
+            <RotatingCube photo="/images/foto_perfil.jpg" alt="Mario Villanueva Torres" className="self-center sm:self-start" />
           </div>
         </div>
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { socialLinks } from '../data/content';
 import Icon from './Icon';
-import ProfilePhoto from './ProfilePhoto';
+import AnimatedPhoto from './AnimatedPhoto';
 
 const allLinks = [
   socialLinks.find((l) => l.name === 'Linktree'),
@@ -114,13 +114,11 @@ export default function ContactSection() {
   return (
     <div>
       <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">{t('nav_contact')}</p>
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 sm:gap-10 mb-10">
-        <div className="min-w-0">
-          <h1 className="font-display text-2xl sm:text-4xl leading-[1.05] font-medium mb-6">{t('contact_talk')}</h1>
-          <p className="text-ink-light leading-relaxed max-w-lg">{t('contact_intro')}</p>
-        </div>
-        <ProfilePhoto src="/images/foto_orla.jpg" size="lg" className="self-center sm:self-start" />
+      <div className="flex items-start justify-between gap-5 sm:gap-10">
+        <h1 className="min-w-0 font-display text-2xl sm:text-4xl leading-[1.05] font-medium">{t('contact_talk')}</h1>
+        <AnimatedPhoto src="/images/foto_orla.jpg" size="lg" className="shrink-0" />
       </div>
+      <p className="text-ink-light leading-relaxed max-w-lg mt-5 mb-10">{t('contact_intro')}</p>
 
       <ContactForm />
 

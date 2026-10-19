@@ -153,3 +153,76 @@ button:not(:disabled) {
   .custom-gallery div { flex: none !important; width: 100% !important; }
   .custom-gallery.two-by-two { grid-template-columns: 1fr !important; }
 }
+
+/* ─── Cubo giratorio de la portada ─────────────────────────────────────── */
+.cube-scene {
+  --s: 8.5rem;
+  width: var(--s);
+  height: var(--s);
+  perspective: 900px;
+  margin: 1.25rem;
+}
+@media (min-width: 640px) {
+  .cube-scene { --s: 12rem; margin: 1.75rem; }
+}
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-spin 26s linear infinite;
+}
+.cube-scene:hover .cube { animation-play-state: paused; }
+@keyframes cube-spin {
+  from { transform: rotateX(-14deg) rotateY(0deg); }
+  to { transform: rotateX(-14deg) rotateY(360deg); }
+}
+.cube-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 40%, transparent);
+  background: var(--color-card);
+}
+.cube-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: var(--shade, 0);
+  pointer-events: none;
+}
+.cube-front { transform: translateZ(calc(var(--s) / 2)); }
+.cube-side-0 { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); --shade: 0.1; }
+.cube-side-1 { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); --shade: 0.22; }
+.cube-side-2 { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); --shade: 0.1; }
+.cube-top { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); background: var(--color-primary-light); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); background: var(--color-primary-light); --shade: 0.3; }
+.cube-icon-face { display: flex; align-items: center; justify-content: center; background: var(--color-primary-light); }
+.cube-icon-face svg { width: 42%; height: 42%; }
+
+/* ─── Foto de contacto: revelado, flotación e inclinación ──────────────── */
+.photo-tilt {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  perspective: 700px;
+}
+.photo-float {
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: transform 0.25s ease-out;
+  animation: photo-float 7s ease-in-out infinite;
+}
+.photo-reveal { animation: photo-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes photo-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+@keyframes photo-reveal {
+  from { clip-path: inset(100% 0 0 0); opacity: 0.4; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube { animation: none; transform: rotateX(-14deg) rotateY(-28deg); }
+  .photo-float, .photo-reveal { animation: none; }
+}
