@@ -166,10 +166,16 @@ function PieceListRow({ piece, pieceIdx, onSelect, language }) {
 }
 
 function ViewFullLink({ onClick, language }) {
+  const label = FULL_PROJECT_LABEL[language] || FULL_PROJECT_LABEL.es;
   return (
-    <button onClick={onClick} className="group inline-flex items-center gap-1 text-sm font-semibold text-primary shrink-0 whitespace-nowrap">
-      {FULL_PROJECT_LABEL[language] || FULL_PROJECT_LABEL.es}
-      <Icon name="chevronRight" size={14} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform" />
+    <button
+      onClick={onClick}
+      title={label}
+      aria-label={label}
+      className="group shrink-0 inline-flex items-center justify-center gap-2 h-9 min-w-9 sm:px-3.5 border border-ink/30 text-ink text-xs font-bold uppercase tracking-wide whitespace-nowrap hover:border-primary hover:text-primary hover:bg-primary-light transition-colors"
+    >
+      <span className="hidden sm:inline">{label}</span>
+      <Icon name="chevronRight" size={15} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform" />
     </button>
   );
 }
@@ -257,10 +263,15 @@ function ProjectSection({ section, startIdx, language, onSelect, onViewFull, vie
   const title = localized(project.title, language);
 
   const header = (
-    <div className="flex items-end justify-between gap-4 mb-3 flex-wrap">
-      <div>
+    <div className="flex items-end justify-between gap-4 mb-4 pb-3 border-b border-border">
+      <div className="min-w-0">
         <p className="text-primary font-bold uppercase text-xs tracking-[0.15em] mb-1">{category}</p>
-        <h3 className="font-display text-2xl sm:text-3xl font-medium">{title}</h3>
+        <h3 className="font-display text-2xl sm:text-3xl font-medium leading-tight">
+          {title}
+          {project.year && (
+            <span className="ml-2.5 align-baseline font-sans text-sm sm:text-base font-semibold text-ink-light tabular-nums">{project.year}</span>
+          )}
+        </h3>
       </div>
       <ViewFullLink onClick={() => onViewFull(project.id)} language={language} />
     </div>
@@ -342,7 +353,7 @@ function ProjectSection({ section, startIdx, language, onSelect, onViewFull, vie
   return (
     <section className="mb-14">
       {header}
-      <div className={isLarge ? 'flex flex-col gap-8' : 'grid grid-cols-2 gap-4 sm:gap-6'}>
+      <div className={isLarge ? 'flex flex-col gap-8' : 'grid grid-cols-2 gap-x-4 sm:gap-x-6'}>
         {visualItems.map((piece, i) => {
           const pieceIdx = startIdx + i;
           const info = pieceInfo(piece, language);
@@ -354,7 +365,7 @@ function ProjectSection({ section, startIdx, language, onSelect, onViewFull, vie
             .map((item, idx) => ({ item, idx }))
             .filter(({ item }) => item.src !== piece.src);
           return (
-            <div key={i}>
+            <div key={i} className={isLarge ? '' : 'row-span-3 grid grid-rows-subgrid pb-5 sm:pb-6'}>
               <PieceCaption info={info} size={isLarge ? 'lg' : 'sm'} showDescription={showDescription} />
               <Thumbnail item={piece} onClick={() => onSelect(pieceIdx)} />
               {previewSlots > 0 && <ProcessPreview entries={filmstripEntries} pieceIdx={pieceIdx} onSelect={onSelect} slots={previewSlots} />}
