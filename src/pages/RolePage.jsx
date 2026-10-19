@@ -37,7 +37,7 @@ export default function RolePage() {
     <div className="min-h-dvh bg-bg">
       <Sidebar activeRoleId={activeRoleId} role={role} activeTab={activeTab} />
 
-      <main className="lg:pl-68">
+      <main className="lg:pl-68 overflow-x-clip [container-type:inline-size]">
         <div className="max-w-4xl mx-auto px-5 sm:px-10 lg:px-16 pt-10 lg:pt-16 pb-24">
           {activeTab === 'portfolio' && (
             <PortfolioGallery roleId={activeRoleId} onProjectSelect={goToProject} />

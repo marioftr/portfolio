@@ -181,8 +181,9 @@ button:not(:disabled) {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-ink) 40%, transparent);
-  background: var(--color-card);
+  backface-visibility: hidden;
+  background: color-mix(in srgb, var(--color-ink) 12%, var(--color-bg));
+  transition: background-color 0.5s ease;
 }
 .cube-face::after {
   content: '';
@@ -193,13 +194,19 @@ button:not(:disabled) {
   pointer-events: none;
 }
 .cube-front { transform: translateZ(calc(var(--s) / 2)); }
-.cube-side-0 { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); --shade: 0.1; }
-.cube-side-1 { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); --shade: 0.22; }
-.cube-side-2 { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); --shade: 0.1; }
-.cube-top { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); background: var(--color-primary-light); }
-.cube-bottom { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); background: var(--color-primary-light); --shade: 0.3; }
-.cube-icon-face { display: flex; align-items: center; justify-content: center; background: var(--color-primary-light); }
-.cube-icon-face svg { width: 42%; height: 42%; }
+.cube-side-0 { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); --shade: 0.12; }
+.cube-side-1 { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); --shade: 0.28; }
+.cube-side-2 { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); --shade: 0.12; }
+.cube-top { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); --shade: 0; }
+.cube-bottom { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); --shade: 0.4; }
+.cube-icon-face { display: flex; align-items: center; justify-content: center; }
+.cube-icon-face svg { width: 42%; height: 42%; color: var(--color-ink-light); transition: color 0.5s ease; }
+.cube-front img { filter: grayscale(1); transition: filter 0.5s ease; }
+
+/* Al pasar el ratón, todo el cubo recupera el color, no solo la foto. */
+.cube-scene:hover .cube-front img { filter: grayscale(0); }
+.cube-scene:hover .cube-face:not(.cube-front) { background: var(--color-primary-light); }
+.cube-scene:hover .cube-icon-face svg { color: var(--color-primary); }
 
 /* ─── Foto de contacto: revelado, flotación e inclinación ──────────────── */
 .photo-tilt {

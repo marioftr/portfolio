@@ -2,12 +2,13 @@ import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import { profileImages, SECTION_TITLES, GENERAL_PROFILE_ORDER, DEMO_REEL_URL } from '../data/portfolioImages';
+import { profileImages, SECTION_TITLES, GENERAL_PROFILE_ORDER } from '../data/portfolioImages';
 import portfolioContent from '../data/portfolio_content.json';
 import { buildFilteredProjects } from '../lib/projects';
 import { allSkills } from '../data/content';
 import Icon from './Icon';
 import { PLATFORM_NAMES, platformIcon } from '../lib/platforms';
+import ReelBanner from './ReelBanner';
 
 // three.js se carga solo al abrir un modelo 3D, no con el resto de la web.
 const ModelViewer = lazy(() => import('./ModelViewer'));
@@ -365,27 +366,6 @@ function ProjectSection({ section, startIdx, language, onSelect, onViewFull, vie
   );
 }
 
-function DemoReel({ language }) {
-  return (
-    <div className="mb-16">
-      <p className="text-primary font-bold uppercase text-xs tracking-[0.15em] mb-2">Demo Reel</p>
-      <h2 className="font-display text-3xl sm:text-4xl font-medium mb-4">
-        {language === 'en' ? 'The showreel, first' : 'El reel, antes que nada'}
-      </h2>
-      <div className="aspect-video overflow-hidden border-2 border-ink bg-black">
-        <iframe
-          src={DEMO_REEL_URL}
-          title="Demo Reel 3D"
-          className="w-full h-full border-0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        />
-      </div>
-    </div>
-  );
-}
-
 function FilterBar({ projects, filterType, setFilterType, selectedYears, toggleYear, selectedTags, toggleTag, showFilters, setShowFilters, onClear, hasActive, t, language, sortDesc, setSortDesc, viewMode, setViewMode }) {
   const availableTypes = useMemo(
     () => ['all', 'academic', 'professional', 'personal'].filter((type) => type === 'all' || projects.some((p) => p.type === type)),
@@ -608,7 +588,7 @@ export default function PortfolioGallery({ roleId, onProjectSelect }) {
   return (
     <>
       <div>
-        {(roleId === 'artist_2d_3d' || isGeneral) && <DemoReel language={language} />}
+        {(roleId === 'artist_2d_3d' || isGeneral) && <ReelBanner language={language} />}
 
         <FilterBar
           projects={allUnfilteredProjects}

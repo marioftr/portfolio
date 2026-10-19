@@ -8,12 +8,12 @@ export default function RotatingCube({ photo, alt = '', className = '' }) {
   return (
     <div className={`cube-scene shrink-0 ${className}`} role="img" aria-label={alt}>
       <div className="cube">
-        <div className="cube-face cube-front group">
-          <img src={photo} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500" />
+        <div className="cube-face cube-front">
+          <img src={photo} alt="" className="w-full h-full object-cover" />
         </div>
         {ROLE_FACES.map((icon, i) => (
           <div key={icon} className={`cube-face cube-icon-face cube-side-${i}`}>
-            <Icon name={icon} size={56} strokeWidth={1.25} className="text-primary" />
+            <Icon name={icon} size={56} strokeWidth={1.25} />
           </div>
         ))}
         <div className="cube-face cube-top" />
