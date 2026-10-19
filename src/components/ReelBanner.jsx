@@ -92,7 +92,7 @@ export default function ReelBanner({ language }) {
         >
           <video
             ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover saturate-50 group-hover:saturate-100 transition-[filter] duration-500"
             src="/media/reel-teaser.mp4"
             poster="/media/reel-poster.jpg"
             muted
