@@ -168,7 +168,7 @@ button:not(:disabled) {
   .cube-scene { --s: 12rem; margin: 1.75rem; }
 }
 .cube-scene:hover { --cube-line: var(--color-primary); }
-.cube-scene { touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.cube-scene { touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 .cube-scene:active { cursor: grabbing; }
 .cube-tilt {
   width: 100%;
