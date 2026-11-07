@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Generando…</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@600&display=swap" rel="stylesheet" />
+<script>
+  // Miniaturas cuadradas para compartir el enlace, con la tipografía de la web.
+  const INK = '#1c1c1a', GREEN = '#3f7a5f', MUTED = '#6b6a63', BG = '#fbfaf7';
+  const ROLES = {
+    'artista-3d': { es: 'Artista 3D', en: '3D Artist', ca: 'Artista 3D', gl: 'Artista 3D' },
+    videojuegos: { es: 'Diseñador de Videojuegos', en: 'Game Designer', ca: 'Dissenyador de Videojocs', gl: 'Deseñador de Videoxogos' },
+    editor: { es: 'Editor de Vídeo', en: 'Video Editor', ca: 'Editor de Vídeo', gl: 'Editor de Vídeo' },
+  };
+  function draw(role) {
+    const c = document.createElement('canvas');
+    c.width = c.height = 1200;
+    const x = c.getContext('2d');
+    x.fillStyle = BG; x.fillRect(0, 0, 1200, 1200);
+    x.textAlign = 'center'; x.textBaseline = 'alphabetic';
+    const top = role ? 548 : 623;
+    x.fillStyle = INK; x.font = '500 300px Fraunces'; x.fillText('Portfolio', 600, top);
+    x.fillStyle = GREEN; x.font = '500 100px Fraunces'; x.fillText('Mario Villanueva Torres', 600, top + 170);
+    if (role) {
+      x.fillRect(570, top + 235, 60, 5);
+      x.fillStyle = MUTED; x.font = '600 46px Inter'; x.fillText(role, 600, top + 320);
+    }
+    return c.toDataURL('image/png');
+  }
+  async function run() {
+    await Promise.all([document.fonts.load('500 300px Fraunces'), document.fonts.load('600 46px Inter')]);
+    const jobs = [['og-general', null]];
+    for (const [slug, names] of Object.entries(ROLES)) for (const [lang, n] of Object.entries(names)) jobs.push([`og-${slug}-${lang}`, n]);
+    for (const [name, role] of jobs) await fetch(`/save?name=${name}`, { method: 'POST', body: draw(role) });
+    document.title = `LISTO ${jobs.length}`;
+  }
+  run();
+</script>
