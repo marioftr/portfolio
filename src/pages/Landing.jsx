@@ -34,6 +34,9 @@ const TAGLINES = {
   },
 };
 
+// Cara frontal del cubo. Para volver a la foto: const CUBE_PHOTO = '/images/foto_perfil.jpg';
+const CUBE_PHOTO = null;
+
 const SELECT_LABEL = { es: 'Elige un perfil', en: 'Choose a profile', ca: 'Tria un perfil', gl: 'Escolle un perfil' };
 
 export default function Landing() {
@@ -57,7 +60,7 @@ export default function Landing() {
                 {BIO[language] || BIO.es}
               </p>
             </div>
-            <RotatingCube photo="/images/foto_perfil.jpg" to={`/${language}/contacto`} label={t('nav_contact')} className="self-center sm:self-start" />
+            <RotatingCube photo={CUBE_PHOTO} to={`/${language}/contacto`} label={t('nav_contact')} className="self-center sm:self-start" />
           </div>
         </div>
 

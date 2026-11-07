@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
-// Cubo CSS 3D de solo aristas; una cara lleva la foto. La rotación la lleva un
+// Cubo CSS 3D de solo aristas; la cara frontal lleva la foto (`photo`) o, sin ella, un tinte verde. La rotación la lleva un
 // bucle de animación con tres fuentes, de más a menos prioritaria:
 //   1. el dedo o el ratón al arrastrar (con inercia al soltar);
 //   2. el giroscopio, si el dispositivo lo entrega sin pedir ningún permiso;
@@ -151,11 +151,11 @@ export default function RotatingCube({ photo, to, label, className = '' }) {
   }, []);
 
   return (
-    <Link ref={sceneRef} to={to} aria-label={label} title={label} draggable={false} className={`cube-scene block shrink-0 ${className}`}>
+    <Link ref={sceneRef} to={to} aria-label={label} title={label} draggable={false} className={`cube-scene block shrink-0 ${photo ? '' : 'cube-solid'} ${className}`}>
       <div className="cube-tilt">
         <div className="cube" ref={cubeRef}>
           <div className="cube-face cube-front">
-            <img src={photo} alt="" draggable={false} className="w-full h-full object-cover" />
+            {photo && <img src={photo} alt="" draggable={false} className="w-full h-full object-cover" />}
           </div>
           <div className="cube-face cube-right" />
           <div className="cube-face cube-back" />
