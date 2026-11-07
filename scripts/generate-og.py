@@ -1,8 +1,8 @@
-# Genera las miniaturas para compartir el enlace (1200x630): una general y una por perfil e idioma.
+# Genera las miniaturas para compartir el enlace (cuadradas, 1200x1200): una general y una por perfil e idioma.
 # Uso: python scripts/generate-og.py  (requiere Pillow)
 from PIL import Image, ImageDraw, ImageFont
 
-W, H = 1200, 630
+W, H = 1200, 1200
 FONTS = 'C:/Windows/Fonts/'
 serif = lambda s: ImageFont.truetype(FONTS + 'georgia.ttf', s)
 sans = lambda s: ImageFont.truetype(FONTS + 'arialbd.ttf', s)
@@ -26,21 +26,22 @@ def cover(img, w, h, fy=0.2):
 def render(role, out):
     img = Image.new('RGB', (W, H), (251, 250, 247))
     d = ImageDraw.Draw(img)
-    cx, cy, s, ox, oy = 900, 330, 300, 34, -34
+    cx, cy, s, ox, oy = 585, 400, 400, 45, -45
     front = [(cx - s / 2, cy - s / 2), (cx + s / 2, cy - s / 2), (cx + s / 2, cy + s / 2), (cx - s / 2, cy + s / 2)]
     back = [(x + ox, y + oy) for x, y in front]
     for i in range(4):  # aristas primero: la foto las tapa
-        d.line([back[i], back[(i + 1) % 4]], fill=GREEN, width=3)
-        d.line([front[i], back[i]], fill=GREEN, width=3)
+        d.line([back[i], back[(i + 1) % 4]], fill=GREEN, width=4)
+        d.line([front[i], back[i]], fill=GREEN, width=4)
     photo = cover(Image.open('public/images/foto_orla.jpg').convert('RGB'), s, s).convert('L').convert('RGB')
     img.paste(photo, (int(front[0][0]), int(front[0][1])))
-    d.rectangle([front[0], front[2]], outline=GREEN, width=4)
-    d.text((80, 200), 'PORTFOLIO', font=sans(22), fill=GREEN)
-    d.text((80, 245), 'Mario', font=serif(92), fill=INK)
-    d.text((80, 345), 'Villanueva Torres', font=serif(60), fill=INK)
+    d.rectangle([front[0], front[2]], outline=GREEN, width=5)
+    center = lambda y, t, f, fill: d.text(((W - d.textlength(t, font=f)) / 2, y), t, font=f, fill=fill)
+    center(740, 'PORTFOLIO', sans(28), GREEN)
+    center(790, 'Mario', serif(120), INK)
+    center(930, 'Villanueva Torres', serif(84), INK)
     if role:
-        d.line([(84, 440), (204, 440)], fill=GREEN, width=4)
-        d.text((80, 462), role, font=sans(28), fill=MUTED)
+        d.line([(W / 2 - 60, 1060), (W / 2 + 60, 1060)], fill=GREEN, width=5)
+        center(1085, role, sans(36), MUTED)
     img.save(out, quality=88, optimize=True)
 
 
