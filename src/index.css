@@ -193,10 +193,9 @@ button:not(:disabled) {
 .cube-front { overflow: hidden; backface-visibility: hidden; background: var(--color-card); transform: translateZ(calc(var(--s) / 2)); }
 .cube-front img { filter: grayscale(1); transition: filter 0.5s ease; }
 .cube-scene:hover .cube-front img { filter: grayscale(0); }
-/* Variante sin foto: como el favicon. Solo la cara frontal va saturada; las demás, transparentes y algo más oscuras */
+/* Variante sin foto: como el favicon. Todas las caras, incluida la frontal, transparentes y algo más oscuras */
 .cube-solid { --cube-line: var(--color-primary); }
 .cube-solid .cube-face { background: linear-gradient(rgb(0 0 0 / 0.07), rgb(0 0 0 / 0.07)), color-mix(in srgb, var(--color-primary) 12%, transparent); }
-.cube-solid .cube-front { background: color-mix(in srgb, #2f8a5f 65%, var(--color-bg)); }
 .cube-right { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
 .cube-back { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
 .cube-left { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); }
