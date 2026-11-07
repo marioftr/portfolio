@@ -26,15 +26,15 @@ def cover(img, w, h, fy=0.2):
 def render(role, out):
     img = Image.new('RGB', (W, H), (251, 250, 247))
     d = ImageDraw.Draw(img)
-    cx, cy, s, ox, oy = 585, 400, 400, 45, -45
-    front = [(cx - s / 2, cy - s / 2), (cx + s / 2, cy - s / 2), (cx + s / 2, cy + s / 2), (cx - s / 2, cy + s / 2)]
-    back = [(x + ox, y + oy) for x, y in front]
-    for i in range(4):  # aristas primero: la foto las tapa
-        d.line([back[i], back[(i + 1) % 4]], fill=GREEN, width=4)
-        d.line([front[i], back[i]], fill=GREEN, width=4)
-    photo = cover(Image.open('public/images/foto_orla.jpg').convert('RGB'), s, s).convert('L').convert('RGB')
-    img.paste(photo, (int(front[0][0]), int(front[0][1])))
-    d.rectangle([front[0], front[2]], outline=GREEN, width=5)
+    # Cubo isométrico de solo aristas, con las tres caras visibles en tintes suaves.
+    cx, cy, r = 600, 395, 235
+    k = r * 0.866
+    top, ur, lr, bot, ll, ul, c = (cx, cy - r), (cx + k, cy - r / 2), (cx + k, cy + r / 2), (cx, cy + r), (cx - k, cy + r / 2), (cx - k, cy - r / 2), (cx, cy)
+    d.polygon([ul, c, bot, ll], fill=(206, 224, 213))
+    d.polygon([top, ur, c, ul], fill=(244, 248, 245))
+    d.polygon([ur, lr, bot, c], fill=(226, 238, 231))
+    for pts in ([top, ur, lr, bot, ll, ul, top], [ul, c, ur], [c, bot]):
+        d.line(pts, fill=GREEN, width=7, joint='curve')
     center = lambda y, t, f, fill: d.text(((W - d.textlength(t, font=f)) / 2, y), t, font=f, fill=fill)
     center(740, 'PORTFOLIO', sans(28), GREEN)
     center(790, 'Mario', serif(120), INK)
