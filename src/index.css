@@ -195,6 +195,7 @@ button:not(:disabled) {
 .cube-scene:hover .cube-front img { filter: grayscale(0); }
 /* Variante sin foto: como el favicon. Todas las caras, incluida la frontal, transparentes y algo más oscuras */
 .cube-solid { --cube-line: var(--color-primary); }
+.cube-solid .cube-front { backface-visibility: visible; } /* sin foto no hay nada que ocultar: todas las caras se ven igual por ambos lados */
 .cube-solid .cube-face { background: linear-gradient(rgb(0 0 0 / 0.07), rgb(0 0 0 / 0.07)), color-mix(in srgb, var(--color-primary) 12%, transparent); }
 .cube-right { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
 .cube-back { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
